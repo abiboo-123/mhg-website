@@ -1,0 +1,18 @@
+---
+const { name, location, description, tags = [] } = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-md p-4">
+  <h4 class="text-lg font-semibold mb-1">{name}</h4>
+  <p class="text-sm text-slate-600 mb-1">📍 {location}</p>
+  <p class="text-sm mb-2">{description}</p>
+
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mt-2">
+      {tags.map((tag: string) => (
+        <span class="bg-[#e0f2fe] text-[#0369a1] text-xs px-2 py-1 rounded-full">{tag}</span>
+     ))}
+
+    </div>
+  )}
+</div>

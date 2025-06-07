@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import { resources } from '../data/resources.js';
+---
+
+<Layout title="Resources – MHG Ingolstadt">
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">📚 Student Resources in Ingolstadt</h2>
+    <p class="text-center text-lg mb-10 text-slate-700">
+      Everything you need to stay connected and supported – spiritually, socially, and practically!
+    </p>
+
+    <!-- Masonry-like layout -->
+    <div class="columns-1 md:columns-2 gap-6 space-y-6">
+      {resources.map(section => (
+        <div class="break-inside-avoid bg-white rounded-xl shadow-md p-6 w-full">
+          <h3 class="text-xl font-semibold mb-4">{section.category}</h3>
+
+          <!-- Render card section -->
+          {section.type === "card" && (
+            <div class="space-y-4">
+              {section.items.map((item: any) => (
+                <ResourceCard
+                  name={item.name}
+                  location={item.location}
+                  description={item.description}
+                  tags={item.tags}
+                />
+              ))}
+            </div>
+          )}
+
+          <!-- Render link buttons -->
+          {section.type === "links" && (
+            <div>
+              <div class="space-y-3">
+                {section.items.map((link: any) => (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    class="block bg-[#2563eb] text-white py-2 px-4 rounded text-sm text-center hover:bg-[#1e40af] transition"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              {section.footer && (
+                <p class="text-sm text-center mt-4">
+                  {section.footer.text}{' '}
+                  <a href={section.footer.href} class="text-[#0369a1] underline">
+                    {section.footer.linkText}
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
+
+          <!-- Render plain list -->
+          {section.type === "list" && (
+            <ul class="space-y-2 text-sm">
+              {section.items.map((place: any) => (
+                <li>
+                  <span class="font-medium">🥙 {place.name}</span>
+                  <br />
+                  <span class="text-slate-600">{place.location}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

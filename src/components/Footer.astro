@@ -1,0 +1,16 @@
+---
+import { links } from '../data/links.js';
+---
+
+<footer class="bg-[#0369a1] text-white text-center py-6 text-sm">
+  <div class="flex justify-center space-x-4 mb-2">
+    <a href={links.instagram} class="hover:underline">Instagram</a>
+    <a href={links.whatsapp} class="hover:underline">WhatsApp</a>
+    <a href={links.facebook} class="hover:underline">Facebook</a>
+    <a href={links.youtube} class="hover:underline">YouTube</a>
+  </div>
+  <p class="mb-1">
+    Contact us: <a href={`mailto:${links.email}`} class="underline">{links.email}</a>
+  </p>
+  <p>&copy; 2025 MHG Ingolstadt e. V. All rights reserved.</p>
+</footer>

@@ -1,0 +1,16 @@
+---
+const { title, time, location, description, registerUrl, slug } = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between">
+  <div>
+    <h3 class="text-xl font-semibold mb-2">🎯 {title}</h3>
+    <p class="text-sm mb-1">📅 {time}</p>
+    <p class="text-sm mb-2">📍 {location}</p>
+    <p class="text-sm text-slate-700">{description}</p>
+  </div>
+  <div class="mt-4 flex flex-col gap-2">
+    <a href={registerUrl} target="_blank" class="bg-[#d7f0f7] text-center py-2 rounded hover:bg-[#bde5f5] transition">Register Now</a>
+    <a href={`/events/${slug}`} class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">Read more</a>
+  </div>
+</div>

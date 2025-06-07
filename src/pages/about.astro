@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import TeamMember from '../components/TeamMember.astro';
+import Card from '../components/Card.astro';
+import { team } from '../data/team.js';
+import { aboutCards } from '../data/aboutCards.js';
+---
+
+<Layout title="About Us – MHG Ingolstadt e. V.">
+
+  <!-- Intro Section -->
+<section class="px-4 py-12 max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6">About Us</h2>
+    <div class="text-lg text-center space-y-4 md:px-4">
+      <p>
+        Muslimische Hochschulgruppe (MHG) Ingolstadt e. V. is a student-led organization committed to creating a strong, inclusive Muslim community at Technische Hochschule Ingolstadt.
+      </p>
+      <p>
+        We organize educational, spiritual, and social activities that enrich student life and promote intercultural understanding.
+      </p>
+    </div>
+  </section>
+  
+
+  <!-- Mission / Vision Section -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 py-10 max-w-6xl mx-auto">
+    {aboutCards.map(card => (
+      <Card title={card.title} icon={card.icon} text={card.text} />
+    ))}
+  </section>
+
+  <!-- Team Section -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h3 class="text-2xl font-bold text-center mb-8">Meet the Team</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {team.map(member => (
+        <TeamMember name={member.name} role={member.role} image={member.image} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Closing Call to Action -->
+<section class="bg-[#d7f0f7] py-10 px-4 mt-10 mb-16 rounded-lg max-w-4xl mx-auto text-center">
+    <h3 class="text-xl font-semibold mb-4">"Indeed, the believers are but brothers..." (Qur'an 49:10)</h3>
+    <p class="text-lg mb-4">We invite you to connect, collaborate, and contribute to our journey.</p>
+    <a href="/contact" class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded hover:bg-blue-800 transition">Get in Touch</a>
+  </section>
+  
+
+</Layout>
