@@ -1,23 +1,17 @@
 export const aboutCards = [
-    {
-      title: "Our Mission",
-      icon: "🎯",
-      text: "To empower Muslim students by offering a supportive space for religious practice, intellectual exchange, and community engagement.",
-    },
-    {
-      title: "Our Vision",
-      icon: "🌟",
-      text: "To be a beacon of unity and spiritual growth on campus, fostering mutual respect and cultural understanding.",
-    },
-    {
-        title: "Our Vision",
-        icon: "🌟",
-        text: "To be a beacon of unity and spiritual growth on campus, fostering mutual respect and cultural understanding.",
-    },
-    {
-    title: "Our Vision",
-    icon: "🌟",
-    text: "To be a beacon of unity and spiritual growth on campus, fostering mutual respect and cultural understanding.",
-    },
-  ];
-  
+  {
+    title: "📚 Academic Support",
+    icon: "📖",
+    text: "Study sessions, exam prep, and sharing academic resources to help students succeed."
+  },
+  {
+    title: "🕌 Religious Activities",
+    icon: "🕋",
+    text: "Friday prayers, Islamic lectures, halaqas, and Ramadan iftars to nourish your faith."
+  },
+  {
+    title: "🎉 Social & Community Events",
+    icon: "🤝",
+    text: "Trips, welcome parties, collaborations with mosques — building friendships that last."
+  }
+];

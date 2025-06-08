@@ -1,9 +1,10 @@
-import person1 from '../assets/team/person1.jpg';
-import person2 from '../assets/team/person2.jpg';
+import Ahmed_Aous from '../assets/team/Ahmed_Aous.jpg';
+import Habib_Gouda from '../assets/team/Habib_Gouda.jpg';
+import Sanga_Badri from '../assets/team/person2.jpg';
 
 export const team = [
-  { name: "Ahmed Mansour", role: "President", image: person1 },
-  { name: "Sara Yilmaz", role: "Vice President", image: person2 },
-  { name: "Ahmed Mansour", role: "President", image: person1 },
+  { name: "Ahmed Aous Hani", role: "President", image: Ahmed_Aous },
+  { name: "Sanga Badri", role: "Vice President", image: Sanga_Badri },
+  { name: "Habib Gouda", role: "Lead Software Developer", image: Habib_Gouda },
 ];
 

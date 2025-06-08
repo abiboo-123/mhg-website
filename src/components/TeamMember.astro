@@ -5,11 +5,11 @@ const { name, role, image } = Astro.props;
 
 <div class="bg-white rounded-xl shadow-md p-6 text-center transition-transform duration-300 hover:shadow-lg hover:scale-[1.03]">
   <Image
-    src={image}
-    alt={name}
-    width={96}
-    height={96}
-    class="rounded-full mx-auto mb-4"
+  src={image}
+  alt={name}
+  width={128}
+  height={128}
+  class="w-32 h-32 rounded-full object-cover mx-auto mb-4 aspect-square"
   />
   <h4 class="text-lg font-semibold">{name}</h4>
   <p class="text-sm text-slate-600">{role}</p>

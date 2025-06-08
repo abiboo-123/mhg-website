@@ -1,43 +1,42 @@
+/**
+ * How to add a new event:
+ * {
+    slug: 'unique-url-part',
+    title: 'Your Event Title',
+    date: 'Event Date',
+    location: 'Venue',
+    description: 'A few lines describing the event.',
+    image: '/images/your-photo.jpg',
+    tags: [An array of tags like 'spiritual', 'community', 'social'],
+    speakers: [an array of speaker names, e.g. 'Shaykh Ahmad Farid']
+  }
+ */
+
+import ShaykhTahaImage from '../assets/events/shaykh-taha-ali-talk-june-2025.jpg';
+import ShaykhOsamaImage from '../assets/events/shaykh-osama-al-dimashqi-talk-december-2025.jpg';
+
 export const events = [
-    {
-      title: "Friday Circle",
-      time: "Every Friday, 6:00 PM",
-      location: "THI Room A-102",
-      description: "A weekly gathering for spiritual reflection and discussion.",
-      registerUrl: "https://forms.gle/exampleform",
-      slug: "friday-circle"
-    },
-    {
-        title: "Every Friday Circle",
-        time: "Every Friday, 6:00 PM",
-        location: "THI Room A-102",
-        description: "A weekly gathering for spiritual reflection and discussion.",
-        registerUrl: "https://forms.gle/exampleform",
-        slug: "every-friday-circle"
-      },
-      {
-        title: "Friday Circle (2)",
-        time: "Every Friday, 6:00 PM",
-        location: "THI Room A-102",
-        description: "A weekly gathering for spiritual reflection and discussion.",
-        registerUrl: "https://forms.gle/exampleform",
-        slug: "friday-circle-2"
-      },
-      {
-        title: "Every Friday Circle",
-        time: "Every Friday, 6:00 PM",
-        location: "THI Room A-102",
-        description: "A weekly gathering for spiritual reflection and discussion.",
-        registerUrl: "https://forms.gle/exampleform",
-        slug: "every-friday-circle"
-      },
-      {
-        title: "Friday Circle (2)",
-        time: "Every Friday, 6:00 PM",
-        location: "THI Room A-102",
-        description: "A weekly gathering for spiritual reflection and discussion.",
-        registerUrl: "https://forms.gle/exampleform",
-        slug: "friday-circle-2"
-      }
-  ];
-  
+  {
+    slug: 'shaykh-taha-ali-talk-june-2025',
+    title: 'Shaykh Taha Ali: Helper not Executioner 🤝',
+    date: 'June 17, 2025',
+    location: 'Room G215, THI, Ingolstadt',
+    description:
+      'Join us for an inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. Explore Islamic ethics of leadership, forgiveness, and justice in today’s world. 🌿🕊️',
+    image: ShaykhTahaImage,
+    tags: ['Mercy', 'Prophet Muhammad ﷺ', 'Ethics', 'Leadership', 'Spirituality'],
+    speakers: ['Shaykh Taha Ali Zeidan']
+  },
+  {
+    slug: 'shaykh-osama-al-dimashqi-talk-december-2025', 
+    title: 'Shaykh Osama Al-Dimashqi: Respectful Interaction Between Men and Women in Everyday Life 🧕🧑‍💼',
+    date: 'Stay tuned for the date',
+    location: 'Stay tuned for the exact room, THI, Ingolstadt',
+    description:
+      'A relevant and respectful discussion on gender interaction in Muslim communities, with Shaykh Osama Al-Dimashqi. Learn about Islamic guidelines, social conduct, and mutual respect in a diverse society. 🕌💬',
+    image: ShaykhOsamaImage,
+    tags: ['Gender Relations', 'Islamic Conduct', 'Respect', 'Community', 'Fiqh'],
+    speakers: ['Shaykh Osama Al-Dimashqi']
+  }
+];
+
