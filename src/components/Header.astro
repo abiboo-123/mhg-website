@@ -1,13 +1,13 @@
 ---
 import { t } from '../utils/t.js';
-const { lang = 'en' } = Astro.props; // fallback to English
+const { lang = 'en' } = Astro.props;
 import { Image } from 'astro:assets';
 import MHG_Logo from '../assets/MHG_Logo.svg';
 ---
 
 <header class="relative bg-[#0369a1] dark:bg-[#012c4a] text-white py-4">
   <div class="max-w-7xl mx-auto w-full grid grid-cols-3 items-center">
-    <a href=`/${lang}/` class="flex items-center justify-start space-x-3 col-span-2 sm:col-span-1 hover:opacity-80 transition">
+    <a href={`/${lang}/`} class="flex items-center justify-start space-x-3 col-span-2 sm:col-span-1 hover:opacity-80 transition">
       <Image
         src={MHG_Logo}
         alt="MHG Logo"
@@ -19,16 +19,15 @@ import MHG_Logo from '../assets/MHG_Logo.svg';
     </a>
 
     <nav class={`hidden md:flex justify-center ${lang === 'ar' ? 'space-x-reverse' : ''} space-x-4 text-sm col-span-1`}>
-      <a href=`/${lang}/` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.home', lang)}</a>
-      <a href=`/${lang}/about` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.about', lang)}</a>
-      <a href=`/${lang}/events` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.events', lang)}</a>
-      <a href=`/${lang}/resources` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.resources', lang)}</a>
-      <a href=`/${lang}/partners` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.partners', lang)}</a>
-      <a href=`/${lang}/contact` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.contact', lang)}</a>
+      <a href={`/${lang}/`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.home', lang)}</a>
+      <a href={`/${lang}/about`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.about', lang)}</a>
+      <a href={`/${lang}/events`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.events', lang)}</a>
+      <a href={`/${lang}/resources`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.resources', lang)}</a>
+      <a href={`/${lang}/partners`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.partners', lang)}</a>
+      <a href={`/${lang}/contact`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.contact', lang)}</a>
     </nav>
 
     <div class="flex justify-end items-center space-x-4 col-span-1">
-      <!-- Language selector (can be improved later) -->
       <select
         class="hidden md:block border border-white bg-[#0369a1] text-white p-1 rounded text-sm"
         onchange="window.location.href = `/${this.value}/`"
@@ -38,8 +37,6 @@ import MHG_Logo from '../assets/MHG_Logo.svg';
         <option value="ar" selected={lang === 'ar'}>AR</option>
       </select>
 
-
-      <!-- Hamburger (for mobile) -->
       <button id="hamburgerBtn" class="md:hidden pr-3 sm:pr-6" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -51,18 +48,33 @@ import MHG_Logo from '../assets/MHG_Logo.svg';
   <!-- Mobile Dropdown -->
   <div id="mobileMenu" class="hidden md:hidden absolute top-16 right-0 sm:right-6 w-56 bg-[#0369a1] dark:bg-[#012c4a] rounded-lg shadow-lg py-3 z-50 flex-col">
     <nav class="flex flex-col">
-      <a href=`/${lang}/` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.home', lang)}</a>
-      <a href=`/${lang}/about` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.about', lang)}</a>
-      <a href=`/${lang}/events` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.events', lang)}</a>
-      <a href=`/${lang}/resources` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.resources', lang)}</a>
-      <a href=`/${lang}/partners` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.partners', lang)}</a>
-      <a href=`/${lang}/contact` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.contact', lang)}</a>
+      <a href={`/${lang}/`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.home', lang)}</a>
+      <a href={`/${lang}/about`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.about', lang)}</a>
+      <a href={`/${lang}/events`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.events', lang)}</a>
+      <a href={`/${lang}/resources`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.resources', lang)}</a>
+      <a href={`/${lang}/partners`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.partners', lang)}</a>
+      <a href={`/${lang}/contact`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.contact', lang)}</a>
     </nav>
+
+    <div class="border-t border-white mx-4 pt-2">
+      <label for="mobileLang" class="block px-4 pb-1 text-white">Language</label>
+      <select
+        id="mobileLang"
+        class="bg-[#0369a1] dark:bg-[#012c4a] border border-white text-white p-1 rounded text-sm w-full px-4 focus:outline-none"
+        onchange="window.location.href = `/${this.value}/`"
+      >
+        <option value="en" selected={lang === 'en'}>EN</option>
+        <option value="de" selected={lang === 'de'}>DE</option>
+        <option value="ar" selected={lang === 'ar'}>AR</option>
+      </select>
+    </div>
   </div>
 
+  <!-- Script to toggle mobile menu -->
   <script is:inline>
     const toggleBtn = document.getElementById('hamburgerBtn');
     const menu = document.getElementById('mobileMenu');
+
     toggleBtn?.addEventListener('click', () => {
       menu.classList.toggle('hidden');
       menu.classList.toggle('flex');
