@@ -1,10 +1,33 @@
 {
-    "nav.home": "Startseite",
-    "nav.about": "Über Uns",
-    "nav.events": "Veranstaltungen",
-    "nav.resources": "Ressourcen",
-    "nav.partners": "Partner",
-    "nav.contact": "Kontakt",
-    "title": "MHG Ingolstadt e. V."
-  }
-  
+  "nav.title": "MHG Ingolstadt e. V.",
+  "nav.home": "Startseite",
+  "nav.about": "Über uns",
+  "nav.events": "Veranstaltungen",
+  "nav.resources": "Ressourcen",
+  "nav.partners": "Partner",
+  "nav.contact": "Kontakt",
+  "footer.copyright": "© 2025 MHG Ingolstadt e. V. Alle Rechte vorbehalten.",
+  "social.instagram": "Instagram",
+  "social.whatsapp": "WhatsApp",
+  "social.facebook": "Facebook",
+  "social.youtube": "YouTube",
+  "footer.contact": "Kontaktiere uns",
+  "index.title": "Willkommen bei MHG Ingolstadt e. V.",
+  "index.description": "Die Muslimische Hochschulgruppe Ingolstadt (MHG) e. V. ist eine lebendige, von Studierenden geleitete und gemeinschaftsorientierte Organisation, die muslimische Studierende an der Technischen Hochschule Ingolstadt sowie die breitere muslimische Gemeinschaft in Ingolstadt unterstützt. Gemeinsam wachsen wir durch Glauben, Lernen und bedeutungsvolle Verbindungen.",
+  "index.joinUs": "Mach mit",
+  "index.aboutCardDescription": "Erfahren Sie mehr über unsere Mission, Vision und die Werte, die unsere Studierendengruppe leiten.",
+  "index.readMore": "Mehr erfahren",
+  "index.eventsCardDescription": "Bleiben Sie auf dem Laufenden über wöchentliche Treffen, Seminare und Veranstaltungen der MHG Ingolstadt.",
+  "index.viewEvents": "Veranstaltungen ansehen",
+  "index.resourcesCardDescription": "Finden Sie Moscheen, Halal-Essen und Gebetsräume, die Sie in Ihrem Alltag und Studium unterstützen.",
+  "index.exploreResources": "Ressourcen erkunden",
+  "register.thankYou": "Vielen Dank!",
+  "register.successMessage": "Ihre Anmeldung wurde erfolgreich entgegengenommen.",
+  "register.seeYouMessage": "Wir freuen uns darauf, Sie bei der Veranstaltung zu sehen. Wenn Sie Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren!",
+  "register.backToEvents": "Zurück zu den Veranstaltungen",
+  "about.MHG": "Die Muslimische Hochschulgruppe Ingolstadt (MHG) e. V.",
+  "about.description1": "ist eine von Studierenden geleitete Organisation, die als Brücke zwischen muslimischen Studierenden und den lokalen islamischen Gemeinschaften in Ingolstadt dient.",
+  "about.description2": "Unser Ziel ist es, eine einladende Umgebung zu schaffen, in der Studierende ihren Glauben stärken, sich mit islamischem Wissen auseinandersetzen und sich durch religiöse, akademische und soziale Aktivitäten vernetzen können.",
+  "about.description3": "Ob du neu in der Stadt bist, nach Gebetsräumen suchst oder an Gemeinschaftsveranstaltungen teilnehmen möchtest – wir sind da, um dich auf deinem Weg zu unterstützen."
+
+}

@@ -6,9 +6,10 @@
     date: 'Event Date',
     location: 'Venue',
     description: 'A few lines describing the event.',
-    image: '/images/your-photo.jpg',
+    image: 'path/to/image.jpg', // Import the image at the top of this file
+    language: ['de', 'en', 'ar'], // Languages available for the event
     tags: [An array of tags like 'spiritual', 'community', 'social'],
-    speakers: [an array of speaker names, e.g. 'Shaykh Ahmad Farid']
+    speakers: [an array of speaker names]
   }
  */
 
@@ -24,6 +25,7 @@ export const events = [
     description:
       'Join us for an inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. Explore Islamic ethics of leadership, forgiveness, and justice in today’s world. 🌿🕊️',
     image: ShaykhTahaImage,
+    language: ['de'],
     tags: ['Mercy', 'Prophet Muhammad ﷺ', 'Ethics', 'Leadership', 'Spirituality'],
     speakers: ['Shaykh Taha Ali Zeidan']
   },
@@ -35,6 +37,7 @@ export const events = [
     description:
       'A relevant and respectful discussion on gender interaction in Muslim communities, with Shaykh Osama Al-Dimashqi. Learn about Islamic guidelines, social conduct, and mutual respect in a diverse society. 🕌💬',
     image: ShaykhOsamaImage,
+    language: ['de', 'en'],
     tags: ['Gender Relations', 'Islamic Conduct', 'Respect', 'Community', 'Fiqh'],
     speakers: ['Shaykh Osama Al-Dimashqi']
   }

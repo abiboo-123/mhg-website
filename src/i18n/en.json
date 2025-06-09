@@ -1,10 +1,33 @@
 {
-    "nav.home": "Home",
-    "nav.about": "About",
-    "nav.events": "Events",
-    "nav.resources": "Resources",
-    "nav.partners": "Partners",
-    "nav.contact": "Contact",
-    "title": "MHG Ingolstadt e. V."
-  }
-  
+  "nav.title": "MHG Ingolstadt e. V.",
+  "nav.home": "Home",
+  "nav.about": "About Us",
+  "nav.events": "Events",
+  "nav.resources": "Resources",
+  "nav.partners": "Partners",
+  "nav.contact": "Contact",
+  "footer.copyright": "© 2025 Muslimische Hochschulgruppe Ingolstadt e. V.",
+  "social.instagram": "Instagram",
+  "social.whatsapp": "WhatsApp",
+  "social.facebook": "Facebook",
+  "social.youtube": "YouTube",
+  "footer.contact": "Contact us"  ,
+  "index.title": "Welcome to MHG Ingolstadt e. V.",
+  "index.description": "The Muslimische Hochschulgruppe Ingolstadt (MHG) e. V. is a vibrant student-led and community-oriented organization serving Muslim students at Technische Hochschule Ingolstadt as well as the wider Muslim community in Ingolstadt. We grow together through faith, learning, and meaningful connection.",
+  "index.joinUs": "Join us",
+  "index.aboutCardDescription": "Learn more about our mission, vision, and the values that drive our student group.",
+  "index.readMore": "Read more",
+  "index.eventsCardDescription": "Stay updated on weekly meetups, seminars, and gatherings organized by MHG Ingolstadt.",
+  "index.viewEvents": "View events",
+  "index.resourcesCardDescription": "Find mosques, halal food, and prayer spaces to support your daily and academic life.",
+  "index.exploreResources": "Explore resources",
+  "register.thankYou": "Thank You!",
+  "register.successMessage": "Your registration has been received successfully.",
+  "register.seeYouMessage": "We look forward to seeing you at the event. If you have any questions, feel free to reach out!",
+  "register.backToEvents": "Back to Events",
+  "about.MHG": "The Muslimische Hochschulgruppe Ingolstadt (MHG) e. V.",
+  "about.description1": "is a student-led organization that serves as a bridge between Muslim students and local Islamic communities in Ingolstadt.",
+  "about.description2": "Our goal is to foster a welcoming environment where students can strengthen their faith, engage with Islamic knowledge, and connect with one another through religious, academic, and social activities.",
+  "about.description3": "Whether you’re new in town, looking for prayer spaces, or hoping to join community events — MHG is here to support your journey."
+
+}

@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
-import { events } from '../../data/events';
+import Layout from '../../../layouts/BaseLayout.astro';
+import { events } from '../../../data/events';
 import { Image } from 'astro:assets';
 
 
@@ -16,11 +16,12 @@ const event = events.find((e) => e.slug === slug);
 if (!event) {
   throw new Error(`Event not found: ${slug}`);
 }
+const lang = 'en';
 ---
 
-<Layout title={event.title + ' – MHG Ingolstadt'}>
+<Layout title={event.title + ' – MHG Ingolstadt'} lang={lang}>
   <section class="max-w-3xl mx-auto px-4 py-12">
-    <a href="/events" class="inline-block mb-4 text-[#0369a1] hover:underline text-sm">
+    <a href=`/${lang}/events` class="inline-block mb-4 text-[#0369a1] hover:underline text-sm">
         ← Back to All Events
       </a>
       
@@ -52,7 +53,7 @@ if (!event) {
     )}
 
     <a
-    href={`/register/${event.slug}`}
+    href={`/${lang}/register/${event.slug}`}
     class="inline-block bg-[#0369a1] text-white py-2 px-4 rounded hover:bg-blue-800 transition"
     >
     Register Now

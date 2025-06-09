@@ -1,8 +1,10 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import { links } from '../../data/links';
+import Layout from '../../layouts/BaseLayout.astro';
+const lang = 'de';
 ---
 
-<Layout title="Contact – MHG Ingolstadt e. V.">
+<Layout title="Contact – MHG Ingolstadt e. V." lang={lang}>
   <section class="max-w-6xl mx-auto px-4 py-12">
     <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">👋 Join Our Community!</h2>
 
@@ -12,9 +14,9 @@ import Layout from '../layouts/BaseLayout.astro';
         <h3 class="text-xl font-semibold mb-3">📚 For Students</h3>
         <p class="mb-2">Connect with us:</p>
         <ul class="space-y-1 text-sm">
-          <li>Email: <a href="mailto:mhg@thi.de" class="text-[#0369a1] underline">mhg@thi.de</a></li>
-          <li>WhatsApp: <a href="#" class="text-[#0369a1] underline">Join our group</a></li>
-          <li>Instagram: <a href="https://instagram.com/mhg_ingolstadt" class="text-[#0369a1] underline">@mhg_ingolstadt</a></li>
+          <li>Email: <a href=`mailto:${links.email}` class="text-[#0369a1] underline" target="_blank">mhg@thi.de</a></li>
+          <li>WhatsApp: <a href={links.whatsapp} class="text-[#0369a1] underline" target="_blank">Join our group</a></li>
+          <li>Instagram: <a href={links.instagram} class="text-[#0369a1] underline" target="_blank">@mhg_ingolstadt</a></li>
         </ul>
       </div>
 

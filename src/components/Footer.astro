@@ -1,16 +1,18 @@
 ---
 import { links } from '../data/links.js';
+import { t } from '../utils/t.js';
+const { lang } = Astro.props;
 ---
 
 <footer class="bg-[#0369a1] text-white text-center py-6 text-sm">
-  <div class="flex justify-center space-x-4 mb-2">
-    <a href={links.instagram} class="hover:text-sky-400 transition" target="_blank">Instagram</a>
-    <a href={links.whatsapp} class="hover:text-sky-400 transition" target="_blank">WhatsApp</a>
-    <a href={links.facebook} class="hover:text-sky-400 transition" target="_blank">Facebook</a>
-    <a href={links.youtube} class="hover:text-sky-400 transition" target="_blank">YouTube</a>
+  <div class="flex justify-center flex-wrap gap-4 mb-2">
+    <a href={links.instagram} class="hover:text-sky-400 transition" target="_blank">{t('social.instagram', lang)}</a>
+    <a href={links.whatsapp} class="hover:text-sky-400 transition" target="_blank">{t('social.whatsapp', lang)}</a>
+    <a href={links.facebook} class="hover:text-sky-400 transition" target="_blank">{t('social.facebook', lang)}</a>
+    <a href={links.youtube} class="hover:text-sky-400 transition" target="_blank">{t('social.youtube', lang)}</a>
   </div>
   <p class="mb-1">
-    Contact us: <a href={`mailto:${links.email}`} class="underline hover:text-sky-400 transition">{links.email}</a>
+    {t('footer.contact', lang)}: <a href={`mailto:${links.email}`} class="underline hover:text-sky-400 transition">{links.email}</a>
   </p>
-  <p>&copy; 2025 MHG Ingolstadt e. V. All rights reserved.</p>
+  <p>{t('footer.copyright', lang)}</p>
 </footer>

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { t } from '../../utils/t.js';
+const lang = 'ar';
+---
+
+<Layout title="MHG Ingolstadt e. V." lang = {lang}>
+  <!-- Hero Section -->
+  <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-2xl max-w-6xl mx-auto mt-8 shadow-sm">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4">🎉 {t('index.title', lang)}</h2>
+    <p class="max-w-4xl mx-auto text-lg text-gray-700">
+      {t('index.description', lang)}
+    </p>
+    <a href=`/${lang}/contact` class="inline-block mt-6 bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition">
+      {t('index.joinUs', lang)}
+    </a>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-12 max-w-7xl mx-auto">
+    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]">
+      <h3 class="text-xl font-semibold mb-2">📖 {t('nav.about', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700"> {t('index.aboutCardDescription', lang) }</p>
+      <a href=`/${lang}/about` class="text-[#0369a1] underline">{t('index.readMore', lang)}</a>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]">
+      <h3 class="text-xl font-semibold mb-2">🎊 {t('nav.events', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700">
+        {t('index.eventsCardDescription', lang)}
+      </p>
+      <a href=`/${lang}/events` class="text-[#0369a1] underline">{t('index.viewEvents', lang)}</a>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]">
+      <h3 class="text-xl font-semibold mb-2">🧭 {t('nav.resources', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700">
+        {t('index.resourcesCardDescription', lang)}
+      </p>
+      <a href=`/${lang}/resources` class="text-[#0369a1] underline">{t('index.exploreResources', lang)}</a>
+    </div>
+  </section>
+</Layout>

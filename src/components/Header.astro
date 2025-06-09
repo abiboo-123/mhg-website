@@ -1,84 +1,71 @@
 ---
 import { t } from '../utils/t.js';
-const lang = 'en'; // Can be dynamically set later
-
+const { lang = 'en' } = Astro.props; // fallback to English
 import { Image } from 'astro:assets';
 import MHG_Logo from '../assets/MHG_Logo.svg';
 ---
 
 <header class="relative bg-[#0369a1] dark:bg-[#012c4a] text-white py-4">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-3 items-center">
-  
-      <a href="/" class="flex items-center justify-start space-x-3 col-span-2 sm:col-span-1 hover:opacity-80 transition">
-        <Image
-          src={MHG_Logo}
-          alt="MHG Logo"
-          width={40}
-          height={40}
-          class="h-10 w-auto"
-        />
-        <h1 class="text-lg font-bold whitespace-nowrap">{t('title', lang)}</h1>
-      </a>
-      
-  
-      <!-- Center: Nav (desktop only) -->
-      <nav class="hidden md:flex justify-center space-x-4 text-sm col-span-1">
-        <a href="/" class="hover:text-sky-400 transition">{t('nav.home', lang)}</a>
-        <a href="/about" class="hover:text-sky-400 transition">{t('nav.about', lang)}</a>
-        <a href="/events" class="hover:text-sky-400 transition">{t('nav.events', lang)}</a>
-        <a href="/resources" class="hover:text-sky-400 transition">{t('nav.resources', lang)}</a>
-        <a href="/partners" class="hover:text-sky-400 transition">{t('nav.partners', lang)}</a>
-        <a href="/contact" class="hover:text-sky-400 transition">{t('nav.contact', lang)}</a>
-      </nav>
-  
-      <!-- Right: Language + Hamburger -->
-      <div class="flex justify-end items-center space-x-4 col-span-1">
-        <!-- Language selector (desktop) -->
-        <select class="hidden bg-[#0369a1] md:block border border-white text-white p-1 rounded text-sm focus:outline-none">
-          <option class="text-white">EN</option>
-          <option class="text-white">DE</option>
-          <option class="text-white">AR</option>
-        </select>
-  
-        <!-- Hamburger icon (mobile only) -->
-        <button id="hamburgerBtn" class="md:hidden pr-3 sm:pr-6" aria-label="Toggle menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  
-    <!-- Mobile dropdown menu (floating vertical) -->
-<div id="mobileMenu" class="hidden md:hidden absolute top-16 right-0 sm:right-6 w-56 bg-[#0369a1] dark:bg-[#012c4a] rounded-lg shadow-lg py-3 z-50 flex-col">
-    <nav class="flex flex-col">
-      <a href="/" class="block px-4 py-2 hover:bg-[#065e97] ">{t('nav.home', lang)}</a>
-      <a href="/about" class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.about', lang)}</a>
-      <a href="/events" class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.events', lang)}</a>
-      <a href="/resources" class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.resources', lang)}</a>
-      <a href="/partners" class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.partners', lang)}</a>
-      <a href="/contact" class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.contact', lang)}</a>
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-3 items-center">
+    <a href=`/${lang}/` class="flex items-center justify-start space-x-3 col-span-2 sm:col-span-1 hover:opacity-80 transition">
+      <Image
+        src={MHG_Logo}
+        alt="MHG Logo"
+        width={40}
+        height={40}
+        class="h-10 w-auto"
+      />
+      <h1 class="text-lg font-bold whitespace-nowrap">{t('nav.title', lang)}</h1>
+    </a>
+
+    <nav class={`hidden md:flex justify-center ${lang === 'ar' ? 'space-x-reverse' : ''} space-x-4 text-sm col-span-1`}>
+      <a href=`/${lang}/` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.home', lang)}</a>
+      <a href=`/${lang}/about` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.about', lang)}</a>
+      <a href=`/${lang}/events` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.events', lang)}</a>
+      <a href=`/${lang}/resources` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.resources', lang)}</a>
+      <a href=`/${lang}/partners` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.partners', lang)}</a>
+      <a href=`/${lang}/contact` class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.contact', lang)}</a>
     </nav>
-  
-    <div class="border-t border-white mx-4 pt-2">
-      <label for="lang" class="block px-4 pb-1 text-white">Language</label>
-      <select id="lang" class="bg-[#0369a1] dark:bg-[#012c4a] border border-white text-white p-1 rounded text-sm w-full px-4 focus:outline-none">
-        <option class="text-white">EN</option>
-        <option class="text-white">DE</option>
-        <option class="text-white">AR</option>
+
+    <div class="flex justify-end items-center space-x-4 col-span-1">
+      <!-- Language selector (can be improved later) -->
+      <select
+        class="hidden md:block border border-white bg-[#0369a1] text-white p-1 rounded text-sm"
+        onchange="window.location.href = `/${this.value}/`"
+      >
+        <option value="en" selected={lang === 'en'}>EN</option>
+        <option value="de" selected={lang === 'de'}>DE</option>
+        <option value="ar" selected={lang === 'ar'}>AR</option>
       </select>
+
+
+      <!-- Hamburger (for mobile) -->
+      <button id="hamburgerBtn" class="md:hidden pr-3 sm:pr-6" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </div>
-  
-  
-    <script is:inline>
-      const toggleBtn = document.getElementById('hamburgerBtn');
-      const menu = document.getElementById('mobileMenu');
-  
-      toggleBtn?.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-      });
-    </script>
-  </header>
-  
+
+  <!-- Mobile Dropdown -->
+  <div id="mobileMenu" class="hidden md:hidden absolute top-16 right-0 sm:right-6 w-56 bg-[#0369a1] dark:bg-[#012c4a] rounded-lg shadow-lg py-3 z-50 flex-col">
+    <nav class="flex flex-col">
+      <a href=`/${lang}/` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.home', lang)}</a>
+      <a href=`/${lang}/about` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.about', lang)}</a>
+      <a href=`/${lang}/events` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.events', lang)}</a>
+      <a href=`/${lang}/resources` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.resources', lang)}</a>
+      <a href=`/${lang}/partners` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.partners', lang)}</a>
+      <a href=`/${lang}/contact` class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.contact', lang)}</a>
+    </nav>
+  </div>
+
+  <script is:inline>
+    const toggleBtn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    toggleBtn?.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
+  </script>
+</header>
