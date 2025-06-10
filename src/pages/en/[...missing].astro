@@ -5,18 +5,18 @@ import { t } from '../../utils/t.js';
 const lang = 'en';
 ---
 
-<Layout title={`404 – MHG`} lang={lang}>
+<Layout title={`404 – MHG Ingolstadt e. V.`} lang={lang}>
   <section class="max-w-3xl mx-auto px-4 py-16">
     <div class="bg-white rounded-xl shadow-md p-8 text-center">
-      <h1 class="text-3xl sm:text-4xl font-bold text-[#0369a1] mb-4">🔍 404 – Page Not Found</h1>
+      <h1 class="text-3xl sm:text-4xl font-bold text-[#0369a1] mb-4">🔍 {t('404.pageNotFound', lang)}</h1>
       <p class="text-gray-600 mb-8">
-        {t('404.message', lang) || "Sorry, the page you're looking for doesn’t exist or has been moved."}
+        {t('404.message', lang)}
       </p>
       <a
         href={`/${lang}/`}
         class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition"
       >
-        ⬅ Back to Home
+        ⬅ {t('404.backToHome', lang)}
       </a>
     </div>
   </section>

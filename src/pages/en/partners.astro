@@ -2,18 +2,20 @@
 import Layout from '../../layouts/BaseLayout.astro';
 import PartnerCard from '../../components/PartnerCard.astro';
 import { partners } from '../../data/partners.js';
+import { t } from '../../utils/t';
+
 const lang = 'en';
 ---
 
 <Layout title="Our Partners – MHG Ingolstadt" lang={lang}>
   <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">    
     
-    <h1 class="text-4xl font-bold text-center mb-6">🤝 Our Partners</h1>
+    <h1 class="text-4xl font-bold text-center mb-6">🤝 {t('partners.title', lang)}</h1>
     <p class="text-center text-lg text-slate-700 mb-10">
-      We’re honored to collaborate with local mosques and institutions that share our values and help strengthen our student and Muslim community in Ingolstadt
+      {t('partners.description', lang)}
     </p>
     <a href=`/${lang}/contact` class="inline-block mt-6 bg-[#0369a1] text-white px-6 py-2 rounded hover:bg-blue-800 transition">
-      Become a Partner
+      {t('partners.CTAButton', lang)}
     </a>
     
   </section>

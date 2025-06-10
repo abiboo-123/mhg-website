@@ -25,16 +25,16 @@ const lang = 'ar';
 
   <!-- Mission / Vision Section -->
   <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-10 max-w-7xl mx-auto">
-    {aboutCards.map(card => (
+    {aboutCards[lang].map(card => (
       <Card title={card.title} icon={card.icon} text={card.text} />
     ))}
   </section>
 
   <!-- Team Section -->
   <section class="max-w-7xl mx-auto px-4 py-12">
-    <h3 class="text-2xl font-bold text-center mb-8">Meet the Team</h3>
+    <h3 class="text-2xl font-bold text-center mb-8">{t("about.meetTheTeam", lang) }</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {team.map(member => (
+      {team[lang].map(member => (
         <TeamMember name={member.name} role={member.role} image={member.image} />
       ))}
     </div>
@@ -42,8 +42,8 @@ const lang = 'ar';
 
   <!-- Closing Call to Action -->
   <section class="bg-[#d7f0f7] py-10 px-4 mt-10 mb-16 rounded-lg max-w-6xl mx-auto text-center">
-    <h3 class="text-xl font-semibold mb-4">"Indeed, the believers are but brothers..." (Qur'an 49:10)</h3>
-    <p class="text-lg mb-4">We invite you to connect, collaborate, and contribute to our journey.</p>
-    <a href=`/${lang}/contact` class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded hover:bg-blue-800 transition">Get in Touch</a>
+    <h3 class="text-xl font-semibold mb-4">{t("about.CTATitle", lang) }</h3>
+    <p class="text-lg mb-4">{t("about.CTADescription", lang) }</p>
+    <a href=`/${lang}/contact` class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded hover:bg-blue-800 transition">{t("about.CTAButton", lang) }</a>
   </section>
 </Layout>

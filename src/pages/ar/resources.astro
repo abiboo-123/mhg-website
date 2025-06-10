@@ -2,15 +2,17 @@
 import Layout from '../../layouts/BaseLayout.astro';
 import ResourceCard from '../../components/ResourceCard.astro';
 import { resources } from '../../data/resources.js';
+import { t } from '../../utils/t';
+
 const lang = 'ar';
 ---
 
 <Layout title="Resources – MHG Ingolstadt"  lang={lang}>
   <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">    
 
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">📚 Student Resources in Ingolstadt</h2>
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">📚 {t('resources.title', lang)}</h2>
     <p class="text-center text-lg mb-10 text-slate-700">
-      Everything you need to stay connected and supported – spiritually, socially, and practically!
+      {t('resources.description', lang)}
     </p>
   </section>
 

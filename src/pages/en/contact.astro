@@ -1,34 +1,36 @@
 ---
 import { links } from '../../data/links';
 import Layout from '../../layouts/BaseLayout.astro';
+import { t } from '../../utils/t';
+
 const lang = 'en';
 ---
 
 <Layout title="Contact – MHG Ingolstadt e. V." lang={lang}>
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">👋 Join Our Community!</h2>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">👋 {t("contact.title", lang) }</h2>
 
     <!-- Info Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
       <div class="bg-white rounded-xl shadow-md p-6">
-        <h3 class="text-xl font-semibold mb-3">📚 For Students</h3>
-        <p class="mb-2">Connect with us:</p>
+        <h3 class="text-xl font-semibold mb-3">📚 {t("contact.studentsTitle", lang) }</h3>
+        <p class="mb-2">{t("contact.studentsDescription", lang) }</p>
         <ul class="space-y-1 text-sm">
-          <li>Email: <a href=`mailto:${links.email}` class="text-[#0369a1] underline" target="_blank">mhg@thi.de</a></li>
-          <li>WhatsApp: <a href={links.whatsapp} class="text-[#0369a1] underline" target="_blank">Join our group</a></li>
-          <li>Instagram: <a href={links.instagram} class="text-[#0369a1] underline" target="_blank">@mhg_ingolstadt</a></li>
+          <li>{t("contact.title", lang) }: <a href=`mailto:${links.email}` class="text-[#0369a1] underline" target="_blank">{links.email}</a></li>
+          <li>{t("social.whatsapp", lang) }: <a href={links.whatsapp} class="text-[#0369a1] underline" target="_blank">{t("contact.whatsappJoin", lang) }</a></li>
+          <li>{t("social.instagram", lang) }: <a href={links.instagram} class="text-[#0369a1] underline" target="_blank">@mhg_ingolstadt</a></li>
         </ul>
       </div>
 
       <div class="bg-white rounded-xl shadow-md p-6">
-        <h3 class="text-xl font-semibold mb-3">🕌 For Guest Speakers/Sheikhs</h3>
-        <p>We welcome you to offer lectures or sessions. Please get in touch for collaboration opportunities.</p>
+        <h3 class="text-xl font-semibold mb-3">🕌 {t("contact.guestsTitle", lang) }</h3>
+        <p>{t("contact.guestsDescription", lang) }</p>
       </div>
     </div>
 
     <!-- Contact Form -->
     <div class="bg-white rounded-xl shadow-md p-6">
-      <h3 class="text-xl font-semibold mb-6">📧 Get in Touch!</h3>
+      <h3 class="text-xl font-semibold mb-6">📧 {t("contact.formTitle", lang) }</h3>
       <form
         action="https://formspree.io/f/mnnvjege"
         method="POST"
@@ -36,7 +38,7 @@ const lang = 'en';
         id="contactForm"
       >
         <div>
-          <label for="name" class="block text-sm font-medium mb-1">Name</label>
+          <label for="name" class="block text-sm font-medium mb-1">{t("contact.formName", lang) }</label>
           <input
             type="text"
             id="name"
@@ -47,7 +49,7 @@ const lang = 'en';
         </div>
 
         <div>
-          <label for="email" class="block text-sm font-medium mb-1">Email</label>
+          <label for="email" class="block text-sm font-medium mb-1">{t("contact.email", lang) }</label>
           <input
             type="email"
             id="email"
@@ -58,7 +60,7 @@ const lang = 'en';
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-medium mb-1">Message</label>
+          <label for="message" class="block text-sm font-medium mb-1">{t("contact.formMessage", lang) }</label>
           <textarea
             id="message"
             name="message"
@@ -72,7 +74,7 @@ const lang = 'en';
           type="submit"
           class="w-full bg-[#0369a1] text-white py-2 rounded-full hover:bg-blue-800 transition"
         >
-          Send Message
+        {t("contact.formSubmitBTN", lang) }
         </button>
       </form>
     </div>
@@ -100,11 +102,11 @@ const lang = 'en';
   
       if (response.ok) {
         msg.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-300');
-        msg.textContent = '✅ Thank you! Your message has been sent.';
+        msg.textContent = `✅ ${t("contact.formSuccessMSG", lang) }`;
         form.reset();
       } else {
         msg.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-300');
-        msg.textContent = '❌ Something went wrong. Please try again later.';
+        msg.textContent = `❌ ${t("contact.formFailureMSG", lang) }`;
       }
   
       form.insertAdjacentElement('afterend', msg);
