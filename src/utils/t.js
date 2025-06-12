@@ -9,18 +9,9 @@ import axios from 'axios';
 const languages = { en, de, ar };
 
 export function t(key, lang = 'en') {
+  if (!languages[lang]) {
+    console.warn(`Language ${lang} not found, defaulting to English.`);
+    lang = 'de';
+  }
   return languages[lang][key] || key;
-}
-
-export async function translate(text, targetLang, sourceLang = 'en') {
-  const response = await axios.post('https://libretranslate.com/translate', {
-    q: text,
-    source: sourceLang,
-    target: targetLang,
-    format: 'text'
-  }, {
-    headers: { 'Content-Type': 'application/json' }
-  });
-
-  return response.data.translatedText;
 }

@@ -1,0 +1,450 @@
+{
+  "en": [
+    {
+      "category": "Mosques in Ingolstadt 🕌",
+      "type": "card",
+      "items": [
+        {
+          "slug": "ditib-ingolstadt-mosque",
+          "name": "DITIB Ingolstadt Mosque",
+          "location": " Manisa Str. 1, 85057 Ingolstadt",
+          "description": "Friday prayer, Ramadan iftars, guest lectures",
+          "tags": [
+            "prayer",
+            "mosque",
+            "community",
+            "events",
+            "turkish"
+          ]
+        },
+        {
+          "slug": "thi-prayer-room",
+          "name": "THI Prayer Room",
+          "location": "Building Z, First Floor",
+          "description": "On-campus prayer space available during university hours 8 AM - 6 PM",
+          "tags": [
+            "prayer",
+            "campus",
+            "student life"
+          ]
+        },
+        {
+          "slug": "al-nour-mosque",
+          "name": "Al-Nour Mosque",
+          "location": "Asamstraße 14a, 85053 Ingolstadt",
+          "description": "Friday prayer, community events, lectures",
+          "tags": [
+            "prayer",
+            "mosque",
+            "community",
+            "events",
+            "arabic"
+          ]
+        },
+        {
+          "slug": "xhamia-mosque",
+          "name": "Xhamia Mosque (Albanian Mosque)",
+          "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
+          "description": "Regular prayers, community support, cultural events",
+          "tags": [
+            "prayer",
+            "mosque",
+            "community",
+            "events",
+            "albanian"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Prayer Times 🕰️",
+      "type": "links",
+      "items": [
+        {
+          "label": "🕌 Al-Nour Mosque prayer times PDF (may)",
+          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf"
+        },
+        {
+          "label": "🕌 Al-Nour Mosque prayer times PDF (june)",
+          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf"
+        }
+      ],
+      "footer": {
+        "text": "Need a different month and/or mosque?",
+        "linkText": "Contact us",
+        "href": "/contact"
+      }
+    },
+    {
+      "category": "Halal Restaurants 🍽️",
+      "type": "card",
+      "items": [
+        {
+          "slug": "al-nour-restaurant",
+          "name": "Ziyafet Restaurant",
+          "description": "Top-rated halal döner & kebab in town — praised for flavour and quality. 🌯👍",
+          "location": "Hindenburgstraße 23, 85057 Ingolstadt",
+          "tags": [
+            "döner",
+            "kebab",
+            "casual dining"
+          ]
+        },
+        {
+          "slug": "hunkar-restaurant",
+          "name": "Hünkar Restaurant",
+          "description": "Turkish halal restaurant — köfte, chicken, baklava; open daily 11–23:30. 🧆🍗",
+          "location": "Friedrich-Ebert-Straße 37, 85055 Ingolstadt",
+          "tags": [
+            "köfte",
+            "Turkish",
+            "dinner"
+          ]
+        },
+        {
+          "slug": "aladin-imbiss",
+          "name": "Aladin Imbiss",
+          "description": "Halal-friendly Syrian restaurant with shawarma, falafel, and more. 🌯🥙",
+          "location": "Unterer Graben 89, 85049 Ingolstadt",
+          "tags": [
+            "shawarma",
+            "falafel",
+            "casual dining",
+            "syrian"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Halal Markets Near Campus 🛒",
+      "type": "card",
+      "items": [
+        {
+          "slug": "istanbul-market",
+          "name": "Istanbul Market",
+          "description": "Well-stocked halal supermarket — meats, spices, veggies. Fresh lamb & goat on Wed/Fri. 🥩🧆",
+          "location": "Hindenburgstraße 21, Ingolstadt",
+          "tags": [
+            "halal-meat",
+            "grocery",
+            "fresh"
+          ]
+        },
+        {
+          "slug": "saray-market",
+          "name": "Saray Market",
+          "description": "Turkish grocery with halal essentials — meat, snacks, household items. 🛍️",
+          "location": "Altstadt, Ingolstadt",
+          "tags": [
+            "market",
+            "Turkish",
+            "halal"
+          ]
+        },
+        {
+          "slug": "ali-baba-lebensmittel",
+          "name": "Ali Baba Lebensmittel",
+          "description": "Middle Eastern supermarket with fresh produce and halal meat. 🍅🥩",
+          "location": "Schloßlände 4, Ingolstadt",
+          "tags": [
+            "halal",
+            "Middle Eastern",
+            "market"
+          ]
+        }
+      ]
+    }
+  ],
+  "de": [
+    {
+      "category": "Moscheen in Ingolstadt 🕌",
+      "type": "card",
+      "items": [
+        {
+          "name": "DITIB Ingolstadt Mosque",
+          "location": "MANISA STR.1, 85057 Ingolstadt",
+          "description": "Freitagsgebet, Ramadan Iftars, Gastvorträge",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Gemeinschaft",
+            "Ereignisse",
+            "Türkisch"
+          ]
+        },
+        {
+          "name": "THI Prayer Room",
+          "location": "Gebäude Z, Erster Stock",
+          "description": "Gebetsflächen auf dem Campus während der Universitätszeiten von 8 bis 18 Uhr verfügbar",
+          "tags": [
+            "Gebet",
+            "Campus",
+            "Studentenleben"
+          ]
+        },
+        {
+          "name": "Al-Nour Mosque",
+          "location": "Asamstraße 14a, 85053 Ingolstadt",
+          "description": "Freitagsgebet, Gemeinschaftsveranstaltungen, Vorträge",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Gemeinschaft",
+            "Ereignisse",
+            "Arabisch"
+          ]
+        },
+        {
+          "name": "Xhamia Mosque (Albanian Mosque)",
+          "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
+          "description": "Regelmäßige Gebete, Unterstützung in der Gemeinschaft, kulturelle Ereignisse",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Gemeinschaft",
+            "Ereignisse",
+            "albanisch"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Gebetszeiten 🕰️",
+      "type": "links",
+      "items": [
+        {
+          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf",
+          "label": "🕌 Al-Nour Moschee Gebetszeiten PDF (Mai)"
+        },
+        {
+          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf",
+          "label": "🕌 Al-Nour Moschee Gebetszeiten PDF (Juni)"
+        }
+      ],
+      "footer": {
+        "text": "Benötigen Sie einen anderen Monat und/oder eine Moschee?",
+        "linkText": "Kontaktieren Sie uns",
+        "href": "/contact"
+      }
+    },
+    {
+      "category": "Halal Restaurants 🍽️",
+      "type": "card",
+      "items": [
+        {
+          "name": "Ziyafet Restaurant",
+          "location": "Hindenburgstraße 23, 85057 Ingolstadt",
+          "description": "Top bewertet Halal Döner & Kebab in der Stadt-für Geschmack und Qualität gelobt.🌯👍",
+          "tags": [
+            "Rotation",
+            "Kebab",
+            "lässiges Essen"
+          ]
+        },
+        {
+          "name": "Hünkar Restaurant",
+          "location": "Friedrich-Ebert-Straße 37, 85055 Ingolstadt",
+          "description": "Türkisches Halal Restaurant - Fleischbällchen, Hühnchen, Baklava;Täglich geöffnet 11–23: 30. 🧆🍗",
+          "tags": [
+            "Fleischbällchen",
+            "Türkisch",
+            "Abendessen"
+          ]
+        },
+        {
+          "name": "Aladin Imbiss",
+          "location": "Unterer Graben 89, 85049 Ingolstadt",
+          "description": "Halal-freundliches syrisches Restaurant mit Shawarma, Falafel und mehr.🌯🥙",
+          "tags": [
+            "Shawarma",
+            "Wand",
+            "lässiges Essen",
+            "syrisch"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Halalmärkte in der Nähe des Campus 🛒",
+      "type": "card",
+      "items": [
+        {
+          "name": "Istanbul Market",
+          "location": "Hindenburgstraße 21, Ingolstadt",
+          "description": "Gut sortierter Halal-Supermarkt-Fleisch, Gewürze, Gemüse.Frisches Lamm & Ziege am Mi/Fr.🥩🧆",
+          "tags": [
+            "Halal-Fleisch",
+            "Lebensmittelgeschäft",
+            "frisch"
+          ]
+        },
+        {
+          "name": "Saray Market",
+          "location": "Altstadt, Ingolstadt",
+          "description": "Türkischer Lebensmittelgeschäft mit Halal -Essentials - Fleisch, Snacks, Haushaltsgegenstände.🛍️",
+          "tags": [
+            "Markt",
+            "Türkisch",
+            "Halal"
+          ]
+        },
+        {
+          "name": "Ali Baba Lebensmittel",
+          "location": "Schloßlände 4, Ingolstadt",
+          "description": "Supermarkt aus dem Nahen Osten mit frischem Produkt und Halalfleisch.🍅🥩",
+          "tags": [
+            "Halal",
+            "Nahen Osten",
+            "Markt"
+          ]
+        }
+      ]
+    }
+  ],
+  "ar": [
+    {
+      "category": "المساجد في إنغولشتات 🕌",
+      "type": "card",
+      "items": [
+        {
+          "name": "DITIB Ingolstadt Mosque",
+          "location": "مانيسا شارع.1 ، 85057 Ingolstadt",
+          "description": "صلاة الجمعة ، رمضان الإفترز ، محاضرات الضيوف",
+          "tags": [
+            "صلاة",
+            "مسجد",
+            "مجتمع",
+            "الأحداث",
+            "التركية"
+          ]
+        },
+        {
+          "name": "THI Prayer Room",
+          "location": "بناء Z ، الطابق الأول",
+          "description": "مساحة الصلاة داخل الحرم الجامعي متوفرة خلال ساعات الجامعة من الساعة 8 صباحًا إلى 6 مساءً",
+          "tags": [
+            "صلاة",
+            "حرم الجامعة",
+            "حياة الطلاب"
+          ]
+        },
+        {
+          "name": "Al-Nour Mosque",
+          "location": "Asamstrasse 14a ، 85053 Ingolstadt",
+          "description": "صلاة الجمعة والأحداث المجتمعية والمحاضرات",
+          "tags": [
+            "صلاة",
+            "مسجد",
+            "مجتمع",
+            "الأحداث",
+            "عربي"
+          ]
+        },
+        {
+          "name": "Xhamia Mosque (Albanian Mosque)",
+          "location": "في Nordbahnhof 23a ، 85049 Ingolstadt",
+          "description": "الصلوات العادية ، الدعم المجتمعي ، الأحداث الثقافية",
+          "tags": [
+            "صلاة",
+            "مسجد",
+            "مجتمع",
+            "الأحداث",
+            "الألبانية"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "أوقات الصلاة 🕰",
+      "type": "links",
+      "items": [
+        {
+          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf",
+          "label": "🕌 أوقات صلاة المسجد المفروضة الصلبة (مايو)"
+        },
+        {
+          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf",
+          "label": "🕌 أوقات صلاة المسجد المفروض"
+        }
+      ],
+      "footer": {
+        "text": "هل تحتاج إلى شهر مختلف و/أو مسجد؟",
+        "linkText": "اتصل بنا",
+        "href": "/contact"
+      }
+    },
+    {
+      "category": "المطاعم الحلال 🍽",
+      "type": "card",
+      "items": [
+        {
+          "name": "Ziyafet Restaurant",
+          "location": "Hindenburgstrasse 23 ، 85057 Ingolstadt",
+          "description": "حلال Döner & Kebab في المدينة-مدح للنكهة والجودة.🌯👍",
+          "tags": [
+            "دوار",
+            "كباب",
+            "تناول الطعام غير الرسمي"
+          ]
+        },
+        {
+          "name": "Hünkar Restaurant",
+          "location": "فريدريش-إبرت شترا 37 ، 85055 إنغولستادت",
+          "description": "مطعم الحلال التركي - كرات اللحم ، الدجاج ، البكلافا ؛افتح يوميًا 11-23: 30. 🧆🍗",
+          "tags": [
+            "كرات اللحم",
+            "التركية",
+            "عشاء"
+          ]
+        },
+        {
+          "name": "Aladin Imbiss",
+          "location": "Lower Graben 89 ، 85049 Ingolstadt",
+          "description": "مطعم سوري صديق للحلال مع شاورما ، فلافل ، وأكثر من ذلك.🌯🥙",
+          "tags": [
+            "شاورما",
+            "حائط",
+            "تناول الطعام غير الرسمي",
+            "السوري"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "أسواق الحلال بالقرب من الحرم الجامعي 🛒",
+      "type": "card",
+      "items": [
+        {
+          "name": "Istanbul Market",
+          "location": "Hindenburgstrasse 21 ، Ingolstadt",
+          "description": "سوبر ماركت حلال جيد التجهيز-اللحوم ، التوابل ، الخضار.طازجة الخروف والماعز في الأربعاء/الجمعة.🥩🧆",
+          "tags": [
+            "حلال الحلال",
+            "خضروات",
+            "طازج"
+          ]
+        },
+        {
+          "name": "Saray Market",
+          "location": "المدينة القديمة ، إنغولشتات",
+          "description": "البقالة التركية مع أساسيات الحلال - اللحوم ، الوجبات الخفيفة ، الأدوات المنزلية.🛍",
+          "tags": [
+            "سوق",
+            "التركية",
+            "حلال"
+          ]
+        },
+        {
+          "name": "Ali Baba Lebensmittel",
+          "location": "Schloßlände 4 ، Ingolstadt",
+          "description": "سوبر ماركت الشرق الأوسط مع المنتجات الطازجة واللحوم الحلال.🍅🥩",
+          "tags": [
+            "حلال",
+            "الشرق الأوسط",
+            "سوق"
+          ]
+        }
+      ]
+    }
+  ]
+}

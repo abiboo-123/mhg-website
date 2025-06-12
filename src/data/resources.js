@@ -1,4 +1,4 @@
-export const resources = [
+export const rawResources = [
     {
       category: "Mosques in Ingolstadt 🕌",
       type: "card",

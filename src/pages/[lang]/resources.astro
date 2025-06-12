@@ -1,11 +1,26 @@
 ---
 import Layout from '../../layouts/BaseLayout.astro';
 import ResourceCard from '../../components/ResourceCard.astro';
-import { resources } from '../../data/resources.js';
+import resourcesData from '../../data/resources.translated.json';
 import { t } from '../../utils/t';
 
-const lang = 'de';
+const { lang = 'de' } = Astro.params;
+
+// Define a proper type for your resource structure
+type ResourceSection = {
+  category: string;
+  type: 'card' | 'links' | 'list';
+  items: any[];
+  footer?: {
+    text: string;
+    linkText: string;
+    href: string;
+  };
+};
+
+const resources: ResourceSection[] = (resourcesData as Record<string, ResourceSection[]>)[lang] ?? (resourcesData as Record<string, ResourceSection[]>)['en'];
 ---
+
 
 <Layout title="Resources – MHG Ingolstadt"  lang={lang}>
   <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">    

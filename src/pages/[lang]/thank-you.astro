@@ -1,7 +1,18 @@
 ---
 import Layout from '../../layouts/BaseLayout.astro';
 import { t } from '../../utils/t';
-const lang = 'ar';
+
+const { lang } = Astro.params;
+const supportedLangs = ['en', 'de', 'ar'];
+
+// Ensure only allowed languages are used
+export async function getStaticPaths() {
+  return supportedLangs.map(lang => ({ params: { lang } }));
+}
+
+if (!supportedLangs.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
+}
 ---
 
 <Layout title="Thank You – MHG Ingolstadt e. V." lang={lang}>
@@ -15,7 +26,7 @@ const lang = 'ar';
         {t("register.seeYouMessage", lang)}
       </p>
       <a
-        href=`/${lang}/events`
+        href={`/${lang}/events`}
         class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition"
       >
         ← {t("register.backToEvents", lang)}

@@ -2,7 +2,7 @@
 import Layout from '../../layouts/BaseLayout.astro';
 import { t } from '../../utils/t.js';
 
-const lang = 'de';
+const { lang } = Astro.params;
 ---
 
 <Layout title={`404 – MHG Ingolstadt e. V.`} lang={lang}>

@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
+import { t } from '../utils/t';
 
-const { name, logo, description, website } = Astro.props;
+const { name, logo, description, website, lang } = Astro.props;
 ---
 
 <div class="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center space-y-4 transition-transform duration-300 hover:shadow-lg hover:scale-[1.03]">
@@ -12,5 +13,5 @@ const { name, logo, description, website } = Astro.props;
   />
   <h3 class="text-lg font-semibold">{name}</h3>
   <p class="text-sm text-slate-600">{description}</p>
-  <a href={website} target="_blank" class="text-sm text-sky-600 hover:text-sky-900 transition-colors duration-200">Visit Website</a>
+  <a href={website} target="_blank" class="text-sm text-sky-600 hover:text-sky-900 transition-colors duration-200">{t('parnter.cardCTAButton', lang)}</a> 
 </div>

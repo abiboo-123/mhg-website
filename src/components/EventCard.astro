@@ -1,5 +1,6 @@
 ---
-const { title, time, location, description, slug } = Astro.props;
+import { t } from '../utils/t';
+const { title, time, location, description, slug, lang } = Astro.props;
 ---
 
 <div class="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between">
@@ -10,11 +11,11 @@ const { title, time, location, description, slug } = Astro.props;
     <p class="text-sm text-slate-700 line-clamp-2">{description}</p>
   </div>
   <div class="mt-4 flex flex-col gap-2">
-    <a href={`/register/${slug}`} class="bg-[#d7f0f7] text-center py-2 rounded hover:bg-[#bde5f5] transition">
-      Register Now
+    <a href={`/${lang}/register/${slug}`} class="bg-[#d7f0f7] text-center py-2 rounded hover:bg-[#bde5f5] transition">
+      {t('events.regesterNow', lang)}
     </a>
-    <a href={`/events/${slug}`} class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">
-      Read more
+    <a href={`/${lang}/events/${slug}`} class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">
+      {t('events.readMore', lang)}
     </a>
   </div>
 </div>
