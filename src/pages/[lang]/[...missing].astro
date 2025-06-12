@@ -16,7 +16,7 @@ const { lang } = Astro.params;
         href={`/${lang}/`}
         class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition"
       >
-        ⬅ {t('404.backToHome', lang)}
+      {lang == 'ar' ? '⟶' : '⟵'} {t('404.backToHome', lang)}
       </a>
     </div>
   </section>

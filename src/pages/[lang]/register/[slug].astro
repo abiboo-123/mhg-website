@@ -36,7 +36,7 @@ const event = {
 <Layout title={`Register – ${event.title}`} lang={lang}>
   <section class="max-w-2xl mx-auto px-4 py-12">
     <a href={`/${lang}/events/${slug}`} class="text-sm text-[#0369a1] hover:underline block mb-6">
-      ← {t("events.backToEvent", lang)} {event.title}
+      {lang == 'ar' ? '→' : '←'} {t("events.backToEvent", lang)} {event.title}
     </a>
 
     <h1 class="text-3xl font-bold mb-6">📝 {t("events.regesterForEvent", lang)} {event.title}</h1>

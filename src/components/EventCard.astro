@@ -12,7 +12,7 @@ const { title, time, location, description, slug, lang } = Astro.props;
   </div>
   <div class="mt-4 flex flex-col gap-2">
     <a href={`/${lang}/register/${slug}`} class="bg-[#d7f0f7] text-center py-2 rounded hover:bg-[#bde5f5] transition">
-      {t('events.regesterNow', lang)}
+      {t('events.registerNow', lang)}
     </a>
     <a href={`/${lang}/events/${slug}`} class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">
       {t('events.readMore', lang)}

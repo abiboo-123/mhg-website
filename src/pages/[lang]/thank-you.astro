@@ -29,7 +29,7 @@ if (!supportedLangs.includes(lang)) {
         href={`/${lang}/events`}
         class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition"
       >
-        ← {t("register.backToEvents", lang)}
+      {lang == 'ar' ? '→' : '←'} {t("register.backToEvents", lang)}
       </a>
     </div>
   </section>
