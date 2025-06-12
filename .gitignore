@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Tranlation cache
+# Translation cache
 cache/
 
 # environment variables
