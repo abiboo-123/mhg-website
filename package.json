@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run translate && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "translate:events": "node scripts/translateEvents.js",

@@ -23,7 +23,8 @@ const run = async () => {
         description: await translateText(event.description, lang),
         location: await translateText(event.location, lang),
         tags: event.tags ? await translateArray(event.tags, lang) : [],
-        language: [...new Set([...(event.language || []), lang])]
+        language: [...new Set([...(event.language || []), lang])],
+        date: await translateText(event.date, lang)
       };
 
       output[lang].push(translated);

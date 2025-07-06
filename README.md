@@ -1,47 +1,133 @@
-# Astro Starter Kit: Minimal
+# 🌙 MHG Ingolstadt Website – Frontend
 
-```sh
-npm create astro@latest -- --template minimal
+This is the official (yet unpublished) website for **MHG Ingolstadt**, a Muslim student group at Ingolstadt University. It provides a clean, modern, and multilingual platform to help MHG reach students, share events, and offer useful resources.
+
+🌐 **Preview**: [https://mhg-website-phi.vercel.app/de](https://mhg-website-phi.vercel.app/de)
+
+---
+
+## ✨ Features
+
+- 🔥 Built with [Astro](https://astro.build/) + [TailwindCSS](https://tailwindcss.com/)
+- 🌍 Multilingual support (English, German, Arabic)
+- 📆 Dynamic Events page with registration
+- 🧑‍🤝‍🧑 Team, Partners, and Resources pages
+- 📦 Smart auto-translation with caching via `translate-google`
+- 📬 Formspree integration for contact and registration forms
+
+---
+
+## 🗂️ Project Structure
+
+```
+mhg-frontEnd/
+│
+├── .astro/                # Astro build cache
+├── .cache/                # Translation cache (used by scripts)
+├── .vscode/               # VSCode settings (optional)
+├── node_modules/          # Project dependencies
+│
+├── public/                # Static assets (favicon, PDFs, event images)
+│   ├── events/
+│   ├── images/
+│   ├── logos/
+│   ├── pdfs/
+│
+├── scripts/               # Scripts for translation
+│   ├── translateEvents.js
+│   ├── translateResources.js
+│
+├── src/                   # Main source folder
+│   ├── assets/            # Static logos/images used via Astro <Image />
+│   ├── components/        # Astro UI components (Card, Footer, Header, etc.)
+│   ├── data/              # Raw and translated data files (events, resources)
+│   ├── i18n/              # Translations for static text (ar.json, de.json, en.json)
+│   ├── layouts/           # Shared layout templates
+│   ├── pages/             # Language-prefixed pages (dynamic + static)
+│   │   ├── [lang]/        # e.g., /en/, /de/, /ar/
+│   │       ├── events/[slug].astro
+│   │       ├── register/[slug].astro
+│   │       ├── index.astro, about.astro, ...
+│   ├── styles/            # Global styles
+│   ├── utils/             # Helper functions like `t.js` and `translate.js`
+│
+├── astro.config.mjs       # Astro config
+├── tailwind.config.js     # Tailwind setup
+├── tsconfig.json          # TypeScript settings
+├── package.json           # Project dependencies and scripts
+├── postcss.config.mjs     # PostCSS setup
+├── requirements.txt       # (Optional) Python dependencies for Formspree backend logic
+├── README.md              # You’re here!
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Getting Started
 
-## 🚀 Project Structure
+### 1. Install Dependencies
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 2. Run Dev Server
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 3. Build for Production
 
-## 🧞 Commands
+```bash
+npm run build
+```
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🧠 Translation System
 
-## 👀 Want to learn more?
+- Translations for `events` and `resources` are generated using two scripts:
+  - `scripts/translateEvents.js`
+  - `scripts/translateResources.js`
+- These scripts:
+  - Read the raw data
+  - Translate needed fields to `de` and `ar`
+  - Cache results to `.cache/translation.cache.json`
+  - Output final translations to `src/data/*.translated.json`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 🧩 Components Used
+
+- `Header.astro`, `Footer.astro` – shared across all pages
+- `Card.astro`, `EventCard.astro`, `ResourceCard.astro`, `TeamMember.astro` – modular UI cards
+- `BaseLayout.astro` – wraps each page with layout + head metadata
+
+---
+
+## 🛠 Improvements & To-Dos
+
+- [ ] Add backend support for form submissions (optional, fallback is Formspree)
+- [ ] Add image fallback / loading indicators
+- [ ] SEO enhancements for multilingual support (meta tags per lang)
+- [ ] Accessibility (ARIA labels, better color contrast)
+- [ ] Admin dashboard for managing events/resources (future phase)
+
+---
+
+
+## 📬 Contact
+
+For any questions or contributions, feel free to reach out to the MHG Ingolstadt team.
+
+---
+
+## 🖋️ Author
+
+**Habib Gouda**: [LinkedIn](https://www.linkedin.com/in/habib-mohamed-gouda), [Github](https://github.com/abiboo-123/)
+
+---
+
+## 📄 License
+
+This project is private and not licensed for public distribution (yet).

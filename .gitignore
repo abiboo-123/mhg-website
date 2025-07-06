@@ -12,8 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Translation cache
-cache/
+#Python venv
+venv/
 
 # environment variables
 .env
