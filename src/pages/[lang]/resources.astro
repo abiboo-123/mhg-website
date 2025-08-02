@@ -45,6 +45,7 @@ const resources: ResourceSection[] = (resourcesData as Record<string, ResourceSe
               {section.items.map((item: any) => (
                 <ResourceCard
                   name={item.name}
+                  locationLink={item.locationLink}
                   location={item.location}
                   description={item.description}
                   tags={item.tags}

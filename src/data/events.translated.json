@@ -19,7 +19,15 @@
       ],
       "speakers": [
         "Shaykh Taha Ali Zeidan"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": true,
+      "past": false
     },
     {
       "slug": "shaykh-osama-al-dimashqi-talk-december-2025",
@@ -41,7 +49,15 @@
       ],
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": false,
+      "past": true
     }
   ],
   "de": [
@@ -64,7 +80,15 @@
       ],
       "speakers": [
         "Shaykh Taha Ali Zeidan"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": true,
+      "past": false
     },
     {
       "slug": "shaykh-osama-al-dimashqi-talk-december-2025",
@@ -86,7 +110,15 @@
       ],
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": false,
+      "past": true
     }
   ],
   "ar": [
@@ -98,8 +130,7 @@
       "description": "انضم إلينا لإجراء حديث ملهم مع Shaykh Taha Ali زيدان حول دور النبي كمصدر للرحمة والرحمة ، وليس العقوبة.استكشف الأخلاق الإسلامية للقيادة والمغفرة والعدالة في عالم اليوم.🌿🕊",
       "image": "../assets/events/shaykh-taha-ali-talk-june-2025.jpg",
       "language": [
-        "de",
-        "ar"
+        "de"
       ],
       "tags": [
         "رحمة",
@@ -110,7 +141,15 @@
       ],
       "speakers": [
         "Shaykh Taha Ali Zeidan"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": true,
+      "past": false
     },
     {
       "slug": "shaykh-osama-al-dimashqi-talk-december-2025",
@@ -121,8 +160,7 @@
       "image": "../assets/events/shaykh-osama-al-dimashqi-talk-december-2025.jpg",
       "language": [
         "de",
-        "en",
-        "ar"
+        "en"
       ],
       "tags": [
         "العلاقات بين الجنسين",
@@ -133,7 +171,15 @@
       ],
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
-      ]
+      ],
+      "attendance": 85,
+      "gallery": [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      "available": false,
+      "past": true
     }
   ]
 }

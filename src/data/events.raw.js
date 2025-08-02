@@ -1,3 +1,5 @@
+import { availableMemory } from "process";
+
 /**
  * How to add a new event:
  * {
@@ -9,7 +11,9 @@
     image: 'path/to/image.jpg', // Import the image at the top of this file
     language: ['de', 'en', 'ar'], // Languages available for the event
     tags: [An array of tags like 'spiritual', 'community', 'social'],
-    speakers: [an array of speaker names]
+    speakers: [an array of speaker names],
+    available: [true/false], // If the event is available for registration
+    past: [true/false] // If the event has already occurred
   }
  */
   export const events = [
@@ -23,7 +27,15 @@
       image: "../assets/events/shaykh-taha-ali-talk-june-2025.jpg",
       language: ['de'],
       tags: ['Mercy', 'Prophet Muhammad ﷺ', 'Ethics', 'Leadership', 'Spirituality'],
-      speakers: ['Shaykh Taha Ali Zeidan']
+      speakers: ['Shaykh Taha Ali Zeidan'],
+      attendance: 85,
+      gallery: [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      available: true,
+      past: false
     },
     {
       slug: 'shaykh-osama-al-dimashqi-talk-december-2025', 
@@ -35,7 +47,15 @@
       image: "../assets/events/shaykh-osama-al-dimashqi-talk-december-2025.jpg",
       language: ['de', 'en'],
       tags: ['Gender Relations', 'Islamic Conduct', 'Respect', 'Community', 'Fiqh'],
-      speakers: ['Shaykh Osama Al-Dimashqi']
+      speakers: ['Shaykh Osama Al-Dimashqi'],
+      attendance: 85,
+      gallery: [
+        "gallery1.jpg",
+        "gallery2.jpg",
+        "group-photo.jpg"
+      ],
+      available: false,
+      past: true
     }
   ];
   

@@ -138,5 +138,11 @@
   "halal::ar": "حلال",
   "Schloßlände 4, Ingolstadt::ar": "Schloßlände 4 ، Ingolstadt",
   "Middle Eastern supermarket with fresh produce and halal meat. 🍅🥩::ar": "سوبر ماركت الشرق الأوسط مع المنتجات الطازجة واللحوم الحلال.🍅🥩",
-  "Middle Eastern::ar": "الشرق الأوسط"
+  "Middle Eastern::ar": "الشرق الأوسط",
+  "Testing Street 123, Ingolstadt::de": "Teststraße 123, Ingolstadt",
+  "Halal-friendly restaurant but serve alcohol. 🌯🥙::de": "Halal-freundliches Restaurant, aber Alkohol servieren.🌯🥙",
+  "serve alcohol::de": "Alkohol servieren",
+  "Testing Street 123, Ingolstadt::ar": "اختبار الشارع 123 ، إنغولشتات",
+  "Halal-friendly restaurant but serve alcohol. 🌯🥙::ar": "مطعم صديق الحلال ولكن يقدم الكحول.🌯🥙",
+  "serve alcohol::ar": "يُقدّم الكحول"
 }
