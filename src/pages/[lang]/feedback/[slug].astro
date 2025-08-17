@@ -1,0 +1,238 @@
+---
+import Layout from '../../../layouts/BaseLayout.astro';
+import { t } from '../../../utils/t';
+import eventsByLang from '../../../data/events.translated.json';
+import Likert from '../../../components/Likert.astro';
+
+// Supported languages
+const supportedLangs = ['en','de','ar'];
+
+// Generate a page for every (lang, slug) combo in your data
+export async function getStaticPaths() {
+  return supportedLangs.flatMap((lang) => {
+    const list = (eventsByLang?.[lang as keyof typeof eventsByLang] ?? []) as any[];
+    return list.map((e: any) => ({ params: { lang, slug: e.slug } }));
+  });
+}
+
+// Get params from the route folder names
+const { lang, slug } = Astro.params as { lang: string; slug: string };
+if (!supportedLangs.includes(lang)) throw new Error(`Invalid language: ${lang}`);
+
+// Look up the event by slug (fallback: prettified slug)
+const list = (eventsByLang?.[lang as keyof typeof eventsByLang] ?? []) as any[];
+const ev = list.find((e: any) => e.slug === slug);
+const eventTitle = ev?.title || decodeURIComponent(slug ?? '').replace(/[-_]/g, ' ');
+
+// Back link: always to /past-events/[slug], arrow flips for Arabic
+const backHref = `/${lang}/past-events/${slug}`;
+const backArrow = lang === 'ar' ? '→' : '←';
+
+// Formspree endpoint (use your real form ID)
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeoznywq';
+
+// Likert numbers (pass to <Likert numbers={...} /> if you want to change)
+const scaleNumbers = [1,2,3,4,5];
+---
+
+
+<Layout title={`Feedback – ${eventTitle} – MHG Ingolstadt e. V.`} lang={lang}>
+  <section class="max-w-4xl mx-auto px-4 py-10">
+    <div class="mb-4">
+      <a href={backHref} class="text-[#0369a1] hover:underline">{backArrow} {t('feedback.backTo', lang) || 'Back to'} {eventTitle}</a>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold mb-6">📝 {t('feedback.title', lang) || 'Feedback for '} {eventTitle}</h1>
+
+    <div class="bg-white rounded-2xl shadow p-6">
+      <form id="feedbackForm" action={FORMSPREE_ENDPOINT} method="POST" class="space-y-8">
+
+        <!-- Hidden meta -->
+        <input type="hidden" name="event_slug" value={slug} />
+        <input type="hidden" name="lang" value={lang} />
+        <input type="hidden" name="page_url" value={Astro.url.toString()} />
+        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+        <!-- Q1: Overall satisfaction -->
+        <fieldset class="space-y-2">
+          <legend class="block text-base font-semibold">
+            {t('feedback.qEventSatisfaction', lang) || 'How satisfied were you with the event?'}
+          </legend>
+          <Likert
+            name="satisfaction_overall"
+            required={true}
+            numbers={scaleNumbers}
+            left={t('feedback.scale.notSatisfied', lang) || 'eher nicht / rather not'}
+            right={t('feedback.scale.verySatisfied', lang) || 'sehr gut / very good'}
+          />
+        </fieldset>
+
+        <!-- Q2: Organization -->
+        <fieldset class="space-y-2">
+          <legend class="block text-base font-semibold">
+            {t('feedback.qOrgSatisfaction', lang) || 'How satisfied were you with the Organization?'}
+          </legend>
+          <Likert
+            name="satisfaction_org"
+            numbers={scaleNumbers}
+            left={t('feedback.scale.notSatisfied', lang) || 'eher nicht / rather not'}
+            right={t('feedback.scale.verySatisfied', lang) || 'sehr gut / very good'}
+          />
+        </fieldset>
+
+        <!-- Q3: Topic interest -->
+        <fieldset class="space-y-2">
+          <legend class="block text-base font-semibold">
+            {t('feedback.qTopicInterest', lang) || 'How did you find the Lecture topic?'}
+          </legend>
+          <Likert
+            name="interest_topic"
+            numbers={scaleNumbers}
+            left={t('feedback.scale.notInteresting', lang) || 'gar nicht interessant / not interesting'}
+            right={t('feedback.scale.veryInteresting', lang) || 'völlig interessant / completely interesting'}
+          />
+        </fieldset>
+
+        <!-- Q4: Speaker quality -->
+        <fieldset class="space-y-2">
+          <legend class="block text-base font-semibold">
+            {t('feedback.qSpeaker', lang) || 'How did you find the Speaker?'}
+          </legend>
+          <Likert
+            name="speaker_quality"
+            numbers={scaleNumbers}
+            left={t('feedback.scale.bad', lang) || 'schlecht'}
+            right={t('feedback.scale.good', lang) || 'gut'}
+          />
+        </fieldset>
+
+        <!-- Q5: Discovery -->
+        <fieldset class="space-y-2">
+          <legend class="block text-base font-semibold">
+            {t('feedback.qDiscovery', lang) || 'How did you hear about the Event?'}
+          </legend>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2">
+              <input type="radio" name="discovery_source" value="whatsapp" class="accent-[#0369a1]" />
+              <span>{t('feedback.discovery.whatsapp', lang) || 'MHG WhatsApp Gruppe'}</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="radio" name="discovery_source" value="instagram" class="accent-[#0369a1]" />
+              <span>{t('feedback.discovery.instagram', lang) || 'MHG Instagram'}</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="radio" name="discovery_source" value="friend" class="accent-[#0369a1]" />
+              <span>{t('feedback.discovery.friend', lang) || 'von einem Bekannten'}</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="radio" name="discovery_source" value="info_booth" class="accent-[#0369a1]" />
+              <span>{t('feedback.discovery.infostand', lang) || 'Infostand'}</span>
+            </label>
+            <div class="flex items-center gap-2">
+              <label class="flex items-center gap-2">
+                <input id="discovery_other_radio" type="radio" name="discovery_source" value="other" class="accent-[#0369a1]" />
+                <span>{t('feedback.discovery.other', lang) || 'Other:'}</span>
+              </label>
+              <input id="discovery_other_input" type="text" name="discovery_other"
+                class="flex-1 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"
+                placeholder={t('feedback.discovery.placeholder', lang) || 'please specify'} disabled />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Q6: Improvement suggestions -->
+        <div>
+          <label for="improve" class="block text-base font-semibold mb-1">
+            {t('feedback.qImprove', lang) || 'Do you have any suggestion for improvement of the process? (Seating arrangement, space, etc.)'}
+          </label>
+          <textarea id="improve" name="improvement_suggestions" rows="3"
+            class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"></textarea>
+        </div>
+
+        <!-- Q7: Overall feedback -->
+        <div>
+          <label for="overall" class="block text-base font-semibold mb-1">
+            {t('feedback.qOverall', lang) || 'Would you like to give an overall feedback of the event?'}
+          </label>
+          <textarea id="overall" name="overall_feedback" rows="3"
+            class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"></textarea>
+        </div>
+
+        <!-- Optional contact -->
+        <div class="bg-blue-50 border border-blue-100 rounded-md p-4">
+          <p class="text-sm font-semibold mb-2">{t('feedback.contactOpt', lang) || 'Optional contact (leave blank to stay anonymous)'}</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="name" class="block text-sm mb-1">{t('feedback.name', lang) || 'Name'}</label>
+              <input type="text" id="name" name="name"
+                class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm mb-1">{t('feedback.email', lang) || 'Email'}</label>
+              <input type="email" id="email" name="email"
+                class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm mb-1">{t('feedback.phone', lang) || 'Phone'}</label>
+              <input type="tel" id="phone" name="phone" inputmode="tel"
+                class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#0369a1] text-white py-3 rounded-full hover:bg-blue-800 transition">
+          {t('feedback.submit', lang) || 'Submit Feedback'}
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('feedbackForm');          // <-- form id
+    const feedback = document.createElement('div');                 // inline status box
+    feedback.id = 'formFeedback';
+    feedback.className = 'hidden';
+    form.insertAdjacentElement('afterend', feedback);
+  
+    // read lang from hidden input you already have in the form
+    const lang = form.querySelector('input[name="lang"]').value;
+  
+    form.addEventListener('submit', async (e) => {
+      // let the browser show native validation first
+      if (!form.checkValidity()) return;
+      e.preventDefault();
+  
+      const res = await fetch(form.action /* your Formspree endpoint */, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+  
+      const successMessage = {
+        en: '✅ Thank you for your feedback!',
+        de: '✅ Danke für Ihr Feedback!',
+        ar: '✅ شكرًا لملاحظاتك!'
+      }[lang] || '✅ Thank you for your feedback!';
+  
+      const failureMessage = {
+        en: '❌ Something went wrong. Please try again.',
+        de: '❌ Etwas ist schiefgelaufen. Bitte erneut versuchen.',
+        ar: '❌ حدث خطأ. يُرجى المحاولة مرة أخرى.'
+      }[lang] || '❌ Something went wrong. Please try again.';
+  
+      if (res.ok) {
+        feedback.textContent = successMessage;
+        feedback.className = 'mt-4 p-3 rounded-md text-green-800 bg-green-100 border border-green-300 text-sm';
+        form.reset();
+  
+        // Redirect to your thank-you page
+        window.location.href = `/${lang}/feedback/thank-you`;
+      } else {
+        feedback.textContent = failureMessage;
+        feedback.className = 'mt-4 p-3 rounded-md text-red-800 bg-red-100 border border-red-300 text-sm';
+      }
+    });
+  </script>
+  
+</Layout>

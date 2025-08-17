@@ -21,11 +21,12 @@ import MHG_Logo from '../assets/MHG_Logo.svg';
     <nav class={`hidden md:flex justify-center ${lang === 'ar' ? 'space-x-reverse' : ''} space-x-4 text-sm col-span-1`}>
       <a href={`/${lang}/`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.home', lang)}</a>
       <a href={`/${lang}/about`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.about', lang)}</a>
-      <a href={`/${lang}/resources`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.resources', lang)}</a>
       <a href={`/${lang}/events`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.events', lang)}</a>
-      <a href={`/${lang}/past-events`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.pastEvents', lang)}</a>
+      <a href={`/${lang}/resources`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.resources', lang)}</a>
       <a href={`/${lang}/partners`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.partners', lang)}</a>
+      <a href={`/${lang}/donate`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.donate', lang)}</a>
       <a href={`/${lang}/contact`} class="hover:text-sky-400 transition whitespace-nowrap">{t('nav.contact', lang)}</a>
+      
     </nav>
 
     <div class="flex justify-end items-center space-x-4 col-span-1">
@@ -56,6 +57,7 @@ import MHG_Logo from '../assets/MHG_Logo.svg';
       <a href={`/${lang}/about`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.about', lang)}</a>
       <a href={`/${lang}/events`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.events', lang)}</a>
       <a href={`/${lang}/resources`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.resources', lang)}</a>
+      <a href={`/${lang}/donate`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.donate', lang)}</a>
       <a href={`/${lang}/partners`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.partners', lang)}</a>
       <a href={`/${lang}/contact`} class="block px-4 py-2 hover:bg-[#065e97]">{t('nav.contact', lang)}</a>
     </nav>

@@ -1,7 +1,7 @@
 ---
+// src/pages/[lang]/register/[slug].astro
 import Layout from '../../../layouts/BaseLayout.astro';
 import eventsData from '../../../data/events.translated.json';
-import { eventImages } from '../../../data/events.js';
 import { t } from '../../../utils/t';
 
 export async function getStaticPaths() {
@@ -43,6 +43,7 @@ const event = {
 
     <form id="eventForm" class="space-y-4 bg-white p-6 rounded-xl shadow">
       <input type="hidden" name="event" value={event.slug} />
+      <input type="hidden" name="lang" value={lang} />
 
       <div>
         <label for="name" class="block text-sm font-medium mb-1">{t("contact.formName", lang)}</label>
@@ -97,6 +98,7 @@ const event = {
   <script is:inline>
     const form = document.getElementById('eventForm');
     const feedback = document.getElementById('formFeedback');
+    const lang = form.querySelector('input[name="lang"]').value;
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -118,7 +120,7 @@ const event = {
         feedback.classList.remove("hidden");
         form.reset();
         setTimeout(() => {
-          window.location.href = `/${lang}/thank-you`;
+          window.location.href = `/${lang}/register/thank-you`;
         }, 1000);
       } else {
         feedback.textContent = failureMessage;

@@ -6,25 +6,53 @@ import { t } from '../../utils/t';
 
 const { lang = 'de' } = Astro.params;
 
-// Define a proper type for your resource structure
-type ResourceSection = {
-  category: string;
-  type: 'card' | 'links' | 'list';
-  items: any[];
-  footer?: {
-    text: string;
-    linkText: string;
-    href: string;
-  };
+/* ---------- Types (loose enough to match your JSON) ---------- */
+type CardItem = {
+  slug?: string;
+  name: string;
+  description?: string;
+  locationLink?: string;
+  location?: string;
+  tags?: string[];
+};
+type LinkItem = { label: string; href: string };
+type ListItem = { name: string; location?: string };
+
+type FooterAction = { label: string; href: string; external?: boolean };
+type LinksFooter = {
+  text?: string;
+  linkText?: string; // legacy single CTA
+  href?: string;     // legacy single CTA link
+  links?: FooterAction[]; // extra CTAs (e.g., MAWAQIT)
 };
 
-const resources: ResourceSection[] = (resourcesData as Record<string, ResourceSection[]>)[lang] ?? (resourcesData as Record<string, ResourceSection[]>)['en'];
+type ResourceSection =
+  | { category: string; type: 'card'; items: CardItem[] }
+  | { category: string; type: 'links'; items: LinkItem[]; footer?: LinksFooter }
+  | { category: string; type: 'list'; items: ListItem[] };
+
+/* ---------- Load data for current lang (fallback to EN) ---------- */
+const map = resourcesData as Record<string, ResourceSection[]>;
+const resources: ResourceSection[] = Array.isArray(map[lang]) ? map[lang] : map['en'];
+
+/* ---------- URL helpers ---------- */
+const isExternal = (href: string) => /^https?:\/\//i.test(href);
+
+// treat anything under /pdfs|/assets|/images|/img|/files or any path with a file extension as a static asset
+const isStaticAsset = (href: string) =>
+  /^\/(pdfs|assets|images|img|files)\//i.test(href) || /\.[a-z0-9]+$/i.test(href);
+
+// add /{lang} ONLY for internal page routes (not external + not static assets)
+const buildHref = (href: string) => {
+  if (!href) return '#';
+  if (isExternal(href) || isStaticAsset(href)) return href;
+  const clean = href.startsWith('/') ? href : `/${href}`;
+  return `/${lang}${clean}`;
+};
 ---
 
-
-<Layout title="Resources – MHG Ingolstadt"  lang={lang}>
-  <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">    
-
+<Layout title="Resources – MHG Ingolstadt" lang={lang}>
+  <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">
     <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">📚 {t('resources.title', lang)}</h2>
     <p class="text-center text-lg mb-10 text-slate-700">
       {t('resources.description', lang)}
@@ -32,17 +60,15 @@ const resources: ResourceSection[] = (resourcesData as Record<string, ResourceSe
   </section>
 
   <section class="max-w-7xl mx-auto px-4 py-12">
-
-    <!-- Masonry-like layout -->
     <div class="columns-1 md:columns-2 gap-6 space-y-6">
-      {resources.map(section => (
+      {resources.map((section) => (
         <div class="break-inside-avoid bg-white rounded-xl shadow-md p-6 w-full">
           <h3 class="text-xl font-semibold mb-4">{section.category}</h3>
 
-          <!-- Render card section -->
-          {section.type === "card" && (
+          {/* Cards */}
+          {section.type === 'card' && (
             <div class="space-y-4">
-              {section.items.map((item: any) => (
+              {section.items.map((item) => (
                 <ResourceCard
                   name={item.name}
                   locationLink={item.locationLink}
@@ -54,39 +80,77 @@ const resources: ResourceSection[] = (resourcesData as Record<string, ResourceSe
             </div>
           )}
 
-          <!-- Render link buttons -->
-          {section.type === "links" && (
+          {/* Links */}
+          {section.type === 'links' && (
             <div>
               <div class="space-y-3">
-                {section.items.map((link: any) => (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    class="block bg-[#2563eb] text-white py-2 px-4 rounded text-sm text-center hover:bg-[#1e40af] transition"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {section.items.map((link) => {
+                  const href = buildHref(link.href);
+                  const ext = isExternal(href);
+                  return (
+                    <a
+                      href={href}
+                      target={ext ? '_blank' : undefined}
+                      rel={ext ? 'noopener noreferrer' : undefined}
+                      class="block bg-[#2563eb] text-white py-2 px-4 rounded text-sm text-center hover:bg-[#1e40af] transition"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
+
               {section.footer && (
-                <p class="text-sm text-center mt-4">
-                  {section.footer.text}{' '}
-                  <a href=`/${lang}${section.footer.href}` class="text-[#0369a1] underline">
-                    {section.footer.linkText}
-                  </a>
-                </p>
+                <div class="mt-4 text-center space-y-3">
+                  {section.footer.text && (
+                    <p class="text-sm text-slate-600">
+                      {section.footer.text}{' '}
+                      {section.footer.linkText && section.footer.href && (
+                        <a
+                          href={buildHref(section.footer.href)}
+                          class="text-[#0369a1] underline"
+                        >
+                          {section.footer.linkText}
+                        </a>
+                      )}
+                    </p>
+                  )}
+
+                  {section.footer.links && section.footer.links.length > 0 && (
+                    <div class="flex flex-wrap justify-center gap-2">
+                      {section.footer.links.map((l) => {
+                        const href = buildHref(l.href);
+                        const ext = l.external ?? isExternal(href);
+                        return (
+                          <a
+                            href={href}
+                            target={ext ? '_blank' : undefined}
+                            rel={ext ? 'noopener noreferrer' : undefined}
+                            class="inline-block bg-slate-100 text-slate-800 text-sm px-3 py-1.5 rounded hover:bg-slate-200 transition"
+                          >
+                            {l.label}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           )}
 
-          <!-- Render plain list -->
-          {section.type === "list" && (
+          {/* Plain list */}
+          {section.type === 'list' && (
             <ul class="space-y-2 text-sm">
-              {section.items.map((place: any) => (
+              {section.items.map((place) => (
                 <li>
                   <span class="font-medium">🥙 {place.name}</span>
-                  <br />
-                  <span class="text-slate-600">{place.location}</span>
+                  {place.location && (
+                    <>
+                      <br />
+                      <span class="text-slate-600">{place.location}</span>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>

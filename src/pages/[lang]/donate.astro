@@ -1,0 +1,267 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import { t } from '../../utils/t';
+import { links } from '../../data/links';
+
+const { lang } = Astro.params;
+const supportedLangs = ['en', 'de', 'ar'];
+
+export async function getStaticPaths() {
+  return supportedLangs.map(lang => ({ params: { lang } }));
+}
+
+if (!supportedLangs.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
+}
+
+// You can store these in ../../data/links if you prefer:
+const DONATION_CONFIG = {
+  // Replace with your real endpoints (or keep as "#")
+  paypalBaseUrl: links?.paypal ?? '#',   // e.g. "https://www.paypal.com/donate/?hosted_button_id=XXXX"
+  // Bank details (SEPA)
+  bank: {
+    holder: 'MHG Ingolstadt e. V.',
+    iban: 'DE00 0000 0000 0000 0000 00',
+    bic:  'BANKDEFFXXX',
+    referenceHint: t('donate.referenceHint', lang) || 'Verwendungszweck: Spende MHG',
+  }
+};
+---
+
+<Layout title={`Donate – MHG Ingolstadt e. V.`} lang={lang}>
+  <section class="max-w-6xl mx-auto px-4 py-12 space-y-10">
+    <!-- Hero -->
+    <div class="text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-3">❤️ {t('donate.title', lang) || 'Support MHG Ingolstadt'}</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        {t('donate.subtitle', lang) || 'Your contribution helps us sustain student activities, community programs, and events.'}
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a href="#give"
+           class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#0369a1] text-white hover:bg-blue-800 transition">
+          {t('donate.ctaDonate', lang) || 'Donate now'}
+        </a>
+        <a href="#bank"
+           class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-[#0369a1] text-[#0369a1] hover:bg-blue-50 transition">
+          {t('donate.ctaBank', lang) || 'Bank transfer'}
+        </a>
+      </div>
+    </div>
+
+    <!-- Give online -->
+    <div id="give" class="bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-2">💳 {t('donate.onlineTitle', lang) || 'Donate online'}</h2>
+      <p class="text-sm text-gray-600 mb-5">
+        {t('donate.onlineDesc', lang) || 'Choose an amount or enter a custom amount. You’ll be redirected to complete the donation securely.'}
+      </p>
+
+      <!-- Quick amounts -->
+      <div class="flex flex-wrap gap-2 mb-4">
+        { [10, 25, 50, 100].map((amt) => (
+          <button
+            type="button"
+            class="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50 text-sm amount-btn"
+            data-amount={amt}
+          >
+            {amt} €
+          </button>
+        )) }
+        <button
+          type="button"
+          class="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-50 text-sm amount-btn"
+          data-amount="custom"
+        >
+          {t('donate.customAmount', lang) || 'Custom'}
+        </button>
+      </div>
+
+      <!-- Custom amount input -->
+      <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center mb-5">
+        <label for="donation-amount" class="text-sm font-medium">{t('donate.amountLabel', lang) || 'Amount'}</label>
+        <div class="flex items-center gap-2">
+          <input
+            id="donation-amount"
+            type="number"
+            min="1"
+            step="1"
+            placeholder="25"
+            class="w-32 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"
+          />
+          <span>€</span>
+        </div>
+      </div>
+
+      <!-- Provider buttons -->
+      <div class="flex flex-wrap gap-3">
+        <a id="paypal-link"
+           href={DONATION_CONFIG.paypalBaseUrl}
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#0369a1] text-white hover:bg-blue-800 transition">
+          {t('donate.paypal', lang) || 'Continue with PayPal'}
+        </a>
+      </div>
+
+      <!-- Note about recurring -->
+      <p class="text-xs text-gray-500 mt-4">
+        {t('donate.recurringNote', lang) || 'Monthly support makes a big difference. You can choose recurring on the provider checkout page.'}
+      </p>
+    </div>
+
+    <!-- Bank transfer -->
+    <div id="bank" class="bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-2">🏦 {t('donate.bankTitle', lang) || 'Bank transfer (SEPA)'}</h2>
+      <p class="text-sm text-gray-600 mb-4">
+        {t('donate.bankDesc', lang) || 'Use the details below for a one-time or standing order.'}
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-3">
+            <div>
+              <div class="text-xs text-gray-500">{t('donate.accountHolder', lang) || 'Account holder'}</div>
+              <div class="font-medium">{DONATION_CONFIG.bank.holder}</div>
+            </div>
+            <button class="copy-btn text-sm underline" data-copy={DONATION_CONFIG.bank.holder}>
+              {t('donate.copy', lang) || 'Copy'}
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-3">
+            <div>
+              <div class="text-xs text-gray-500">IBAN</div>
+              <div class="font-medium tracking-wide">{DONATION_CONFIG.bank.iban}</div>
+            </div>
+            <button class="copy-btn text-sm underline" data-copy={DONATION_CONFIG.bank.iban}>
+              {t('donate.copy', lang) || 'Copy'}
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-3">
+            <div>
+              <div class="text-xs text-gray-500">BIC</div>
+              <div class="font-medium tracking-wide">{DONATION_CONFIG.bank.bic}</div>
+            </div>
+            <button class="copy-btn text-sm underline" data-copy={DONATION_CONFIG.bank.bic}>
+              {t('donate.copy', lang) || 'Copy'}
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-100 rounded-md p-3 text-sm">
+          <p class="mb-1 font-medium">ℹ️ {t('donate.reference', lang) || 'Payment reference'}</p>
+          <p class="mb-3">{DONATION_CONFIG.bank.referenceHint}</p>
+          <p class="text-gray-600">
+            {t('donate.receiptNote', lang) || 'Need a donation receipt? Include your email in the reference or contact us via the contact form.'}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact / Transparency -->
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-2">🌱 {t('donate.impactTitle', lang) || 'Where your donation goes'}</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>{t('donate.impact1', lang) || 'Student programs and mentorship'}</li>
+        <li>{t('donate.impact2', lang) || 'Community events and outreach'}</li>
+        <li>{t('donate.impact3', lang) || 'Educational materials and facility costs'}</li>
+      </ul>
+      <p class="text-xs text-gray-500 mt-3">
+        {t('donate.transparencyNote', lang) || 'We publish an annual summary of how funds are used.'}
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4">❓ {t('donate.faqTitle', lang) || 'FAQ'}</h2>
+      <div class="space-y-3">
+        <details class="border border-gray-200 rounded-md p-3">
+          <summary class="font-medium cursor-pointer">{t('donate.faq1Q', lang) || 'Can I set up a monthly donation?'}</summary>
+          <p class="mt-2 text-gray-700">{t('donate.faq1A', lang) || 'Yes. Choose recurring on PayPal/Stripe during checkout.'}</p>
+        </details>
+        <details class="border border-gray-200 rounded-md p-3">
+          <summary class="font-medium cursor-pointer">{t('donate.faq2Q', lang) || 'Will I get a receipt?'}</summary>
+          <p class="mt-2 text-gray-700">
+            {t('donate.faq2A', lang) || 'We can issue receipts. Include your email in the transfer reference or contact us after donating.'}
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Amount quick-select
+    const amountInput = document.getElementById('donation-amount');
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const paypalLink = document.getElementById('paypal-link');
+    const stripeLink = document.getElementById('stripe-link');
+
+    // Helper to append amount to provider URLs if your provider supports query params.
+    // Adjust parameter names to match your real links (e.g., &amount=, &currency=EUR).
+    function buildUrl(base, amount) {
+      if (!base || base === '#') return base;
+      try {
+        const url = new URL(base);
+        if (amount && Number(amount) > 0) {
+          // Common patterns – change as needed:
+          // PayPal hosted button often ignores amount here and sets on their page,
+          // but leaving it for providers that support it:
+          url.searchParams.set('amount', String(amount));
+          url.searchParams.set('currency', 'EUR');
+        } else {
+          url.searchParams.delete('amount');
+          url.searchParams.delete('currency');
+        }
+        return url.toString();
+      } catch {
+        return base;
+      }
+    }
+
+    function syncLinks() {
+      const amt = Number(amountInput.value);
+      paypalLink.href = buildUrl(paypalLink.href, amt);
+      stripeLink.href = buildUrl(stripeLink.href, amt);
+    }
+
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.getAttribute('data-amount');
+        if (v === 'custom') {
+          amountInput.focus();
+          amountInput.select?.();
+        } else {
+          amountInput.value = v;
+          syncLinks();
+        }
+      });
+    });
+
+    amountInput.addEventListener('input', syncLinks);
+    syncLinks();
+
+    // Copy-to-clipboard
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy') || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          toast('✅ Copied.');
+        } catch {
+          toast('❌ Copy failed.');
+        }
+      });
+    });
+
+    // Tiny toast
+    let toastEl = null;
+    function toast(message) {
+      if (toastEl) toastEl.remove();
+      toastEl = document.createElement('div');
+      toastEl.textContent = message;
+      toastEl.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-3 py-2 rounded-md opacity-90';
+      document.body.appendChild(toastEl);
+      setTimeout(() => toastEl && toastEl.remove(), 2000);
+    }
+  </script>
+</Layout>

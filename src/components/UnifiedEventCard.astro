@@ -1,0 +1,73 @@
+---
+import { t } from '../utils/t';
+
+interface Props {
+  title: string;
+  time: string;
+  location?: string;
+  description?: string;
+  slug: string;
+  lang: string;
+  past?: boolean;
+  registerPath?: string;         // internal link override (optional)
+  upcomingDetailsPath?: string;  // override (optional)
+  pastDetailsPath?: string;      // override (optional)
+}
+
+const {
+  title, time, location, description, slug, lang,
+  past = false, registerPath, upcomingDetailsPath, pastDetailsPath
+} = Astro.props as Props;
+
+const isPast = Boolean(past);
+
+// Details page defaults (keep your current routes)
+const detailsHref = isPast
+  ? (pastDetailsPath || `/${lang}/past-events/${slug}`)
+  : (upcomingDetailsPath || `/${lang}/events/${slug}`);
+
+// Register link defaults:
+// - If you pass registerUrl (external) -> open in new tab
+// - Else, if you pass registerPath (internal) -> use it
+// - Else, fall back to /{lang}/register/{slug}
+//   (Change this if your register route is different, e.g. anchor on details page)
+const defaultRegisterPath = `/${lang}/register/${slug}`;
+const computedRegisterHref =  registerPath || defaultRegisterPath;
+---
+
+<article class={`h-full rounded-2xl shadow-md p-6 bg-white ring-1 ring-black/5 ${isPast ? 'opacity-95' : ''} flex flex-col`}>
+  <div class="flex-1">
+    <header class="flex items-start gap-2 mb-2">
+      <h3 class="text-xl font-semibold mb-2 text-gray-700">🎯 {title}</h3>
+    </header>
+
+    <p class="text-sm mb-1 text-gray-600">📅 {time}</p>
+    <p class="text-sm mb-2 text-gray-600">📍 {location}</p>
+    <p class="text-sm text-slate-600 line-clamp-2">{description}</p>
+  </div>
+
+  <div class="mt-4 flex flex-col gap-2">
+    {isPast ? (
+      <>
+        <span class="text-center py-2 text-sm font-medium text-gray-500 border border-gray-300 rounded">
+          {t('pastEvents.pastEvent', lang) || 'Past Event'}
+        </span>
+        <a href={detailsHref}
+           class="bg-gray-700 text-white text-center py-2 rounded hover:bg-gray-800 transition">
+          {t('pastEvents.viewEvent', lang) || t('events.viewEvent', lang) || 'View Event'}
+        </a>
+      </>
+    ) : (
+      <>
+        <a href={computedRegisterHref}
+           class="bg-[#d7f0f7] text-center py-2 rounded hover:bg-[#bde5f5] transition">
+          {t('events.registerNow', lang) || 'Register Now'}
+        </a>
+        <a href={detailsHref}
+           class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">
+          {t('events.readMore', lang) || 'Read more'}
+        </a>
+      </>
+    )}
+  </div>
+</article>

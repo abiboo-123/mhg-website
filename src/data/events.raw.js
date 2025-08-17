@@ -12,7 +12,9 @@ import { availableMemory } from "process";
     language: ['de', 'en', 'ar'], // Languages available for the event
     tags: [An array of tags like 'spiritual', 'community', 'social'],
     speakers: [an array of speaker names],
-    available: [true/false], // If the event is available for registration
+    attendance: # of attendance , Number of attendees after the event 
+    gallery: [an array of image file names for the event gallery], // Example: ["gallery1.jpg", "gallery2.jpg"]
+    available: [true/false], // If the event is available for registration or still a draft
     past: [true/false] // If the event has already occurred
   }
  */
@@ -48,13 +50,13 @@ import { availableMemory } from "process";
       language: ['de', 'en'],
       tags: ['Gender Relations', 'Islamic Conduct', 'Respect', 'Community', 'Fiqh'],
       speakers: ['Shaykh Osama Al-Dimashqi'],
-      attendance: 85,
+      attendance: 75,
       gallery: [
         "gallery1.jpg",
         "gallery2.jpg",
         "group-photo.jpg"
       ],
-      available: false,
+      available: true,
       past: true
     }
   ];

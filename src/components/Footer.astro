@@ -8,9 +8,11 @@ const { lang } = Astro.props;
   <div class="flex justify-center flex-wrap gap-4 mb-2">
     <a href={links.instagram} class="hover:text-sky-400 transition" target="_blank">{t('social.instagram', lang)}</a>
     <a href={links.whatsapp} class="hover:text-sky-400 transition" target="_blank">{t('social.whatsapp', lang)}</a>
+    <!-- 
     <a href={links.facebook} class="hover:text-sky-400 transition" target="_blank">{t('social.facebook', lang)}</a>
     <a href={links.youtube} class="hover:text-sky-400 transition" target="_blank">{t('social.youtube', lang)}</a>
-  </div>
+     -->
+    </div>
   <p class="mb-1">
     {t('footer.contact', lang)}: <a href={`mailto:${links.email}`} class="underline hover:text-sky-400 transition">{links.email}</a>
   </p>

@@ -50,13 +50,13 @@
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
       ],
-      "attendance": 85,
+      "attendance": 75,
       "gallery": [
         "gallery1.jpg",
         "gallery2.jpg",
         "group-photo.jpg"
       ],
-      "available": false,
+      "available": true,
       "past": true
     }
   ],
@@ -111,13 +111,13 @@
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
       ],
-      "attendance": 85,
+      "attendance": 75,
       "gallery": [
         "gallery1.jpg",
         "gallery2.jpg",
         "group-photo.jpg"
       ],
-      "available": false,
+      "available": true,
       "past": true
     }
   ],
@@ -172,13 +172,13 @@
       "speakers": [
         "Shaykh Osama Al-Dimashqi"
       ],
-      "attendance": 85,
+      "attendance": 75,
       "gallery": [
         "gallery1.jpg",
         "gallery2.jpg",
         "group-photo.jpg"
       ],
-      "available": false,
+      "available": true,
       "past": true
     }
   ]

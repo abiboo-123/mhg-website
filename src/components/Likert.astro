@@ -1,0 +1,38 @@
+---
+// Props:
+// - name: string (radio group name, required)
+// - left: string (left anchor text)
+// - right: string (right anchor text)
+// - required: boolean (optional)
+// - numbers: number[] (optional, defaults to [1,2,3,4,5])
+const {
+  name,
+  left,
+  right,
+  required = false,
+  numbers = [1,2,3,4,5],
+} = Astro.props;
+---
+<div class="space-y-2">
+  <!-- Single-row Likert: radios + numbers under each -->
+  <div class="flex items-end justify-between gap-3">
+    {numbers.map((n: number) => (
+      <label class="flex flex-col items-center" style="flex:1" aria-label={String(n)}>
+        <input
+          type="radio"
+          name={name}
+          value={n}
+          class="accent-[#0369a1] h-5 w-5"
+          {...(required ? { required: true } : {})}
+        />
+        <span class="mt-1 text-xs text-gray-600">{n}</span>
+      </label>
+    ))}
+  </div>
+
+  <!-- Anchors -->
+  <div class="mt-2 flex justify-between text-xs text-gray-600">
+    <span>{left}</span>
+    <span>{right}</span>
+  </div>
+</div>

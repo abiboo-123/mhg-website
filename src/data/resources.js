@@ -1,3 +1,49 @@
+/**
+ * Resources data structure:
+ *
+ * Each section has:
+ * {
+ *   category: {string} - Section title displayed in the UI (e.g. "Mosques in Ingolstadt 🕌"),
+ *   type: {"card"|"links"|"list"} - Determines how the items are rendered:
+ *        - "card": rich resource cards with details
+ *        - "links": a collection of link buttons (with optional footer CTA)
+ *        - "list": a simple plain-text list (lightweight option, e.g. for addresses)
+ *   items: {Array} - List of resources in this section
+ *   footer?: {object} - (optional) footer actions (only applies to "links")
+ * }
+ *
+ * For type "card", each item has:
+ * {
+ *   slug: {string} - Unique identifier for the item,
+ *   name: {string} - Display name of the resource,
+ *   description: {string} - Short description of the resource,
+ *   locationLink?: {string} - (optional) Google Maps link or external location URL,
+ *   location?: {string} - (optional) Address or location description,
+ *   tags?: {string[]} - (optional) Keywords for filtering/styling
+ * }
+ *
+ * For type "links", each item has:
+ * {
+ *   label: {string} - Text shown in the UI (can include emojis),
+ *   href: {string} - URL/path to the resource (internal or external)
+ * }
+ * 
+ * Footer (for "links" sections only):
+ * {
+ *   text?: {string} - Helper text shown above/beside the links,
+ *   linkText?: {string} - (legacy) single CTA label (e.g. "Contact us"),
+ *   href?: {string} - (legacy) single CTA link,
+ *   links?: {Array<{label: string, href: string, external?: boolean}>}
+ *      - (optional) multiple CTA buttons (e.g. App Store / Google Play links)
+ * }
+ *
+ * For type "list", each item has:
+ * {
+ *   name: {string} - Display name of the place/item,
+ *   location?: {string} - Optional detail, like address or note
+ * }
+ */
+
 export const rawResources = [
     {
       category: "Mosques in Ingolstadt 🕌",
@@ -44,19 +90,35 @@ export const rawResources = [
       type: "links",
       items: [
         {
-          label: "🕌 Al-Nour Mosque prayer times PDF (may)",
+          label: "🕌 Al-Nour Mosque prayer times PDF (May)",
           href: "/pdfs/Al_Nour_Mosque_may_2025.pdf",
         },
         {
-          label: "🕌 Al-Nour Mosque prayer times PDF (june)",
+          label: "🕌 Al-Nour Mosque prayer times PDF (June)",
           href: "/pdfs/Al_Nour_Mosque_june_2025.pdf",
+        },
+        {
+          label: "🕌 Al-Nour Mosque prayer times PDF (August)",
+          href: "/pdfs/Al_Nour_Mosque_August_2025.pdf",
         },
       ],
       footer: {
         text: "Need a different month and/or mosque?",
         linkText: "Contact us",
         href: "/contact",
-      },
+        links: [
+          {
+            label: "📱 MAWAQIT on App Store",
+            href: "https://apps.apple.com/us/app/mawaqit-prayer-times-mosque/id1460522683",
+            external: true,
+          },
+          {
+            label: "📱 MAWAQIT on Google Play",
+            href: "https://play.google.com/store/apps/details?id=com.kanout.mawaqit&pcampaignid=web_share",
+            external: true,
+          }
+        ]
+      }
     },
     {
       category: "Halal Restaurants 🍽️",
@@ -85,14 +147,6 @@ export const rawResources = [
           locationLink: "https://maps.app.goo.gl/2SitNoH2b6Ao1sg48",
           location: "Unterer Graben 89, 85049 Ingolstadt",
           tags: ["shawarma", "falafel", "casual dining", "syrian"]
-        },
-        {
-          slug: "serve-alcohol-test",
-          name: "serve alcohol restornat test",
-          description: "Halal-friendly restaurant but serve alcohol. 🌯🥙",
-          locationLink: "https://maps.app.goo.gl",
-          location: "Testing Street 123, Ingolstadt",
-          tags: ["shawarma", "falafel", "casual dining", "syrian", "serve alcohol"]
         }
       ]
     },
