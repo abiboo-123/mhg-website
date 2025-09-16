@@ -20,7 +20,7 @@ type Event = {
 const lang = Astro.params.lang as string;
 const slug = Astro.params.slug as string;
 
-const supportedLangs = ['en', 'de', 'ar'];
+const supportedLangs = ['en', 'de'];
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }
@@ -32,7 +32,6 @@ const event = translatedEvents.find((e: Event) => e.slug === slug);
 const languageLabels: Record<string, string> = {
   en: 'English',
   de: 'German',
-  ar: 'Arabic'
 };
 
 if (!event) {
@@ -44,7 +43,7 @@ if (!event) {
   <section class="max-w-3xl mx-auto px-4 py-12">
     <!-- Back link -->
     <a href={`/${lang}/events`} class="inline-block mb-6 text-[#0369a1] hover:underline text-sm">
-      {lang === 'ar' ? '→' : '←'} {t("pastEvents.backToAllEvents", lang)}
+      ← {t("pastEvents.backToAllEvents", lang)}
     </a>
 
     <!-- Event title -->

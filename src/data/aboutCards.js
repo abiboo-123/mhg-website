@@ -1,3 +1,13 @@
+/**
+ * to create a new card, add a new object to the array with the following structure:
+ * {
+ *  title: "Card Title",
+ * icon: "Card Icon",
+ * text: "Card Description"
+ * }
+ * 
+ */
+
 export const aboutCards = {
   en: [
     {
@@ -14,23 +24,6 @@ export const aboutCards = {
       title: "🎉 Social & Community Events",
       icon: "🤝",
       text: "Trips, welcome parties, collaborations with mosques — building friendships that last."
-    }
-  ],
-  ar: [
-    {
-      title: "📚 الدعم الأكاديمي",
-      icon: "📖",
-      text: "جلسات دراسية، تحضير للامتحانات، ومشاركة الموارد التعليمية لمساعدة الطلاب على النجاح."
-    },
-    {
-      title: "🕌 الأنشطة الدينية",
-      icon: "🕋",
-      text: "صلاة الجمعة، محاضرات إسلامية، حلقات ذكر، وإفطارات رمضان لتغذية إيمانك."
-    },
-    {
-      title: "🎉 الفعاليات الاجتماعية والمجتمعية",
-      icon: "🤝",
-      text: "رحلات، حفلات ترحيبية، تعاون مع المساجد — لبناء صداقات تدوم طويلاً."
     }
   ],
   de: [

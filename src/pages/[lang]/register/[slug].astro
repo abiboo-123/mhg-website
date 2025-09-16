@@ -5,7 +5,7 @@ import eventsData from '../../../data/events.translated.json';
 import { t } from '../../../utils/t';
 
 export async function getStaticPaths() {
-  const langs = ['en', 'de', 'ar'];
+  const langs = ['en', 'de'];
   const paths = langs.flatMap(lang =>
     (eventsData[lang as keyof typeof eventsData] ?? []).map((event) => ({
       params: { lang, slug: event.slug }
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { lang, slug } = Astro.params;
-const supportedLangs = ['en', 'de', 'ar'];
+const supportedLangs = ['en', 'de'];
 
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
@@ -36,7 +36,7 @@ const event = {
 <Layout title={`Register – ${event.title}`} lang={lang}>
   <section class="max-w-2xl mx-auto px-4 py-12">
     <a href={`/${lang}/events/${slug}`} class="text-sm text-[#0369a1] hover:underline block mb-6">
-      {lang == 'ar' ? '→' : '←'} {t("events.backToEvent", lang)} {event.title}
+      ← {t("events.backToEvent", lang)} {event.title}
     </a>
 
     <h1 class="text-3xl font-bold mb-6">📝 {t("events.regesterForEvent", lang)} {event.title}</h1>

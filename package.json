@@ -9,7 +9,8 @@
     "astro": "astro",
     "translate:events": "node scripts/translateEvents.js",
     "translate:resources": "node scripts/translateResources.js",
-    "translate": "npm run translate:events && npm run translate:resources"
+    "translate": "npm run translate:events && npm run translate:resources",
+    "generate:events": "node scripts/generateEventImages.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -19,6 +20,8 @@
     "astro": "^5.9.1",
     "axios": "^1.9.0",
     "node-fetch": "^3.3.2",
+    "satori": "^0.18.3",
+    "sharp": "^0.34.3",
     "tailwindcss": "^3.4.3",
     "translate-google": "^1.5.0",
     "typescript": "^5.9.2"

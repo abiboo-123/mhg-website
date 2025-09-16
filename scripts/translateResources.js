@@ -8,11 +8,11 @@ import translateText, { translateArray, saveCache } from '../src/utils/translate
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const langs = ['de', 'ar'];
+const langs = ['de'];
 const outputPath = path.resolve(__dirname, '../src/data/resources.translated.json');
 
 const run = async () => {
-  const output = { en: rawResources, de: [], ar: [] };
+  const output = { en: rawResources, de: [] };
 
   for (const lang of langs) {
     for (const section of rawResources) {

@@ -20,9 +20,5 @@ export const partners = {
   de:
   [
     
-  ],
-  ar:
-  [
-
   ]
 };

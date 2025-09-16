@@ -5,7 +5,7 @@ import eventsByLang from '../../../data/events.translated.json';
 import Likert from '../../../components/Likert.astro';
 
 // Supported languages
-const supportedLangs = ['en','de','ar'];
+const supportedLangs = ['en','de'];
 
 // Generate a page for every (lang, slug) combo in your data
 export async function getStaticPaths() {
@@ -26,7 +26,6 @@ const eventTitle = ev?.title || decodeURIComponent(slug ?? '').replace(/[-_]/g, 
 
 // Back link: always to /past-events/[slug], arrow flips for Arabic
 const backHref = `/${lang}/past-events/${slug}`;
-const backArrow = lang === 'ar' ? '→' : '←';
 
 // Formspree endpoint (use your real form ID)
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeoznywq';
@@ -39,7 +38,7 @@ const scaleNumbers = [1,2,3,4,5];
 <Layout title={`Feedback – ${eventTitle} – MHG Ingolstadt e. V.`} lang={lang}>
   <section class="max-w-4xl mx-auto px-4 py-10">
     <div class="mb-4">
-      <a href={backHref} class="text-[#0369a1] hover:underline">{backArrow} {t('feedback.backTo', lang) || 'Back to'} {eventTitle}</a>
+      <a href={backHref} class="text-[#0369a1] hover:underline">← {t('feedback.backTo', lang) || 'Back to'} {eventTitle}</a>
     </div>
 
     <h1 class="text-3xl sm:text-4xl font-extrabold mb-6">📝 {t('feedback.title', lang) || 'Feedback for '} {eventTitle}</h1>
@@ -211,14 +210,12 @@ const scaleNumbers = [1,2,3,4,5];
   
       const successMessage = {
         en: '✅ Thank you for your feedback!',
-        de: '✅ Danke für Ihr Feedback!',
-        ar: '✅ شكرًا لملاحظاتك!'
+        de: '✅ Danke für Ihr Feedback!'
       }[lang] || '✅ Thank you for your feedback!';
   
       const failureMessage = {
         en: '❌ Something went wrong. Please try again.',
-        de: '❌ Etwas ist schiefgelaufen. Bitte erneut versuchen.',
-        ar: '❌ حدث خطأ. يُرجى المحاولة مرة أخرى.'
+        de: '❌ Etwas ist schiefgelaufen. Bitte erneut versuchen.'
       }[lang] || '❌ Something went wrong. Please try again.';
   
       if (res.ok) {

@@ -6,7 +6,7 @@ import eventsData from '../../data/events.translated.json';
 import { t } from '../../utils/t';
 
 const { lang } = Astro.params;
-const supportedLangs = ['en', 'de', 'ar'];
+const supportedLangs = ['en', 'de'];
 
 export async function getStaticPaths() {
   return supportedLangs.map(lang => ({ params: { lang } }));

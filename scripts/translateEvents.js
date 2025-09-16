@@ -10,10 +10,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const outputPath = path.resolve(__dirname, '../src/data/events.translated.json');
-const langs = ['de', 'ar'];
+const langs = ['de']; 
 
 const run = async () => {
-  const output = { en: events, de: [], ar: [] };
+  const output = { en: events, de: [] };
 
   for (const lang of langs) {
     for (const event of events) {

@@ -5,7 +5,7 @@ export const GET: APIRoute = async ({ params, url }) => {
   
   const path = url.pathname;
 
-  const isLangPrefixed = /^\/(en|de|ar)(\/|$)/.test(path);
+  const isLangPrefixed = /^\/(en|de)(\/|$)/.test(path);
   if (isLangPrefixed) {
     return new Response(null, { status: 404 });
   }
@@ -18,7 +18,7 @@ export const GET: APIRoute = async ({ params, url }) => {
   return new Response(null, {
     status: 307,
     headers: {
-      Location: `/de/${slug}`,
+      Location: `/en/${slug}`,
     },
   });
 };

@@ -4,74 +4,74 @@ import { t } from '../../utils/t';
 import eventsByLang from '../../data/events.translated.json';
 import UnifiedEventCard from '../../components/UnifiedEventCard.astro';
 
-const { lang } = Astro.params as { lang: 'en' | 'de' | 'ar' };
-const supportedLangs = ['en','de','ar'];
+const { lang } = Astro.params as { lang: 'en' | 'de' };
+const supportedLangs = ['en','de'];
+
 export async function getStaticPaths() {
   return supportedLangs.map(lang => ({ params: { lang } }));
 }
 if (!supportedLangs.includes(lang)) throw new Error(`Invalid language: ${lang}`);
 
-const filter = Astro.url.searchParams.get('filter') ?? 'all';
-const basePath = `/${lang}/events`;
-
 const allEvents = (eventsByLang[lang] ?? []) as any[];
 
-// 1) Only published (available) items
+// 1) Only published
 const published = allEvents.filter(e => e.available === true);
 
-// 2) Split by your 'past' flag
+// 2) Split into upcoming / past
 const upcoming = published.filter(e => e.past !== true);
 const past = published.filter(e => e.past === true);
-
-// 3) Filter selection
-let list: any[] = [];
-if (filter === 'upcoming') list = upcoming;
-else if (filter === 'past') list = past;
-else list = [...upcoming, ...past];
 ---
 
 <Layout title="Events – MHG Ingolstadt e. V." lang={lang}>
-  <!-- Filter bar -->
-  <section class="max-w-7xl mx-auto px-4 pt-8">
-    <div class="flex flex-wrap items-center gap-2">
-      {[
-        {k:'all', label: t('events.filterAll', lang) || 'All'},
-        {k:'upcoming', label: t('events.filterUpcoming', lang) || 'Upcoming'},
-        {k:'past', label: t('events.filterPast', lang) || 'Past'},
-      ].map(f => (
-        <a
-          href={`${basePath}?filter=${f.k}`}
-          aria-current={filter===f.k ? 'page' : undefined}
-          class={`px-3 py-1.5 rounded-full text-sm border
-            ${filter===f.k
-              ? 'bg-[#0369a1] text-white border-[#0369a1]'
-              : 'bg-white text-[#0369a1] border-[#0369a1] hover:bg-blue-50 transition'}`}
-        >
-          {f.label}
-        </a>
-      ))}
+  <!-- Upcoming -->
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">
+      {t('events.filterUpcoming', lang) || 'Upcoming'}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+      {upcoming.length === 0 ? (
+        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600 md:col-span-2 xl:col-span-3">
+          {t('events.noneFound', lang) || 'No upcoming events.'}
+        </div>
+      ) : (
+        upcoming.map(e => (
+          <UnifiedEventCard
+            title={e.title}
+            time={e.date}
+            location={e.location}
+            slug={e.slug}
+            lang={lang}
+            cardImage={e.cardImage}
+            past={false}
+          />
+        ))
+      )}
     </div>
   </section>
 
-  <!-- Grid list -->
-  <section class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-    { list.length === 0 ? (
-      <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600 md:col-span-2 xl:col-span-3">
-        {t('events.noneFound', lang) || 'No events to show.'}
-      </div>
-    ) : (
-      list.map(e => (
-        <UnifiedEventCard
-          title={e.title}
-          time={e.date}
-          location={e.location}
-          description={e.description}
-          slug={e.slug}
-          lang={lang}
-          past={e.past === true}
-          registerPath={`/${lang}/register/${e.slug}`} 
-        />
-      ))
-    ) }
+  <!-- Past -->
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">
+      {t('events.filterPast', lang) || 'Past'}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+      {past.length === 0 ? (
+        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600 md:col-span-2 xl:col-span-3">
+          {t('events.noneFound', lang) || 'No past events.'}
+        </div>
+      ) : (
+        past.map(e => (
+          <UnifiedEventCard
+            title={e.title}
+            time={e.date}
+            location={e.location}
+            slug={e.slug}
+            lang={lang}
+            cardImage={e.cardImage}
+            past={true}
+          />
+        ))
+      )}
+    </div>
   </section>
 </Layout>

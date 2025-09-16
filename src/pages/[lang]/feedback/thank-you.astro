@@ -3,7 +3,7 @@ import Layout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../utils/t';
 
 const { lang } = Astro.params;
-const supportedLangs = ['en', 'de', 'ar'];
+const supportedLangs = ['en', 'de'];
 
 // Ensure only allowed languages are used
 export async function getStaticPaths() {
@@ -29,7 +29,7 @@ if (!supportedLangs.includes(lang)) {
         href={`/${lang}/events`}
         class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition"
       >
-      {lang == 'ar' ? '→' : '←'} {t("register.backToEvents", lang)}
+      ← {t("register.backToEvents", lang)}
       </a>
     </div>
   </section>

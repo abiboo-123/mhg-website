@@ -8,11 +8,6 @@ export const team = {
     { name: "Sanga Badri", role: "Vice President", image: Sanga_Badri },
     { name: "Habib Gouda", role: "Lead Software Developer", image: Habib_Gouda }
   ],
-  ar:[
-    { name: "أحمد اوس هاني", role: "الرئيس", image: Ahmed_Aous },
-    { name: "سانجا بادري", role: "نائب الرئيس", image: Sanga_Badri },
-    { name: "حبيب جودة", role: "رئيس مطوري البرمجيات", image: Habib_Gouda }
-  ],
   de: [
     { name: "Ahmed Aous Hani", role: "Präsident", image: Ahmed_Aous },
     { name: "Sanga Badri", role: "Vizepräsident", image: Sanga_Badri },

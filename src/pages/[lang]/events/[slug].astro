@@ -13,12 +13,13 @@ type Event = {
   speakers?: string[];
   image: string | null;
   language?: string[];
+  registerAvailable?: boolean;
 };
 
 const lang = Astro.params.lang as string;
 const slug = Astro.params.slug as string;
 
-const supportedLangs = ['en', 'de', 'ar'];
+const supportedLangs = ['en', 'de'];
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }
@@ -29,8 +30,7 @@ const event = translatedEvents.find((e: Event) => e.slug === slug);
 
 const languageLabels: Record<string, string> = {
   en: 'English',
-  de: 'German',
-  ar: 'Arabic'
+  de: 'German'
 };
 
 if (!event) {
@@ -42,7 +42,7 @@ const imagePath = `/events/${event.slug}.jpg`;
 <Layout title={event.title + ' – MHG Ingolstadt'} lang={lang}>
   <section class="max-w-3xl mx-auto px-4 py-12">
     <a href=`/${lang}/events` class="inline-block mb-4 text-[#0369a1] hover:underline text-sm">
-      {lang == 'ar' ? '→' : '←'} {t("events.backToAllEvents", lang)}
+      ← {t("events.backToAllEvents", lang)}
       </a>
       
     <h1 class="text-3xl font-bold mb-4">{event.title}</h1>
@@ -81,11 +81,13 @@ const imagePath = `/events/${event.slug}.jpg`;
     </div>
     )}
 
-    <a
-    href={`/${lang}/register/${event.slug}`}
-    class="inline-block bg-[#0369a1] text-white py-2 px-4 rounded hover:bg-blue-800 transition"
-    >
-    {t("events.registerNow", lang)}
-    </a>
+    {event.registerAvailable && (
+      <a
+        href={`/${lang}/register/${event.slug}`}
+        class="inline-block bg-[#0369a1] text-white py-2 px-4 rounded hover:bg-blue-800 transition"
+      >
+        {t("events.registerNow", lang)}
+      </a>
+    )}
   </section>
 </Layout>

@@ -14,7 +14,7 @@ const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
-  <body class="bg-[#eaf7fb] text-slate-800 font-sans" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+  <body class="bg-[#eaf7fb] text-slate-800 font-sans">
     <Header lang = { lang }/>
     <main class="min-h-screen animate-fadeInUp">
       <slot />
