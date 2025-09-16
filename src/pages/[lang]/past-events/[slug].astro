@@ -11,7 +11,6 @@ type Event = {
   description: string;
   tags?: string[];
   speakers?: string[];
-  image: string | null;
   language?: string[];
   attendance?: number;
   gallery?: string[];
@@ -46,16 +45,21 @@ if (!event) {
       ← {t("pastEvents.backToAllEvents", lang)}
     </a>
 
-    <!-- Event title -->
-    <h1 class="text-3xl font-bold mb-6 text-center">{event.title}</h1>
 
+    
     <!-- Structured card layout -->
     <div class="bg-white rounded-xl p-6 shadow-md mb-10">
+      <!-- Event title -->
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 mb-8">
+        {event.title}
+      </h1>
+      
+      <!-- Event details grid -->
       <div class="grid gap-4 text-sm text-gray-700">
         <div>📅 <strong>{t("pastEvents.date", lang)}:</strong> {event.date}</div>
         <div>📍 <strong>{t("pastEvents.location", lang)}:</strong> {event.location}</div>
 
-        {event.speakers && (
+        {event.speakers && event.speakers.length > 0 && (
           <div>🎤 <strong>{t("pastEvents.speaker", lang)}:</strong> {event.speakers.join(', ')}</div>
         )}
 
@@ -91,19 +95,39 @@ if (!event) {
     <!-- Gallery with hover effect -->
     {event.gallery && event.gallery.length > 0 && (
       <div class="mb-10">
-        <h3 class="text-lg font-semibold mb-3">{t("pastEvents.gallery", lang) || "Event Gallery"}</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {event.gallery.map((img) => (
-            <img
-              src={`/gallery/${img}`}
-              alt="Gallery image"
-              class="rounded-md shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-md"
-              loading="lazy"
-            />
-          ))}
+        <h3 class="text-lg font-semibold mb-3">
+          {t("pastEvents.gallery", lang) || "Event Gallery"}
+        </h3>
+        <div class="gallery">
+          {event.gallery.map((item) => {
+            const isVideo = item.endsWith('.mp4') || item.endsWith('.webm') || item.endsWith('.ogg');
+            return (
+              isVideo ? (
+              <div class="video-wrapper">
+                <video
+                  src={`/gallery/${item}`}
+                  muted
+                  loop
+                  playsinline
+                  class="rounded-md shadow-sm w-full object-cover"
+                  onmouseover="this.play()"
+                  onmouseout="this.pause(); this.currentTime = 0;"
+                ></video>
+                <div class="video-badge">▶</div>
+              </div>
+              ) : (
+                <img
+                  src={`/gallery/${item}`}
+                  alt="Gallery media"
+                  class="rounded-md shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-md w-full object-cover h-full"
+                  loading="lazy"
+                />
+              )
+            );
+          })}
         </div>
       </div>
-    )}
+    )}    
 
     <!-- Feedback button -->
     <a

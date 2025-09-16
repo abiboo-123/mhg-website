@@ -29,6 +29,7 @@ async function generateImages() {
       const fileName = `${event.slug}-${lang}.png`;
       const publicUrl = `/events-banners/${fileName}`;
       const filePath = path.join(outputDir, fileName);
+      const titleFontSize = event.title.length > 40 ? "32px" : "42px";
 
       // Create SVG with title
       const svg = await satori(
@@ -46,7 +47,7 @@ async function generateImages() {
               color: "white",
               fontFamily: "Inter",
               textAlign: "center",
-              padding: "40px",
+              padding: "80px",
               borderRadius: "16px",
             },
             children: [
@@ -54,9 +55,13 @@ async function generateImages() {
                 type: "h1",
                 props: {
                   style: {
-                    fontSize: "42px",
+                    fontSize: titleFontSize,
                     fontWeight: "700",
                     marginBottom: "20px",
+                    maxWidth: "720px",
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    textAlign: "center",
                   },
                   children: event.title,
                 },

@@ -28,3 +28,66 @@
 .animate-fadeInUp {
   animation: fadeInUp 1s ease-out forwards;
 }
+
+/* put this in your global CSS or a styles block */
+.mySwiper .swiper-slide {
+  display: flex;
+  height: auto !important;   /* let it size to card */
+}
+
+.mySwiper .swiper-slide > * {
+  flex: 1;   /* make card stretch full slide height */
+}
+
+.gallery {
+  column-count: 2;       /* mobile: 2 columns */
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .gallery {
+    column-count: 3;     /* sm+: 3 columns */
+  }
+}
+
+.gallery img,
+.gallery video {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  break-inside: avoid;   /* prevent breaking inside columns */
+}
+
+.gallery video {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  break-inside: avoid;
+  object-fit: cover;
+  max-height: 500px; /* keeps consistency with tall portrait images */
+}
+
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.video-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem; /* change to left:0.5rem; if you prefer top-left */
+  font-size: 1rem;        /* smaller icon */
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 9999px;  /* circle */
+  padding: 0.3rem 0.4rem;
+  pointer-events: none;   /* doesn’t block hover */
+}
+
+.video-wrapper:hover .video-badge {
+  opacity: 0;
+}
+

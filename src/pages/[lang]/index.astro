@@ -4,6 +4,10 @@ import { t } from '../../utils/t.js';
 import eventsByLang from '../../data/events.translated.json';
 import UnifiedEventCard from '../../components/UnifiedEventCard.astro';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 const { lang } = Astro.params as { lang: 'en' | 'de' };
 const supportedLangs = ['en', 'de'];
 
@@ -43,6 +47,72 @@ const highlighted = allEvents.filter(
       {t('index.joinUs', lang)}
     </a>
   </section>
+
+  
+  <!-- Highlighted Events Section -->
+  {highlighted.length > 0 && (
+    <section class="max-w-7xl mx-auto px-4 py-2">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-bold">
+          {t('index.highlightedEvents', lang) || 'Highlighted Events'}
+        </h2>
+        <a
+          href={`/${lang}/events`}
+          class="text-[#0369a1] hover:underline font-medium"
+        >
+          {t('index.viewAllEvents', lang) || 'View all events'} →
+        </a>
+      </div>
+
+      <!-- Swiper -->
+      <section class="max-w-7xl mx-auto px-4 pb-10 relative">
+        <div class="swiper mySwiper overflow-hidden max-w-6xl">
+          <div class="swiper-wrapper">
+            {highlighted.map((e) => (
+              <div class="swiper-slide h-auto">
+                <UnifiedEventCard
+                  title={e.title}
+                  time={e.date}
+                  location={e.location}
+                  slug={e.slug}
+                  lang={lang}
+                  cardImage={e.cardImage}
+                  past={e.past === true}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- arrows -->
+        <div class="swiper-button-prev absolute top-1/2 -left-6 z-10"></div>
+        <div class="swiper-button-next absolute top-1/2 -right-6 z-10"></div>
+
+        <!-- pagination -->
+        <div class="swiper-pagination absolute bottom-0 left-1/2 -translate-x-1/2"></div>
+    </section>
+    <script>
+        import Swiper from 'swiper';
+        import { Navigation, Pagination } from 'swiper/modules';
+
+        new Swiper('.mySwiper', {
+          modules: [Navigation, Pagination],
+          spaceBetween: 20,
+          slidesPerView: 1,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: { el: '.swiper-pagination', clickable: true },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
+          },
+        });
+      </script>
+
+    </section>
+  )}
 
   <!-- Highlights Section -->
   <section
@@ -84,40 +154,4 @@ const highlighted = allEvents.filter(
       </a>
     </div>
   </section>
-
-  <!-- Highlighted Events Section -->
-  {highlighted.length > 0 && (
-    <section class="max-w-7xl mx-auto px-4 py-12">
-      <div class="flex items-center justify-between mb-6">
-        <!-- Left heading -->
-        <h2 class="text-2xl font-bold">
-          {t('index.highlightedEvents', lang) || 'Highlighted Events'}
-        </h2>
-
-        <!-- Right link -->
-        <a
-          href={`/${lang}/events`}
-          class="text-[#0369a1] hover:underline font-medium"
-        >
-          {t('index.viewAllEvents', lang) || 'View all events'} →
-        </a>
-      </div>
-
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch"
-      >
-        {highlighted.map((e) => (
-          <UnifiedEventCard
-            title={e.title}
-            time={e.date}
-            location={e.location}
-            slug={e.slug}
-            lang={lang}
-            cardImage={e.cardImage}
-            past={e.past === true}
-          />
-        ))}
-      </div>
-    </section>
-  )}
 </Layout>

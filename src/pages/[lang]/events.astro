@@ -4,6 +4,10 @@ import { t } from '../../utils/t';
 import eventsByLang from '../../data/events.translated.json';
 import UnifiedEventCard from '../../components/UnifiedEventCard.astro';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 const { lang } = Astro.params as { lang: 'en' | 'de' };
 const supportedLangs = ['en','de'];
 
@@ -13,65 +17,123 @@ export async function getStaticPaths() {
 if (!supportedLangs.includes(lang)) throw new Error(`Invalid language: ${lang}`);
 
 const allEvents = (eventsByLang[lang] ?? []) as any[];
-
-// 1) Only published
 const published = allEvents.filter(e => e.available === true);
 
-// 2) Split into upcoming / past
+// Split into upcoming / past
 const upcoming = published.filter(e => e.past !== true);
 const past = published.filter(e => e.past === true);
 ---
 
 <Layout title="Events – MHG Ingolstadt e. V." lang={lang}>
+
   <!-- Upcoming -->
-  <section class="max-w-7xl mx-auto px-4 py-6">
+  <section class="max-w-7xl mx-auto px-4 py-9 relative">
     <h2 class="text-xl font-semibold mb-4">
       {t('events.filterUpcoming', lang) || 'Upcoming'}
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-      {upcoming.length === 0 ? (
-        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600 md:col-span-2 xl:col-span-3">
-          {t('events.noneFound', lang) || 'No upcoming events.'}
+
+    {upcoming.length === 0 ? (
+      <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
+        {t('events.noneFound', lang) || 'No upcoming events.'}
+      </div>
+    ) : (
+      <div class="swiper mySwiper upcomingSwiper overflow-hidden pb-14 max-w-6xl">
+        <div class="swiper-wrapper">
+          {upcoming.map(e => (
+            <div class="swiper-slide h-auto">
+              <UnifiedEventCard
+                title={e.title}
+                time={e.date}
+                location={e.location}
+                slug={e.slug}
+                lang={lang}
+                cardImage={e.cardImage}
+                past={false}
+              />
+            </div>
+          ))}
         </div>
-      ) : (
-        upcoming.map(e => (
-          <UnifiedEventCard
-            title={e.title}
-            time={e.date}
-            location={e.location}
-            slug={e.slug}
-            lang={lang}
-            cardImage={e.cardImage}
-            past={false}
-          />
-        ))
-      )}
-    </div>
+      </div>
+    )}
+
+    <!-- arrows -->
+    <div class="swiper-button-prev upcomingPrev absolute top-1/2 -left-6 z-10"></div>
+    <div class="swiper-button-next upcomingNext absolute top-1/2 -right-6 z-10"></div>
+
+    <!-- pagination -->
+    <div class="swiper-pagination upcomingPag absolute bottom-0 left-1/2 -translate-x-1/2"></div>
   </section>
 
   <!-- Past -->
-  <section class="max-w-7xl mx-auto px-4 py-6">
+  <section class="max-w-7xl mx-auto px-4 py-9 relative">
     <h2 class="text-xl font-semibold mb-4">
       {t('events.filterPast', lang) || 'Past'}
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-      {past.length === 0 ? (
-        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600 md:col-span-2 xl:col-span-3">
-          {t('events.noneFound', lang) || 'No past events.'}
+
+    {past.length === 0 ? (
+      <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
+        {t('events.noneFound', lang) || 'No past events.'}
+      </div>
+    ) : (
+      <div class="swiper mySwiper pastSwiper overflow-hidden pb-14 max-w-6xl">
+        <div class="swiper-wrapper">
+          {past.map(e => (
+            <div class="swiper-slide h-auto">
+              <UnifiedEventCard
+                title={e.title}
+                time={e.date}
+                location={e.location}
+                slug={e.slug}
+                lang={lang}
+                cardImage={e.cardImage}
+                past={true}
+              />
+            </div>
+          ))}
         </div>
-      ) : (
-        past.map(e => (
-          <UnifiedEventCard
-            title={e.title}
-            time={e.date}
-            location={e.location}
-            slug={e.slug}
-            lang={lang}
-            cardImage={e.cardImage}
-            past={true}
-          />
-        ))
-      )}
-    </div>
+      </div>
+    )}
+
+    <!-- arrows -->
+    <div class="swiper-button-prev pastPrev absolute top-1/2 -left-6 z-10"></div>
+    <div class="swiper-button-next pastNext absolute top-1/2 -right-6 z-10"></div>
+
+    <!-- pagination -->
+    <div class="swiper-pagination pastPag absolute bottom-0 left-1/2 -translate-x-1/2"></div>
   </section>
+
+  <script>
+    import Swiper from 'swiper';
+    import { Navigation, Pagination } from 'swiper/modules';
+
+    new Swiper('.upcomingSwiper', {
+      modules: [Navigation, Pagination],
+      spaceBetween: 20,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.upcomingNext',
+        prevEl: '.upcomingPrev',
+      },
+      pagination: { el: '.upcomingPag', clickable: true },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1280: { slidesPerView: 3 },
+      },
+    });
+
+    new Swiper('.pastSwiper', {
+      modules: [Navigation, Pagination],
+      spaceBetween: 20,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.pastNext',
+        prevEl: '.pastPrev',
+      },
+      pagination: { el: '.pastPag', clickable: true },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1280: { slidesPerView: 3 },
+      },
+    });
+  </script>
 </Layout>
