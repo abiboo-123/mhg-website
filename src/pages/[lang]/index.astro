@@ -48,6 +48,46 @@ const highlighted = allEvents.filter(
     </a>
   </section>
 
+  <!-- Highlights Section -->
+  <section
+    class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-12 max-w-7xl mx-auto"
+  >
+    <div
+      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
+    >
+      <h3 class="text-xl font-semibold mb-2">📖 {t('nav.about', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700">
+        {t('index.aboutCardDescription', lang)}
+      </p>
+      <a href={`/${lang}/about`} class="text-[#0369a1] underline">
+        {t('index.readMore', lang)}
+      </a>
+    </div>
+
+    <div
+      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
+    >
+      <h3 class="text-xl font-semibold mb-2">🎊 {t('nav.events', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700">
+        {t('index.eventsCardDescription', lang)}
+      </p>
+      <a href={`/${lang}/events`} class="text-[#0369a1] underline">
+        {t('index.viewEvents', lang)}
+      </a>
+    </div>
+
+    <div
+      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
+    >
+      <h3 class="text-xl font-semibold mb-2">🧭 {t('nav.resources', lang)}</h3>
+      <p class="text-sm mb-3 text-gray-700">
+        {t('index.resourcesCardDescription', lang)}
+      </p>
+      <a href={`/${lang}/resources`} class="text-[#0369a1] underline">
+        {t('index.exploreResources', lang)}
+      </a>
+    </div>
+  </section>
   
   <!-- Highlighted Events Section -->
   {highlighted.length > 0 && (
@@ -113,45 +153,4 @@ const highlighted = allEvents.filter(
 
     </section>
   )}
-
-  <!-- Highlights Section -->
-  <section
-    class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 py-12 max-w-7xl mx-auto"
-  >
-    <div
-      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
-    >
-      <h3 class="text-xl font-semibold mb-2">📖 {t('nav.about', lang)}</h3>
-      <p class="text-sm mb-3 text-gray-700">
-        {t('index.aboutCardDescription', lang)}
-      </p>
-      <a href={`/${lang}/about`} class="text-[#0369a1] underline">
-        {t('index.readMore', lang)}
-      </a>
-    </div>
-
-    <div
-      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
-    >
-      <h3 class="text-xl font-semibold mb-2">🎊 {t('nav.events', lang)}</h3>
-      <p class="text-sm mb-3 text-gray-700">
-        {t('index.eventsCardDescription', lang)}
-      </p>
-      <a href={`/${lang}/events`} class="text-[#0369a1] underline">
-        {t('index.viewEvents', lang)}
-      </a>
-    </div>
-
-    <div
-      class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-transform hover:scale-[1.02]"
-    >
-      <h3 class="text-xl font-semibold mb-2">🧭 {t('nav.resources', lang)}</h3>
-      <p class="text-sm mb-3 text-gray-700">
-        {t('index.resourcesCardDescription', lang)}
-      </p>
-      <a href={`/${lang}/resources`} class="text-[#0369a1] underline">
-        {t('index.exploreResources', lang)}
-      </a>
-    </div>
-  </section>
 </Layout>

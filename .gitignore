@@ -26,3 +26,6 @@ venv/
 
 # jetbrains setting folder
 .idea/
+
+# Gallery images
+public/gallery/

@@ -127,6 +127,7 @@ export const events = [
     registerAvailable: false
   },  
   //--------------------- Past Events ---------------------//
+  // shaykh taha ali talk june 2025
   {
     slug: 'shaykh-taha-ali-talk-june-2025',
     title: 'Shaykh Taha Ali: Helper not Executioner',
@@ -140,17 +141,18 @@ export const events = [
     speakers: ['Shaykh Taha Ali Zeidan'],
     attendance: 20,
     gallery: [
-      "shaykh-taha-ali-talk-june-2025/IMG_4261.jpg",
-      "shaykh-taha-ali-talk-june-2025/IMG_4264.jpg",
-      "shaykh-taha-ali-talk-june-2025/IMG_4266.jpg",
-      "shaykh-taha-ali-talk-june-2025/IMG_4277.jpg",
-      "shaykh-taha-ali-talk-june-2025/IMG_4274.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063430/IMG_4266_owjnqf.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063479/IMG_4261_yspbpp.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063479/IMG_4277_amqsg1.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063481/IMG_4264_sarz15.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1758063598/IMG_4274_rpgr67.mp4",
     ],
     available: true,
     past: true,
     highlighted: false,
     registerAvailable: false
   },
+  // eid celebration june 2025
   {
     slug: 'eid-celebration-june-2025',
     title: 'Eid Celebration – Kahoot, Shared Dishes',
@@ -163,21 +165,22 @@ export const events = [
     speakers: [],
     attendance: 40,
     gallery: [
-      'eid-celebration-june-2025/IMG_4043.jpg',
-      'eid-celebration-june-2025/IMG_4046.jpg',
-      'eid-celebration-june-2025/IMG_4069.jpg',
-      'eid-celebration-june-2025/IMG_4075.jpg',
-      'eid-celebration-june-2025/IMG_4078.jpg',
-      'eid-celebration-june-2025/IMG_4080.jpg',
-      'eid-celebration-june-2025/IMG_4092.jpg',
-      'eid-celebration-june-2025/IMG_4115.jpg',
-      'eid-celebration-june-2025/IMG_4081.mp4',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063188/IMG_4115_pfel40.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063182/IMG_4092_x6qgxu.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063160/IMG_4080_iwmvvi.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063158/IMG_4046_oce7xf.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063154/IMG_4043_a9neys.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063151/IMG_4078_risglc.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063143/IMG_4075_uk8nke.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063139/IMG_4069_raahyl.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/video/upload/v1758063376/IMG_4081_e8erdz.mp4',
     ],
     available: true,
     past: true,
     highlighted: false,
     registerAvailable: false
   },
+  // priorities of muslim youth in germany may 2025
   {
     slug: 'priorities-of-muslim-youth-in-germany',
     title: 'Priorities of Muslim Youth in Germany',
@@ -191,11 +194,11 @@ export const events = [
     speakers: ['Abdelhak Rabah'],
     attendance: 30,
     gallery: [
-      'priorities-of-muslim-youth-in-germany/IMG_3292.jpg',
-      'priorities-of-muslim-youth-in-germany/IMG_3298.jpg',
-      'priorities-of-muslim-youth-in-germany/IMG_3299.jpg',
-      'priorities-of-muslim-youth-in-germany/IMG_3301.jpg',
-      'priorities-of-muslim-youth-in-germany/IMG_3310.mp4'
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063423/IMG_3298_o7ysio.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063427/IMG_3299_pandzc.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063439/IMG_3292_iswvbl.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063454/IMG_3301_nksqlr.jpg',
+      'https://res.cloudinary.com/dzu5pa8ut/video/upload/v1758063517/IMG_3310_zzkvjb.mp4'
     ],
     available: true,
     past: true,

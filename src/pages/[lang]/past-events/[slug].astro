@@ -105,7 +105,7 @@ if (!event) {
               isVideo ? (
               <div class="video-wrapper">
                 <video
-                  src={`/gallery/${item}`}
+                  src={item}
                   muted
                   loop
                   playsinline
@@ -117,7 +117,7 @@ if (!event) {
               </div>
               ) : (
                 <img
-                  src={`/gallery/${item}`}
+                  src={item}
                   alt="Gallery media"
                   class="rounded-md shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-md w-full object-cover h-full"
                   loading="lazy"
