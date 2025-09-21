@@ -118,7 +118,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": false,
       "registerAvailable": false
@@ -370,7 +370,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": false,
       "registerAvailable": false

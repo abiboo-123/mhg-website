@@ -108,7 +108,7 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
     highlighted: false,
     registerAvailable: false
