@@ -9,122 +9,99 @@
           "name": "THI Prayer Room",
           "locationLink": "https://maps.app.goo.gl/uqQjbNTWZvRk9Bdd8",
           "location": "Building Z, First Floor",
-          "description": "Available Monday–Friday, 8:00–17:30",
-          "tags": ["prayer", "campus", "student life"]
+          "description": "Prayer space available Monday–Friday, 8:00–17:30.",
+          "tags": [
+            "prayer",
+            "campus",
+            "student life"
+          ]
         },
         {
-          "slug": "ditib-ingolstadt-mosque",
-          "name": "DITIB Ingolstadt Mosque",
+          "slug": "ditib-kocatepe-mosque",
+          "name": "DITIB Kocatepe Mosque",
           "locationLink": "https://maps.app.goo.gl/XB211WLYNUoE5AAw8",
           "location": "Manisa Str. 1, 85057 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in Turkish / German",
-          "tags": ["prayer", "mosque", "turkish", "community"]
+          "description": "Friday prayer 13:30. Khutba in Turkish / German.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "turkish",
+            "community"
+          ]
+        },
+        {
+          "slug": "milligorues-mosque",
+          "name": "Islamische Gemeinschaft Millî Görüş Ingolstadt e.V.",
+          "location": "Schillerstraße 6, 85055 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/WpW3NYR6MtFXBs6g7",
+          "description": "Friday prayer 13:30.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "community"
+          ]
         },
         {
           "slug": "al-nour-mosque",
           "name": "Al-Nour Mosque",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Friday prayer 13:00 (winter) / 14:45 (summer), Khutba in Arabic",
-          "tags": ["prayer", "mosque", "arabic", "community"]
-        },
-        {
-          "slug": "as-salam-mosque",
-          "name": "As-Salam Mosque (Die Initiative e.V.)",
-          "location": "Roderstraße 44, 85055 Ingolstadt",
-          "description": "Friday prayer 13:00 (winter) / 15:00 (summer), Khutba in Arabic / German",
-          "tags": ["prayer", "mosque", "community", "events"]
-        },
-        {
-          "slug": "ayasofya-mosque",
-          "name": "Ayasofya Mosque",
-          "location": "Schillerstraße 8, 85055 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in Turkish",
-          "tags": ["prayer", "mosque", "turkish"]
+          "description": "Friday prayer 13:00 (winter) / 14:45 (summer). Khutba in Arabic.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "arabic",
+            "community"
+          ]
         },
         {
           "slug": "imam-azam-mosque",
           "name": "Imam-Azam Mosque",
           "location": "Hindenburgstraße 23A, 85057 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in Turkish",
-          "tags": ["prayer", "mosque", "turkish"]
+          "locationLink": "https://maps.app.goo.gl/NRksigRaWBzpPWkS9",
+          "description": "Friday prayer 13:30. Khutba in Turkish.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "turkish"
+          ]
         },
         {
           "slug": "zaytounah-mosque",
           "name": "Zaytounah Mosque",
           "location": "Ettinger Str. 20, 85057 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in Arabic / German",
-          "tags": ["prayer", "mosque", "arabic", "german"]
+          "LocationLink": "https://maps.app.goo.gl/b3pGPgVKS2cVPHjt7",
+          "description": "Friday prayer 13:30. Khutba in Arabic / German.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "arabic",
+            "german"
+          ]
         },
         {
           "slug": "buhara-mosque",
           "name": "Buhara e.V. Mosque",
           "location": "Liebigstraße 24a, 85057 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in German",
-          "tags": ["prayer", "mosque", "german"]
+          "locationLink": "https://maps.app.goo.gl/H87d1rzq2rnBuZfD6",
+          "description": "Friday prayer 13:30. Khutba in German.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "german"
+          ]
         },
         {
           "slug": "xhamia-mosque",
           "name": "Xhamia Mosque (Albanian Mosque)",
           "locationLink": "https://maps.app.goo.gl/9fvjuowGArekpbKUA",
           "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
-          "description": "Friday prayer 13:30, Khutba in Albanian",
-          "tags": ["prayer", "mosque", "albanian"]
-        }
-      ]
-    },
-    {
-      "category": "Halal Restaurants 🍽️",
-      "type": "card",
-      "items": [
-        {
-          "slug": "safran",
-          "name": "Safran",
-          "location": "Schmalzingergasse 15, 85049 Ingolstadt",
-          "description": "Indian restaurant with halal options — authentic spices & cozy atmosphere.",
-          "tags": ["indian", "halal-options", "dining"]
-        },
-        {
-          "slug": "sultans-kebab",
-          "name": "Sultan’s Kebab",
-          "location": "Kreuzstraße 5, 85049 Ingolstadt",
-          "description": "Popular for delicious kebabs & friendly service — ideal for quick meals.",
-          "tags": ["kebab", "fast food", "casual"]
-        },
-        {
-          "slug": "dolapi-doener",
-          "name": "Dölapi Döner Kebap Imbiss",
-          "location": "Schillerstraße 61, 85055 Ingolstadt",
-          "description": "Well-known for döner, pizza & fast food — generous portions & fast service.",
-          "tags": ["döner", "pizza", "fast food"]
-        },
-        {
-          "slug": "kurt-doener",
-          "name": "Kurt Döner Ingolstadt",
-          "location": "Münchener Str. 231, 85051 Ingolstadt",
-          "description": "Popular döner spot with high customer satisfaction.",
-          "tags": ["döner", "fast food"]
-        },
-        {
-          "slug": "maharani",
-          "name": "Maharani Indian Restaurant",
-          "location": "Friedrichshofener Str. 16, 85049 Ingolstadt",
-          "description": "Indian restaurant with halal options — known for authentic cuisine.",
-          "tags": ["indian", "halal-options", "dining"]
-        },
-        {
-          "slug": "indian-palace",
-          "name": "Indian Palace Ingolstadt",
-          "location": "Haunwöhrer Str. 81, 85051 Ingolstadt",
-          "description": "Indian buffet restaurant with halal options — loved for variety & taste.",
-          "tags": ["indian", "halal-options", "buffet"]
-        },
-        {
-          "slug": "dil-doener",
-          "name": "Dil Döner",
-          "location": "Proviantstraße 12, 85049 Ingolstadt",
-          "description": "Turkish restaurant with halal dishes — quick preparation & tasty combos.",
-          "tags": ["turkish", "döner", "fast food"]
+          "description": "Friday prayer 13:30. Khutba in Albanian.",
+          "tags": [
+            "prayer",
+            "mosque",
+            "albanian"
+          ]
         }
       ]
     },
@@ -133,7 +110,7 @@
       "type": "links",
       "items": [
         {
-          "label": "🕌 Al-Nour Mosque prayer times PDF (september)",
+          "label": "🕌 Al-Nour Mosque prayer times PDF (September)",
           "href": "/pdfs/Al_Nour_Mosque_sep_2025.pdf"
         },
         {
@@ -141,12 +118,12 @@
           "href": "/pdfs/Al_Nour_Mosque_August_2025.pdf"
         },
         {
-          "label": "🕌 Al-Nour Mosque prayer times PDF (May)",
-          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf"
-        },
-        {
           "label": "🕌 Al-Nour Mosque prayer times PDF (June)",
           "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf"
+        },
+        {
+          "label": "🕌 Al-Nour Mosque prayer times PDF (May)",
+          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf"
         }
       ],
       "footer": {
@@ -168,6 +145,146 @@
       }
     },
     {
+      "category": "Halal Restaurants 🍽️",
+      "type": "card",
+      "items": [
+        {
+          "slug": "safran",
+          "name": "Safran",
+          "location": "Schmalzingergasse 15, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/RMZ7SFZ5hHCDqmHSA",
+          "description": "Indian restaurant with halal options, authentic spices and cozy atmosphere.",
+          "tags": [
+            "indian",
+            "halal-options",
+            "dining"
+          ]
+        },
+        {
+          "slug": "sultans-kebab",
+          "name": "Sultan’s Kebab",
+          "location": "Kreuzstraße 5, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/2e88QtcNXuqXrd22A",
+          "description": "Turkish fast food spot, popular for kebabs and friendly service.",
+          "tags": [
+            "kebab",
+            "fast food",
+            "casual"
+          ]
+        },
+        {
+          "slug": "dolapi-doener",
+          "name": "Dölapi Döner Kebap Imbiss",
+          "location": "Schillerstraße 61, 85055 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/SQnWiUjv71z2maiE7",
+          "description": "Casual spot known for döner, pizza, and generous portions.",
+          "tags": [
+            "döner",
+            "pizza",
+            "fast food"
+          ]
+        },
+        {
+          "slug": "kurt-doener",
+          "name": "Kurt Döner Ingolstadt",
+          "location": "Münchener Str. 231, 85051 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/GBnpyefBGdZZHJnu8",
+          "description": "Well-rated döner shop with high customer satisfaction.",
+          "tags": [
+            "döner",
+            "fast food"
+          ]
+        },
+        {
+          "slug": "maharani",
+          "name": "Maharani Indian Restaurant",
+          "location": "Friedrichshofener Str. 16, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/hA1u9XGD2dVGShvR8",
+          "description": "Indian restaurant with halal options, appreciated for authentic cuisine.",
+          "tags": [
+            "indian",
+            "halal-options",
+            "dining"
+          ]
+        },
+        {
+          "slug": "saray-grill",
+          "name": "Saray Grill",
+          "location": "Harderstraße 27, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/MQgNPYoX8y5YyM3k9",
+          "description": "Popular Turkish grill serving döner, kebab, and quick halal meals, known for good taste and friendly service.",
+          "tags": [
+            "döner",
+            "kebab",
+            "fast food",
+            "casual dining",
+            "turkish"
+          ]
+        },
+        {
+          "slug": "indian-palace",
+          "name": "Indian Palace Ingolstadt",
+          "location": "Haunwöhrer Str. 81, 85051 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/uzbG2NrV3XCHxvdJ6",
+          "description": "Buffet-style Indian restaurant with halal options and wide variety.",
+          "tags": [
+            "indian",
+            "halal-options",
+            "buffet"
+          ]
+        },
+        {
+          "slug": "dil-doener",
+          "name": "Dil Döner",
+          "location": "Proviantstraße 12, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/7gq27C16VWXUseys7",
+          "description": "Turkish fast food with halal dishes and quick service.",
+          "tags": [
+            "turkish",
+            "döner",
+            "fast food"
+          ]
+        },
+        {
+          "slug": "ziyafet-restaurant",
+          "name": "Ziyafet Restaurant",
+          "location": "Hindenburgstraße 23, 85057 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/EjhVWnYPP4nh2w7D6",
+          "description": "Halal döner and kebab restaurant known for flavour and quality.",
+          "tags": [
+            "döner",
+            "kebab",
+            "casual dining"
+          ]
+        },
+        {
+          "slug": "hunkar-restaurant",
+          "name": "Hünkar Restaurant",
+          "location": "Friedrich-Ebert-Straße 37, 85055 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/X7Jj4taHCuenDrbZ6",
+          "description": "Turkish halal restaurant serving köfte, chicken, and desserts.",
+          "tags": [
+            "köfte",
+            "turkish",
+            "dinner"
+          ]
+        },
+        {
+          "slug": "aladin-imbiss",
+          "name": "Aladin Imbiss",
+          "location": "Unterer Graben 89, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/2SitNoH2b6Ao1sg48",
+          "description": "Syrian halal-friendly eatery with shawarma, falafel, and more.",
+          "tags": [
+            "shawarma",
+            "falafel",
+            "casual dining",
+            "syrian"
+          ]
+        }
+      ]
+    },
+    {
       "category": "Halal Markets Near Campus 🛒",
       "type": "card",
       "items": [
@@ -175,15 +292,49 @@
           "slug": "engin-markt",
           "name": "Engin Markt GmbH",
           "location": "Pfitznerstraße 20, 85057 Ingolstadt",
-          "description": "Large halal supermarket — fresh meat, Turkish groceries & specialties. Loved for quality & variety.",
-          "tags": ["halal-meat", "turkish", "market"]
+          "locationLink": "https://maps.app.goo.gl/B1WfdZV1CrfZSTMm8",
+          "description": "Large halal supermarket, fresh meat, Turkish groceries, and specialties.",
+          "tags": [
+            "halal-meat",
+            "turkish",
+            "market"
+          ]
         },
         {
           "slug": "marka-supermarkt",
           "name": "Marka Supermarkt",
           "location": "Hindenburgstraße 20, 85057 Ingolstadt",
-          "description": "Spacious 1,500 m² halal supermarket — fresh meat, oriental spices, fruits & vegetables. Accessible with parking.",
-          "tags": ["halal", "oriental", "market"]
+          "locationLink": "https://maps.app.goo.gl/QqWGiMvjemJBG67w9",
+          "description": "Spacious 1,500 m² halal supermarket, meat, spices, fruits, and vegetables.",
+          "tags": [
+            "halal",
+            "oriental",
+            "market"
+          ]
+        },
+        {
+          "slug": "istanbul-market",
+          "name": "Istanbul Market",
+          "location": "Hindenburgstraße 21, Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/xFcW3Lvx9CmfyYZN8",
+          "description": "Halal supermarket offering meat, spices, and fresh produce.",
+          "tags": [
+            "halal-meat",
+            "grocery",
+            "fresh"
+          ]
+        },
+        {
+          "slug": "ali-baba-lebensmittel",
+          "name": "Ali Baba Lebensmittel",
+          "location": "Schloßlände 4, Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/SHkphHHQXhew4FqD8",
+          "description": "Middle Eastern supermarket with fresh produce and halal meat.",
+          "tags": [
+            "halal",
+            "middle eastern",
+            "market"
+          ]
         }
       ]
     }
@@ -195,125 +346,101 @@
       "items": [
         {
           "slug": "thi-prayer-room",
-          "name": "THI Gebetsraum",
+          "name": "THI-Gebetsraum",
           "locationLink": "https://maps.app.goo.gl/uqQjbNTWZvRk9Bdd8",
           "location": "Gebäude Z, 1. Stock",
-          "description": "Verfügbar Montag–Freitag, 8:00–17:30 Uhr",
-          "tags": ["Gebet", "Campus", "Studentenleben"]
+          "description": "Gebetsraum verfügbar Montag–Freitag, 8:00–17:30 Uhr.",
+          "tags": [
+            "Gebet",
+            "Campus",
+            "Studentenleben"
+          ]
         },
         {
-          "slug": "ditib-ingolstadt-mosque",
-          "name": "DITIB Ingolstadt Moschee",
+          "slug": "ditib-kocatepe-mosque",
+          "name": "DITIB Kocatepe Moschee",
           "locationLink": "https://maps.app.goo.gl/XB211WLYNUoE5AAw8",
           "location": "Manisa Str. 1, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Türkisch / Deutsch",
-          "tags": ["Gebet", "Moschee", "Türkisch", "Gemeinschaft"]
+          "description": "Freitagsgebet 13:30, Khutba auf Türkisch/Deutsch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Türkisch",
+            "Gemeinschaft"
+          ]
+        },
+        {
+          "slug": "milligorues-mosque",
+          "name": "Islamische Gemeinschaft Millî Görüş Ingolstadt e.V.",
+          "locationLink": "https://maps.app.goo.gl/WpW3NYR6MtFXBs6g7",
+          "location": "Schillerstraße 6, 85055 Ingolstadt",
+          "description": "Freitagsgebet 13:30.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Gemeinschaft"
+          ]
         },
         {
           "slug": "al-nour-mosque",
           "name": "Al-Nour-Moschee",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Freitagsgebet 13:00 Uhr (Winter) / 14:45 Uhr (Sommer), Khutba auf Arabisch",
-          "tags": ["Gebet", "Moschee", "Arabisch", "Gemeinschaft"]
-        },
-        {
-          "slug": "as-salam-mosque",
-          "name": "As-Salam Moschee (Die Initiative e.V.)",
-          "location": "Roderstraße 44, 85055 Ingolstadt",
-          "description": "Freitagsgebet 13:00 Uhr (Winter) / 15:00 Uhr (Sommer), Khutba auf Arabisch / Deutsch",
-          "tags": ["Gebet", "Moschee", "Gemeinschaft", "Veranstaltungen"]
-        },
-        {
-          "slug": "ayasofya-mosque",
-          "name": "Ayasofya Moschee",
-          "location": "Schillerstraße 8, 85055 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Türkisch",
-          "tags": ["Gebet", "Moschee", "Türkisch"]
+          "description": "Freitagsgebet 13:00 (Winter) / 14:45 (Sommer), Khutba auf Arabisch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Arabisch",
+            "Gemeinschaft"
+          ]
         },
         {
           "slug": "imam-azam-mosque",
           "name": "Imam-Azam-Moschee",
+          "locationLink": "https://maps.app.goo.gl/NRksigRaWBzpPWkS9",
           "location": "Hindenburgstraße 23A, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Türkisch",
-          "tags": ["Gebet", "Moschee", "Türkisch"]
+          "description": "Freitagsgebet 13:30, Khutba auf Türkisch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Türkisch"
+          ]
         },
         {
           "slug": "zaytounah-mosque",
-          "name": "Zaytounah Moschee",
+          "name": "Zaytounah-Moschee",
           "location": "Ettinger Str. 20, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Arabisch / Deutsch",
-          "tags": ["Gebet", "Moschee", "Arabisch", "Deutsch"]
+          "description": "Freitagsgebet 13:30, Khutba auf Arabisch/Deutsch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Arabisch",
+            "Deutsch"
+          ]
         },
         {
           "slug": "buhara-mosque",
           "name": "Buhara e.V. Moschee",
+          "locationLink": "https://maps.app.goo.gl/H87d1rzq2rnBuZfD6",
           "location": "Liebigstraße 24a, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Deutsch",
-          "tags": ["Gebet", "Moschee", "Deutsch"]
+          "description": "Freitagsgebet 13:30, Khutba auf Deutsch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Deutsch"
+          ]
         },
         {
           "slug": "xhamia-mosque",
           "name": "Xhamia-Moschee (Albanische Moschee)",
           "locationLink": "https://maps.app.goo.gl/9fvjuowGArekpbKUA",
           "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
-          "description": "Freitagsgebet 13:30 Uhr, Khutba auf Albanisch",
-          "tags": ["Gebet", "Moschee", "Albanisch"]
-        }
-      ]
-    },
-    {
-      "category": "Halal-Restaurants 🍽️",
-      "type": "card",
-      "items": [
-        {
-          "slug": "safran",
-          "name": "Safran",
-          "location": "Schmalzingergasse 15, 85049 Ingolstadt",
-          "description": "Indisches Restaurant mit Halal-Optionen – authentische Gewürze & gemütliches Ambiente.",
-          "tags": ["Indisch", "Halal-Optionen", "Essen"]
-        },
-        {
-          "slug": "sultans-kebab",
-          "name": "Sultan’s Kebab",
-          "location": "Kreuzstraße 5, 85049 Ingolstadt",
-          "description": "Beliebt für köstliche Kebabs & freundlichen Service – ideal für schnelle Mahlzeiten.",
-          "tags": ["Kebab", "Schnellgericht", "Imbiss"]
-        },
-        {
-          "slug": "dolapi-doener",
-          "name": "Dölapi Döner Kebap Imbiss",
-          "location": "Schillerstraße 61, 85055 Ingolstadt",
-          "description": "Bekannt für Döner, Pizza & Fast Food – großzügige Portionen & schneller Service.",
-          "tags": ["Döner", "Pizza", "Fast Food"]
-        },
-        {
-          "slug": "kurt-doener",
-          "name": "Kurt Döner Ingolstadt",
-          "location": "Münchener Str. 231, 85051 Ingolstadt",
-          "description": "Beliebter Dönerladen mit hoher Kundenzufriedenheit.",
-          "tags": ["Döner", "Schnellgericht"]
-        },
-        {
-          "slug": "maharani",
-          "name": "Maharani Indisches Restaurant",
-          "location": "Friedrichshofener Str. 16, 85049 Ingolstadt",
-          "description": "Indisches Restaurant mit Halal-Optionen – bekannt für authentische Küche.",
-          "tags": ["Indisch", "Halal-Optionen", "Essen"]
-        },
-        {
-          "slug": "indian-palace",
-          "name": "Indian Palace Ingolstadt",
-          "location": "Haunwöhrer Str. 81, 85051 Ingolstadt",
-          "description": "Indisches Buffet-Restaurant mit Halal-Optionen – beliebt für Vielfalt & Geschmack.",
-          "tags": ["Indisch", "Halal-Optionen", "Buffet"]
-        },
-        {
-          "slug": "dil-doener",
-          "name": "Dil Döner",
-          "location": "Proviantstraße 12, 85049 Ingolstadt",
-          "description": "Türkisches Restaurant mit Halal-Gerichten – schnelle Zubereitung & leckere Kombinationen.",
-          "tags": ["Türkisch", "Döner", "Fast Food"]
+          "description": "Freitagsgebet 13:30, Khutba auf Albanisch.",
+          "tags": [
+            "Gebet",
+            "Moschee",
+            "Albanisch"
+          ]
         }
       ]
     },
@@ -322,24 +449,24 @@
       "type": "links",
       "items": [
         {
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (september)",
-          "href": "/pdfs/Al_Nour_Mosque_sep_2025.pdf"
+          "href": "/pdfs/Al_Nour_Mosque_sep_2025.pdf",
+          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (September)"
         },
         {
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (August)",
-          "href": "/pdfs/Al_Nour_Mosque_August_2025.pdf"
+          "href": "/pdfs/Al_Nour_Mosque_August_2025.pdf",
+          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (August)"
         },
         {
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Juni)",
-          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf"
+          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf",
+          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Juni)"
         },
         {
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Mai)",
-          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf"
+          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf",
+          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Mai)"
         }
       ],
       "footer": {
-        "text": "Brauchst du einen anderen Monat und/oder eine Moschee?",
+        "text": "Brauchst du einen anderen Monat und/oder eine andere Moschee?",
         "linkText": "Kontaktiere uns",
         "href": "/contact",
         "links": [
@@ -357,22 +484,196 @@
       }
     },
     {
+      "category": "Halal-Restaurants 🍽️",
+      "type": "card",
+      "items": [
+        {
+          "slug": "safran",
+          "name": "Safran",
+          "locationLink": "https://maps.app.goo.gl/RMZ7SFZ5hHCDqmHSA",
+          "location": "Schmalzingergasse 15, 85049 Ingolstadt",
+          "description": "Indisches Restaurant mit Halal-Optionen – authentische Gewürze und gemütliche Atmosphäre.",
+          "tags": [
+            "Indisch",
+            "Halal-Optionen",
+            "Essen"
+          ]
+        },
+        {
+          "slug": "sultans-kebab",
+          "name": "Sultan’s Kebab",
+          "locationLink": "https://maps.app.goo.gl/2e88QtcNXuqXrd22A",
+          "location": "Kreuzstraße 5, 85049 Ingolstadt",
+          "description": "Türkisches Fast-Food-Lokal – beliebt für Kebabs und freundlichen Service.",
+          "tags": [
+            "Kebab",
+            "Fast Food",
+            "Lässig"
+          ]
+        },
+        {
+          "slug": "dolapi-doener",
+          "name": "Dölapi Döner Kebap Imbiss",
+          "locationLink": "https://maps.app.goo.gl/SQnWiUjv71z2maiE7",
+          "location": "Schillerstraße 61, 85055 Ingolstadt",
+          "description": "Bekannt für Döner, Pizza und großzügige Portionen.",
+          "tags": [
+            "Döner",
+            "Pizza",
+            "Fast Food"
+          ]
+        },
+        {
+          "slug": "kurt-doener",
+          "name": "Kurt Döner Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/GBnpyefBGdZZHJnu8",
+          "location": "Münchener Str. 231, 85051 Ingolstadt",
+          "description": "Gut bewerteter Döner-Laden mit hoher Kundenzufriedenheit.",
+          "tags": [
+            "Döner",
+            "Fast Food"
+          ]
+        },
+        {
+          "slug": "maharani",
+          "name": "Maharani Indian Restaurant",
+          "locationLink": "https://maps.app.goo.gl/hA1u9XGD2dVGShvR8",
+          "location": "Friedrichshofener Str. 16, 85049 Ingolstadt",
+          "description": "Indisches Restaurant mit Halal-Optionen – geschätzt für authentische Küche.",
+          "tags": [
+            "Indisch",
+            "Halal-Optionen",
+            "Essen"
+          ]
+        },
+        {
+          "slug": "saray-grill",
+          "name": "Saray Grill",
+          "locationLink": "https://maps.app.goo.gl/MQgNPYoX8y5YyM3k9",
+          "location": "Harderstraße 27, 85049 Ingolstadt",
+          "description": "Beliebter türkischer Grill serviert Döner, Kebab und schnelle Halal -Mahlzeiten - bekannt für guten Geschmack und freundlichen Service.",
+          "tags": [
+            "Döner",
+            "Kebab",
+            "Fast Food",
+            "Lässiges Essen",
+            "Türkisch"
+          ]
+        },
+        {
+          "slug": "indian-palace",
+          "name": "Indian Palace Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/uzbG2NrV3XCHxvdJ6",
+          "location": "Haunwöhrer Str. 81, 85051 Ingolstadt",
+          "description": "Indisches Buffet-Restaurant mit Halal-Optionen und großer Vielfalt.",
+          "tags": [
+            "Indisch",
+            "Halal-Optionen",
+            "Buffet"
+          ]
+        },
+        {
+          "slug": "dil-doener",
+          "name": "Dil Döner",
+          "locationLink": "https://maps.app.goo.gl/7gq27C16VWXUseys7",
+          "location": "Proviantstraße 12, 85049 Ingolstadt",
+          "description": "Türkisches Fast Food mit Halal-Gerichten und schnellem Service.",
+          "tags": [
+            "Türkisch",
+            "Döner",
+            "Fast Food"
+          ]
+        },
+        {
+          "slug": "ziyafet-restaurant",
+          "name": "Ziyafet Restaurant",
+          "locationLink": "https://maps.app.goo.gl/EjhVWnYPP4nh2w7D6",
+          "location": "Hindenburgstraße 23, 85057 Ingolstadt",
+          "description": "Halal-Döner- und Kebab-Restaurant, bekannt für Geschmack und Qualität.",
+          "tags": [
+            "Döner",
+            "Kebab",
+            "Lässiges Essen"
+          ]
+        },
+        {
+          "slug": "hunkar-restaurant",
+          "name": "Hünkar Restaurant",
+          "locationLink": "https://maps.app.goo.gl/X7Jj4taHCuenDrbZ6",
+          "location": "Friedrich-Ebert-Straße 37, 85055 Ingolstadt",
+          "description": "Türkisches Halal-Restaurant mit Köfte, Hähnchen und Desserts.",
+          "tags": [
+            "Köfte",
+            "Türkisch",
+            "Abendessen"
+          ]
+        },
+        {
+          "slug": "aladin-imbiss",
+          "name": "Aladin Imbiss",
+          "locationLink": "https://maps.app.goo.gl/2SitNoH2b6Ao1sg48",
+          "location": "Unterer Graben 89, 85049 Ingolstadt",
+          "description": "Syrisches halalfreundliches Restaurant mit Shawarma, Falafel und mehr.",
+          "tags": [
+            "Shawarma",
+            "Falafel",
+            "Lässiges Essen",
+            "Syrisch"
+          ]
+        }
+      ]
+    },
+    {
       "category": "Halal-Märkte in der Nähe des Campus 🛒",
       "type": "card",
       "items": [
         {
           "slug": "engin-markt",
           "name": "Engin Markt GmbH",
+          "locationLink": "https://maps.app.goo.gl/B1WfdZV1CrfZSTMm8",
           "location": "Pfitznerstraße 20, 85057 Ingolstadt",
-          "description": "Überregionaler Halal-Supermarkt – frisches Fleisch, türkische Lebensmittel & Spezialitäten. Beliebt für Qualität & Auswahl.",
-          "tags": ["Halal-Fleisch", "Türkisch", "Markt"]
+          "description": "Großer Halal-Supermarkt – frisches Fleisch, türkische Lebensmittel und Spezialitäten.",
+          "tags": [
+            "Halal-Fleisch",
+            "Türkisch",
+            "Markt"
+          ]
         },
         {
           "slug": "marka-supermarkt",
           "name": "Marka Supermarkt",
+          "locationLink": "https://maps.app.goo.gl/QqWGiMvjemJBG67w9",
           "location": "Hindenburgstraße 20, 85057 Ingolstadt",
-          "description": "Großer Halal-Supermarkt mit 1.500 m² – frisches Fleisch, orientalische Gewürze, Obst & Gemüse. Barrierefrei & mit Parkplätzen.",
-          "tags": ["Halal", "Orientalisch", "Markt"]
+          "description": "Geräumiger 1.500 m² Halal-Supermarkt – Fleisch, Gewürze, Obst und Gemüse.",
+          "tags": [
+            "Halal",
+            "Orientalisch",
+            "Markt"
+          ]
+        },
+        {
+          "slug": "istanbul-market",
+          "name": "Istanbul Market",
+          "locationLink": "https://maps.app.goo.gl/xFcW3Lvx9CmfyYZN8",
+          "location": "Hindenburgstraße 21, Ingolstadt",
+          "description": "Halal-Supermarkt mit Fleisch, Gewürzen und frischen Produkten.",
+          "tags": [
+            "Halal-Fleisch",
+            "Lebensmittel",
+            "Frisch"
+          ]
+        },
+        {
+          "slug": "ali-baba-lebensmittel",
+          "name": "Ali Baba Lebensmittel",
+          "locationLink": "https://maps.app.goo.gl/SHkphHHQXhew4FqD8",
+          "location": "Schloßlände 4, Ingolstadt",
+          "description": "Nahost-Supermarkt mit frischen Produkten und Halal-Fleisch.",
+          "tags": [
+            "Halal",
+            "Nahost",
+            "Markt"
+          ]
         }
       ]
     }
