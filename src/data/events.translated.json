@@ -19,10 +19,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "cooking-class-sisters-2025",
@@ -43,10 +43,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "football-charity-match-2025",
@@ -68,10 +68,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "mosque-charity-stand-2025",
@@ -92,7 +92,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": false,
       "registerAvailable": false
@@ -143,7 +143,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": true,
       "registerAvailable": false
@@ -271,10 +271,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "cooking-class-sisters-2025",
@@ -295,10 +295,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "football-charity-match-2025",
@@ -320,10 +320,10 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
-      "highlighted": true,
-      "registerAvailable": true
+      "highlighted": false,
+      "registerAvailable": false
     },
     {
       "slug": "mosque-charity-stand-2025",
@@ -344,7 +344,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": false,
       "registerAvailable": false
@@ -395,7 +395,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
+      "available": false,
       "past": false,
       "highlighted": true,
       "registerAvailable": false

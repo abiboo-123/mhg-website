@@ -23,6 +23,7 @@
 // Please keep the events sorted by status (Draft, Upcoming, Past) and date (newest first within each status)
 export const events = [
   //--------------------- Draft Events ---------------------//
+  // children's painting competition 2025
   {
     slug: 'children’s-painting-competition-2025',
     title: 'Children’s Drawing Competition',
@@ -35,11 +36,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
-    highlighted: true,
-    registerAvailable: true
+    highlighted: false,
+    registerAvailable: false
   },
+  // cooking class for sisters 2025
   {
     slug: 'cooking-class-sisters-2025',
     title: 'Cooking Class for Sisters',
@@ -52,11 +54,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
-    highlighted: true,
-    registerAvailable: true
+    highlighted: false,
+    registerAvailable: false
   },
+  // football charity match 2025
   {
     slug: 'football-charity-match-2025',
     title: 'Charity Football Match',
@@ -69,11 +72,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
-    highlighted: true,
-    registerAvailable: true
+    highlighted: false,
+    registerAvailable: false
   },
+  // charity stand at mosques 2025
   {
     slug: 'mosque-charity-stand-2025',
     title: 'Charity Stand at Mosques',
@@ -86,11 +90,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
     highlighted: false,
     registerAvailable: false
   },
+  // altstadt stand 2025
   {
     slug: 'altstadt-stand-2025',
     title: 'Altstadt Activities Stand',
@@ -108,7 +113,7 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  //--------------------- Upcoming Events ---------------------//
+  // mhg intro stand semester kickoff 2025
   {
     slug: 'mhg-intro-stand-thi-2025',
     title: 'MHG Info Stand – Semester Kickoff',
@@ -121,11 +126,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: true,
+    available: false,
     past: false,
     highlighted: true,
     registerAvailable: false
-  },  
+  },
+  //--------------------- Upcoming Events ---------------------//
   //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {
