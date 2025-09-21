@@ -62,9 +62,8 @@ const contactLinks = links as LinksType;
         <p>{t("contact.guestsDescription", lang)}</p>
       </div>
     </div>
-
     <!-- Contact Form -->
-    <div class="bg-white rounded-xl shadow-md p-6">
+   <!-- <div class="bg-white rounded-xl shadow-md p-6">
       <h3 class="text-xl font-semibold mb-6">📧 {t("contact.formTitle", lang)}</h3>
       <form
         action="https://formspree.io/f/mnnvjege"
@@ -95,9 +94,28 @@ const contactLinks = links as LinksType;
           {t("contact.formSubmitBTN", lang)}
         </button>
       </form>
-    </div>
-  </section>
+    </div> -->
 
+    <script type="text/javascript">
+      !function(){
+        var appUrl = "https://app.formbricks.com";
+        var environmentId = "cmfu9679i2fmuwx01tti34uv4";
+        var t = document.createElement("script");
+        t.type = "text/javascript";
+        t.async = true;
+        t.src = appUrl + "/js/formbricks.umd.cjs";
+        var e = document.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(t,e);
+        setTimeout(function(){
+          window.formbricks.setup({
+            environmentId: environmentId,
+            appUrl: appUrl
+          })
+        }, 500);
+      }();
+      </script>
+  </section>
+  <!-- 
   <script is:inline>
     const form = document.getElementById('contactForm');
 
@@ -132,5 +150,5 @@ const contactLinks = links as LinksType;
         msg.remove();
       }, 5000);
     });
-  </script>
+  </script> -->
 </Layout>
