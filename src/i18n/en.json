@@ -91,6 +91,7 @@
   "contact.formTitle": "Get in Touch!",
   "contact.formName": "Name",
   "contact.formMessage": "Message",
+  "contact.formPhone": "Phone (optional)",
   "contact.formSubmitBTN": "Send Message",
   "contact.formSuccessMSG": "Thank you! Your message has been sent.",
   "contact.formFailureMSG": "Something went wrong. Please try again later.",

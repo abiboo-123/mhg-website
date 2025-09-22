@@ -90,6 +90,7 @@
   "contact.guestsDescription": "Wir freuen uns, wenn du Vorträge oder Sitzungen anbietest. Bitte kontaktiere uns für Kooperationsmöglichkeiten.",
   "contact.formTitle": "Kontaktiere uns!",
   "contact.formName": "Name",
+  "contact.formPhone": "Telefon (optional)",
   "contact.formMessage": "Nachricht",
   "contact.formSubmitBTN": "Nachricht senden",
   "contact.formSuccessMSG": "Vielen Dank! Deine Nachricht wurde gesendet.",
