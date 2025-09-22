@@ -164,17 +164,11 @@ const contactLinks = links as LinksType;
       };
 
       try {
-        const res = await fetch(
-          "https://app.formbricks.com/api/v1/surveys/cmfu9p5592hrbwx01bg4hjfsf/responses",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-environment-id": "cmfu9679i2fmuwx01tti34uv4", // your env ID
-            },
-            body: JSON.stringify(payload),
-          }
-        );
+        const res = await fetch("/api/formbricks", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
         // Remove old feedback messages
         document
