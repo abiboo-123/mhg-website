@@ -110,20 +110,16 @@
       "type": "links",
       "items": [
         {
+          "label": "🕌 Al-Nour Mosque prayer times PDF (Actober)",
+          "href": "/pdfs/Al_Nour_Mosque_october_2025.pdf"
+        },
+        {
           "label": "🕌 Al-Nour Mosque prayer times PDF (September)",
           "href": "/pdfs/Al_Nour_Mosque_sep_2025.pdf"
         },
         {
           "label": "🕌 Al-Nour Mosque prayer times PDF (August)",
           "href": "/pdfs/Al_Nour_Mosque_August_2025.pdf"
-        },
-        {
-          "label": "🕌 Al-Nour Mosque prayer times PDF (June)",
-          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf"
-        },
-        {
-          "label": "🕌 Al-Nour Mosque prayer times PDF (May)",
-          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf"
         }
       ],
       "footer": {
@@ -449,20 +445,16 @@
       "type": "links",
       "items": [
         {
+          "href": "/pdfs/Al_Nour_Mosque_october_2025.pdf",
+          "label": "🕌 Al-Nour Moschee Gebetszeiten PDF (Oktober)"
+        },
+        {
           "href": "/pdfs/Al_Nour_Mosque_sep_2025.pdf",
           "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (September)"
         },
         {
           "href": "/pdfs/Al_Nour_Mosque_August_2025.pdf",
           "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (August)"
-        },
-        {
-          "href": "/pdfs/Al_Nour_Mosque_june_2025.pdf",
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Juni)"
-        },
-        {
-          "href": "/pdfs/Al_Nour_Mosque_may_2025.pdf",
-          "label": "🕌 Al-Nour Moschee – Gebetszeiten PDF (Mai)"
         }
       ],
       "footer": {

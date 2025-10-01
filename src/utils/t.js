@@ -10,7 +10,7 @@ const languages = { en, de };
 export function t(key, lang = 'en') {
   if (!languages[lang]) {
     console.warn(`Language ${lang} not found, defaulting to English.`);
-    lang = 'de';
+    lang = 'en';
   }
   return languages[lang][key] || key;
 }

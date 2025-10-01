@@ -163,10 +163,9 @@ export const rawResources = [
     type: "links",
     items: [
       // sort by most recent month first
+      { label: "🕌 Al-Nour Mosque prayer times PDF (Actober)", href: "/pdfs/Al_Nour_Mosque_october_2025.pdf" },
       { label: "🕌 Al-Nour Mosque prayer times PDF (September)", href: "/pdfs/Al_Nour_Mosque_sep_2025.pdf" },
-      { label: "🕌 Al-Nour Mosque prayer times PDF (August)", href: "/pdfs/Al_Nour_Mosque_August_2025.pdf" },
-      { label: "🕌 Al-Nour Mosque prayer times PDF (June)", href: "/pdfs/Al_Nour_Mosque_june_2025.pdf" },
-      { label: "🕌 Al-Nour Mosque prayer times PDF (May)", href: "/pdfs/Al_Nour_Mosque_may_2025.pdf" },
+      { label: "🕌 Al-Nour Mosque prayer times PDF (August)", href: "/pdfs/Al_Nour_Mosque_August_2025.pdf" }
     ],
     footer: {
       text: "Need a different month and/or mosque?",

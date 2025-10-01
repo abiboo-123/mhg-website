@@ -1,26 +1,3 @@
-/**
- * How to add a new event:
- * {
-    slug: 'unique-url-part',
-    title: 'Your Event Title',
-    date: 'Event Date',
-    location: 'Venue',
-    description: 'A few lines describing the event.',
-    image: 'path/to/image.jpg', // Import the image at the top of this file
-    cardImage: "/gallery/gallery1.jpg", // Image used for the event card on the events page
-    language: ['de', 'en'], // Languages available for the event
-    tags: [An array of tags like 'spiritual', 'community', 'social'],
-    speakers: [an array of speaker names],
-    attendance: # of attendance , Number of attendees after the event 
-    gallery: [an array of image file names for the event gallery], // Example: ["gallery1.jpg", "gallery2.jpg"]
-    available: [true/false], // If the event is available for registration or still a draft
-    past: [true/false] // If the event has already occurred
-    highlighted: true/false // If the event should be highlighted on the main page
-    registerAvailable: true/false // If registration is open
-  }
- */
-
-// Please keep the events sorted by status (Draft, Upcoming, Past) and date (newest first within each status)
 export const events = [
   //--------------------- Draft Events ---------------------//
   // children's painting competition 2025
@@ -31,7 +8,7 @@ export const events = [
     location: 'Ingolstadt (exact location to be announced)',
     description: 'A fun and creative competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. Winners will be recognized, and the event supports MHG activities.',
     cardImage: "",
-    language: ['de'],
+    language: ['en', 'de'],
     tags: ['Children', 'Art', 'Community', 'Competition'],
     speakers: [],
     attendance: null,
@@ -45,11 +22,11 @@ export const events = [
   {
     slug: 'cooking-class-sisters-2025',
     title: 'Cooking Class for Sisters',
-    date: 'Stay tuned for the date',
+    date: 'October 21 or 23, 2025 (to be confirmed)',
     location: 'Ingolstadt (exact location to be announced)',
-    description: 'An engaging cooking class organized especially for sisters. Learn new recipes, cook together, and share delicious food while enjoying great company in a supportive environment.',
+    description: 'An engaging cooking class organized especially for sisters as part of the "Life in Bavaria" project. Learn new recipes, cook together, and share delicious food in a supportive environment. Participation fee starts from €5 (ingredients covered). Limited to 15 participants.',
     cardImage: "",
-    language: ['de'],
+    language: ['en', 'de'],
     tags: ['Cooking', 'Sisters', 'Community', 'Food'],
     speakers: [],
     attendance: null,
@@ -67,7 +44,7 @@ export const events = [
     location: 'Ingolstadt (exact field to be announced)',
     description: 'Come and play football for a cause! Teams will face off in a friendly match, and the losing team contributes donations. A great way to combine fun, sports, and giving back.',
     cardImage: "",
-    language: ['de', 'en'],
+    language: ['en', 'de'],
     tags: ['Football', 'Sports', 'Charity', 'Community'],
     speakers: [],
     attendance: null,
@@ -77,15 +54,15 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  // charity stand at mosques 2025
-  {
+   // mosque charity stand 2025
+   {
     slug: 'mosque-charity-stand-2025',
     title: 'Charity Stand at Mosques',
-    date: 'October 25, 2025',
+    date: 'October 24, 2025 (after Jumu‘ah prayer)',
     location: 'Various Mosques, Ingolstadt',
-    description: 'Join us after Jumu‘ah prayer for a charity stand at the mosques. Support MHG initiatives through donations and community engagement.',
+    description: 'Support MHG initiatives through our charity stand after Friday prayer. We will distribute information about Charity Week, accept donations, and possibly organize a children’s drawing competition in Islamic schools. Food will be prepared by the MHG community or provided as donations.',
     cardImage: "",
-    language: ['de', 'en'],
+    language: ['en', 'de'],
     tags: ['Charity', 'Community', 'Fundraising'],
     speakers: [],
     attendance: null,
@@ -99,11 +76,11 @@ export const events = [
   {
     slug: 'altstadt-stand-2025',
     title: 'Altstadt Activities Stand',
-    date: 'Stay tuned for the date',
-    location: 'Altstadt, Ingolstadt',
-    description: 'Join us in the Altstadt for a lively community stand! Expect Henna art, kids’ face painting, cakes, waffles, calligraphy, decorations, and even a small flea market. A chance to connect, enjoy, and support MHG with friends and family.',
+    date: 'October 25, 2025 (11:00 – 19:00 or later)',
+    location: 'Altstadt, Ingolstadt (near Müller/DM)',
+    description: 'Join us in the Altstadt for a lively community stand! Expect henna art, kids’ face painting, glitter, sweets, oriental pastries like Kunafah and Baklava, Palestinian Cola, and more. We will also share flyers and information about MHG activities. A chance to connect, enjoy, and support MHG with friends and family.',
     cardImage: "",
-    language: ['de', 'en'],
+    language: ['en', 'de'],
     tags: ['Community', 'Henna', 'Food', 'Calligraphy', 'Charity'],
     speakers: [],
     attendance: null,
@@ -113,25 +90,25 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  // mhg intro stand semester kickoff 2025
+  //--------------------- Upcoming Events ---------------------//
+  // mhg intro stand semester kickoff 2025 (Vereinsmesse)
   {
     slug: 'mhg-intro-stand-thi-2025',
     title: 'MHG Info Stand – Semester Kickoff',
-    date: 'October 1, 2025',
+    date: 'October 1, 2025 (8:00 – 14:00)',
     location: 'Technische Hochschule Ingolstadt, Building A',
-    description: 'Start the semester with MHG! Visit our info stand to learn more about our student association, meet fellow Muslim students, and find out how you can get involved in upcoming events and activities. A welcoming opportunity to connect and join the community.',
+    description: 'Start the semester with MHG at the student fair! We will have two tables, a pinboard, and electricity. Visit our stand to learn more about our student association, meet fellow Muslim students, join a quiz with sweets, and get information about upcoming events. Flyers, stickers, and social media info will also be available.',
     cardImage: "",
-    language: ['de', 'en'],
+    language: ['en', 'de'],
     tags: ['Intro', 'Community', 'Students', 'Engagement'],
     speakers: [],
     attendance: null,
     gallery: [],
-    available: false,
+    available: true,
     past: false,
     highlighted: true,
     registerAvailable: false
   },
-  //--------------------- Upcoming Events ---------------------//
   //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {
@@ -139,10 +116,9 @@ export const events = [
     title: 'Shaykh Taha Ali: Helper not Executioner',
     date: 'June 17, 2025',
     location: 'Room G215, THI, Ingolstadt',
-    description:
-      'Join us for an inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. Explore Islamic ethics of leadership, forgiveness, and justice in today’s world.',
+    description: 'An inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. The lecture explored Islamic ethics of leadership, forgiveness, and justice in today’s world.',
     cardImage: "",
-    language: ['de'],
+    language: ['en', 'de'],
     tags: ['Mercy', 'Prophet Muhammad ﷺ', 'Ethics', 'Leadership', 'Spirituality'],
     speakers: ['Shaykh Taha Ali Zeidan'],
     attendance: 20,
@@ -166,7 +142,7 @@ export const events = [
     location: 'THI, Ingolstadt',
     description: 'We gathered to celebrate Eid with joy, food, and fun! Everyone brought a delicious dish to share, making it a true community feast. The highlight of the day was an exciting Kahoot quiz that brought laughter, learning, and friendly competition. A beautiful chance to connect and celebrate Eid together.',
     cardImage: '',
-    language: ['de', 'en'],
+    language: ['en', 'de'],
     tags: ['Eid', 'Community', 'Food', 'Kahoot', 'Celebration'],
     speakers: [],
     attendance: 40,
@@ -192,10 +168,9 @@ export const events = [
     title: 'Priorities of Muslim Youth in Germany',
     date: 'May 15, 2025',
     location: 'Room G215, THI, Ingolstadt',
-    description:
-      'Join guest speaker Abdelhak Rabah for an insightful lecture on the priorities and challenges facing Muslim youth in Germany. The talk will explore identity, faith, education, and active participation in society.',
+    description: 'Guest speaker Abdelhak Rabah gave an insightful lecture on the priorities and challenges facing Muslim youth in Germany. The talk explored identity, faith, education, and active participation in society.',
     cardImage: '',
-    language: ['en'],
+    language: ['en', 'de'],
     tags: ['Youth', 'Identity', 'Education', 'Community', 'Germany'],
     speakers: ['Abdelhak Rabah'],
     attendance: 30,
@@ -212,4 +187,3 @@ export const events = [
     registerAvailable: false
   }
 ];
-

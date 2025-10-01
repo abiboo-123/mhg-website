@@ -7,15 +7,8 @@
       "location": "Ingolstadt (exact location to be announced)",
       "description": "A fun and creative competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. Winners will be recognized, and the event supports MHG activities.",
       "cardImage": "/events-banners/children’s-painting-competition-2025-en.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Children",
-        "Art",
-        "Community",
-        "Competition"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Children", "Art", "Community", "Competition"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -27,19 +20,12 @@
     {
       "slug": "cooking-class-sisters-2025",
       "title": "Cooking Class for Sisters",
-      "date": "Stay tuned for the date",
+      "date": "October 21 or 23, 2025 (to be confirmed)",
       "location": "Ingolstadt (exact location to be announced)",
-      "description": "An engaging cooking class organized especially for sisters. Learn new recipes, cook together, and share delicious food while enjoying great company in a supportive environment.",
+      "description": "An engaging cooking class organized especially for sisters as part of the 'Life in Bavaria' project. Learn new recipes, cook together, and share delicious food in a supportive environment. Participation fee starts from €5 (ingredients covered). Limited to 15 participants.",
       "cardImage": "/events-banners/cooking-class-sisters-2025-en.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Cooking",
-        "Sisters",
-        "Community",
-        "Food"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Cooking", "Sisters", "Community", "Food"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -55,66 +41,8 @@
       "location": "Ingolstadt (exact field to be announced)",
       "description": "Come and play football for a cause! Teams will face off in a friendly match, and the losing team contributes donations. A great way to combine fun, sports, and giving back.",
       "cardImage": "/events-banners/football-charity-match-2025-en.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Football",
-        "Sports",
-        "Charity",
-        "Community"
-      ],
-      "speakers": [],
-      "attendance": null,
-      "gallery": [],
-      "available": false,
-      "past": false,
-      "highlighted": false,
-      "registerAvailable": false
-    },
-    {
-      "slug": "mosque-charity-stand-2025",
-      "title": "Charity Stand at Mosques",
-      "date": "October 25, 2025",
-      "location": "Various Mosques, Ingolstadt",
-      "description": "Join us after Jumu‘ah prayer for a charity stand at the mosques. Support MHG initiatives through donations and community engagement.",
-      "cardImage": "/events-banners/mosque-charity-stand-2025-en.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Charity",
-        "Community",
-        "Fundraising"
-      ],
-      "speakers": [],
-      "attendance": null,
-      "gallery": [],
-      "available": false,
-      "past": false,
-      "highlighted": false,
-      "registerAvailable": false
-    },
-    {
-      "slug": "altstadt-stand-2025",
-      "title": "Altstadt Activities Stand",
-      "date": "Stay tuned for the date",
-      "location": "Altstadt, Ingolstadt",
-      "description": "Join us in the Altstadt for a lively community stand! Expect Henna art, kids’ face painting, cakes, waffles, calligraphy, decorations, and even a small flea market. A chance to connect, enjoy, and support MHG with friends and family.",
-      "cardImage": "/events-banners/altstadt-stand-2025-en.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Community",
-        "Henna",
-        "Food",
-        "Calligraphy",
-        "Charity"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Football", "Sports", "Charity", "Community"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -126,26 +54,52 @@
     {
       "slug": "mhg-intro-stand-thi-2025",
       "title": "MHG Info Stand – Semester Kickoff",
-      "date": "October 1, 2025",
+      "date": "October 1, 2025 (8:00 – 14:00)",
       "location": "Technische Hochschule Ingolstadt, Building A",
-      "description": "Start the semester with MHG! Visit our info stand to learn more about our student association, meet fellow Muslim students, and find out how you can get involved in upcoming events and activities. A welcoming opportunity to connect and join the community.",
+      "description": "Start the semester with MHG at the student fair! Visit our stand to get to know our student association, meet fellow Muslim students, take part in a fun quiz with sweets, and discover upcoming events. You’ll also find flyers, stickers, and our social media info to stay connected.",
       "cardImage": "/events-banners/mhg-intro-stand-thi-2025-en.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Intro",
-        "Community",
-        "Students",
-        "Engagement"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Intro", "Community", "Students", "Engagement"],
+      "speakers": [],
+      "attendance": null,
+      "gallery": [],
+      "available": true,
+      "past": false,
+      "highlighted": true,
+      "registerAvailable": false
+    },
+    {
+      "slug": "mosque-charity-stand-2025",
+      "title": "Charity Stand at Mosques",
+      "date": "October 24, 2025 (after Jumu‘ah prayer)",
+      "location": "Various Mosques, Ingolstadt",
+      "description": "Support MHG initiatives through our charity stand after Friday prayer. We will distribute information about Charity Week, accept donations, and possibly organize a children’s drawing competition in Islamic schools. Food will be prepared by the MHG community or provided as donations.",
+      "cardImage": "/events-banners/mosque-charity-stand-2025-en.png",
+      "language": ["en", "de"],
+      "tags": ["Charity", "Community", "Fundraising"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
       "available": false,
       "past": false,
-      "highlighted": true,
+      "highlighted": false,
+      "registerAvailable": false
+    },
+    {
+      "slug": "altstadt-stand-2025",
+      "title": "Altstadt Activities Stand",
+      "date": "October 25, 2025 (11:00 – 19:00 or later)",
+      "location": "Altstadt, Ingolstadt (near Müller/DM)",
+      "description": "Join us in the Altstadt for a lively community stand! Expect henna art, kids’ face painting, glitter, sweets, oriental pastries like Kunafah and Baklava, Palestinian Cola, and more. We will also share flyers and information about MHG activities. A chance to connect, enjoy, and support MHG with friends and family.",
+      "cardImage": "/events-banners/altstadt-stand-2025-en.png",
+      "language": ["en", "de"],
+      "tags": ["Community", "Henna", "Food", "Calligraphy", "Charity"],
+      "speakers": [],
+      "attendance": null,
+      "gallery": [],
+      "available": false,
+      "past": false,
+      "highlighted": false,
       "registerAvailable": false
     },
     {
@@ -153,21 +107,11 @@
       "title": "Shaykh Taha Ali: Helper not Executioner",
       "date": "June 17, 2025",
       "location": "Room G215, THI, Ingolstadt",
-      "description": "Join us for an inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. Explore Islamic ethics of leadership, forgiveness, and justice in today’s world.",
+      "description": "An inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. The lecture explored Islamic ethics of leadership, forgiveness, and justice in today’s world.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-en.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Mercy",
-        "Prophet Muhammad ﷺ",
-        "Ethics",
-        "Leadership",
-        "Spirituality"
-      ],
-      "speakers": [
-        "Shaykh Taha Ali Zeidan"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Mercy", "Prophet Muhammad ﷺ", "Ethics", "Leadership", "Spirituality"],
+      "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063430/IMG_4266_owjnqf.jpg",
@@ -188,17 +132,8 @@
       "location": "THI, Ingolstadt",
       "description": "We gathered to celebrate Eid with joy, food, and fun! Everyone brought a delicious dish to share, making it a true community feast. The highlight of the day was an exciting Kahoot quiz that brought laughter, learning, and friendly competition. A beautiful chance to connect and celebrate Eid together.",
       "cardImage": "/events-banners/eid-celebration-june-2025-en.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Eid",
-        "Community",
-        "Food",
-        "Kahoot",
-        "Celebration"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Eid", "Community", "Food", "Kahoot", "Celebration"],
       "speakers": [],
       "attendance": 40,
       "gallery": [
@@ -222,21 +157,11 @@
       "title": "Priorities of Muslim Youth in Germany",
       "date": "May 15, 2025",
       "location": "Room G215, THI, Ingolstadt",
-      "description": "Join guest speaker Abdelhak Rabah for an insightful lecture on the priorities and challenges facing Muslim youth in Germany. The talk will explore identity, faith, education, and active participation in society.",
+      "description": "Guest speaker Abdelhak Rabah gave an insightful lecture on the priorities and challenges facing Muslim youth in Germany. The talk explored identity, faith, education, and active participation in society.",
       "cardImage": "/events-banners/priorities-of-muslim-youth-in-germany-en.png",
-      "language": [
-        "en"
-      ],
-      "tags": [
-        "Youth",
-        "Identity",
-        "Education",
-        "Community",
-        "Germany"
-      ],
-      "speakers": [
-        "Abdelhak Rabah"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Youth", "Identity", "Education", "Community", "Germany"],
+      "speakers": ["Abdelhak Rabah"],
       "attendance": 30,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063423/IMG_3298_o7ysio.jpg",
@@ -254,20 +179,13 @@
   "de": [
     {
       "slug": "children’s-painting-competition-2025",
-      "title": "Zeichnungswettbewerb der Kinder",
+      "title": "Kinder-Zeichenwettbewerb",
       "date": "Termin folgt",
-      "location": "Ingolstadt (genauer Ort, an dem bekannt gegeben wird)",
-      "description": "Ein lustiger und kreativer Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken!Mit einer geringen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren.Die Gewinner werden anerkannt und die Veranstaltung unterstützt MHG -Aktivitäten.",
+      "location": "Ingolstadt (genauer Ort wird noch bekannt gegeben)",
+      "description": "Ein lustiger und kreativer Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken! Mit einer kleinen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren. Gewinner werden ausgezeichnet und die Veranstaltung unterstützt die Aktivitäten von MHG.",
       "cardImage": "/events-banners/children’s-painting-competition-2025-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Kinder",
-        "Kunst",
-        "Gemeinschaft",
-        "Wettbewerb"
-      ],
+      "language": ["de"],
+      "tags": ["Kinder", "Kunst", "Gemeinschaft", "Wettbewerb"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -279,19 +197,12 @@
     {
       "slug": "cooking-class-sisters-2025",
       "title": "Kochkurs für Schwestern",
-      "date": "Termin folgt",
-      "location": "Ingolstadt (genauer Ort, an dem bekannt gegeben wird)",
-      "description": "Ein engagierter Kochkurs, der speziell für Schwestern organisiert ist.Lernen Sie neue Rezepte, kochen Sie zusammen und teilen Sie köstliches Essen, während Sie in einer unterstützenden Umgebung großartige Gesellschaft genießen.",
+      "date": "21. oder 23. Oktober 2025 (noch zu bestätigen)",
+      "location": "Ingolstadt (genauer Ort wird noch bekannt gegeben)",
+      "description": "Ein Kochkurs, speziell für Schwestern, organisiert im Rahmen des Projekts 'Leben in Bayern'. Gemeinsam neue Rezepte lernen, zusammen kochen und leckeres Essen teilen – in einer unterstützenden und freundlichen Atmosphäre. Teilnahmegebühr ab 5 € (Zutatenkosten enthalten). Begrenzte Teilnehmerzahl: max. 15 Personen.",
       "cardImage": "/events-banners/cooking-class-sisters-2025-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Kochen",
-        "Schwestern",
-        "Gemeinschaft",
-        "Essen"
-      ],
+      "language": ["de"],
+      "tags": ["Kochen", "Schwestern", "Gemeinschaft", "Essen"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -302,71 +213,13 @@
     },
     {
       "slug": "football-charity-match-2025",
-      "title": "Wohltätigkeitsfußballspiel",
+      "title": "Wohltätigkeits-Fußballspiel",
       "date": "Termin folgt",
-      "location": "Ingolstadt (genaues Feld, das bekannt gegeben wird)",
-      "description": "Komm und spiele Fußball für eine Sache!Die Teams werden in einem freundlichen Match gegeneinander antreten, und das verlorene Team leistet Spenden.Eine großartige Möglichkeit, Spaß, Sport zu kombinieren und etwas zurückzugeben.",
+      "location": "Ingolstadt (genauer Ort wird noch bekannt gegeben)",
+      "description": "Komm und spiele Fußball für einen guten Zweck! Teams treten in einem freundschaftlichen Match gegeneinander an, und das verlierende Team leistet eine Spende. Eine tolle Möglichkeit, Spaß, Sport und Wohltätigkeit zu verbinden.",
       "cardImage": "/events-banners/football-charity-match-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Fußball",
-        "Sport",
-        "Wohltätigkeit",
-        "Gemeinschaft"
-      ],
-      "speakers": [],
-      "attendance": null,
-      "gallery": [],
-      "available": false,
-      "past": false,
-      "highlighted": false,
-      "registerAvailable": false
-    },
-    {
-      "slug": "mosque-charity-stand-2025",
-      "title": "Wohltätigkeitsorganisation steht in Moscheen",
-      "date": "25. Oktober 2025",
-      "location": "Verschiedene Moscheen, Ingolstadt",
-      "description": "Begleiten Sie uns nach dem Gebet von Jumu'ah für eine Wohltätigkeitsorganisation in den Moscheen.Unterstützen Sie MHG -Initiativen durch Spenden und Engagement der Gemeinschaft.",
-      "cardImage": "/events-banners/mosque-charity-stand-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Wohltätigkeit",
-        "Gemeinschaft",
-        "Fundraising"
-      ],
-      "speakers": [],
-      "attendance": null,
-      "gallery": [],
-      "available": false,
-      "past": false,
-      "highlighted": false,
-      "registerAvailable": false
-    },
-    {
-      "slug": "altstadt-stand-2025",
-      "title": "Altstadtaktivitäten stehen vor",
-      "date": "Termin folgt",
-      "location": "Altstadt, Ingolstadt",
-      "description": "Besuchen Sie uns in der Altstadt für einen lebhaften Gemeinschaftsstand!Erwarten Sie Henna Art, Kinder mit Gesichtsmalerei, Kuchen, Waffeln, Kalligraphie, Dekorationen und sogar einen kleinen Flohmarkt.Eine Chance, MHG mit Freunden und Familie zu verbinden, zu genießen und zu unterstützen.",
-      "cardImage": "/events-banners/altstadt-stand-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Gemeinschaft",
-        "Henna",
-        "Essen",
-        "Kalligraphie",
-        "Wohltätigkeit"
-      ],
+      "language": ["de"],
+      "tags": ["Fußball", "Sport", "Wohltätigkeit", "Gemeinschaft"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -377,49 +230,65 @@
     },
     {
       "slug": "mhg-intro-stand-thi-2025",
-      "title": "MHG Info Stand - Semesterstart",
-      "date": "1. Oktober 2025",
-      "location": "Technische Hochschule Ingolstadt, Building A",
-      "description": "Beginnen Sie das Semester mit MHG!Besuchen Sie unsere Info -Standpunkte, um mehr über unsere Studentenvereinigung zu erfahren, mit muslimischen Studenten zu treffen und herauszufinden, wie Sie sich an bevorstehenden Veranstaltungen und Aktivitäten einsetzen können.Eine einladende Gelegenheit, sich der Community zu verbinden und sich der Community anzuschließen.",
+      "title": "MHG Infostand – Semesterstart",
+      "date": "1. Oktober 2025 (8:00 – 14:00)",
+      "location": "Technische Hochschule Ingolstadt, Gebäude A",
+      "description": "Starte das Semester mit MHG auf der Hochschulmesse! Besuche unseren Stand, um unsere Studierendenvereinigung kennenzulernen, andere muslimische Studierende zu treffen, an einem unterhaltsamen Quiz mit Süßigkeiten teilzunehmen und mehr über kommende Veranstaltungen zu erfahren. Außerdem findest du Flyer, Sticker und unsere Social-Media-Infos, um in Kontakt zu bleiben.",
       "cardImage": "/events-banners/mhg-intro-stand-thi-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Intro",
-        "Gemeinschaft",
-        "Studentinnen",
-        "Engagement"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Intro", "Gemeinschaft", "Studierende", "Engagement"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": false,
+      "available": true,
       "past": false,
       "highlighted": true,
       "registerAvailable": false
     },
     {
+      "slug": "mosque-charity-stand-2025",
+      "title": "Wohltätigkeitsstand in Moscheen",
+      "date": "24. Oktober 2025 (nach dem Freitagsgebet)",
+      "location": "Verschiedene Moscheen, Ingolstadt",
+      "description": "Unterstütze die Initiativen von MHG an unserem Wohltätigkeitsstand nach dem Freitagsgebet. Wir informieren über die Charity Week, sammeln Spenden und planen eventuell einen Malwettbewerb für Kinder in islamischen Schulen. Das Essen wird von der MHG-Community vorbereitet oder als Spende beigesteuert.",
+      "cardImage": "/events-banners/mosque-charity-stand-2025-de.png",
+      "language": ["de", "en"],
+      "tags": ["Wohltätigkeit", "Gemeinschaft", "Fundraising"],
+      "speakers": [],
+      "attendance": null,
+      "gallery": [],
+      "available": false,
+      "past": false,
+      "highlighted": false,
+      "registerAvailable": false
+    },
+    {
+      "slug": "altstadt-stand-2025",
+      "title": "Altstadt-Aktivitätenstand",
+      "date": "25. Oktober 2025 (11:00 – 19:00 oder länger)",
+      "location": "Altstadt, Ingolstadt (bei Müller/DM)",
+      "description": "Besuche uns beim Altstadtstand für ein buntes Gemeinschaftsprogramm! Es gibt Henna, Kinderschminken, Glitzer, Süßigkeiten, orientalische Spezialitäten wie Kunafah und Baklava, palästinensische Cola und vieles mehr. Zudem verteilen wir Flyer und informieren über MHG-Aktivitäten. Eine wunderbare Gelegenheit, Gemeinschaft zu erleben und MHG zu unterstützen.",
+      "cardImage": "/events-banners/altstadt-stand-2025-de.png",
+      "language": ["de", "en"],
+      "tags": ["Gemeinschaft", "Henna", "Essen", "Kalligraphie", "Wohltätigkeit"],
+      "speakers": [],
+      "attendance": null,
+      "gallery": [],
+      "available": false,
+      "past": false,
+      "highlighted": false,
+      "registerAvailable": false
+    },
+    {
       "slug": "shaykh-taha-ali-talk-june-2025",
-      "title": "Shaykh Taha Ali: Helfer nicht Henker",
+      "title": "Shaykh Taha Ali: Helfer, nicht Henker",
       "date": "17. Juni 2025",
       "location": "Raum G215, THI, Ingolstadt",
-      "description": "Besuchen Sie uns für ein inspirierendes Gespräch mit Shaykh Taha Ali Zeidan über die Rolle des Propheten als Quelle der Barmherzigkeit und des Mitgefühls, nicht als Bestrafung.Erforschen Sie die islamische Ethik von Führung, Vergebung und Gerechtigkeit in der heutigen Welt.",
+      "description": "Ein inspirierender Vortrag mit Shaykh Taha Ali Zeidan über die Rolle des Propheten ﷺ als Quelle der Barmherzigkeit und des Mitgefühls, nicht der Bestrafung. Der Vortrag beleuchtete islamische Ethik in Bezug auf Führung, Vergebung und Gerechtigkeit in der heutigen Welt.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Barmherzigkeit",
-        "Prophet Muhammad ﷺ",
-        "Ethik",
-        "Führung",
-        "Spiritualität"
-      ],
-      "speakers": [
-        "Shaykh Taha Ali Zeidan"
-      ],
+      "language": ["de"],
+      "tags": ["Barmherzigkeit", "Prophet Muhammad ﷺ", "Ethik", "Führung", "Spiritualität"],
+      "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063430/IMG_4266_owjnqf.jpg",
@@ -435,22 +304,13 @@
     },
     {
       "slug": "eid-celebration-june-2025",
-      "title": "Eid Feier - Kahoot, gemeinsame Gerichte",
+      "title": "Eid-Feier – Kahoot & gemeinsames Essen",
       "date": "11. Juni 2025",
-      "location": "Thi, Ingolstadt",
-      "description": "Wir versammelten uns, um Eid mit Freude, Essen und Spaß zu feiern!Jeder brachte ein köstliches Gericht mit, um es zu einem echten Community -Fest zu teilen.Der Höhepunkt des Tages war ein aufregendes Kahoot -Quiz, das Lachen, Lernen und freundliche Wettbewerb brachte.Eine schöne Chance, sich zusammen zu verbinden und Eid zusammen zu feiern.",
+      "location": "THI, Ingolstadt",
+      "description": "Wir haben Eid gemeinsam mit Freude, leckerem Essen und Spaß gefeiert! Alle haben ein köstliches Gericht mitgebracht und so ein echtes Gemeinschaftsfest geschaffen. Höhepunkt war ein spannendes Kahoot-Quiz, das für Lachen, Lernen und freundlichen Wettbewerb sorgte. Eine schöne Gelegenheit, Eid gemeinsam zu erleben.",
       "cardImage": "/events-banners/eid-celebration-june-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Eid",
-        "Gemeinschaft",
-        "Essen",
-        "Kahoot",
-        "Feier"
-      ],
+      "language": ["de"],
+      "tags": ["Eid", "Gemeinschaft", "Essen", "Kahoot", "Feier"],
       "speakers": [],
       "attendance": 40,
       "gallery": [
@@ -471,24 +331,14 @@
     },
     {
       "slug": "priorities-of-muslim-youth-in-germany",
-      "title": "Prioritäten der muslimischen Jugend in Deutschland",
+      "title": "Prioritäten muslimischer Jugend in Deutschland",
       "date": "15. Mai 2025",
       "location": "Raum G215, THI, Ingolstadt",
-      "description": "Schließen Sie den Gastredner Abdelhak Rabah mit, um einen aufschlussreichen Vortrag über die Prioritäten und Herausforderungen für muslimische Jugendliche in Deutschland zu erhalten.Der Vortrag wird Identität, Glauben, Bildung und aktive Teilnahme an der Gesellschaft untersuchen.",
+      "description": "Gastredner Abdelhak Rabah hielt einen aufschlussreichen Vortrag über die Prioritäten und Herausforderungen muslimischer Jugendlicher in Deutschland. Themen waren Identität, Glaube, Bildung und aktive Teilnahme an der Gesellschaft.",
       "cardImage": "/events-banners/priorities-of-muslim-youth-in-germany-de.png",
-      "language": [
-        "en"
-      ],
-      "tags": [
-        "Jugend",
-        "Identität",
-        "Ausbildung",
-        "Gemeinschaft",
-        "Deutschland"
-      ],
-      "speakers": [
-        "Abdelhak Rabah"
-      ],
+      "language": ["de"],
+      "tags": ["Jugend", "Identität", "Bildung", "Gemeinschaft", "Deutschland"],
+      "speakers": ["Abdelhak Rabah"],
       "attendance": 30,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063423/IMG_3298_o7ysio.jpg",

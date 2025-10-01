@@ -38,19 +38,21 @@ const contactLinks = links as LinksType;
         <h3 class="text-xl font-semibold mb-3">
           📚 {t("contact.studentsTitle", lang)}
         </h3>
-        <p class="mb-2">{t("contact.studentsDescription", lang)}</p>
+        <p class="mb-2">
+          {t("contact.studentsDescription", lang)}
+          <a
+          href={`mailto:${contactLinks.email}`}
+          class="text-[#0369a1] underline"
+          target="_blank"
+        >
+          {contactLinks.email}
+        </a>
+        </p> 
+        
         <ul class="space-y-1 text-sm">
           <li>
             {t("contact.title", lang)}:
-            <a
-              href={`mailto:${contactLinks.email}`}
-              class="text-[#0369a1] underline"
-              target="_blank"
-            >
-              {contactLinks.email}
-            </a>
           </li>
-          <li>
             {t("social.whatsapp", lang)}:
             <a
               href={contactLinks.whatsapp}

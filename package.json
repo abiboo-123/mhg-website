@@ -10,9 +10,8 @@
     "translate:events": "node scripts/translateEvents.js",
     "translate:resources": "node scripts/translateResources.js",
     "translate": "npm run translate:events && npm run translate:resources",
-    "generate:events": "node scripts/generateEventImages.js",
-    "push:ready": "npm run translate && npm run generate:events"
-  },
+    "generate:events": "node scripts/generateEventImages.js"
+    },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.3.1",
