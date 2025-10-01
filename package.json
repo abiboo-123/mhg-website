@@ -11,7 +11,7 @@
     "translate:resources": "node scripts/translateResources.js",
     "translate": "npm run translate:events && npm run translate:resources",
     "generate:events": "node scripts/generateEventImages.js"
-    },
+  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.3.1",
@@ -19,6 +19,7 @@
     "@astrojs/vercel": "^8.0.4",
     "@formbricks/js": "^4.1.0",
     "@tailwindcss/vite": "^4.1.8",
+    "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.9.0",
     "node-fetch": "^3.3.2",
     "react": "^19.1.1",
