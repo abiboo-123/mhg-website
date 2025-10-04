@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import "../styles/global.css";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
 
 
 const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
@@ -22,5 +23,6 @@ const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
     </main>
     <Footer lang = { lang }/>
     <SpeedInsights />
+    <Analytics />
   </body>
 </html>
