@@ -2,11 +2,11 @@ export const events = [
   //--------------------- Draft Events ---------------------//
   // children's painting competition 2025
   {
-    slug: 'children’s-painting-competition-2025',
+    slug: 'childrens-painting-competition-2025',
     title: 'Children’s Drawing Competition',
-    date: 'Stay tuned for the date',
-    location: 'Ingolstadt (exact location to be announced)',
-    description: 'A fun and creative competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. Winners will be recognized, and the event supports MHG activities.',
+    date: 'Date to be announced',
+    location: 'Online',
+    description: 'A fun and creative online competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. All proceeds go towards Charity Week and MHG projects.',
     cardImage: "",
     language: ['en', 'de'],
     tags: ['Children', 'Art', 'Community', 'Competition'],
@@ -54,8 +54,8 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-   // mosque charity stand 2025
-   {
+  // mosque charity stand 2025
+  {
     slug: 'mosque-charity-stand-2025',
     title: 'Charity Stand at Mosques',
     date: 'October 24, 2025 (after Jumu‘ah prayer)',
@@ -91,24 +91,6 @@ export const events = [
     registerAvailable: false
   },
   //--------------------- Upcoming Events ---------------------//
-  // mhg intro stand semester kickoff 2025 (Vereinsmesse)
-  {
-    slug: 'mhg-intro-stand-thi-2025',
-    title: 'MHG Info Stand – Semester Kickoff',
-    date: 'October 1, 2025 (8:00 – 14:00)',
-    location: 'Technische Hochschule Ingolstadt, Building A',
-    description: 'Start the semester with MHG at the student fair! We will have two tables, a pinboard, and electricity. Visit our stand to learn more about our student association, meet fellow Muslim students, join a quiz with sweets, and get information about upcoming events. Flyers, stickers, and social media info will also be available.',
-    cardImage: "",
-    language: ['en', 'de'],
-    tags: ['Intro', 'Community', 'Students', 'Engagement'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: true,
-    past: false,
-    highlighted: true,
-    registerAvailable: false
-  },
   //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {
@@ -185,5 +167,23 @@ export const events = [
     past: true,
     highlighted: false,
     registerAvailable: false
-  }
+  },
+  // mhg intro stand semester kickoff 2025 (available = false)
+  {
+    slug: 'mhg-intro-stand-thi-2025',
+    title: 'MHG Info Stand – Semester Kickoff',
+    date: 'October 1, 2025 (8:00 – 14:00)',
+    location: 'Technische Hochschule Ingolstadt, Building A',
+    description: 'Start the semester with MHG at the student fair! We will have two tables, a pinboard, and electricity. Visit our stand to learn more about our student association, meet fellow Muslim students, join a quiz with sweets, and get information about upcoming events. Flyers, stickers, and social media info will also be available.',
+    cardImage: "",
+    language: ['en', 'de'],
+    tags: ['Intro', 'Community', 'Students', 'Engagement'],
+    speakers: [],
+    attendance: null,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: true,
+    registerAvailable: false
+  },
 ];

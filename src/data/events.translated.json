@@ -1,20 +1,20 @@
 {
   "en": [
     {
-      "slug": "children’s-painting-competition-2025",
+      "slug": "childrens-painting-competition-2025",
       "title": "Children’s Drawing Competition",
-      "date": "Stay tuned for the date",
-      "location": "Ingolstadt (exact location to be announced)",
-      "description": "A fun and creative competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. Winners will be recognized, and the event supports MHG activities.",
-      "cardImage": "/events-banners/children’s-painting-competition-2025-en.png",
+      "date": "Date to be announced",
+      "location": "Online",
+      "description": "A fun and creative online competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. All proceeds go towards Charity Week and MHG projects.",
+      "cardImage": "/events-banners/childrens-painting-competition-2025-en.png",
       "language": ["en", "de"],
       "tags": ["Children", "Art", "Community", "Competition"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": false,
+      "available": true,
       "past": false,
-      "highlighted": false,
+      "highlighted": true,
       "registerAvailable": false
     },
     {
@@ -63,9 +63,9 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
-      "past": false,
-      "highlighted": true,
+      "available": false,
+      "past": true,
+      "highlighted": false,
       "registerAvailable": false
     },
     {
@@ -110,7 +110,13 @@
       "description": "An inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. The lecture explored Islamic ethics of leadership, forgiveness, and justice in today’s world.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-en.png",
       "language": ["en", "de"],
-      "tags": ["Mercy", "Prophet Muhammad ﷺ", "Ethics", "Leadership", "Spirituality"],
+      "tags": [
+        "Mercy",
+        "Prophet Muhammad ﷺ",
+        "Ethics",
+        "Leadership",
+        "Spirituality"
+      ],
       "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [
@@ -178,20 +184,20 @@
   ],
   "de": [
     {
-      "slug": "children’s-painting-competition-2025",
-      "title": "Kinder-Zeichenwettbewerb",
+      "slug": "childrens-painting-competition-2025",
+      "title": "Kindermalwettbewerb",
       "date": "Termin folgt",
-      "location": "Ingolstadt (genauer Ort wird noch bekannt gegeben)",
-      "description": "Ein lustiger und kreativer Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken! Mit einer kleinen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren. Gewinner werden ausgezeichnet und die Veranstaltung unterstützt die Aktivitäten von MHG.",
-      "cardImage": "/events-banners/children’s-painting-competition-2025-de.png",
-      "language": ["de"],
+      "location": "Online",
+      "description": "Ein lustiger und kreativer Online-Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken! Mit einer kleinen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren. Alle Einnahmen unterstützen die Charity Week und MHG-Projekte.",
+      "cardImage": "/events-banners/childrens-painting-competition-2025-de.png",
+      "language": ["de", "en"],
       "tags": ["Kinder", "Kunst", "Gemeinschaft", "Wettbewerb"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": false,
+      "available": true,
       "past": false,
-      "highlighted": false,
+      "highlighted": true,
       "registerAvailable": false
     },
     {
@@ -240,9 +246,9 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": true,
-      "past": false,
-      "highlighted": true,
+      "available": false,
+      "past": true,
+      "highlighted": false,
       "registerAvailable": false
     },
     {
@@ -270,7 +276,13 @@
       "description": "Besuche uns beim Altstadtstand für ein buntes Gemeinschaftsprogramm! Es gibt Henna, Kinderschminken, Glitzer, Süßigkeiten, orientalische Spezialitäten wie Kunafah und Baklava, palästinensische Cola und vieles mehr. Zudem verteilen wir Flyer und informieren über MHG-Aktivitäten. Eine wunderbare Gelegenheit, Gemeinschaft zu erleben und MHG zu unterstützen.",
       "cardImage": "/events-banners/altstadt-stand-2025-de.png",
       "language": ["de", "en"],
-      "tags": ["Gemeinschaft", "Henna", "Essen", "Kalligraphie", "Wohltätigkeit"],
+      "tags": [
+        "Gemeinschaft",
+        "Henna",
+        "Essen",
+        "Kalligraphie",
+        "Wohltätigkeit"
+      ],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -287,7 +299,13 @@
       "description": "Ein inspirierender Vortrag mit Shaykh Taha Ali Zeidan über die Rolle des Propheten ﷺ als Quelle der Barmherzigkeit und des Mitgefühls, nicht der Bestrafung. Der Vortrag beleuchtete islamische Ethik in Bezug auf Führung, Vergebung und Gerechtigkeit in der heutigen Welt.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-de.png",
       "language": ["de"],
-      "tags": ["Barmherzigkeit", "Prophet Muhammad ﷺ", "Ethik", "Führung", "Spiritualität"],
+      "tags": [
+        "Barmherzigkeit",
+        "Prophet Muhammad ﷺ",
+        "Ethik",
+        "Führung",
+        "Spiritualität"
+      ],
       "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [

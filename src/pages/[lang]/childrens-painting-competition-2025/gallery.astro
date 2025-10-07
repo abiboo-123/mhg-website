@@ -1,0 +1,84 @@
+---
+import Layout from "../../../layouts/BaseLayout.astro";
+import { createClient } from "@supabase/supabase-js";
+import { t } from "../../../utils/t";
+
+const { SUPABASE_URL, SUPABASE_ANON_KEY } = import.meta.env;
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Fetch only verified public data
+const { data: images } = await supabase
+  .from("images")
+  .select("id, url, like_count, created_at")
+  .eq("verified", true)
+  .order("like_count", { ascending: false })
+  .order("created_at", { ascending: false });
+---
+
+<Layout title="Gallery – Children’s Painting Competition 2025" lang="en">
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
+      🖼️ {t("competition.galleryTitle", "en") || "Gallery"}
+    </h2>
+
+    <div
+      id="gallery"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+    >
+      {
+        images && images.length > 0 ? (
+          images.map((img) => (
+            <div
+              class="bg-white rounded-xl shadow-md p-4 text-center"
+              data-id={img.id}
+            >
+              <img
+                src={img.url}
+                alt="Artwork"
+                class="rounded-md mb-3 mx-auto"
+              />
+              <button class="like-btn bg-[#0369a1] text-white px-4 py-2 rounded-full hover:bg-blue-800 transition">
+                ❤️ {img.like_count}
+              </button>
+            </div>
+          ))
+        ) : (
+          <p class="text-center text-gray-500 col-span-full">
+            No verified images yet.
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll(".like-btn").forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        const card = e.target.closest("[data-id]");
+        const id = card.dataset.id;
+
+        const res = await fetch(`/api/likes/${id}`, { method: "POST" });
+        const data = await res.json();
+
+        let feedback = card.querySelector(".like-feedback");
+        if (!feedback) {
+          feedback = document.createElement("div");
+          feedback.className = "like-feedback mt-2 text-xs text-gray-600";
+          card.appendChild(feedback);
+        }
+
+        if (data.success) {
+          const count = parseInt(e.target.textContent.replace(/\D/g, "")) + 1;
+          e.target.textContent = "❤️ " + count;
+          feedback.textContent = "✅ Thanks for your like!";
+          feedback.className = "like-feedback mt-2 text-xs text-green-700";
+        } else if (data.message) {
+          feedback.textContent = "💡 You already liked this image.";
+          feedback.className = "like-feedback mt-2 text-xs text-gray-600";
+        }
+
+        setTimeout(() => feedback.remove(), 4000);
+      });
+    });
+  </script>
+</Layout>

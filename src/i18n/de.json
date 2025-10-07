@@ -149,5 +149,21 @@
   "donate.faq1Q": "Kann ich eine monatliche Spende einrichten?",
   "donate.faq1A": "Ja. Wähle beim PayPal-Checkout die Option für wiederkehrende Zahlungen.",
   "donate.faq2Q": "Bekomme ich eine Quittung?",
-  "donate.faq2A": "Wir können Quittungen ausstellen. Gib deine E-Mail im Verwendungszweck an oder kontaktiere uns nach der Spende."
+  "donate.faq2A": "Wir können Quittungen ausstellen. Gib deine E-Mail im Verwendungszweck an oder kontaktiere uns nach der Spende.",
+  "competition.uploadTitle": "Kindermalwettbewerb",
+  "competition.uploadFormTitle": "Reiche dein Kunstwerk ein",
+  "competition.childName": "Name des Kindes",
+  "competition.parentEmail": "E-Mail der Eltern",
+  "competition.phone": "Telefonnummer",
+  "competition.artwork": "Bild des Kunstwerks",
+  "competition.artworkHint": "Lade die Zeichnung oder das Gemälde deines Kindes hoch (JPG oder PNG).",
+  "competition.transactionProof": "Bild des Zahlungsnachweises",
+  "competition.transactionHint": "Lade einen Screenshot oder Beleg des Teilnahmebeitrags hoch.",
+  "competition.submitBtn": "Beitrag hochladen",
+  "competition.successMessage": "✅ Upload erfolgreich! Dein Beitrag wurde eingereicht.",
+  "competition.errorMessage": "❌ Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+  "competition.galleryTitle": "Galerie",
+  "competition.galleryNoImages": "Noch keine verifizierten Bilder vorhanden.",
+  "competition.galleryLikeButton": "❤️ Gefällt mir",
+  "competition.galleryAlreadyLiked": "Du hast dieses Bild bereits mit „Gefällt mir“ markiert."
 }

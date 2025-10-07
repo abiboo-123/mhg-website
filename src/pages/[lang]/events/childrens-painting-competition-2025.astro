@@ -1,0 +1,123 @@
+---
+import Layout from "../../../layouts/BaseLayout.astro";
+import { t } from "../../../utils/t";
+import fs from "fs";
+import path from "path";
+
+const { lang } = Astro.params;
+const slug = "childrens-painting-competition-2025";
+const supportedLangs = ["en", "de"];
+
+if (!supportedLangs.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
+}
+
+const isGerman = lang === "de";
+
+// Basic localized content
+const title = isGerman
+  ? "Kindermalwettbewerb"
+  : "Children’s Painting Competition";
+
+const description = isGerman
+  ? "Ein lustiger und kreativer Online-Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken! Mit einer kleinen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren. Alle Einnahmen unterstützen die Charity Week und MHG-Projekte."
+  : "A fun and creative online competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. All proceeds go towards Charity Week and MHG projects.";
+
+const instructions = isGerman
+  ? [
+      "1️⃣ Lade die Zeichnung deines Kindes und den Zahlungsnachweis auf der Upload-Seite hoch.",
+      "2️⃣ Nach der Überprüfung wird das Kunstwerk in unserer Online-Galerie angezeigt.",
+      "3️⃣ Freunde und Familie können die Beiträge liken ❤️ — die beliebtesten Bilder werden hervorgehoben!",
+      "4️⃣ Die Teilnahmegebühr kann über unsere Spenden-Seite bezahlt werden.",
+    ]
+  : [
+      "1️⃣ Upload your child’s drawing and transaction proof on the Upload page.",
+      "2️⃣ Once verified, the artwork will appear in our online gallery.",
+      "3️⃣ Friends and family can like ❤️ the submissions — top artworks will be featured!",
+      "4️⃣ The participation fee can be paid through our donation page.",
+    ];
+
+const uploadLink = `/${lang}/childrens-painting-competition-2025/upload`;
+const galleryLink = `/${lang}/childrens-painting-competition-2025/gallery`;
+const donateLink = `/${lang}/donate`;
+
+const filePath = path.resolve(`./public/events/${slug}.jpg`);
+const hasImage = fs.existsSync(filePath);
+const imageBanner = hasImage ? `/events/${slug}.jpg` : null;
+---
+
+<Layout title={`${title} – MHG Ingolstadt`} lang={lang}>
+  <section class="max-w-3xl mx-auto px-4 py-12">
+    <a
+      href={`/${lang}/events`}
+      class="inline-block mb-4 text-[#0369a1] hover:underline text-sm"
+    >
+      ← {isGerman ? "Zurück zu allen Veranstaltungen" : "Back to all events"}
+    </a>
+
+    <h1 class="text-3xl font-bold mb-4">{title}</h1>
+
+    <div class="w-full bg-white flex justify-center items-center mb-6">
+      <img
+        src={imageBanner}
+        alt={title}
+        width="1200"
+        height="700"
+        class="w-full h-auto object-contain rounded-md"
+      />
+    </div>
+
+    <p class="text-sm text-gray-500 mb-2">
+      📅 {isGerman ? "Termin folgt" : "Date to be announced"}
+    </p>
+    <p class="text-sm text-gray-500 mb-4">
+      📍 {isGerman ? "Online" : "Online"}
+    </p>
+
+    <p class="mb-6">{description}</p>
+
+    <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+      <h3 class="text-xl font-semibold mb-4">
+        {isGerman ? "📝 Teilnahmeanleitung" : "📝 How to Participate"}
+      </h3>
+      <ul class="space-y-2 list-disc list-inside text-gray-700">
+        {instructions.map((line) => <li>{line}</li>)}
+      </ul>
+
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a
+          href={uploadLink}
+          class="bg-[#0369a1] text-white py-2 px-4 rounded-full hover:bg-blue-800 transition"
+        >
+          {isGerman ? "📤 Zum Upload" : "📤 Go to Upload Page"}
+        </a>
+
+        <a
+          href={galleryLink}
+          class="bg-slate-200 text-gray-800 py-2 px-4 rounded-full hover:bg-slate-300 transition"
+        >
+          {isGerman ? "🖼️ Galerie ansehen" : "🖼️ View Gallery"}
+        </a>
+
+        <a
+          href={donateLink}
+          class="bg-green-600 text-white py-2 px-4 rounded-full hover:bg-green-700 transition"
+        >
+          {
+            isGerman
+              ? "💚 Spenden / Teilnahmegebühr"
+              : "💚 Donate / Participation Fee"
+          }
+        </a>
+      </div>
+    </div>
+
+    <div class="text-sm text-gray-500 text-center mt-10">
+      {
+        isGerman
+          ? "Der Wettbewerb wird von MHG Ingolstadt e.V. organisiert und unterstützt die Charity Week."
+          : "This competition is organized by MHG Ingolstadt e.V. and supports Charity Week."
+      }
+    </div>
+  </section>
+</Layout>
