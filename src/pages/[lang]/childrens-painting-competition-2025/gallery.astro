@@ -3,6 +3,12 @@ import Layout from "../../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
 import { t } from "../../../utils/t";
 
+const { lang = "en" } = Astro.params;
+const supportedLangs = ["en", "de"];
+if (!supportedLangs.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
+}
+
 const { SUPABASE_URL, SUPABASE_ANON_KEY } = import.meta.env;
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -20,6 +26,13 @@ const { data: images } = await supabase
     <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
       🖼️ {t("competition.galleryTitle", "en") || "Gallery"}
     </h2>
+
+    <a
+      href={`/${lang}/events/childrens-painting-competition-2025`}
+      class="inline-block mb-4 text-[#0369a1] hover:underline text-sm"
+    >
+      ← {lang === "de" ? "Zurück zur Veranstaltung" : "Back to event"}
+    </a>
 
     <div
       id="gallery"
@@ -44,7 +57,9 @@ const { data: images } = await supabase
           ))
         ) : (
           <p class="text-center text-gray-500 col-span-full">
-            No verified images yet.
+            {lang === "de"
+              ? "Noch keine verifizierten Bilder vorhanden."
+              : "No verified images yet."}{" "}
           </p>
         )
       }

@@ -4,7 +4,7 @@ import { t } from "../../../utils/t";
 import fs from "fs";
 import path from "path";
 
-const { lang } = Astro.params;
+const { lang = "en" } = Astro.params;
 const slug = "childrens-painting-competition-2025";
 const supportedLangs = ["en", "de"];
 
