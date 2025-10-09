@@ -57,16 +57,19 @@ const imageBanner = hasImage ? `/events/${slug}.jpg` : null;
 
     <h1 class="text-3xl font-bold mb-4">{title}</h1>
 
-    <div class="w-full bg-white flex justify-center items-center mb-6">
-      <img
-        src={imageBanner}
-        alt={title}
-        width="1200"
-        height="700"
-        class="w-full h-auto object-contain rounded-md"
-      />
-    </div>
-
+    {
+      imageBanner && (
+        <div class="w-full bg-white flex justify-center items-center mb-6">
+          <img
+            src={imageBanner}
+            alt={title}
+            width="1200"
+            height="700"
+            class="w-full h-auto object-contain rounded-md"
+          />
+        </div>
+      )
+    }
     <p class="text-sm text-gray-500 mb-2">
       📅 {isGerman ? "Termin folgt" : "Date to be announced"}
     </p>

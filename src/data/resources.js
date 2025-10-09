@@ -228,7 +228,7 @@ export const rawResources = [
         locationLink: "https://maps.app.goo.gl/MQgNPYoX8y5YyM3k9",
         description: "Popular Turkish grill serving döner, kebab, and quick halal meals, known for good taste and friendly service.",
         tags: ["döner", "kebab", "fast food", "casual dining", "turkish"]
-      },      
+      },
       {
         slug: "indian-palace",
         name: "Indian Palace Ingolstadt",
@@ -268,6 +268,14 @@ export const rawResources = [
         locationLink: "https://maps.app.goo.gl/2SitNoH2b6Ao1sg48",
         description: "Syrian halal-friendly eatery with shawarma, falafel, and more.",
         tags: ["shawarma", "falafel", "casual dining", "syrian"],
+      },
+      {
+        slug: "leons_backwaren",
+        name: "LEON’S Backwaren",
+        location: "Richard-Wagner-Straße 29, 85057 Ingolstadt",
+        locationLink: "https://maps.app.goo.gl/oSP2aAtTXCabby689",
+        description: "Bakery in Ingolstadt offering freshly baked goods from savory burek to sweet pastries with warm service and a neighborhood feel.",
+        tags: ["bakery", "fresh-pastries", "savory-snacks"]
       },
     ],
   },
