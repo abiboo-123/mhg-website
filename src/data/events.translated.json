@@ -65,7 +65,7 @@
       "speakers": [],
       "attendance": null,
       "gallery": [],
-      "available": false,
+      "available": true,
       "past": true,
       "highlighted": false,
       "registerAvailable": false
