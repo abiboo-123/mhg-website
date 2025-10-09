@@ -1,28 +1,17 @@
 ---
+// src/pages/[lang]/contact.astro
 import { links } from "../../data/links";
 import Layout from "../../layouts/BaseLayout.astro";
 import { t } from "../../utils/t";
 
-const { lang } = Astro.params;
+const { lang = "en" } = Astro.params;
 const supportedLangs = ["en", "de"];
 
-// Generate static paths
-export async function getStaticPaths() {
-  return supportedLangs.map((lang) => ({ params: { lang } }));
-}
-
-// Fallback if route is invalid
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }
 
-// Types (optional but safe)
-type LinksType = {
-  email: string;
-  whatsapp: string;
-  instagram: string;
-};
-
+type LinksType = { email: string; whatsapp: string; instagram: string };
 const contactLinks = links as LinksType;
 ---
 
@@ -32,7 +21,6 @@ const contactLinks = links as LinksType;
       👋 {t("contact.title", lang)}
     </h2>
 
-    <!-- Info Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
       <div class="bg-white rounded-xl shadow-md p-6">
         <h3 class="text-xl font-semibold mb-3">
@@ -41,18 +29,16 @@ const contactLinks = links as LinksType;
         <p class="mb-2">
           {t("contact.studentsDescription", lang)}
           <a
-          href={`mailto:${contactLinks.email}`}
-          class="text-[#0369a1] underline"
-          target="_blank"
-        >
-          {contactLinks.email}
-        </a>
-        </p> 
-        
+            href={`mailto:${contactLinks.email}`}
+            class="text-[#0369a1] underline"
+            target="_blank"
+          >
+            {contactLinks.email}
+          </a>
+        </p>
+
         <ul class="space-y-1 text-sm">
           <li>
-            {t("contact.title", lang)}:
-          </li>
             {t("social.whatsapp", lang)}:
             <a
               href={contactLinks.whatsapp}
@@ -89,10 +75,10 @@ const contactLinks = links as LinksType;
         📧 {t("contact.formTitle", lang)}
       </h3>
       <form
-        action="https://formspree.io/f/mnnvjege"
+        id="contactForm"
+        action="/api/contact"
         method="POST"
         class="space-y-4"
-        id="contactForm"
       >
         <div>
           <label for="name" class="block text-sm font-medium mb-1"
@@ -103,7 +89,7 @@ const contactLinks = links as LinksType;
             id="name"
             name="name"
             required
-            class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"
+            class="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-[#0369a1]"
           />
         </div>
 
@@ -116,7 +102,7 @@ const contactLinks = links as LinksType;
             id="email"
             name="email"
             required
-            class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"
+            class="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-[#0369a1]"
           />
         </div>
 
@@ -129,7 +115,7 @@ const contactLinks = links as LinksType;
             name="message"
             rows="4"
             required
-            class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0369a1]"
+            class="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-[#0369a1]"
           ></textarea>
         </div>
 
@@ -145,21 +131,15 @@ const contactLinks = links as LinksType;
 
   <script is:inline>
     const form = document.getElementById("contactForm");
-
-    form.addEventListener("submit", async function (e) {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
       const response = await fetch(form.action, {
-        method: form.method,
+        method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
       });
 
-      // Clear previous messages
-      document.querySelectorAll("[data-feedback]").forEach((el) => el.remove());
-
       const msg = document.createElement("div");
-      msg.setAttribute("data-feedback", "");
       msg.className = "mt-4 p-3 rounded-md text-sm";
 
       if (response.ok) {
@@ -169,7 +149,7 @@ const contactLinks = links as LinksType;
           "border",
           "border-green-300"
         );
-        msg.textContent = `✅ Thank you! Message sent.`;
+        msg.textContent = "✅ Thank you! Message sent.";
         form.reset();
       } else {
         msg.classList.add(
@@ -178,14 +158,11 @@ const contactLinks = links as LinksType;
           "border",
           "border-red-300"
         );
-        msg.textContent = `❌ Something went wrong. Please try again.`;
+        msg.textContent = "❌ Something went wrong. Please try again.";
       }
 
       form.insertAdjacentElement("afterend", msg);
-
-      setTimeout(() => {
-        msg.remove();
-      }, 5000);
+      setTimeout(() => msg.remove(), 5000);
     });
   </script>
 </Layout>

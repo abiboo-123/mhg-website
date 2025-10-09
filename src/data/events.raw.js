@@ -1,23 +1,5 @@
 export const events = [
   //--------------------- Draft Events ---------------------//
-  // children's painting competition 2025
-  {
-    slug: 'childrens-painting-competition-2025',
-    title: 'Children’s Drawing Competition',
-    date: 'Date to be announced',
-    location: 'Online',
-    description: 'A fun and creative online competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. All proceeds go towards Charity Week and MHG projects.',
-    cardImage: "",
-    language: ['en', 'de'],
-    tags: ['Children', 'Art', 'Community', 'Competition'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: false,
-    past: false,
-    highlighted: false,
-    registerAvailable: false
-  },
   // cooking class for sisters 2025
   {
     slug: 'cooking-class-sisters-2025',
@@ -28,24 +10,6 @@ export const events = [
     cardImage: "",
     language: ['en', 'de'],
     tags: ['Cooking', 'Sisters', 'Community', 'Food'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: false,
-    past: false,
-    highlighted: false,
-    registerAvailable: false
-  },
-  // football charity match 2025
-  {
-    slug: 'football-charity-match-2025',
-    title: 'Charity Football Match',
-    date: 'Stay tuned for the date',
-    location: 'Ingolstadt (exact field to be announced)',
-    description: 'Come and play football for a cause! Teams will face off in a friendly match, and the losing team contributes donations. A great way to combine fun, sports, and giving back.',
-    cardImage: "",
-    language: ['en', 'de'],
-    tags: ['Football', 'Sports', 'Charity', 'Community'],
     speakers: [],
     attendance: null,
     gallery: [],
@@ -91,6 +55,53 @@ export const events = [
     registerAvailable: false
   },
   //--------------------- Upcoming Events ---------------------//
+  // children's painting competition 2025
+  {
+    slug: "childrens-painting-competition-2025",
+    title: "Children’s Painting Competition 2025",
+    date: "Date to be announced",
+    location: "Online",
+    description: "A fun and creative online competition for children to express their imagination through art! With a small participation fee, children could submit their drawings and take part in supporting Charity Week and MHG projects.\n\n🎨 Every verified artwork was displayed in our online gallery.\n❤️ Family and friends could like the drawings, and the most loved artworks were highlighted!\n💚 All proceeds went to support orphans and children in need through Charity Week initiatives.",
+    cardImage: "",
+    language: ["en", "de"],
+    tags: ["Children", "Art", "Charity Week", "Community"],
+    speakers: [],
+    attendance: null,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: true,
+    registerAvailable: true,
+    registrationLink: "https://forms.gle/example"
+  },
+  // football charity match 2025
+  {
+    slug: 'football-charity-match-2025',
+    title: 'Charity Football Tournament 2025',
+    date: 'October 26, 2025 (12:30 PM – 8:00 PM)',
+    location: 'TSV Ingolstadt-Nord, Wirffelstraße 25, 85055 Ingolstadt',
+    description: `Join us for the MHG Charity Football Tournament 2025 — a 5-a-side competition where fun meets purpose! 
+  This event is part of Charity Week in support of orphans and children in need.
+  
+  ⚽ 12 teams will compete in a friendly and exciting atmosphere.  
+  👥 Individual players are also welcome — we’ll help you form a team!  
+  💰 Entry fee: €25 per team — all proceeds go towards Charity Week projects.  
+  📅 Date: October 26, 2025 (12:30 PM – 8:00 PM)  
+  📍 Venue: TSV Ingolstadt-Nord, Wirffelstraße 25, 85055 Ingolstadt  
+  
+  Come play, cheer, and make a difference!`,
+    cardImage: '',
+    language: ['en', 'de'],
+    tags: ['Football', 'Sports', 'Charity', 'Community', 'Charity Week'],
+    speakers: [],
+    attendance: null,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: true,
+    registerAvailable: true,
+    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-fuball-turnier-tickets-1789406134919?aff=oddtdtcreator"
+  },
   //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {

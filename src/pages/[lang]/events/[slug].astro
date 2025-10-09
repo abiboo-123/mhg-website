@@ -15,6 +15,7 @@ type Event = {
   speakers?: string[];
   language?: string[];
   registerAvailable?: boolean;
+  registrationLink?: string;
 };
 
 const lang = Astro.params.lang as string;
@@ -73,10 +74,10 @@ const imagePath = hasImage ? `/events/${event.slug}.jpg` : null;
     }
     <p class="text-sm text-gray-500 mb-2">📅 {event.date}</p>
     <p class="text-sm text-gray-500 mb-4">📍 {event.location}</p>
-    <p class="mb-6">{event.description}</p>
+    <p class="mb-6 whitespace-pre-line">{event.description}</p>
 
     {
-      event.speakers && (
+      event.speakers && event.speakers.length > 0 && (
         <p class="text-sm text-gray-700 mb-2">
           🎤 {t("events.speaker", lang)}: {event.speakers.join(", ")}
         </p>
@@ -87,8 +88,8 @@ const imagePath = hasImage ? `/events/${event.slug}.jpg` : null;
         <div class="flex flex-wrap gap-2 mt-2">
           {event.language.map((code) => (
             <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full">
-              🗣 {(lang == "en" && englishLanguageLabels[code])}
-              {(lang == "de" && germanLanguageLabels[code])}
+              🗣 {lang == "en" && englishLanguageLabels[code]}
+              {lang == "de" && germanLanguageLabels[code]}
             </span>
           ))}
         </div>
@@ -110,7 +111,13 @@ const imagePath = hasImage ? `/events/${event.slug}.jpg` : null;
     {
       event.registerAvailable && (
         <a
-          href={`/${lang}/register/${event.slug}`}
+          href={
+            event.registrationLink
+              ? event.registrationLink
+              : `/${lang}/register/${event.slug}`
+          }
+          target={event.registrationLink ? "_blank" : "_self"}
+          rel={event.registrationLink ? "noopener noreferrer" : undefined}
           class="inline-block bg-[#0369a1] text-white py-2 px-4 rounded hover:bg-blue-800 transition"
         >
           {t("events.registerNow", lang)}

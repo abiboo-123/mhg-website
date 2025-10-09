@@ -57,9 +57,7 @@ const { data: images } = await supabase
           ))
         ) : (
           <p class="text-center text-gray-500 col-span-full">
-            {lang === "de"
-              ? "Noch keine verifizierten Bilder vorhanden."
-              : "No verified images yet."}{" "}
+            {lang === "de" ? "Noch keine Bilder vorhanden." : "No images yet."}{" "}
           </p>
         )
       }
