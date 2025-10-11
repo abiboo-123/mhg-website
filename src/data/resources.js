@@ -113,7 +113,7 @@ export const rawResources = [
         name: "Islamische Gemeinschaft Millî Görüş Ingolstadt e.V.",
         location: "Schillerstraße 6, 85055 Ingolstadt",
         locationLink: "https://maps.app.goo.gl/WpW3NYR6MtFXBs6g7",
-        description: "Friday prayer 13:30.",
+        description: "Friday prayer 13:30. Khutba in Turkish.",
         tags: ["prayer", "mosque", "community"],
       },
       {
@@ -121,7 +121,7 @@ export const rawResources = [
         name: "Al-Nour Mosque",
         locationLink: "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
         location: "Asamstraße 14a, 85053 Ingolstadt",
-        description: "Friday prayer 13:00 (winter) / 14:45 (summer). Khutba in Arabic.",
+        description: "Friday prayer 14:45 (summer). Khutba in Arabic / German.",
         tags: ["prayer", "mosque", "arabic", "community"],
       },
       {
@@ -137,7 +137,7 @@ export const rawResources = [
         name: "Zaytounah Mosque",
         location: "Ettinger Str. 20, 85057 Ingolstadt",
         LocationLink: "https://maps.app.goo.gl/b3pGPgVKS2cVPHjt7",
-        description: "Friday prayer 13:30. Khutba in Arabic / German.",
+        description: "Friday prayer 14:45. Khutba in Arabic / German.",
         tags: ["prayer", "mosque", "arabic", "german"],
       },
       {
@@ -155,6 +155,14 @@ export const rawResources = [
         location: "Am Nordbahnhof 23A, 85049 Ingolstadt",
         description: "Friday prayer 13:30. Khutba in Albanian.",
         tags: ["prayer", "mosque", "albanian"],
+      },
+      {
+        slug: "as-salam-mosque",
+        name: "As-salam Mosque",
+        location: "Roderstraße 44, 85055 Ingolstadt",
+        LocationLink: "https://maps.app.goo.gl/kCjJwLeg9CqnojMY8",
+        description: "Friday prayer 14:45. Khutba in Arabic / German.",
+        tags: ["prayer", "mosque", "arabic", "german"],
       },
     ],
   },

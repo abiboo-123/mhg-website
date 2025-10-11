@@ -1,23 +1,5 @@
 export const events = [
   //--------------------- Draft Events ---------------------//
-  // cooking class for sisters 2025
-  {
-    slug: 'cooking-class-sisters-2025',
-    title: 'Cooking Class for Sisters',
-    date: 'October 21 or 23, 2025 (to be confirmed)',
-    location: 'Ingolstadt (exact location to be announced)',
-    description: 'An engaging cooking class organized especially for sisters as part of the "Life in Bavaria" project. Learn new recipes, cook together, and share delicious food in a supportive environment. Participation fee starts from €5 (ingredients covered). Limited to 15 participants.',
-    cardImage: "",
-    language: ['en', 'de'],
-    tags: ['Cooking', 'Sisters', 'Community', 'Food'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: false,
-    past: false,
-    highlighted: false,
-    registerAvailable: false
-  },
   // mosque charity stand 2025
   {
     slug: 'mosque-charity-stand-2025',
@@ -55,6 +37,45 @@ export const events = [
     registerAvailable: false
   },
   //--------------------- Upcoming Events ---------------------//
+  // cooking class for sisters 2025
+  {
+    slug: "charity-week-cooking-class-2025",
+    title: "Charity Week Cooking Class",
+    date: "October 21, 2025 (1:00 PM – 3:00 PM)",
+    location: "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
+    description: `Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲  
+      Discover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.  
+      
+      👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.  
+      💰 Participation fee: €10 (all proceeds go 100% to support children in need).  
+      🎁 Additional donations are warmly welcomed!  
+      👥 Limited to 15 participants, register early to secure your spot!  
+      
+      📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)  
+      📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt  
+      🚏 Nearby Bus Stops:  
+      - Regensburger Straße → Bus 70, 21, 20  
+      - Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26  
+      
+      Please bring:  
+      • Food containers  
+      • Kitchen towels  
+      
+      Participants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).  
+      
+      Let’s cook, enjoy, and make a difference together! ❤️`,
+    cardImage: "",
+    language: ["de"],
+    tags: ["Cooking", "Charity", "Community", "Charity Week", "Food"],
+    speakers: [],
+    attendance: 15,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: true,
+    registerAvailable: true,
+    registrationLink: "https://forms.gle/example"
+  },
   // children's painting competition 2025
   {
     slug: "childrens-painting-competition-2025",
