@@ -74,7 +74,7 @@ export const events = [
     past: false,
     highlighted: true,
     registerAvailable: true,
-    registrationLink: "https://forms.gle/example"
+    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
   },
   // children's painting competition 2025
   {
