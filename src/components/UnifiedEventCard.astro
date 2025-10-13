@@ -1,5 +1,5 @@
 ---
-import { t } from '../utils/t';
+import { t } from "../utils/t";
 
 interface Props {
   title: string;
@@ -7,91 +7,71 @@ interface Props {
   location?: string;
   slug: string;
   lang: string;
-  cardImage: string; 
+  cardImage: string;
   past?: boolean;
   upcomingDetailsPath?: string;
   pastDetailsPath?: string;
 }
 
 const {
-  title, time, location, slug, lang, cardImage,
-  past = false, upcomingDetailsPath, pastDetailsPath
+  title,
+  time,
+  location,
+  slug,
+  lang,
+  cardImage,
+  past = false,
+  upcomingDetailsPath,
+  pastDetailsPath,
 } = Astro.props as Props;
 
 const isPast = Boolean(past);
 
 // Always go to details page
 const detailsHref = isPast
-  ? (pastDetailsPath || `/${lang}/past-events/${slug}`)
-  : (upcomingDetailsPath || `/${lang}/events/${slug}`);
-
+  ? pastDetailsPath || `/${lang}/past-events/${slug}`
+  : upcomingDetailsPath || `/${lang}/events/${slug}`;
 ---
 
-<article class={`h-full rounded-2xl shadow-md p-6 bg-white ring-1 ring-black/5 ${isPast ? 'opacity-95' : ''} flex flex-col`}>
-  {cardImage && (
-    <img 
-      src={cardImage} 
-      alt={title} 
-      class="w-full h-40 object-cover rounded-xl shadow-lg"
-    />
-  )}
-  
-  
+<article
+  class={`h-full rounded-2xl shadow-md p-6 bg-white ring-1 ring-black/5 ${isPast ? "opacity-95" : ""} flex flex-col`}
+>
+  {
+    cardImage && (
+      <img
+        src={cardImage}
+        alt={title}
+        class="w-full h-40 object-cover rounded-xl shadow-lg"
+      />
+    )
+  }
+
   <div class="flex-1">
-   {title && ( 
-    <h3 class="text-lg font-semibold mb-2 text-gray-800">🎯 {title}</h3>
-   )}
-   {time && (
-      <p class="text-sm mb-1 text-gray-600">📅 {time}</p>
-    )}
-    
-    {location && (
-      <p class="text-sm mb-1 text-gray-600">📍 {location}</p>
-    )}
-    
+    {
+      title && (
+        <h3 class="text-lg font-semibold mb-2 text-gray-800">🎯 {title}</h3>
+      )
+    }
+    {time && <p class="text-sm mb-1 text-gray-600">📅 {time}</p>}
+
+    {location && <p class="text-sm mb-1 text-gray-600">📍 {location}</p>}
   </div>
 
   <div class="mt-4">
-    <a href={detailsHref}
+    <a
+      href={detailsHref}
       class={`block text-center py-2 rounded font-medium transition
-        ${isPast 
-            ? 'bg-gray-600 text-white hover:bg-gray-800' 
-            : 'bg-[#0369a1] text-white hover:bg-blue-800'}`}>
-      {isPast ? t('pastEvents.viewEvent', lang) : t('events.readMore', lang) || 'Read More'}
+        ${
+          isPast
+            ? "bg-gray-600 text-white hover:bg-gray-800"
+            : "bg-[#0369a1] text-white hover:bg-blue-800"
+        }`}
+    >
+      {
+        isPast
+          ? t("pastEvents.viewEvent", lang)
+          : t("events.readMore", lang) || "Read More"
+      }
     </a>
   </div>
 </article>
-
-<!-- <article class="h-full rounded-2xl shadow-md p-6 bg-white ring-1 ring-black/5 flex flex-col">
-  {cardImage && (
-    <img 
-      src={cardImage} 
-      alt={title} 
-      class="w-full h-40 object-cover rounded-t-xl"
-      loading="lazy"
-    />
-  )}
-
-  <div class="flex-1">
-    {title && (
-      <h3 class="text-lg font-semibold mb-2 text-gray-800 min-h-[3rem] line-clamp-2">
-        🎯 {title}
-      </h3>
-    )}
-
-    {time && (
-      <p class="text-sm mb-1 text-gray-600">📅 {time}</p>
-    )}
-    {location && (
-      <p class="text-sm mb-2 text-gray-600">📍 {location}</p>
-    )}
-  </div>
-
-  <div class="mt-4 flex flex-col gap-2">
-    <a href={detailsHref}
-       class="bg-[#0369a1] text-white text-center py-2 rounded hover:bg-blue-800 transition">
-      {isPast ? 'View Event' : 'Read more'}
-    </a>
-  </div>
-</article>
- -->

@@ -1,12 +1,12 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
-import ResourceCard from '../../components/ResourceCard.astro';
-import resourcesData from '../../data/resources.translated.json';
-import { t } from '../../utils/t';
+import Layout from "../../layouts/BaseLayout.astro";
+import ResourceCard from "../../components/ResourceCard.astro";
+import resourcesData from "../../data/resources.translated.json";
+import { t } from "../../utils/t";
 
-const { lang = 'en' } = Astro.params;
+const { lang = "en" } = Astro.params;
 
-/* ---------- Types (loose enough to match your JSON) ---------- */
+/* ---------- Types ---------- */
 type CardItem = {
   slug?: string;
   name: string;
@@ -21,53 +21,64 @@ type ListItem = { name: string; location?: string };
 type FooterAction = { label: string; href: string; external?: boolean };
 type LinksFooter = {
   text?: string;
-  linkText?: string; // legacy single CTA
-  href?: string;     // legacy single CTA link
-  links?: FooterAction[]; // extra CTAs (e.g., MAWAQIT)
+  linkText?: string;
+  href?: string;
+  links?: FooterAction[];
 };
 
 type ResourceSection =
-  | { category: string; type: 'card'; items: CardItem[] }
-  | { category: string; type: 'links'; items: LinkItem[]; footer?: LinksFooter }
-  | { category: string; type: 'list'; items: ListItem[] };
+  | { category: string; type: "card"; items: CardItem[] }
+  | { category: string; type: "links"; items: LinkItem[]; footer?: LinksFooter }
+  | { category: string; type: "list"; items: ListItem[] };
 
-/* ---------- Load data for current lang (fallback to EN) ---------- */
+/* ---------- Load data for current lang ---------- */
 const map = resourcesData as Record<string, ResourceSection[]>;
-const resources: ResourceSection[] = Array.isArray(map[lang]) ? map[lang] : map['en'];
+const resources: ResourceSection[] = Array.isArray(map[lang])
+  ? map[lang]
+  : map["en"];
 
 /* ---------- URL helpers ---------- */
 const isExternal = (href: string) => /^https?:\/\//i.test(href);
-
-// treat anything under /pdfs|/assets|/images|/img|/files or any path with a file extension as a static asset
 const isStaticAsset = (href: string) =>
-  /^\/(pdfs|assets|images|img|files)\//i.test(href) || /\.[a-z0-9]+$/i.test(href);
-
-// add /{lang} ONLY for internal page routes (not external + not static assets)
+  /^\/(pdfs|assets|images|img|files)\//i.test(href) ||
+  /\.[a-z0-9]+$/i.test(href);
 const buildHref = (href: string) => {
-  if (!href) return '#';
+  if (!href) return "#";
   if (isExternal(href) || isStaticAsset(href)) return href;
-  const clean = href.startsWith('/') ? href : `/${href}`;
+  const clean = href.startsWith("/") ? href : `/${href}`;
   return `/${lang}${clean}`;
 };
 ---
-
 <Layout title="Resources – MHG Ingolstadt" lang={lang}>
+  <!-- Hero Section -->
   <section class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">📚 {t('resources.title', lang)}</h2>
-    <p class="text-center text-lg mb-10 text-slate-700">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-2">📚 {t('resources.title', lang)}</h2>
+    <p class="text-lg mb-10 text-slate-700">
       {t('resources.description', lang)}
     </p>
   </section>
 
+  <!-- Resource Grid -->
   <section class="max-w-7xl mx-auto px-4 py-12">
-    <div class="columns-1 md:columns-2 gap-6 space-y-6">
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
       {resources.map((section) => (
         <div class="break-inside-avoid bg-white rounded-xl shadow-md p-6 w-full">
-          <h3 class="text-xl font-semibold mb-4">{section.category}</h3>
+          <!-- Category header (button on mobile, static on desktop) -->
+          <button
+            type="button"
+            class="w-full flex justify-between items-center text-left text-xl font-semibold mb-4 md:cursor-default"
+            onclick={`const el=document.getElementById('section-${section.category.replace(/\s+/g,'-')}'); el.classList.toggle('hidden'); this.classList.toggle('open');`}
+          >
+            {section.category}
+            <span class="md:hidden text-slate-600 text-sm transition-transform duration-200">▼</span>
+          </button>
 
-          {/* Cards */}
+          <!-- CARD SECTIONS -->
           {section.type === 'card' && (
-            <div class="space-y-4">
+            <div
+              id={`section-${section.category.replace(/\s+/g, '-')}`}
+              class="space-y-4 hidden md:block transition-all duration-300 ease-in-out"
+            >
               {section.items.map((item) => (
                 <ResourceCard
                   name={item.name}
@@ -80,9 +91,12 @@ const buildHref = (href: string) => {
             </div>
           )}
 
-          {/* Links */}
+          <!-- LINK SECTIONS -->
           {section.type === 'links' && (
-            <div>
+            <div
+              id={`section-${section.category.replace(/\s+/g, '-')}`}
+              class="hidden md:block transition-all duration-300 ease-in-out"
+            >
               <div class="space-y-3">
                 {section.items.map((link) => {
                   const href = buildHref(link.href);
@@ -90,7 +104,7 @@ const buildHref = (href: string) => {
                   return (
                     <a
                       href={href}
-                      target='_blank'
+                      target={ext ? '_blank' : undefined}
                       rel={ext ? 'noopener noreferrer' : undefined}
                       class="block bg-[#2563eb] text-white py-2 px-4 rounded text-sm text-center hover:bg-[#1e40af] transition"
                     >
@@ -115,7 +129,6 @@ const buildHref = (href: string) => {
                       )}
                     </p>
                   )}
-
                   {section.footer.links && section.footer.links.length > 0 && (
                     <div class="flex flex-wrap justify-center gap-2">
                       {section.footer.links.map((l) => {
@@ -138,25 +151,15 @@ const buildHref = (href: string) => {
               )}
             </div>
           )}
-
-          {/* Plain list */}
-          {section.type === 'list' && (
-            <ul class="space-y-2 text-sm">
-              {section.items.map((place) => (
-                <li>
-                  <span class="font-medium">🥙 {place.name}</span>
-                  {place.location && (
-                    <>
-                      <br />
-                      <span class="text-slate-600">{place.location}</span>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       ))}
     </div>
   </section>
+
+  <!-- Small style block for rotating arrow -->
+  <style is:global>
+    button.open span {
+      transform: rotate(180deg);
+    }
+  </style>
 </Layout>

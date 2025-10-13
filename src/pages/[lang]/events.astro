@@ -1,135 +1,161 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
-import { t } from '../../utils/t';
-import eventsByLang from '../../data/events.translated.json';
-import UnifiedEventCard from '../../components/UnifiedEventCard.astro';
+import Layout from "../../layouts/BaseLayout.astro";
+import { t } from "../../utils/t";
+import eventsByLang from "../../data/events.translated.json";
+import UnifiedEventCard from "../../components/UnifiedEventCard.astro";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-const { lang } = Astro.params as { lang: 'en' | 'de' };
-const supportedLangs = ['en','de'];
+const { lang } = Astro.params as { lang: "en" | "de" };
+const supportedLangs = ["en", "de"];
 
 export async function getStaticPaths() {
-  return supportedLangs.map(lang => ({ params: { lang } }));
+  return supportedLangs.map((lang) => ({ params: { lang } }));
 }
-if (!supportedLangs.includes(lang)) throw new Error(`Invalid language: ${lang}`);
+if (!supportedLangs.includes(lang))
+  throw new Error(`Invalid language: ${lang}`);
 
 const allEvents = (eventsByLang[lang] ?? []) as any[];
-const published = allEvents.filter(e => e.available === true);
+const published = allEvents.filter((e) => e.available === true);
 
 // Split into upcoming / past
-const upcoming = published.filter(e => e.past !== true);
-const past = published.filter(e => e.past === true);
+const upcoming = published.filter((e) => e.past !== true);
+const past = published.filter((e) => e.past === true);
 ---
 
 <Layout title="Events – MHG Ingolstadt e. V." lang={lang}>
+  <!-- Hero Section -->
+  <section
+    class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8"
+  >
+    <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+      📅 {t("events.title", lang)}
+    </h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+      {t("events.description", lang)}
+    </p>
+  </section>
 
   <!-- Upcoming -->
   <section class="max-w-7xl mx-auto px-4 py-9 relative">
     <h2 class="text-xl font-semibold mb-4">
-      {t('events.filterUpcoming', lang) || 'Upcoming'}
+      {t("events.filterUpcoming", lang) || "Upcoming"}
     </h2>
 
-    {upcoming.length === 0 ? (
-      <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
-        {t('events.noneFound', lang) || 'No upcoming events.'}
-      </div>
-    ) : (
-      <div class="swiper mySwiper upcomingSwiper overflow-hidden pb-14 max-w-6xl">
-        <div class="swiper-wrapper">
-          {upcoming.map(e => (
-            <div class="swiper-slide h-auto">
-              <UnifiedEventCard
-                title={e.title}
-                time={e.date}
-                location={e.location}
-                slug={e.slug}
-                lang={lang}
-                cardImage={e.cardImage}
-                past={false}
-              />
-            </div>
-          ))}
+    {
+      upcoming.length === 0 ? (
+        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
+          {t("events.noneFound", lang) || "No upcoming events."}
         </div>
-      </div>
-    )}
+      ) : (
+        <div class="swiper mySwiper upcomingSwiper overflow-hidden pb-14 max-w-6xl">
+          <div class="swiper-wrapper">
+            {upcoming.map((e) => (
+              <div class="swiper-slide h-auto">
+                <UnifiedEventCard
+                  title={e.title}
+                  time={e.date}
+                  location={e.location}
+                  slug={e.slug}
+                  lang={lang}
+                  cardImage={e.cardImage}
+                  past={false}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <!-- arrows -->
-    <div class="swiper-button-prev upcomingPrev absolute top-1/2 -left-6 z-10"></div>
-    <div class="swiper-button-next upcomingNext absolute top-1/2 -right-6 z-10"></div>
+    <div class="swiper-button-prev upcomingPrev absolute top-1/2 -left-6 z-10">
+    </div>
+    <div class="swiper-button-next upcomingNext absolute top-1/2 -right-6 z-10">
+    </div>
 
     <!-- pagination -->
-    <div class="swiper-pagination upcomingPag absolute bottom-0 left-1/2 -translate-x-1/2"></div>
+    <div
+      class="swiper-pagination upcomingPag absolute bottom-0 left-1/2 -translate-x-1/2"
+    >
+    </div>
   </section>
 
   <!-- Past -->
   <section class="max-w-7xl mx-auto px-4 py-9 relative">
     <h2 class="text-xl font-semibold mb-4">
-      {t('events.filterPast', lang) || 'Past'}
+      {t("events.filterPast", lang) || "Past"}
     </h2>
 
-    {past.length === 0 ? (
-      <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
-        {t('events.noneFound', lang) || 'No past events.'}
-      </div>
-    ) : (
-      <div class="swiper mySwiper pastSwiper overflow-hidden pb-14 max-w-6xl">
-        <div class="swiper-wrapper">
-          {past.map(e => (
-            <div class="swiper-slide h-auto">
-              <UnifiedEventCard
-                title={e.title}
-                time={e.date}
-                location={e.location}
-                slug={e.slug}
-                lang={lang}
-                cardImage={e.cardImage}
-                past={true}
-              />
-            </div>
-          ))}
+    {
+      past.length === 0 ? (
+        <div class="bg-white rounded-xl shadow p-6 text-center text-gray-600">
+          {t("events.noneFound", lang) || "No past events."}
         </div>
-      </div>
-    )}
+      ) : (
+        <div class="swiper mySwiper pastSwiper overflow-hidden pb-14 max-w-6xl">
+          <div class="swiper-wrapper">
+            {past.map((e) => (
+              <div class="swiper-slide h-auto">
+                <UnifiedEventCard
+                  title={e.title}
+                  time={e.date}
+                  location={e.location}
+                  slug={e.slug}
+                  lang={lang}
+                  cardImage={e.cardImage}
+                  past={true}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <!-- arrows -->
-    <div class="swiper-button-prev pastPrev absolute top-1/2 -left-6 z-10"></div>
-    <div class="swiper-button-next pastNext absolute top-1/2 -right-6 z-10"></div>
+    <div class="swiper-button-prev pastPrev absolute top-1/2 -left-6 z-10">
+    </div>
+    <div class="swiper-button-next pastNext absolute top-1/2 -right-6 z-10">
+    </div>
 
     <!-- pagination -->
-    <div class="swiper-pagination pastPag absolute bottom-0 left-1/2 -translate-x-1/2"></div>
+    <div
+      class="swiper-pagination pastPag absolute bottom-0 left-1/2 -translate-x-1/2"
+    >
+    </div>
   </section>
 
   <script>
-    import Swiper from 'swiper';
-    import { Navigation, Pagination } from 'swiper/modules';
+    import Swiper from "swiper";
+    import { Navigation, Pagination } from "swiper/modules";
 
-    new Swiper('.upcomingSwiper', {
+    new Swiper(".upcomingSwiper", {
       modules: [Navigation, Pagination],
       spaceBetween: 20,
       slidesPerView: 1,
       navigation: {
-        nextEl: '.upcomingNext',
-        prevEl: '.upcomingPrev',
+        nextEl: ".upcomingNext",
+        prevEl: ".upcomingPrev",
       },
-      pagination: { el: '.upcomingPag', clickable: true },
+      pagination: { el: ".upcomingPag", clickable: true },
       breakpoints: {
         768: { slidesPerView: 2 },
         1280: { slidesPerView: 3 },
       },
     });
 
-    new Swiper('.pastSwiper', {
+    new Swiper(".pastSwiper", {
       modules: [Navigation, Pagination],
       spaceBetween: 20,
       slidesPerView: 1,
       navigation: {
-        nextEl: '.pastNext',
-        prevEl: '.pastPrev',
+        nextEl: ".pastNext",
+        prevEl: ".pastPrev",
       },
-      pagination: { el: '.pastPag', clickable: true },
+      pagination: { el: ".pastPag", clickable: true },
       breakpoints: {
         768: { slidesPerView: 2 },
         1280: { slidesPerView: 3 },

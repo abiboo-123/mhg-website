@@ -167,25 +167,6 @@ export const rawResources = [
     ],
   },
   {
-    category: "Prayer Times 🕰️",
-    type: "links",
-    items: [
-      // sort by most recent month first
-      { label: "🕌 Al-Nour Mosque prayer times PDF (Actober)", href: "/pdfs/Al_Nour_Mosque_october_2025.pdf" },
-      { label: "🕌 Al-Nour Mosque prayer times PDF (September)", href: "/pdfs/Al_Nour_Mosque_sep_2025.pdf" },
-      { label: "🕌 Al-Nour Mosque prayer times PDF (August)", href: "/pdfs/Al_Nour_Mosque_August_2025.pdf" }
-    ],
-    footer: {
-      text: "Need a different month and/or mosque?",
-      linkText: "Contact us",
-      href: "/contact",
-      links: [
-        { label: "📱 MAWAQIT on App Store", href: "https://apps.apple.com/us/app/mawaqit-prayer-times-mosque/id1460522683", external: true },
-        { label: "📱 MAWAQIT on Google Play", href: "https://play.google.com/store/apps/details?id=com.kanout.mawaqit&pcampaignid=web_share", external: true },
-      ],
-    },
-  },
-  {
     category: "Halal Restaurants 🍽️",
     type: "card",
     items: [
@@ -324,5 +305,24 @@ export const rawResources = [
         tags: ["halal", "middle eastern", "market"],
       },
     ],
+  },
+  {
+    category: "Prayer Times 🕰️",
+    type: "links",
+    items: [
+      // sort by most recent month first
+      { label: "🕌 Al-Nour Mosque prayer times PDF (Actober)", href: "/pdfs/Al_Nour_Mosque_october_2025.pdf" },
+      { label: "🕌 Al-Nour Mosque prayer times PDF (September)", href: "/pdfs/Al_Nour_Mosque_sep_2025.pdf" },
+      { label: "🕌 Al-Nour Mosque prayer times PDF (August)", href: "/pdfs/Al_Nour_Mosque_August_2025.pdf" }
+    ],
+    footer: {
+      text: "Need a different month and/or mosque?",
+      linkText: "Contact us",
+      href: "/contact",
+      links: [
+        { label: "📱 MAWAQIT on App Store", href: "https://apps.apple.com/us/app/mawaqit-prayer-times-mosque/id1460522683", external: true },
+        { label: "📱 MAWAQIT on Google Play", href: "https://play.google.com/store/apps/details?id=com.kanout.mawaqit&pcampaignid=web_share", external: true },
+      ],
+    },
   },
 ];

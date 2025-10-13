@@ -93,7 +93,7 @@ async function generateImages() {
           ],
         }
       );
-      
+
 
       // Convert SVG → PNG
       const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
