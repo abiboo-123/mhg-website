@@ -36,46 +36,6 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  //--------------------- Upcoming Events ---------------------//
-  // cooking class for sisters 2025
-  {
-    slug: "charity-week-cooking-class-2025",
-    title: "Charity Week Cooking Class",
-    date: "October 21, 2025 (1:00 PM – 3:00 PM)",
-    location: "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
-    description: `Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲  
-      Discover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.  
-      
-      👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.  
-      💰 Participation fee: €10 (all proceeds go 100% to support children in need).  
-      🎁 Additional donations are warmly welcomed!  
-      👥 Limited to 15 participants, register early to secure your spot!  
-      
-      📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)  
-      📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt  
-      🚏 Nearby Bus Stops:  
-      - Regensburger Straße → Bus 70, 21, 20  
-      - Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26  
-      
-      Please bring:  
-      • Food containers  
-      • Kitchen towels  
-      
-      Participants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).  
-      
-      Let’s cook, enjoy, and make a difference together! ❤️`,
-    cardImage: "",
-    language: ["de"],
-    tags: ["Cooking", "Charity", "Community", "Charity Week", "Food"],
-    speakers: [],
-    attendance: 15,
-    gallery: [],
-    available: true,
-    past: false,
-    highlighted: true,
-    registerAvailable: true,
-    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
-  },
   // children's painting competition 2025
   {
     slug: "childrens-painting-competition-2025",
@@ -94,6 +54,26 @@ export const events = [
     highlighted: true,
     registerAvailable: true,
     registrationLink: "https://forms.gle/example"
+  },
+  //--------------------- Upcoming Events ---------------------//
+  // cooking class for sisters 2025
+  {
+    slug: "charity-week-cooking-class-2025",
+    title: "Charity Week Cooking Class",
+    date: "October 21, 2025 (1:00 PM – 3:00 PM)",
+    location: "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
+    description: `Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲\n\nDiscover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.\n\n👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.\n💰 Participation fee: €10 (all proceeds go 100% to support children in need).\n🎁 Additional donations are warmly welcomed!\n👥 Limited to 15 participants, register early to secure your spot!\n\n✨ Please note: This event is **only for girls**.\n\n📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)\n📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt\n🚏 Nearby Bus Stops:\n- Regensburger Straße → Bus 70, 21, 20\n- Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26\n\nPlease bring:\n• Food containers\n• Kitchen towels\n\nParticipants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).\n\nLet’s cook, enjoy, and make a difference together! ❤️`,
+    cardImage: "",
+    language: ["de"],
+    tags: ["Cooking", "Charity", "Community", "Charity Week", "Food", "Girls Only"],
+    speakers: [],
+    attendance: 15,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: true,
+    registerAvailable: true,
+    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
   },
   // football charity match 2025
   {
