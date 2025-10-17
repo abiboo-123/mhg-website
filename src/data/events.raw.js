@@ -1,23 +1,5 @@
 export const events = [
   //--------------------- Draft Events ---------------------//
-  // mosque charity stand 2025
-  {
-    slug: 'mosque-charity-stand-2025',
-    title: 'Charity Stand at Mosques',
-    date: 'October 24, 2025 (after Jumu‘ah prayer)',
-    location: 'Various Mosques, Ingolstadt',
-    description: 'Support MHG initiatives through our charity stand after Friday prayer. We will distribute information about Charity Week, accept donations, and possibly organize a children’s drawing competition in Islamic schools. Food will be prepared by the MHG community or provided as donations.',
-    cardImage: "",
-    language: ['en', 'de'],
-    tags: ['Charity', 'Community', 'Fundraising'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: false,
-    past: false,
-    highlighted: false,
-    registerAvailable: false
-  },
   // altstadt stand 2025
   {
     slug: 'altstadt-stand-2025',
@@ -103,6 +85,24 @@ export const events = [
     registerAvailable: true,
     registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-fuball-turnier-tickets-1789406134919?aff=oddtdtcreator"
   },
+  // the world religion islam 2025
+  {
+    slug: 'die-weltreligion-islam-2025',
+    title: 'The World Religion Islam',
+    date: 'October 23, 2025 (6:30 PM)',
+    location: 'Am Nordbahnhof 23, 85049 Ingolstadt',
+    description: 'An informative event for non-Muslims about Islam. We will introduce the core teachings and principles of Islam in a simple and engaging manner. The event will include a presentation, an open discussion, and a chance to enjoy coffee and cake together.',
+    cardImage: '',
+    language: ['de'],
+    tags: ['Islam', 'Information', 'Community'],
+    speakers: [],
+    attendance: null,
+    gallery: [],
+    available: true,
+    past: false,
+    highlighted: false,
+    registerAvailable: false
+  },
   //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {
@@ -180,22 +180,28 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  // mhg intro stand semester kickoff 2025 (available = false)
+  // mhg meet-and-greet intro event october 2025
   {
-    slug: 'mhg-intro-stand-thi-2025',
-    title: 'MHG Info Stand – Semester Kickoff',
-    date: 'October 1, 2025 (8:00 – 14:00)',
-    location: 'Technische Hochschule Ingolstadt, Building A',
-    description: 'Start the semester with MHG at the student fair! We will have two tables, a pinboard, and electricity. Visit our stand to learn more about our student association, meet fellow Muslim students, join a quiz with sweets, and get information about upcoming events. Flyers, stickers, and social media info will also be available.',
-    cardImage: "",
+    slug: 'mhg-meet-and-greet-october-2025',
+    title: 'MHG Meet & Greet – Welcome New Students',
+    date: 'October 16, 2025',
+    location: 'Room G215, THI, Ingolstadt',
+    description: 'A welcoming session to introduce the Muslim Hochschulgruppe (MHG) to new students. The program included a brief presentation about MHG, its mission, and future plans, followed by a fun Kahoot quiz with prizes for the top three winners. The event concluded with a pizza social where attendees had the chance to connect, share ideas, and build a sense of community.',
+    cardImage: '',
     language: ['en', 'de'],
-    tags: ['Intro', 'Community', 'Students', 'Engagement'],
-    speakers: [],
-    attendance: null,
-    gallery: [],
+    tags: ['Intro', 'Students', 'Community', 'Kahoot', 'Social'],
+    speakers: ['MHG Team'],
+    attendance: 17,
+    gallery: [
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744639/IMG_6618_zt6vhj.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744634/IMG_6643_qomwea.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744605/IMG_6606_kxsnis.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744623/IMG_6607_xe5ipi.mp4"
+    ],
     available: true,
-    past: false,
-    highlighted: true,
+    past: true,
+    highlighted: false,
     registerAvailable: false
   },
+
 ];
