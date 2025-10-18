@@ -1,29 +1,29 @@
 ---
+export const prerender = true;
+
 import Layout from '../../layouts/BaseLayout.astro';
 import { t } from '../../utils/t.js';
 import eventsByLang from '../../data/events.translated.json';
 import UnifiedEventCard from '../../components/UnifiedEventCard.astro';
-import { generateStaticPaths } from '../../utils/i18n';
+import { generateStaticPaths, SUPPORTED_LANGUAGES } from "../../utils/i18n.js";
 
 export async function getStaticPaths() {
-  return generateStaticPaths();
+  return generateStaticPaths(); // ✅ generates /en and /de
+}
+
+const { lang } = Astro.params as { lang: keyof typeof eventsByLang };
+
+// ✅ Ensure valid language
+if (!SUPPORTED_LANGUAGES.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
 }
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const { lang } = Astro.params as { lang: 'en' | 'de' };
-const supportedLangs = ['en', 'de'];
 
-if (!supportedLangs.includes(lang)) {
-  return new Response(null, {
-    status: 307,
-    headers: { Location: `/en` },
-  });
-}
-
-const allEvents = (eventsByLang[lang] ?? []) as any[];
+const allEvents = eventsByLang[lang || "en"] ?? [];
 const highlighted = allEvents.filter(
   (e) => e.highlighted === true && e.available === true && e.past === false
 );
