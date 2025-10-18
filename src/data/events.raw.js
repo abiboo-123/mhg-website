@@ -18,6 +18,7 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
+  //--------------------- Upcoming Events ---------------------//
   // children's painting competition 2025
   {
     slug: "childrens-painting-competition-2025",
@@ -31,13 +32,12 @@ export const events = [
     speakers: [],
     attendance: null,
     gallery: [],
-    available: false,
+    available: true,
     past: false,
     highlighted: true,
     registerAvailable: true,
     registrationLink: "https://forms.gle/example"
   },
-  //--------------------- Upcoming Events ---------------------//
   // cooking class for sisters 2025
   {
     slug: "charity-week-cooking-class-2025",
