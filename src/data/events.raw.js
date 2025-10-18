@@ -19,24 +19,31 @@ export const events = [
     registerAvailable: false
   },
   //--------------------- Upcoming Events ---------------------//
-  // children's painting competition 2025
+  // Children's Painting Competition 2025
   {
     slug: "childrens-painting-competition-2025",
-    title: "Children’s Painting Competition 2025",
-    date: "Date to be announced",
-    location: "Online",
-    description: "A fun and creative online competition for children to express their imagination through art! With a small participation fee, children could submit their drawings and take part in supporting Charity Week and MHG projects.\n\n🎨 Every verified artwork was displayed in our online gallery.\n❤️ Family and friends could like the drawings, and the most loved artworks were highlighted!\n💚 All proceeds went to support orphans and children in need through Charity Week initiatives.",
-    cardImage: "",
+    title: "Children’s Painting Competition",
+    date: "19 Oct 2025 – 26 Oct 2025",
+    location: "This Website (Online)",
+    description:
+      "A creative charity competition for children held entirely on this website as part of Charity Week 2025.\n\n" +
+      "🎨 Theme: “Together We Are Strong!”\n" +
+      "Children are invited to submit artwork showing the power of unity, community, friendship, and faith.\n\n" +
+      "💚 Participation is confirmed through a €5 donation via PayPal (all proceeds go to support orphans and children in need).\n" +
+      "🖼️ All approved artworks will be displayed in our online gallery.\n" +
+      "❤️ Family and friends can vote by liking the artwork. The top 3 artworks with the most likes will receive prizes!\n\n" +
+      "This event is organized by MHG Ingolstadt e.V. and 100% of donations support Charity Week.",
+    cardImage: "/events/childrens-painting-competition-2025.jpg", // ✅ Make sure this image exists in /public/events/
     language: ["en", "de"],
-    tags: ["Children", "Art", "Charity Week", "Community"],
+    tags: ["Children", "Art", "Charity Week", "Community", "Charity", "Competition"],
     speakers: [],
     attendance: null,
     gallery: [],
     available: true,
     past: false,
     highlighted: true,
-    registerAvailable: true,
-    registrationLink: "https://forms.gle/example"
+    registerAvailable: false, // This is no longer a registration form, it's upload-based
+    registrationLink: null
   },
   // cooking class for sisters 2025
   {

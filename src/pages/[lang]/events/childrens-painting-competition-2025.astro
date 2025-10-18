@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/BaseLayout.astro";
-import { t } from "../../../utils/t";
+import { t } from "../../../utils/t"; // (kept for parity, not required)
 import fs from "fs";
 import path from "path";
 
@@ -14,36 +14,92 @@ if (!supportedLangs.includes(lang)) {
 
 const isGerman = lang === "de";
 
-// Basic localized content
+/** Core content **/
 const title = isGerman
   ? "Kindermalwettbewerb"
   : "Children’s Painting Competition";
 
-const description = isGerman
-  ? "Ein lustiger und kreativer Online-Wettbewerb für Kinder, um ihre Fantasie durch Kunst auszudrücken! Mit einer kleinen Teilnahmegebühr können Kinder ihre Zeichnungen präsentieren. Alle Einnahmen unterstützen die Charity Week und MHG-Projekte."
-  : "A fun and creative online competition for children to express their imagination through art! With a small participation fee, kids can showcase their drawings. All proceeds go towards Charity Week and MHG projects.";
+const themeTitle = isGerman
+  ? "„Gemeinsam sind wir stark!“"
+  : "“Together We Are Strong!”";
 
+// Dates from flyer
+const dateDisplay = isGerman
+  ? "19.10.2025 – 26.10.2025"
+  : "19 Oct 2025 – 26 Oct 2025";
+
+// Time from flyer (not explicitly specified; week-long event)
+// If you later have exact times, replace "Ganztägig / All week".
+const timeDisplay = isGerman
+  ? "Ganztägig (Woche der Aktion)"
+  : "All week (campaign week)";
+
+// Location = this website (as requested)
+const locationDisplay = isGerman ? "Diese Webseite" : "This Website";
+
+// Donation link (PayPal only)
+const donateLink =
+  "https://www.paypal.com/paypalme/mhgingolstadt?amount=5&currency=EUR";
+
+// Payment reference instruction
+const donateRef = isGerman
+  ? "Verwendungszweck: Charity Week Painting – <Name des Kindes>"
+  : "Reference: Charity Week Painting – <Child’s Name>";
+
+// Short theme explanation (concise, not the full text)
+const themeDescription = isGerman
+  ? "Zeige in deinem Bild, wie Gemeinschaft, Freundschaft, Familie oder Glaube Kraft gibt. Was schafft ihr gemeinsam, was allein nicht geht? Deiner Fantasie sind keine Grenzen gesetzt!"
+  : "Show what community means to you. How do friendship, family or faith make us stronger together than alone? Let your creativity shine!";
+
+// Participation process (updated but same flow)
 const instructions = isGerman
   ? [
-      "1️⃣ Lade die Zeichnung deines Kindes und den Zahlungsnachweis auf der Upload-Seite hoch.",
-      "2️⃣ Nach der Überprüfung wird das Kunstwerk in unserer Online-Galerie angezeigt.",
-      "3️⃣ Freunde und Familie können die Beiträge liken ❤️ — die beliebtesten Bilder werden hervorgehoben!",
-      "4️⃣ Die Teilnahmegebühr kann über unsere Spenden-Seite bezahlt werden.",
+      "1️⃣ Male ein Bild zum Thema „Gemeinsam sind wir stark!“.",
+      "2️⃣ Spende 5€ über PayPal. " + donateRef + ".",
+      "3️⃣ Lade das Bild und den Zahlungsnachweis auf der Upload-Seite hoch.",
+      "4️⃣ Nach Freigabe erscheint das Kunstwerk in unserer Online-Galerie.",
+      "5️⃣ Freunde & Familie können ❤️-Likes vergeben.",
+      "6️⃣ Die 3 Bilder mit den meisten Likes gewinnen tolle Preise!",
     ]
   : [
-      "1️⃣ Upload your child’s drawing and transaction proof on the Upload page.",
-      "2️⃣ Once verified, the artwork will appear in our online gallery.",
-      "3️⃣ Friends and family can like ❤️ the submissions — top artworks will be featured!",
-      "4️⃣ The participation fee can be paid through our donation page.",
+      "1️⃣ Create a drawing based on the theme “Together We Are Strong!”.",
+      "2️⃣ Donate €5 via PayPal. " + donateRef + ".",
+      "3️⃣ Upload the artwork and proof of donation on the Upload page.",
+      "4️⃣ Once approved, the artwork will appear in our online gallery.",
+      "5️⃣ Friends & family can give ❤️ likes.",
+      "6️⃣ The top 3 artworks with the most likes will win prizes!",
     ];
 
+// Top paragraph (charity tone; not a “fee”)
+const description = isGerman
+  ? "Ein fröhlicher, kreativer Wettbewerb für Kinder – vollständig online auf dieser Webseite. Deine 5€-Spende bestätigt die Teilnahme. Alle Spenden unterstützen die Charity Week (zugunsten von Waisen und bedürftigen Kindern)."
+  : "A joyful, creative competition for children — fully online on this website. Your €5 donation confirms participation. All donations support Charity Week (for orphans and children in need).";
+
+// Routes
 const uploadLink = `/${lang}/childrens-painting-competition-2025/upload`;
 const galleryLink = `/${lang}/childrens-painting-competition-2025/gallery`;
-const donateLink = `/${lang}/donate`;
 
+// Flyer banner
 const filePath = path.resolve(`./public/events/${slug}.jpg`);
 const hasImage = fs.existsSync(filePath);
 const imageBanner = hasImage ? `/events/${slug}.jpg` : null;
+
+// Buttons (donation-first tone)
+const donateCta = isGerman
+  ? "💚 Jetzt spenden (5€ bestätigen)"
+  : "💚 Confirm Participation (€5 Donation)";
+const uploadCta = isGerman ? "📤 Zum Upload" : "📤 Go to Upload Page";
+const galleryCta = isGerman ? "🖼️ Galerie ansehen" : "🖼️ View Gallery";
+
+// Winner note
+const winnerNote = isGerman
+  ? "🏆 Gewinnerauswahl: Die 3 Beiträge mit den meisten Likes in der Galerie erhalten Preise."
+  : "🏆 Winners: The top 3 entries with the most likes in the gallery will receive prizes.";
+
+// Secondary footnote (org + 100% charity)
+const footerNote = isGerman
+  ? "Dieser Wettbewerb wird von MHG Ingolstadt e.V. organisiert und unterstützt die Charity Week. Alle Spenden gehen zu 100 % an wohltätige Zwecke."
+  : "This competition is organized by MHG Ingolstadt e.V. and supports Charity Week. All donations go 100% to charitable causes.";
 ---
 
 <Layout title={`${title} – MHG Ingolstadt`} lang={lang}>
@@ -70,18 +126,76 @@ const imageBanner = hasImage ? `/events/${slug}.jpg` : null;
         </div>
       )
     }
-    <p class="text-sm text-gray-500 mb-2">
-      📅 {isGerman ? "Termin folgt" : "Date to be announced"}
-    </p>
-    <p class="text-sm text-gray-500 mb-4">
-      📍 {isGerman ? "Online" : "Online"}
-    </p>
+
+    <div class="flex flex-col gap-1 text-sm text-gray-600 mb-4">
+      <p>📅 {dateDisplay}</p>
+      <p>🕒 {timeDisplay}</p>
+      <p>📍 {locationDisplay}</p>
+      <p>
+        🎨 {isGerman ? "Thema" : "Theme"}: <span class="font-medium"
+          >{themeTitle}</span
+        >
+      </p>
+    </div>
 
     <p class="mb-6">{description}</p>
 
+    <div
+      class="bg-blue-50 border border-blue-200 text-blue-800 p-5 rounded-lg mb-6"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        {isGerman ? "🎨 Wettbewerbsthema" : "🎨 Competition Theme"}
+      </h3>
+
+      <!-- Theme Summary -->
+      <p class="mb-3">
+        {
+          isGerman
+            ? "„Gemeinsam sind wir stark!“ – Zeige mit deinem Bild, wie Menschen sich unterstützen, zusammenhalten und gemeinsam stärker werden."
+            : "“Together We Are Strong!” – Use your artwork to show how people support each other, stay united, and become stronger together."
+        }
+      </p>
+
+      <!-- Inspirational Quote -->
+      <blockquote
+        class="italic border-l-4 pl-4 border-blue-400 mb-4 text-sm text-blue-900"
+      >
+        {
+          isGerman
+            ? "„Der Gläubige ist schwach in sich selbst, aber stark durch seine Brüder. Er schöpft seine Kraft, seinen Zusammenhalt und seine Standhaftigkeit aus ihnen; er beeinflusst und wird beeinflusst.“"
+            : "“The believer is weak on his own, but strong through his brothers. He draws his strength, unity, and steadfastness from them; he influences them and is influenced by them.”"
+        }
+      </blockquote>
+
+      <!-- Drawing Prompts -->
+      <ul class="list-disc list-inside space-y-1 text-sm">
+        <li>
+          {
+            isGerman
+              ? "💡 Zeige Freundschaft, Familie, Gemeinschaft oder Glauben in deinem Kunstwerk."
+              : "💡 Show friendship, family, community or faith in your artwork."
+          }
+        </li>
+        <li>
+          {
+            isGerman
+              ? "🤝 Was könnt ihr gemeinsam erreichen, das alleine nicht möglich ist?"
+              : "🤝 What can people achieve together that is not possible alone?"
+          }
+        </li>
+        <li>
+          {
+            isGerman
+              ? "🌟 Deiner Fantasie sind keine Grenzen gesetzt!"
+              : "🌟 Let your imagination shine – there are no limits!"
+          }
+        </li>
+      </ul>
+    </div>
+
     <div class="bg-white rounded-xl shadow-md p-6 mb-8">
       <h3 class="text-xl font-semibold mb-4">
-        {isGerman ? "📝 Teilnahmeanleitung" : "📝 How to Participate"}
+        {isGerman ? "📝 Teilnahmeablauf" : "📝 How to Participate"}
       </h3>
       <ul class="space-y-2 list-disc list-inside text-gray-700">
         {instructions.map((line) => <li>{line}</li>)}
@@ -89,38 +203,43 @@ const imageBanner = hasImage ? `/events/${slug}.jpg` : null;
 
       <div class="flex flex-wrap gap-3 mt-6">
         <a
+          href={donateLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-green-600 text-white py-2 px-4 rounded-full hover:bg-green-700 transition"
+        >
+          {donateCta}
+        </a>
+
+        <a
           href={uploadLink}
           class="bg-[#0369a1] text-white py-2 px-4 rounded-full hover:bg-blue-800 transition"
         >
-          {isGerman ? "📤 Zum Upload" : "📤 Go to Upload Page"}
+          {uploadCta}
         </a>
 
         <a
           href={galleryLink}
           class="bg-slate-200 text-gray-800 py-2 px-4 rounded-full hover:bg-slate-300 transition"
         >
-          {isGerman ? "🖼️ Galerie ansehen" : "🖼️ View Gallery"}
+          {galleryCta}
         </a>
+      </div>
 
-        <a
-          href={donateLink}
-          class="bg-green-600 text-white py-2 px-4 rounded-full hover:bg-green-700 transition"
-        >
+      <div class="mt-4 text-xs text-gray-500 leading-relaxed">
+        <p class="mb-1">
           {
             isGerman
-              ? "💚 Spenden / Teilnahmegebühr"
-              : "💚 Donate / Participation Fee"
+              ? "Bitte im PayPal-Verwendungszweck unbedingt „Charity Week Painting – Name des Kindes“ angeben. Das erleichtert die Freigabe."
+              : "Please include “Charity Week Painting – Child’s Name” in the PayPal reference. This helps us approve entries quickly."
           }
-        </a>
+        </p>
+        <p class="mb-1">{winnerNote}</p>
       </div>
     </div>
 
     <div class="text-sm text-gray-500 text-center mt-10">
-      {
-        isGerman
-          ? "Der Wettbewerb wird von MHG Ingolstadt e.V. organisiert und unterstützt die Charity Week."
-          : "This competition is organized by MHG Ingolstadt e.V. and supports Charity Week."
-      }
+      {footerNote}
     </div>
   </section>
 </Layout>

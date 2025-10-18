@@ -1,7 +1,6 @@
 ---
 import Layout from "../../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
-import { t } from "../../../utils/t";
 
 const { lang = "en" } = Astro.params;
 const supportedLangs = ["en", "de"];
@@ -19,19 +18,32 @@ const { data: images } = await supabase
   .eq("verified", true)
   .order("like_count", { ascending: false })
   .order("created_at", { ascending: false });
+
+const title =
+  lang === "de"
+    ? "Galerie – Kindermalwettbewerb 2025"
+    : "Gallery – Children’s Painting Competition 2025";
+
+const heading = lang === "de" ? "🖼️ Galerie" : "🖼️ Gallery";
+const noImagesText =
+  lang === "de" ? "Noch keine Bilder vorhanden." : "No images yet.";
+const backText = lang === "de" ? "Zurück zur Veranstaltung" : "Back to event";
+const votingInfo =
+  lang === "de"
+    ? "Die Bilder mit den meisten ❤️ Likes gewinnen tolle Preise! Unterstütze dein Lieblingsbild."
+    : "The artworks with the most ❤️ likes will win amazing prizes! Support your favorite.";
 ---
 
-<Layout title="Gallery – Children’s Painting Competition 2025" lang="en">
+<Layout title={title} lang={lang}>
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
-      🖼️ {t("competition.galleryTitle", "en") || "Gallery"}
-    </h2>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">{heading}</h2>
+    <p class="text-center text-gray-600 mb-10">{votingInfo}</p>
 
     <a
       href={`/${lang}/events/childrens-painting-competition-2025`}
       class="inline-block mb-4 text-[#0369a1] hover:underline text-sm"
     >
-      ← {lang === "de" ? "Zurück zur Veranstaltung" : "Back to event"}
+      ← {backText}
     </a>
 
     <div
@@ -45,26 +57,28 @@ const { data: images } = await supabase
               class="bg-white rounded-xl shadow-md p-4 text-center"
               data-id={img.id}
             >
-              <img
-                src={img.url}
-                alt="Artwork"
-                class="rounded-md mb-3 mx-auto"
-              />
+              <a href={img.url} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={img.url}
+                  alt="Artwork"
+                  class="rounded-md mb-3 mx-auto w-full h-64 object-contain cursor-pointer transition-transform hover:scale-105"
+                />
+              </a>
+
               <button class="like-btn bg-[#0369a1] text-white px-4 py-2 rounded-full hover:bg-blue-800 transition">
                 ❤️ {img.like_count}
               </button>
             </div>
           ))
         ) : (
-          <p class="text-center text-gray-500 col-span-full">
-            {lang === "de" ? "Noch keine Bilder vorhanden." : "No images yet."}{" "}
-          </p>
+          <p class="text-center text-gray-500 col-span-full">{noImagesText}</p>
         )
       }
     </div>
   </section>
 
   <script is:inline>
+    // Like Button Functionality (German Only)
     document.querySelectorAll(".like-btn").forEach((btn) => {
       btn.addEventListener("click", async (e) => {
         const card = e.target.closest("[data-id]");
@@ -81,12 +95,14 @@ const { data: images } = await supabase
         }
 
         if (data.success) {
-          const count = parseInt(e.target.textContent.replace(/\D/g, "")) + 1;
-          e.target.textContent = "❤️ " + count;
-          feedback.textContent = "✅ Thanks for your like!";
+          let currentText = e.target.textContent;
+          let currentLikes = parseInt(currentText.replace(/[^\d]/g, "")) || 0;
+          let newLikes = currentLikes + 1;
+          e.target.textContent = "❤️ " + newLikes;
+          feedback.textContent = "✅ Danke für dein Like!";
           feedback.className = "like-feedback mt-2 text-xs text-green-700";
         } else if (data.message) {
-          feedback.textContent = "💡 You already liked this image.";
+          feedback.textContent = "💡 Du hast dieses Bild bereits geliked.";
           feedback.className = "like-feedback mt-2 text-xs text-gray-600";
         }
 
