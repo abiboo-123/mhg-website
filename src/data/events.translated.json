@@ -7,10 +7,7 @@
       "location": "This Website (Online)",
       "description": "A creative charity competition for children held entirely on this website as part of Charity Week 2025.\n\n🎨 Theme: “Together We Are Strong!”\nChildren are invited to submit artwork showing the power of unity, community, friendship, and faith.\n\n💚 Participation is confirmed through a €5 donation via PayPal (all proceeds go to support orphans and children in need).\n🖼️ All approved artworks will be displayed in our online gallery.\n❤️ Family and friends can vote by liking the artwork. The top 3 artworks with the most likes will receive prizes!\n\nThis event is organized by MHG Ingolstadt e.V. and 100% of donations support Charity Week.",
       "cardImage": "/events-banners/childrens-painting-competition-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
+      "language": ["en", "de"],
       "tags": [
         "Children",
         "Art",
@@ -35,9 +32,7 @@
       "location": "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
       "description": "Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲\nDiscover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.\n\n👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.\n💰 Participation fee: €10 (all proceeds go 100% to support children in need).\n🎁 Additional donations are warmly welcomed!\n👥 Limited to 15 participants, register early to secure your spot!\n\n✨ Please note: This event is **only for girls**.\n\n📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)\n📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt\n🚏 Nearby Bus Stops:\n- Regensburger Straße → Bus 70, 21, 20\n- Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26\n\nPlease bring:\n• Food containers\n• Kitchen towels\n\nParticipants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).\n\nLet’s cook, enjoy, and make a difference together! ❤️",
       "cardImage": "/events-banners/charity-week-cooking-class-2025-en.png",
-      "language": [
-        "de"
-      ],
+      "language": ["de"],
       "tags": [
         "Cooking",
         "Charity",
@@ -62,17 +57,8 @@
       "location": "Feselen Straße 42, 85055 Ingolstadt",
       "description": "Join us for the MHG Charity Football Tournament 2025, a 5 a side competition where fun meets purpose! This event is part of Charity Week in support of orphans and children in need.\n\n⚽ Twelve teams will compete in a friendly and exciting atmosphere.\n👥 Individual players are also welcome, and we will help you form a team.\n💰 Entry fee: €25 per team. All proceeds go towards Charity Week projects.\n📅 Date: October 26, 2025 (14:30 PM to 8:00 PM)\n📍 Venue: Feselen Straße 42, 85055 Ingolstadt\n\nCome play, cheer, and make a difference!",
       "cardImage": "/events-banners/football-charity-match-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Football",
-        "Sports",
-        "Charity",
-        "Community",
-        "Charity Week"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Football", "Sports", "Charity", "Community", "Charity Week"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -89,14 +75,8 @@
       "location": "Am Nordbahnhof 23, 85049 Ingolstadt",
       "description": "An informative event for non-Muslims about Islam. We will introduce the core teachings and principles of Islam in a simple and engaging manner. The event will include a presentation, an open discussion, and a chance to enjoy coffee and cake together.",
       "cardImage": "/events-banners/die-weltreligion-islam-2025-en.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Islam",
-        "Information",
-        "Community"
-      ],
+      "language": ["de"],
+      "tags": ["Islam", "Information", "Community"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -112,15 +92,8 @@
       "location": "Various Mosques, Ingolstadt",
       "description": "Support MHG initiatives through our charity stand after Friday prayer. We will distribute information about Charity Week, accept donations, and possibly organize a children’s drawing competition in Islamic schools. Food will be prepared by the MHG community or provided as donations.",
       "cardImage": "/events-banners/mosque-charity-stand-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Charity",
-        "Community",
-        "Fundraising"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Charity", "Community", "Fundraising"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -136,17 +109,8 @@
       "location": "Altstadt, Ingolstadt (near Müller/DM)",
       "description": "Join us in the Altstadt for a lively community stand! Expect henna art, kids’ face painting, glitter, sweets, oriental pastries like Kunafah and Baklava, Palestinian Cola, and more. We will also share flyers and information about MHG activities. A chance to connect, enjoy, and support MHG with friends and family.",
       "cardImage": "/events-banners/altstadt-stand-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Community",
-        "Henna",
-        "Food",
-        "Calligraphy",
-        "Charity"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Community", "Henna", "Food", "Calligraphy", "Charity"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -162,20 +126,9 @@
       "location": "Room G215, THI, Ingolstadt",
       "description": "A welcoming session to introduce the Muslim Hochschulgruppe (MHG) to new students. The program included a brief presentation about MHG, its mission, and future plans, followed by a fun Kahoot quiz with prizes for the top three winners. The event concluded with a pizza social where attendees had the chance to connect, share ideas, and build a sense of community.",
       "cardImage": "/events-banners/mhg-meet-and-greet-october-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Intro",
-        "Students",
-        "Community",
-        "Kahoot",
-        "Social"
-      ],
-      "speakers": [
-        "MHG Team"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Intro", "Students", "Community", "Kahoot", "Social"],
+      "speakers": ["MHG Team"],
       "attendance": 17,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744639/IMG_6618_zt6vhj.mp4",
@@ -195,10 +148,7 @@
       "location": "Room G215, THI, Ingolstadt",
       "description": "An inspiring talk with Shaykh Taha Ali Zeidan about the Prophet’s ﷺ role as a source of mercy and compassion, not punishment. The lecture explored Islamic ethics of leadership, forgiveness, and justice in today’s world.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
+      "language": ["en", "de"],
       "tags": [
         "Mercy",
         "Prophet Muhammad ﷺ",
@@ -206,9 +156,7 @@
         "Leadership",
         "Spirituality"
       ],
-      "speakers": [
-        "Shaykh Taha Ali Zeidan"
-      ],
+      "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063430/IMG_4266_owjnqf.jpg",
@@ -229,17 +177,8 @@
       "location": "THI, Ingolstadt",
       "description": "We gathered to celebrate Eid with joy, food, and fun! Everyone brought a delicious dish to share, making it a true community feast. The highlight of the day was an exciting Kahoot quiz that brought laughter, learning, and friendly competition. A beautiful chance to connect and celebrate Eid together.",
       "cardImage": "/events-banners/eid-celebration-june-2025-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Eid",
-        "Community",
-        "Food",
-        "Kahoot",
-        "Celebration"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Eid", "Community", "Food", "Kahoot", "Celebration"],
       "speakers": [],
       "attendance": 40,
       "gallery": [
@@ -265,20 +204,9 @@
       "location": "Room G215, THI, Ingolstadt",
       "description": "Guest speaker Abdelhak Rabah gave an insightful lecture on the priorities and challenges facing Muslim youth in Germany. The talk explored identity, faith, education, and active participation in society.",
       "cardImage": "/events-banners/priorities-of-muslim-youth-in-germany-en.png",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Youth",
-        "Identity",
-        "Education",
-        "Community",
-        "Germany"
-      ],
-      "speakers": [
-        "Abdelhak Rabah"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Youth", "Identity", "Education", "Community", "Germany"],
+      "speakers": ["Abdelhak Rabah"],
       "attendance": 30,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063423/IMG_3298_o7ysio.jpg",
@@ -301,9 +229,7 @@
       "location": "Diese Webseite (Online)",
       "description": "Ein kreativer Wohltätigkeitswettbewerb für Kinder, der vollständig auf dieser Webseite im Rahmen der Charity Week 2025 stattfindet.\n\n🎨 Thema: „Gemeinsam sind wir stark!“\nKinder sind eingeladen, Kunstwerke einzureichen, die die Kraft von Gemeinschaft, Freundschaft, Zusammenhalt und Glauben darstellen.\n\n💚 Die Teilnahme wird durch eine Spende von 5€ über PayPal bestätigt (alle Spenden gehen an Waisen und bedürftige Kinder).\n🖼️ Alle freigegebenen Kunstwerke werden in unserer Online-Galerie angezeigt.\n❤️ Familie und Freunde können die Kunstwerke liken. Die 3 Beiträge mit den meisten Likes gewinnen Preise!\n\nDieser Wettbewerb wird von MHG Ingolstadt e.V. organisiert. 100 % der Spenden unterstützen die Charity Week.",
       "cardImage": "/events-banners/childrens-painting-competition-2025-de.png",
-      "language": [
-        "de"
-      ],
+      "language": ["de"],
       "tags": [
         "Kinder",
         "Kunst",
@@ -328,9 +254,7 @@
       "location": "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
       "description": "Mach mit beim besonderen Charity Week Kochkurs der MHG Ingolstadt! 🍲\nEntdecke die Vielfalt der arabischen Küche und lerne, köstliche Gerichte zuzubereiten – und das alles für einen guten Zweck.\n\n👩‍🍳 Gemeinsam kochen, genießen und Spaß haben in einer freundlichen Atmosphäre.\n💰 Teilnahmegebühr: 10 € (alle Einnahmen gehen zu 100 % an hilfsbedürftige Kinder).\n🎁 Zusätzliche Spenden sind herzlich willkommen!\n👥 Maximal 15 Teilnehmerinnen, sichere dir rechtzeitig deinen Platz!\n\n✨ Bitte beachten: Dieser Kochkurs ist **nur für Mädchen**.\n\n📅 Datum: 21. Oktober 2025 (13:00 – 15:00 Uhr)\n📍 Ort: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt\n🚏 Nächstgelegene Bushaltestellen:\n- Regensburger Straße → Bus 70, 21, 20\n- Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26\n\nBitte mitbringen:\n• Vorratsdosen\n• Geschirrtücher\n\nTeilnehmerinnen sind außerdem eingeladen, leichte Spezialitäten aus ihrer Heimat mitzubringen (z. B. Salate, Süßigkeiten oder Getränke).\n\nLass uns gemeinsam kochen, genießen und Gutes tun! ❤️",
       "cardImage": "/events-banners/charity-week-cooking-class-2025-de.png",
-      "language": [
-        "de"
-      ],
+      "language": ["de"],
       "tags": [
         "Cooking",
         "Charity",
@@ -354,17 +278,8 @@
       "date": "26. Oktober 2025 (14:30 – 20:00 Uhr)",
       "location": "Feselen Straße 42, 85055 Ingolstadt",
       "description": "Sei dabei beim MHG Charity Fußballturnier 2025, einem 5 gegen 5 Wettbewerb, bei dem Spaß und Teamgeist Gutes bewirken! Dieses Turnier ist Teil der Charity Week und unterstützt Waisen und Kinder in Not.\n\n⚽ Zwölf Teams treten in einer freundschaftlichen und spannenden Atmosphäre gegeneinander an.\n👥 Auch Einzelspielerinnen und Einzelspieler sind herzlich willkommen, und wir helfen euch, ein Team zu finden.\n💰 Teilnahmegebühr: 25 € pro Team. Alle Einnahmen gehen an Projekte der Charity Week.\n📅 Datum: 26. Oktober 2025 (14:30 bis 20:00 Uhr)\n📍 Ort: Feselen Straße 42, 85055 Ingolstadt\n\nKomm vorbei, spiel mit, feuere an und mach einen Unterschied!",
-      "language": [
-        "en",
-        "de"
-      ],
-      "tags": [
-        "Fußball",
-        "Sport",
-        "Charity",
-        "Gemeinschaft",
-        "Charity Week"
-      ],
+      "language": ["en", "de"],
+      "tags": ["Fußball", "Sport", "Charity", "Gemeinschaft", "Charity Week"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -382,14 +297,8 @@
       "location": "Am Nordbahnhof 23, 85049 Ingolstadt",
       "description": "Eine informative Veranstaltung für Nicht-Muslime über den Islam. Wir werden die grundlegenden Lehren und Prinzipien des Islams auf einfache und ansprechende Weise vorstellen. Die Veranstaltung umfasst eine Präsentation, eine offene Diskussion und die Möglichkeit, bei Kaffee und Kuchen zusammenzukommen.",
       "cardImage": "/events-banners/die-weltreligion-islam-2025-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Islam",
-        "Information",
-        "Gemeinschaft"
-      ],
+      "language": ["de"],
+      "tags": ["Islam", "Information", "Gemeinschaft"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -405,15 +314,8 @@
       "location": "Verschiedene Moscheen, Ingolstadt",
       "description": "Unterstütze die Initiativen von MHG an unserem Wohltätigkeitsstand nach dem Freitagsgebet. Wir informieren über die Charity Week, sammeln Spenden und planen eventuell einen Malwettbewerb für Kinder in islamischen Schulen. Das Essen wird von der MHG-Community vorbereitet oder als Spende beigesteuert.",
       "cardImage": "/events-banners/mosque-charity-stand-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
-      "tags": [
-        "Wohltätigkeit",
-        "Gemeinschaft",
-        "Fundraising"
-      ],
+      "language": ["de", "en"],
+      "tags": ["Wohltätigkeit", "Gemeinschaft", "Fundraising"],
       "speakers": [],
       "attendance": null,
       "gallery": [],
@@ -429,10 +331,7 @@
       "location": "Altstadt, Ingolstadt (bei Müller/DM)",
       "description": "Besuche uns beim Altstadtstand für ein buntes Gemeinschaftsprogramm! Es gibt Henna, Kinderschminken, Glitzer, Süßigkeiten, orientalische Spezialitäten wie Kunafah und Baklava, palästinensische Cola und vieles mehr. Zudem verteilen wir Flyer und informieren über MHG-Aktivitäten. Eine wunderbare Gelegenheit, Gemeinschaft zu erleben und MHG zu unterstützen.",
       "cardImage": "/events-banners/altstadt-stand-2025-de.png",
-      "language": [
-        "de",
-        "en"
-      ],
+      "language": ["de", "en"],
       "tags": [
         "Gemeinschaft",
         "Henna",
@@ -455,10 +354,7 @@
       "location": "Raum G215, THI, Ingolstadt",
       "description": "Eine Willkommensveranstaltung zur Vorstellung der Muslimischen Hochschulgruppe (MHG) für neue Studierende. Das Programm beinhaltete eine kurze Präsentation über die MHG, ihre Ziele und zukünftigen Pläne, gefolgt von einem unterhaltsamen Kahoot-Quiz mit Preisen für die drei Gewinner. Die Veranstaltung endete mit einer gemeinsamen Pizza-Runde, bei der die Teilnehmenden Gelegenheit hatten, sich kennenzulernen, sich auszutauschen und eine Gemeinschaft aufzubauen.",
       "cardImage": "/events-banners/mhg-meet-and-greet-october-2025-de.png",
-      "language": [
-        "en",
-        "de"
-      ],
+      "language": ["en", "de"],
       "tags": [
         "Einführung",
         "Studierende",
@@ -466,9 +362,7 @@
         "Kahoot",
         "Soziales"
       ],
-      "speakers": [
-        "MHG Team"
-      ],
+      "speakers": ["MHG Team"],
       "attendance": 17,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744639/IMG_6618_zt6vhj.mp4",
@@ -488,9 +382,7 @@
       "location": "Raum G215, THI, Ingolstadt",
       "description": "Ein inspirierender Vortrag mit Shaykh Taha Ali Zeidan über die Rolle des Propheten ﷺ als Quelle der Barmherzigkeit und des Mitgefühls, nicht der Bestrafung. Der Vortrag beleuchtete islamische Ethik in Bezug auf Führung, Vergebung und Gerechtigkeit in der heutigen Welt.",
       "cardImage": "/events-banners/shaykh-taha-ali-talk-june-2025-de.png",
-      "language": [
-        "de"
-      ],
+      "language": ["de"],
       "tags": [
         "Barmherzigkeit",
         "Prophet Muhammad ﷺ",
@@ -498,9 +390,7 @@
         "Führung",
         "Spiritualität"
       ],
-      "speakers": [
-        "Shaykh Taha Ali Zeidan"
-      ],
+      "speakers": ["Shaykh Taha Ali Zeidan"],
       "attendance": 20,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063430/IMG_4266_owjnqf.jpg",
@@ -521,16 +411,8 @@
       "location": "THI, Ingolstadt",
       "description": "Wir haben Eid gemeinsam mit Freude, leckerem Essen und Spaß gefeiert! Alle haben ein köstliches Gericht mitgebracht und so ein echtes Gemeinschaftsfest geschaffen. Höhepunkt war ein spannendes Kahoot-Quiz, das für Lachen, Lernen und freundlichen Wettbewerb sorgte. Eine schöne Gelegenheit, Eid gemeinsam zu erleben.",
       "cardImage": "/events-banners/eid-celebration-june-2025-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Eid",
-        "Gemeinschaft",
-        "Essen",
-        "Kahoot",
-        "Feier"
-      ],
+      "language": ["de"],
+      "tags": ["Eid", "Gemeinschaft", "Essen", "Kahoot", "Feier"],
       "speakers": [],
       "attendance": 40,
       "gallery": [
@@ -556,19 +438,9 @@
       "location": "Raum G215, THI, Ingolstadt",
       "description": "Gastredner Abdelhak Rabah hielt einen aufschlussreichen Vortrag über die Prioritäten und Herausforderungen muslimischer Jugendlicher in Deutschland. Themen waren Identität, Glaube, Bildung und aktive Teilnahme an der Gesellschaft.",
       "cardImage": "/events-banners/priorities-of-muslim-youth-in-germany-de.png",
-      "language": [
-        "de"
-      ],
-      "tags": [
-        "Jugend",
-        "Identität",
-        "Bildung",
-        "Gemeinschaft",
-        "Deutschland"
-      ],
-      "speakers": [
-        "Abdelhak Rabah"
-      ],
+      "language": ["de"],
+      "tags": ["Jugend", "Identität", "Bildung", "Gemeinschaft", "Deutschland"],
+      "speakers": ["Abdelhak Rabah"],
       "attendance": 30,
       "gallery": [
         "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1758063423/IMG_3298_o7ysio.jpg",
