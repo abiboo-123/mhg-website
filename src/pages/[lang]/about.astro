@@ -8,6 +8,7 @@ import { team } from "../../data/team.js";
 import { aboutCards } from "../../data/aboutCards.js";
 import { t } from "../../utils/t";
 import { generateStaticPaths } from "../../utils/i18n";
+import { getSeoMeta } from "../../utils/seo";
 
 export async function getStaticPaths() {
   return generateStaticPaths();
@@ -26,9 +27,26 @@ type TeamMemberData = { name: string; role: string; image: ImageMetadata };
 
 const cards = aboutCards[lang as keyof typeof aboutCards] as AboutCard[];
 const members = team[lang as keyof typeof team] as TeamMemberData[];
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: "About Us – MHG Ingolstadt",
+  titleDe: "Über Uns – MHG Ingolstadt",
+  descEn: "Learn more about MHG Ingolstadt, our mission, vision, and team.",
+  descDe:
+    "Erfahren Sie mehr über die MHG Ingolstadt, unsere Mission, Vision und unser Team.",
+  slug: "about",
+  image: null,
+});
 ---
 
-<Layout title="About Us – MHG Ingolstadt e. V." lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <!-- Hero Section -->
   <section
     class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8"

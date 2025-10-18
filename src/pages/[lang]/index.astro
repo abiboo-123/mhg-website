@@ -21,16 +21,35 @@ if (!SUPPORTED_LANGUAGES.includes(lang)) {
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { getSeoMeta } from '../../utils/seo';
 
 
 const allEvents = eventsByLang[lang || "en"] ?? [];
 const highlighted = allEvents.filter(
   (e) => e.highlighted === true && e.available === true && e.past === false
 );
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: 'MHG Ingolstadt - Home',
+  titleDe: 'MHG Ingolstadt - Startseite',
+  descEn: 'Welcome to the Muslimische Hochschulgruppe Ingolstadt (MHG) website. Join us for events, resources, and community activities.',
+  descDe: 'Willkommen auf der Website der Muslimischen Hochschulgruppe Ingolstadt (MHG). Nehmen Sie an Veranstaltungen, Ressourcen und Gemeinschaftsaktivitäten teil.',
+  slug: '',
+  image: null,
+});
 ---
 
-<Layout title="MHG Ingolstadt e. V." lang={lang}>
-  <!-- Hero Section -->
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
+
+<!-- Hero Section -->
   <section
     class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-2xl max-w-6xl mx-auto mt-8 shadow-sm"
   >

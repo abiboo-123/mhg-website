@@ -6,36 +6,55 @@ import { t } from "../../../utils/t";
 import eventsByLang from "../../../data/events.translated.json";
 import Likert from "../../../components/Likert.astro";
 import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
+import { getSeoMeta } from "../../../utils/seo.js"; // ✅ NEW
 
 export async function getStaticPaths() {
   return generateStaticPathsForEventSlugs();
 }
 
-// Supported languages
 const supportedLangs = ["en", "de"];
-
-// Get params from the route folder names
 const { lang, slug } = Astro.params as { lang: string; slug: string };
 if (!supportedLangs.includes(lang))
   throw new Error(`Invalid language: ${lang}`);
 
-// Look up the event by slug (fallback: prettified slug)
+// Formspree endpoint (use your real form ID)
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeoznywq";
+
+// Fetch event data
 const list = (eventsByLang?.[lang as keyof typeof eventsByLang] ?? []) as any[];
 const ev = list.find((e: any) => e.slug === slug);
 const eventTitle =
   ev?.title || decodeURIComponent(slug ?? "").replace(/[-_]/g, " ");
 
-// Back link: always to /past-events/[slug], arrow flips for Arabic
+const descEn = `Give your feedback for ${eventTitle} at MHG Ingolstadt. Help us improve future events.`;
+const descDe = `Geben Sie Ihr Feedback für ${eventTitle} bei MHG Ingolstadt. Helfen Sie uns, zukünftige Veranstaltungen zu verbessern.`;
+
+const ogImage = ev?.image
+  ? `/events/${slug}.jpg` // If the event has an image
+  : "/assets/MHG_Logo.svg";
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: `Feedback – ${eventTitle} – MHG Ingolstadt`,
+  titleDe: `Feedback – ${eventTitle} – MHG Ingolstadt`,
+  descEn,
+  descDe,
+  slug: `feedback/${slug}`,
+  image: ogImage,
+});
+
 const backHref = `/${lang}/past-events/${slug}`;
-
-// Formspree endpoint (use your real form ID)
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeoznywq";
-
-// Likert numbers (pass to <Likert numbers={...} /> if you want to change)
 const scaleNumbers = [1, 2, 3, 4, 5];
 ---
 
-<Layout title={`Feedback – ${eventTitle} – MHG Ingolstadt e. V.`} lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <section class="max-w-4xl mx-auto px-4 py-10">
     <div class="mb-4">
       <a href={backHref} class="text-[#0369a1] hover:underline"

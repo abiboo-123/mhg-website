@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { getSeoMeta } from "../../utils/seo";
 
 const { lang } = Astro.params as { lang: "en" | "de" };
 const supportedLangs = ["en", "de"];
@@ -27,9 +28,27 @@ const published = allEvents.filter((e) => e.available === true);
 // Split into upcoming / past
 const upcoming = published.filter((e) => e.past !== true);
 const past = published.filter((e) => e.past === true);
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: "Events – MHG Ingolstadt",
+  titleDe: "Veranstaltungen – MHG Ingolstadt",
+  descEn: "Explore upcoming and past events organized by MHG Ingolstadt.",
+  descDe:
+    "Entdecken Sie kommende und vergangene Veranstaltungen der MHG Ingolstadt.",
+  slug: "events",
+  image: null,
+});
 ---
 
-<Layout title="Events – MHG Ingolstadt e. V." lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <!-- Hero Section -->
   <section
     class="text-center py-12 px-4 sm:px-6 md:px-8 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8"

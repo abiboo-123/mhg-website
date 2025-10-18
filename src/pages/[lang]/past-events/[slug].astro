@@ -5,6 +5,7 @@ import Layout from "../../../layouts/BaseLayout.astro";
 import rawEventsData from "../../../data/events.translated.json";
 import { t } from "../../../utils/t.js";
 import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
+import { getSeoMeta } from "../../../utils/seo.js"; // ✅ ADD THIS
 
 export async function getStaticPaths() {
   return generateStaticPathsForEventSlugs();
@@ -34,7 +35,6 @@ if (!supportedLangs.includes(lang)) {
 const eventsData = rawEventsData as Record<string, Event[]>;
 const translatedEvents = eventsData[lang] ?? eventsData["en"];
 const event = translatedEvents.find((e: Event) => e.slug === slug);
-
 const languageLabels: Record<string, string> = {
   en: "English",
   de: "German",
@@ -43,9 +43,32 @@ const languageLabels: Record<string, string> = {
 if (!event) {
   throw new Error(`Event not found for slug: ${slug}`);
 }
+
+// ✅ Dynamic SEO meta for Past Events
+const descEn = `Look back at "${event.title}" hosted by MHG Ingolstadt. See highlights, gallery, and event impact.`;
+const descDe = `Rückblick auf "${event.title}" von MHG Ingolstadt. Highlights, Galerie und Veranstaltungsergebnisse.`;
+
+const ogImage = event.gallery?.[0] || "/assets/MHG_Logo.svg";
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: `${event.title} – Past Event – MHG Ingolstadt`,
+  titleDe: `${event.title} – Vergangenes Event – MHG Ingolstadt`,
+  descEn,
+  descDe,
+  slug: `past-events/${event.slug}`,
+  image: ogImage,
+});
 ---
 
-<Layout title={`${event.title} – MHG Ingolstadt`} lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <section class="max-w-3xl mx-auto px-4 py-12">
     <!-- Back link -->
     <a

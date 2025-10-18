@@ -4,6 +4,7 @@ export const prerender = true;
 import Layout from "../../../layouts/BaseLayout.astro";
 import { t } from "../../../utils/t";
 import { generateStaticPaths } from "../../../utils/i18n";
+import { getSeoMeta } from "../../../utils/seo";
 
 export async function getStaticPaths() {
   return generateStaticPaths();
@@ -71,9 +72,31 @@ const uploadFail =
   lang === "de"
     ? "❌ Upload fehlgeschlagen. Bitte versuche es erneut."
     : "❌ Upload failed. Please try again.";
+
+const baseSlug = "childrens-painting-competition-2025/upload";
+const ogImage = "/events/childrens-painting-competition-2025.jpg"; // You can change if dynamic
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: "Upload Entry – Children’s Painting Competition – MHG Ingolstadt",
+  titleDe: "Beitrag hochladen – Kindermalwettbewerb – MHG Ingolstadt",
+  descEn:
+    "Submit your artwork to participate in the MHG Ingolstadt Children's Charity Painting Competition.",
+  descDe:
+    "Lade dein Bild hoch und nimm am Kindermalwettbewerb der MHG Ingolstadt teil.",
+  slug: baseSlug,
+  image: ogImage,
+});
 ---
 
-<Layout title={pageTitle} lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <section class="max-w-4xl mx-auto px-4 py-12">
     <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-center">
       🎨 {lang === "de" ? "Beitrag hochladen" : "Upload Your Artwork"}

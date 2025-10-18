@@ -5,7 +5,20 @@ import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
 
-const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
+const baseUrl = "https://mhg-website-phi.vercel.app";
+
+const {
+  title = "MHG Ingolstadt e. V.",
+  lang,
+  ogTitle = lang === "de"
+    ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
+    : "MHG Ingolstadt – Muslim Student Group",
+  ogDescription = lang === "de"
+    ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
+    : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives.",
+  ogImage = `${baseUrl}/assets/MHG_Logo.svg`,
+  ogUrl = lang === "de" ? `${baseUrl}/de` : `${baseUrl}/en`,
+} = Astro.props;
 ---
 
 <html lang={lang === "de" ? "de" : "en"}>
@@ -61,44 +74,18 @@ const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
       hreflang="x-default"
     />
 
-    <!-- ✅ OPEN GRAPH TAGS -->
-    <meta
-      property="og:title"
-      content={lang === "de"
-        ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
-        : "MHG Ingolstadt – Muslim Student Group"}
-    />
-    <meta
-      property="og:description"
-      content={lang === "de"
-        ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
-        : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives."}
-    />
-    <meta
-      property="og:image"
-      content="https://mhg-website-phi.vercel.app/assets/MHG_Logo.svg"
-    />
-    <meta property="og:url" content="https://mhg-website-phi.vercel.app/" />
+    <!-- ✅ Open Graph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={ogUrl} />
     <meta property="og:type" content="website" />
 
-    <!-- ✅ TWITTER CARD -->
+    <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content={lang === "de"
-        ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
-        : "MHG Ingolstadt – Muslim Student Group"}
-    />
-    <meta
-      name="twitter:description"
-      content={lang === "de"
-        ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
-        : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives."}
-    />
-    <meta
-      name="twitter:image"
-      content="https://mhg-website-phi.vercel.app/assets/MHG_Logo.svg"
-    />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
 
   <body class="bg-[#eaf7fb] text-slate-800 font-sans">

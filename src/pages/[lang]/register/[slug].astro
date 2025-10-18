@@ -6,36 +6,51 @@ import { t } from "../../../utils/t";
 import eventsByLang from "../../../data/events.translated.json";
 import Likert from "../../../components/Likert.astro";
 import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
+import { getSeoMeta } from "../../../utils/seo.js";
 
 export async function getStaticPaths() {
   return generateStaticPathsForEventSlugs();
 }
 
-// Supported languages
 const supportedLangs = ["en", "de"];
-
-// Params
 const { lang, slug } = Astro.params as { lang: string; slug: string };
 if (!supportedLangs.includes(lang))
   throw new Error(`Invalid language: ${lang}`);
 
-// Find event
 const list = (eventsByLang?.[lang as keyof typeof eventsByLang] ?? []) as any[];
 const ev = list.find((e: any) => e.slug === slug);
 const eventTitle =
   ev?.title || decodeURIComponent(slug ?? "").replace(/[-_]/g, " ");
 
-// Back link
+const descEn = `Register now for ${eventTitle}! Join our event and be part of the community.`;
+const descDe = `Jetzt für ${eventTitle} registrieren! Sei Teil unserer Gemeinschaft.`;
+
+const baseSlug = `register/${slug}`;
+const ogImage = ev?.image ? `/events/${slug}.jpg` : null;
+
+const { title, description, url, imageUrl } = getSeoMeta({
+  lang,
+  titleEn: `${eventTitle} – Register – MHG Ingolstadt`,
+  titleDe: `${eventTitle} – Anmeldung – MHG Ingolstadt`,
+  descEn,
+  descDe,
+  slug: baseSlug,
+  image: ogImage,
+});
+
 const backHref = `/${lang}/past-events/${slug}`;
-
-// ✅ Supabase endpoint instead of Formspree
 const FEEDBACK_ENDPOINT = "/api/feedback";
-
-// Likert numbers
 const scaleNumbers = [1, 2, 3, 4, 5];
 ---
 
-<Layout title={`Feedback – ${eventTitle} – MHG Ingolstadt e. V.`} lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogUrl={url}
+>
   <section class="max-w-4xl mx-auto px-4 py-10">
     <div class="mb-4">
       <a href={backHref} class="text-[#0369a1] hover:underline"
