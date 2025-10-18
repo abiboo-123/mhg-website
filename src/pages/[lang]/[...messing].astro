@@ -1,8 +1,17 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
 import { t } from "../../utils/t.js";
+import { SUPPORTED_LANGUAGES } from "../../utils/i18n.js";
 
-const { lang } = Astro.params;
+const { lang = "en" } = Astro.params;
+
+// ❌ If invalid language, redirect instead of showing 404
+if (!SUPPORTED_LANGUAGES.includes(lang)) {
+  return new Response(null, {
+    status: 307,
+    headers: { Location: `/en/${lang}` }, // redirect 'about' -> 'en/about'
+  });
+}
 ---
 
 <Layout title={`404 – MHG Ingolstadt e. V.`} lang={lang}>
