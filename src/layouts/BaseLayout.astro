@@ -8,17 +8,99 @@ import Analytics from "@vercel/analytics/astro";
 const { title = "MHG Ingolstadt e. V.", lang } = Astro.props;
 ---
 
-<html lang="en">
+<html lang={lang === "de" ? "de" : "en"}>
   <head>
-    <title>{title}</title>
+    <title>
+      {
+        lang === "de"
+          ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
+          : "MHG Ingolstadt – Muslim Student Group"
+      }
+    </title>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ✅ Google Site Verification -->
     <meta
       name="google-site-verification"
       content="CLKllNaEJXeyiT-iH-TcxmNLyxcos33qn3PtsYtvkRw"
     />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+
+    <!-- ✅ Meta Description (Multilingual) -->
+    <meta
+      name="description"
+      content={lang === "de"
+        ? "Die MHG Ingolstadt ist eine muslimische Hochschulgruppe, die islamische Veranstaltungen, Bildungsangebote, Wohltätigkeitsaktionen und Gemeinschaftsaktivitäten in Ingolstadt organisiert."
+        : "MHG Ingolstadt is a Muslim student organization hosting events, charity activities, Islamic education and community services in Ingolstadt. Join us and be part of a positive community."}
+    />
+
+    <!-- ✅ Canonical Links -->
+    <link
+      rel="canonical"
+      href={lang === "de"
+        ? "https://mhg-website-phi.vercel.app/de"
+        : "https://mhg-website-phi.vercel.app/en"}
+    />
+
+    <!-- ✅ Multilingual SEO -->
+    <link
+      rel="alternate"
+      href="https://mhg-website-phi.vercel.app/en"
+      hreflang="en"
+    />
+    <link
+      rel="alternate"
+      href="https://mhg-website-phi.vercel.app/de"
+      hreflang="de"
+    />
+    <link
+      rel="alternate"
+      href="https://mhg-website-phi.vercel.app/"
+      hreflang="x-default"
+    />
+
+    <!-- ✅ OPEN GRAPH TAGS -->
+    <meta
+      property="og:title"
+      content={lang === "de"
+        ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
+        : "MHG Ingolstadt – Muslim Student Group"}
+    />
+    <meta
+      property="og:description"
+      content={lang === "de"
+        ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
+        : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives."}
+    />
+    <meta
+      property="og:image"
+      content="https://mhg-website-phi.vercel.app/assets/MHG_Logo.svg"
+    />
+    <meta property="og:url" content="https://mhg-website-phi.vercel.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- ✅ TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content={lang === "de"
+        ? "MHG Ingolstadt – Muslimische Hochschulgruppe"
+        : "MHG Ingolstadt – Muslim Student Group"}
+    />
+    <meta
+      name="twitter:description"
+      content={lang === "de"
+        ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
+        : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives."}
+    />
+    <meta
+      name="twitter:image"
+      content="https://mhg-website-phi.vercel.app/assets/MHG_Logo.svg"
+    />
   </head>
+
   <body class="bg-[#eaf7fb] text-slate-800 font-sans">
     <Header lang={lang} />
     <main class="min-h-screen animate-fadeInUp">
