@@ -4,6 +4,11 @@ import rawEventsData from "../../../data/events.translated.json";
 import { t } from "../../../utils/t.js";
 import fs from "fs";
 import path from "path";
+import { generateStaticPathsForEventSlugs } from "../../../utils/i18n";
+
+export async function getStaticPaths() {
+  return generateStaticPathsForEventSlugs();
+}
 
 type Event = {
   slug: string;

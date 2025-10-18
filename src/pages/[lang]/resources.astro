@@ -3,6 +3,11 @@ import Layout from "../../layouts/BaseLayout.astro";
 import ResourceCard from "../../components/ResourceCard.astro";
 import resourcesData from "../../data/resources.translated.json";
 import { t } from "../../utils/t";
+import { generateStaticPaths } from '../../utils/i18n';
+
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
 const { lang = "en" } = Astro.params;
 

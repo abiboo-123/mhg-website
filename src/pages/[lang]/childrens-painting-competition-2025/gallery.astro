@@ -1,9 +1,15 @@
 ---
 import Layout from "../../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
+import { generateStaticPaths } from "../../../utils/i18n";
+
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
 const { lang = "en" } = Astro.params;
 const supportedLangs = ["en", "de"];
+
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }

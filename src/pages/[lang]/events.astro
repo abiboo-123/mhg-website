@@ -3,6 +3,11 @@ import Layout from "../../layouts/BaseLayout.astro";
 import { t } from "../../utils/t";
 import eventsByLang from "../../data/events.translated.json";
 import UnifiedEventCard from "../../components/UnifiedEventCard.astro";
+import { generateStaticPaths } from "../../utils/i18n";
+
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,9 +16,6 @@ import "swiper/css/pagination";
 const { lang } = Astro.params as { lang: "en" | "de" };
 const supportedLangs = ["en", "de"];
 
-export async function getStaticPaths() {
-  return supportedLangs.map((lang) => ({ params: { lang } }));
-}
 if (!supportedLangs.includes(lang))
   throw new Error(`Invalid language: ${lang}`);
 

@@ -3,6 +3,11 @@ import Layout from "../../../layouts/BaseLayout.astro";
 import { t } from "../../../utils/t"; // (kept for parity, not required)
 import fs from "fs";
 import path from "path";
+import { generateStaticPaths } from "../../../utils/i18n";
+
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
 const { lang = "en" } = Astro.params;
 const slug = "childrens-painting-competition-2025";

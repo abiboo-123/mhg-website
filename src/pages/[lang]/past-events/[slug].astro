@@ -1,7 +1,12 @@
 ---
-import Layout from '../../../layouts/BaseLayout.astro';
-import rawEventsData from '../../../data/events.translated.json';
-import { t } from '../../../utils/t.js';
+import Layout from "../../../layouts/BaseLayout.astro";
+import rawEventsData from "../../../data/events.translated.json";
+import { t } from "../../../utils/t.js";
+import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
+
+export async function getStaticPaths() {
+  return generateStaticPathsForEventSlugs();
+}
 
 type Event = {
   slug: string;
@@ -19,18 +24,18 @@ type Event = {
 const lang = Astro.params.lang as string;
 const slug = Astro.params.slug as string;
 
-const supportedLangs = ['en', 'de'];
+const supportedLangs = ["en", "de"];
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }
 
 const eventsData = rawEventsData as Record<string, Event[]>;
-const translatedEvents = eventsData[lang] ?? eventsData['en'];
+const translatedEvents = eventsData[lang] ?? eventsData["en"];
 const event = translatedEvents.find((e: Event) => e.slug === slug);
 
 const languageLabels: Record<string, string> = {
-  en: 'English',
-  de: 'German',
+  en: "English",
+  de: "German",
 };
 
 if (!event) {
@@ -41,80 +46,108 @@ if (!event) {
 <Layout title={`${event.title} – MHG Ingolstadt`} lang={lang}>
   <section class="max-w-3xl mx-auto px-4 py-12">
     <!-- Back link -->
-    <a href={`/${lang}/events`} class="inline-block mb-6 text-[#0369a1] hover:underline text-sm">
+    <a
+      href={`/${lang}/events`}
+      class="inline-block mb-6 text-[#0369a1] hover:underline text-sm"
+    >
       ← {t("pastEvents.backToAllEvents", lang)}
     </a>
 
-
-    
     <!-- Structured card layout -->
     <div class="bg-white rounded-xl p-6 shadow-md mb-10">
       <!-- Event title -->
-      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 mb-8">
+      <h1
+        class="text-3xl sm:text-4xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 mb-8"
+      >
         {event.title}
       </h1>
-      
+
       <!-- Event details grid -->
       <div class="grid gap-4 text-sm text-gray-700">
-        <div>📅 <strong>{t("pastEvents.date", lang)}:</strong> {event.date}</div>
-        <div>📍 <strong>{t("pastEvents.location", lang)}:</strong> {event.location}</div>
+        <div>
+          📅 <strong>{t("pastEvents.date", lang)}:</strong>
+          {event.date}
+        </div>
+        <div>
+          📍 <strong>{t("pastEvents.location", lang)}:</strong>
+          {event.location}
+        </div>
 
-        {event.speakers && event.speakers.length > 0 && (
-          <div>🎤 <strong>{t("pastEvents.speaker", lang)}:</strong> {event.speakers.join(', ')}</div>
-        )}
+        {
+          event.speakers && event.speakers.length > 0 && (
+            <div>
+              🎤 <strong>{t("pastEvents.speaker", lang)}:</strong>{" "}
+              {event.speakers.join(", ")}
+            </div>
+          )
+        }
 
-        {event.attendance && (
-          <div>👥 <strong>{t("pastEvents.attendance", lang)}:</strong> {event.attendance}</div>
-        )}
+        {
+          event.attendance && (
+            <div>
+              👥 <strong>{t("pastEvents.attendance", lang)}:</strong>{" "}
+              {event.attendance}
+            </div>
+          )
+        }
 
-        {event.language && event.language.length > 0 && (
-          <div class="flex flex-wrap gap-2 mt-2">
-            {event.language.map((code) => (
-              <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full">
-                🗣 {languageLabels[code] || code}
-              </span>
-            ))}
-          </div>
-        )}
+        {
+          event.language && event.language.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-2">
+              {event.language.map((code) => (
+                <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full">
+                  🗣 {languageLabels[code] || code}
+                </span>
+              ))}
+            </div>
+          )
+        }
 
         <div class="pt-2 border-t border-gray-200 text-base leading-relaxed">
           {event.description}
         </div>
 
         <!-- Tags (moved inside card) -->
-        {event.tags && (
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100 mt-4">
-            {event.tags.map(tag => (
-              <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">#{tag}</span>
-            ))}
-          </div>
-        )}
+        {
+          event.tags && (
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100 mt-4">
+              {event.tags.map((tag) => (
+                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
       </div>
     </div>
 
     <!-- Gallery with hover effect -->
-    {event.gallery && event.gallery.length > 0 && (
-      <div class="mb-10">
-        <h3 class="text-lg font-semibold mb-3">
-          {t("pastEvents.gallery", lang) || "Event Gallery"}
-        </h3>
-        <div class="gallery">
-          {event.gallery.map((item) => {
-            const isVideo = item.endsWith('.mp4') || item.endsWith('.webm') || item.endsWith('.ogg');
-            return (
-              isVideo ? (
-              <div class="video-wrapper">
-                <video
-                  src={item}
-                  muted
-                  loop
-                  playsinline
-                  class="rounded-md shadow-sm w-full object-cover"
-                  onmouseover="this.play()"
-                  onmouseout="this.pause(); this.currentTime = 0;"
-                ></video>
-                <div class="video-badge">▶</div>
-              </div>
+    {
+      event.gallery && event.gallery.length > 0 && (
+        <div class="mb-10">
+          <h3 class="text-lg font-semibold mb-3">
+            {t("pastEvents.gallery", lang) || "Event Gallery"}
+          </h3>
+          <div class="gallery">
+            {event.gallery.map((item) => {
+              const isVideo =
+                item.endsWith(".mp4") ||
+                item.endsWith(".webm") ||
+                item.endsWith(".ogg");
+              return isVideo ? (
+                <div class="video-wrapper">
+                  <video
+                    src={item}
+                    muted
+                    loop
+                    playsinline
+                    class="rounded-md shadow-sm w-full object-cover"
+                    onmouseover="this.play()"
+                    onmouseout="this.pause(); this.currentTime = 0;"
+                  />
+                  <div class="video-badge">▶</div>
+                </div>
               ) : (
                 <img
                   src={item}
@@ -122,12 +155,12 @@ if (!event) {
                   class="rounded-md shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-md w-full object-cover h-full"
                   loading="lazy"
                 />
-              )
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    )}    
+      )
+    }
 
     <!-- Feedback button -->
     <a

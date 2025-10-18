@@ -3,18 +3,14 @@ import Layout from "../../../layouts/BaseLayout.astro";
 import { t } from "../../../utils/t";
 import eventsByLang from "../../../data/events.translated.json";
 import Likert from "../../../components/Likert.astro";
+import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
+
+export async function getStaticPaths() {
+  return generateStaticPathsForEventSlugs();
+}
 
 // Supported languages
 const supportedLangs = ["en", "de"];
-
-// Generate pages for all events and languages
-export async function getStaticPaths() {
-  return supportedLangs.flatMap((lang) => {
-    const list = (eventsByLang?.[lang as keyof typeof eventsByLang] ??
-      []) as any[];
-    return list.map((e: any) => ({ params: { lang, slug: e.slug } }));
-  });
-}
 
 // Params
 const { lang, slug } = Astro.params as { lang: string; slug: string };

@@ -2,13 +2,14 @@
 import Layout from "../../layouts/BaseLayout.astro";
 import { t } from "../../utils/t";
 import { links } from "../../data/links";
+import { generateStaticPaths } from "../../utils/i18n";
+
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
 
 const { lang } = Astro.params;
 const supportedLangs = ["en", "de"];
-
-export async function getStaticPaths() {
-  return supportedLangs.map((lang) => ({ params: { lang } }));
-}
 
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);

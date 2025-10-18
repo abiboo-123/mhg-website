@@ -29,3 +29,6 @@ venv/
 
 # Gallery images
 public/gallery/
+
+# vercel files
+.vercel/
