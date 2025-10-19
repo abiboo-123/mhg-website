@@ -8,14 +8,12 @@ import Analytics from "@vercel/analytics/astro";
 const baseUrl = "https://mhg-website-phi.vercel.app";
 
 const {
-  title = "MHG Ingolstadt e. V.", // ✅ This becomes the <title> tag
-  lang = "en",
-  ogTitle = title,
-  ogDescription = lang === "de"
-    ? "Trete der MHG Ingolstadt bei für islamische Veranstaltungen, Gemeinschaft und wohltätige Initiativen."
-    : "Join MHG Ingolstadt for Islamic events, community, and charity initiatives.",
-  ogImage = `${baseUrl}/assets/MHG_Logo.svg`,
-  ogUrl = lang === "de" ? `${baseUrl}/de` : `${baseUrl}/en`,
+  title,
+  lang,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogUrl,
   ogImageWidth = 1200,
   ogImageHeight = 630,
 } = Astro.props;
