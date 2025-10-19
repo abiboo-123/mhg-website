@@ -70,12 +70,18 @@ const { title, description, url, imageUrl } = getSeoMeta({
         <a
           href="#give"
           class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#0369a1] text-white hover:bg-blue-800 transition"
+          aria-label={lang === "en"
+            ? "Donate using online methods"
+            : "Online spenden"}
         >
           {t("donate.ctaDonate", lang) || "Donate now"}
         </a>
         <a
           href="#bank"
           class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-[#0369a1] text-[#0369a1] hover:bg-blue-50 transition"
+          aria-label={lang === "en"
+            ? "Donate via bank transfer"
+            : "Per Banküberweisung spenden"}
         >
           {t("donate.ctaBank", lang) || "Bank transfer"}
         </a>
@@ -144,6 +150,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#0369a1] text-white hover:bg-blue-800 transition"
+          aria-label={lang === "en"
+            ? "Continue with PayPal"
+            : "Mit PayPal fortfahren"}
         >
           {t("donate.paypal", lang) || "Continue with PayPal"}
         </a>

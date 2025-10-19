@@ -74,6 +74,7 @@ const { title, description, url, imageUrl } = getSeoMeta({
     <a
       href={`/${lang}/events`}
       class="inline-block mb-6 text-[#0369a1] hover:underline text-sm"
+      aria-label={t("pastEvents.backToAllEvents", lang)}
     >
       ← {t("pastEvents.backToAllEvents", lang)}
     </a>
@@ -191,6 +192,10 @@ const { title, description, url, imageUrl } = getSeoMeta({
     <a
       href={`/${lang}/feedback/${event.slug}`}
       class="inline-block bg-[#d7f0f7] text-[#0369a1] py-2 px-4 rounded hover:bg-[#bde5f5] transition font-medium"
+      aria-label={lang === "en"
+        ? "give feedback for this event"
+        : "Feedback zu dieser Veranstaltung geben"}
+      )
     >
       {t("pastEvents.giveFeedback", lang) || "Give Feedback"}
     </a>

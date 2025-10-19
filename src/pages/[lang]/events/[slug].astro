@@ -26,10 +26,12 @@ type Event = {
   registrationLink?: string;
 };
 
+const baseUrl = "https://mhg-website-phi.vercel.app";
+
 const lang = Astro.params.lang as string;
 const slug = Astro.params.slug as string;
-
 const supportedLangs = ["en", "de"];
+
 if (!supportedLangs.includes(lang)) {
   throw new Error(`Invalid language: ${lang}`);
 }
@@ -51,19 +53,20 @@ if (!event) {
   throw new Error(`Event not found for slug: ${slug}`);
 }
 
-const filePath = path.resolve(`./public/events/${event.slug}.jpg`);
-const hasImage = fs.existsSync(filePath);
-const imagePath = hasImage ? `/events/${event.slug}.jpg` : null;
+const imageFilePath = path.resolve(`./public/events/${event.slug}.jpg`);
+const hasImage = fs.existsSync(imageFilePath);
 
-const { title, description, url, imageUrl } = getSeoMeta({
-  lang,
-  titleEn: `${event.title} – MHG Ingolstadt`,
-  titleDe: `${event.title} – MHG Ingolstadt`,
-  descEn: event.description.substring(0, 150) + "...",
-  descDe: event.description.substring(0, 150) + "...",
-  slug: "events/" + event.slug,
-  image: imagePath,
-});
+// ✅ Generate SEO metadata with corrected image URL
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: `${event.title} – MHG Ingolstadt`,
+    titleDe: `${event.title} – MHG Ingolstadt`,
+    descEn: event.description.substring(0, 150) + "...",
+    descDe: event.description.substring(0, 150) + "...",
+    slug: `events/${event.slug}`,
+    image: hasImage ? `/events/${event.slug}.jpg` : null,
+  });
 ---
 
 <Layout
@@ -72,11 +75,13 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
 >
   <section class="max-w-3xl mx-auto px-4 py-12">
     <a
-      href=`/${lang}/events`
+      href={`/${lang}/events`}
       class="inline-block mb-4 text-[#0369a1] hover:underline text-sm"
     >
       ← {t("events.backToAllEvents", lang)}
@@ -88,15 +93,16 @@ const { title, description, url, imageUrl } = getSeoMeta({
       hasImage && (
         <div class="w-full bg-white flex justify-center items-center mb-6">
           <img
-            src={imagePath}
+            src={`${baseUrl}/events/${event.slug}.jpg`}
             alt={event.title}
             width="1200"
-            height="700"
+            height="630"
             class="w-full h-auto object-contain rounded-md"
           />
         </div>
       )
     }
+
     <p class="text-sm text-gray-500 mb-2">📅 {event.date}</p>
     <p class="text-sm text-gray-500 mb-4">📍 {event.location}</p>
     <p class="mb-6 whitespace-pre-line">{event.description}</p>
@@ -108,13 +114,16 @@ const { title, description, url, imageUrl } = getSeoMeta({
         </p>
       )
     }
+
     {
       event.language && event.language.length > 0 && (
         <div class="flex flex-wrap gap-2 mt-2">
           {event.language.map((code) => (
             <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full">
-              🗣 {lang == "en" && englishLanguageLabels[code]}
-              {lang == "de" && germanLanguageLabels[code]}
+              🗣{" "}
+              {lang === "en"
+                ? englishLanguageLabels[code]
+                : germanLanguageLabels[code]}
             </span>
           ))}
         </div>

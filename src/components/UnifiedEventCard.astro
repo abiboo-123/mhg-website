@@ -66,6 +66,13 @@ const detailsHref = isPast
             ? "bg-gray-600 text-white hover:bg-gray-800"
             : "bg-[#0369a1] text-white hover:bg-blue-800"
         }`}
+      aria-label={isPast
+        ? lang === "de"
+          ? `Vergangene Veranstaltung ansehen: ${title}`
+          : `View past event: ${title}`
+        : lang === "de"
+          ? `Veranstaltung ansehen: ${title}`
+          : `View event: ${title}`}
     >
       {
         isPast

@@ -7,92 +7,99 @@ const { name, locationLink, location, description, tags = [] } = Astro.props;
 
   <p class="text-sm text-slate-600 mb-1">
     📍{" "}
-    {locationLink ? (
-      <a
-        href={locationLink}
-        target="_blank"
-        title="Open in Google Maps"
-        class="underline text-blue-600 hover:text-blue-800 transition"
-      >
-        {location}
-      </a>
-    ) : (
-      <span>{location}</span>
-    )}
+    {
+      locationLink ? (
+        <a
+          href={locationLink}
+          target="_blank"
+          title="Open in Google Maps"
+          class="underline text-blue-600 hover:text-blue-800 transition"
+          aria-label={`Open location of ${name} in Google Maps`}
+        >
+          {location}
+        </a>
+      ) : (
+        <span>{location}</span>
+      )
+    }
   </p>
 
   <p class="text-sm mb-2">{description}</p>
 
-  {tags?.length > 0 && (
-    <div class="flex flex-wrap gap-2 mt-2">
-      {tags.map((tag: string) => {
-        // normalize: lowercase + strip accents/diacritics + trim
-        const normalize = (s: string) =>
-          s?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  {
+    tags?.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-2">
+        {tags.map((tag: string) => {
+          // normalize: lowercase + strip accents/diacritics + trim
+          const normalize = (s: string) =>
+            s
+              ?.toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .trim();
 
-        const tagNorm = normalize(tag);
+          const tagNorm = normalize(tag);
 
-        // multilingual keywords
-        const alcoholWords = [
-          // EN
-          "alcohol",
-          "alcohols",
-          "alcoholes",
-          "serve alcohol",
-          "serves alcohol",
-          // DE
-          "alkohol",
-          "alkoholisch",
-          "alkoholausschank",
-          "alkoholische getranke",
-          // FR
-          "alcool",
-          "boissons alcoolisees",
-          // AR
-          "كحول",
-          "مشروبات كحولية",
-          "يقدم الكحول",
-        ].map(normalize);
+          // multilingual keywords
+          const alcoholWords = [
+            // EN
+            "alcohol",
+            "alcohols",
+            "alcoholes",
+            "serve alcohol",
+            "serves alcohol",
+            // DE
+            "alkohol",
+            "alkoholisch",
+            "alkoholausschank",
+            "alkoholische getranke",
+            // FR
+            "alcool",
+            "boissons alcoolisees",
+            // AR
+            "كحول",
+            "مشروبات كحولية",
+            "يقدم الكحول",
+          ].map(normalize);
 
-        const partnerWords = [
-          // EN
-          "partner",
-          "partners",
-          "partnership",
-          // DE
-          "partner",
-          "partnerin",
-          "kooperationspartner",
-          "kooperation",
-          // AR
-          "شريك",
-          "شركاء",
-          "شراكة",
-        ].map(normalize);
+          const partnerWords = [
+            // EN
+            "partner",
+            "partners",
+            "partnership",
+            // DE
+            "partner",
+            "partnerin",
+            "kooperationspartner",
+            "kooperation",
+            // AR
+            "شريك",
+            "شركاء",
+            "شراكة",
+          ].map(normalize);
 
-        // match exact or phrase (e.g., "serves alcohol")
-        const isAlcoholTag = alcoholWords.some(
-          (w) => tagNorm === w || tagNorm.includes(w)
-        );
-        const isPartnerTag = partnerWords.some(
-          (w) => tagNorm === w || tagNorm.includes(w)
-        );
+          // match exact or phrase (e.g., "serves alcohol")
+          const isAlcoholTag = alcoholWords.some(
+            (w) => tagNorm === w || tagNorm.includes(w)
+          );
+          const isPartnerTag = partnerWords.some(
+            (w) => tagNorm === w || tagNorm.includes(w)
+          );
 
-        const baseClass = "text-xs px-2 py-1 rounded-full";
-        const redClass = "bg-red-100 text-red-700";
-        const greenClass = "bg-green-100 text-green-700";
-        const normalClass = "bg-[#e0f2fe] text-[#0369a1]";
+          const baseClass = "text-xs px-2 py-1 rounded-full";
+          const redClass = "bg-red-100 text-red-700";
+          const greenClass = "bg-green-100 text-green-700";
+          const normalClass = "bg-[#e0f2fe] text-[#0369a1]";
 
-        const appliedClass = isAlcoholTag
-          ? redClass
-          : isPartnerTag
-          ? greenClass
-          : normalClass;
+          const appliedClass = isAlcoholTag
+            ? redClass
+            : isPartnerTag
+              ? greenClass
+              : normalClass;
 
-        return (
-          <span class={`${appliedClass} ${baseClass}`}>{tag}</span>
-        );
-      })}
-    </div>
-  )}
+          return <span class={`${appliedClass} ${baseClass}`}>{tag}</span>;
+        })}
+      </div>
+    )
+  }
 </div>

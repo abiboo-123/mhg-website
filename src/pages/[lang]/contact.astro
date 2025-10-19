@@ -58,6 +58,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
             href={`mailto:${contactLinks.email}`}
             class="text-[#0369a1] underline"
             target="_blank"
+            aria-label={lang === "de"
+              ? "E-Mail an MHG Ingolstadt"
+              : "Email MHG Ingolstadt"}
           >
             {contactLinks.email}
           </a>
@@ -70,6 +73,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
               href={contactLinks.whatsapp}
               class="text-[#0369a1] underline"
               target="_blank"
+              aria-label={lang === "de"
+                ? "WhatsApp Gruppe der MHG Ingolstadt beitreten"
+                : "Join MHG Ingolstadt WhatsApp group"}
             >
               {t("contact.whatsappJoin", lang)}
             </a>
@@ -80,6 +86,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
               href={contactLinks.instagram}
               class="text-[#0369a1] underline"
               target="_blank"
+              aria-label={lang === "de"
+                ? "Folgen Sie der MHG Ingolstadt auf Instagram"
+                : "Follow MHG Ingolstadt on Instagram"}
             >
               @mhg_ingolstadt
             </a>

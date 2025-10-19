@@ -94,6 +94,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
     <a
       href={`/${lang}/contact`}
       class="inline-block bg-[#0369a1] text-white px-6 py-2 rounded hover:bg-blue-800 transition"
+      aria-label={lang === "de"
+        ? "Kontaktieren Sie die MHG Ingolstadt"
+        : "Contact MHG Ingolstadt"}
     >
       {t("about.CTAButton", lang)}
     </a>

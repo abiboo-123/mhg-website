@@ -40,26 +40,30 @@ const votingInfo =
 const baseSlug = "childrens-painting-competition-2025/gallery";
 const galleryImage = images?.[0]?.url || "/assets/MHG_Logo.svg";
 
-const { title, description, url, imageUrl } = getSeoMeta({
-  lang,
-  titleEn: "Gallery – Children’s Painting Competition – MHG Ingolstadt",
-  titleDe: "Galerie – Kindermalwettbewerb – MHG Ingolstadt",
-  descEn:
-    "Explore artworks submitted by children for the MHG Ingolstadt charity competition and vote for your favorite.",
-  descDe:
-    "Entdecke die Bilder des Kindermalwettbewerbs der MHG Ingolstadt und stimme für deinen Favoriten ab.",
-  slug: baseSlug,
-  image: galleryImage,
-});
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: "Children's Painting Competition 2025 Gallery | MHG Ingolstadt",
+    titleDe: "Galerie zum Kinder-Malwettbewerb 2025 | MHG Ingolstadt",
+    descEn:
+      "Explore the gallery of the Children's Painting Competition 2025 organized by MHG Ingolstadt. View and vote for your favorite artworks created by talented children.",
+    descDe:
+      "Entdecke die Galerie des Kinder-Malwettbewerbs 2025, organisiert von MHG Ingolstadt. Betrachte und stimme für deine Lieblingskunstwerke talentierter Kinder ab.",
+    slug: baseSlug,
+    image: galleryImage,
+  });
 ---
 
 <Layout
-  title={title}
   lang={lang}
+  title={title}
+  description={description}
   ogTitle={title}
   ogDescription={description}
-  ogImage={imageUrl}
   ogUrl={url}
+  ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
 >
   <section class="max-w-6xl mx-auto px-4 py-12">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">{heading}</h2>
@@ -68,6 +72,7 @@ const { title, description, url, imageUrl } = getSeoMeta({
     <a
       href={`/${lang}/events/childrens-painting-competition-2025`}
       class="inline-block mb-4 text-[#0369a1] hover:underline text-sm"
+      aria-label={backText}
     >
       ← {backText}
     </a>
@@ -83,7 +88,16 @@ const { title, description, url, imageUrl } = getSeoMeta({
               class="bg-white rounded-xl shadow-md p-4 text-center"
               data-id={img.id}
             >
-              <a href={img.url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={img.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  lang === "de"
+                    ? "Bild in voller Größe anzeigen"
+                    : "View full-size artwork"
+                }
+              >
                 <img
                   src={img.url}
                   alt="Artwork"

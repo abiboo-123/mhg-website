@@ -105,6 +105,7 @@ const { title, description, url, imageUrl } = getSeoMeta({
     <a
       href={`/${lang}/events/childrens-painting-competition-2025`}
       class="inline-block mb-6 text-[#0369a1] hover:underline text-sm"
+      aria-label={backText}
     >
       ← {backText}
     </a>
@@ -122,6 +123,7 @@ const { title, description, url, imageUrl } = getSeoMeta({
           href="https://www.paypal.com/paypalme/mhgingolstadt?amount=5&currency=EUR"
           target="_blank"
           class="underline text-[#0369a1]"
+          aria-label={lang === "de" ? "PayPal-Link" : "PayPal link"}
         >
           https://www.paypal.com/paypalme/mhgingolstadt?amount=5&currency=EUR
         </a>
@@ -248,9 +250,9 @@ const { title, description, url, imageUrl } = getSeoMeta({
             <div class="bg-green-100 text-green-800 border border-green-300 rounded-md p-3 mt-4">
               ✅ Upload erfolgreich!<br/>
               Dein Beitrag wurde empfangen und wird nach Prüfung in der Galerie erscheinen.<br/><br/>
-              <a href="${data.photoUrl}" target="_blank" class="underline text-[#0369a1] font-semibold">Bild anzeigen</a>
+              <a href="${data.photoUrl}" target="_blank" class="underline text-[#0369a1] font-semibold" aria-label="See image">Bild anzeigen</a>
               &nbsp;|&nbsp;
-              <a href="${galleryLink}" class="underline text-[#0369a1] font-semibold">Zur Galerie</a>
+              <a href="${galleryLink}" class="underline text-[#0369a1] font-semibold" aria-label="To Gallery">Zur Galerie</a>
             </div>`;
           form.reset();
         } else {
