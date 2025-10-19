@@ -32,17 +32,18 @@ const DONATION_CONFIG = {
   },
 };
 
-const { title, description, url, imageUrl } = getSeoMeta({
-  lang,
-  titleEn: "Donate – MHG Ingolstadt",
-  titleDe: "Spenden – MHG Ingolstadt",
-  descEn:
-    "Support MHG Ingolstadt and help us continue our student activities, community programs, and events.",
-  descDe:
-    "Unterstützen Sie die MHG Ingolstadt und helfen Sie uns, unsere studentischen Aktivitäten, Gemeinschaftsprogramme und Veranstaltungen fortzusetzen.",
-  slug: "donate",
-  image: null,
-});
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: "Donate – MHG Ingolstadt",
+    titleDe: "Spenden – MHG Ingolstadt",
+    descEn:
+      "Support MHG Ingolstadt and help us continue our student activities, community programs, and events.",
+    descDe:
+      "Unterstützen Sie die MHG Ingolstadt und helfen Sie uns, unsere studentischen Aktivitäten, Gemeinschaftsprogramme und Veranstaltungen fortzusetzen.",
+    slug: "donate",
+    image: null,
+  });
 ---
 
 <Layout
@@ -51,7 +52,10 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
+  ogKeywords="MHG Ingolstadt, Donate, Spenden, Support MHG, Unterstützung MHG, Donate to MHG, Spende an MHG"
 >
   <section class="max-w-6xl mx-auto px-4 py-12 space-y-10">
     <!-- Hero -->

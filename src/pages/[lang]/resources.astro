@@ -57,7 +57,7 @@ const buildHref = (href: string) => {
   return `/${lang}${clean}`;
 };
 
-const { title, description, url, imageUrl } = getSeoMeta({
+const { title, description, url, imageUrl, imageWidth, imageHeight } = getSeoMeta({
   lang,
   titleEn: "Resources – MHG Ingolstadt",
   titleDe: "Ressourcen – MHG Ingolstadt",
@@ -74,7 +74,10 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
+  ogKeywords="MHG Ingolstadt, Resources, Ressourcen, Support, Hilfe, MHG Resources, MHG Ressourcen, Student Resources, Studentenressourcen, Campus Resources, Campus Ressourcen, student life support, Unterstützung für das Studentenleben, mosque information, Moscheeinformationen, halal food, halal Essen, halal supermarkets, halal Supermärkte"
 >
 
 <!-- Hero Section -->

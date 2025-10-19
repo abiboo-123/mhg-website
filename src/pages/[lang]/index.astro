@@ -29,7 +29,7 @@ const highlighted = allEvents.filter(
   (e) => e.highlighted === true && e.available === true && e.past === false
 );
 
-const { title, description, url, imageUrl } = getSeoMeta({
+const { title, description, url, imageUrl, imageWidth, imageHeight } = getSeoMeta({
   lang,
   titleEn: 'MHG Ingolstadt - Home',
   titleDe: 'MHG Ingolstadt - Startseite',
@@ -46,7 +46,10 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
+  ogKeywords="MHG Ingolstadt, Home, Startseite, Muslimische Hochschulgruppe, Events, Veranstaltungen, Resources, Ressourcen, Community, Gemeinschaft, Student Group, Hochschulgruppe, THI, Technische Hochschule Ingolstadt, Muslim Students Ingolstadt, Muslimische Studenten Ingolstadt"
 >
 
 <!-- Hero Section -->
@@ -82,7 +85,7 @@ const { title, description, url, imageUrl } = getSeoMeta({
       <a href={`/${lang}/about`}
         aria-label={lang === 'de' ? 'Mehr über die Muslimische Hochschulgruppe Ingolstadt erfahren' : 'Learn more about the Muslim Student Group MHG Ingolstadt'}
         class="text-[#0369a1] underline">
-        {t('index.readMore', lang)} →
+        {t('index.readMore', lang)}
       </a>
     </div>
 

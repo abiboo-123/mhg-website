@@ -5,11 +5,7 @@ import Layout from "../../../layouts/BaseLayout.astro";
 import rawEventsData from "../../../data/events.translated.json";
 import { t } from "../../../utils/t.js";
 import { generateStaticPathsForEventSlugs } from "../../../utils/i18n.js";
-import { getSeoMeta } from "../../../utils/seo.js"; // ✅ ADD THIS
-
-export async function getStaticPaths() {
-  return generateStaticPathsForEventSlugs();
-}
+import { getSeoMeta } from "../../../utils/seo.js";
 
 type Event = {
   slug: string;
@@ -22,6 +18,7 @@ type Event = {
   language?: string[];
   attendance?: number;
   gallery?: string[];
+  past: boolean;
 };
 
 const lang = Astro.params.lang as string;
@@ -44,21 +41,33 @@ if (!event) {
   throw new Error(`Event not found for slug: ${slug}`);
 }
 
+export async function getStaticPaths() {
+  const allPaths = generateStaticPathsForEventSlugs();
+
+  // ✅ Filter only past events before build
+  return allPaths.filter(({ params }) => {
+    const { lang, slug } = params;
+    const eventsData = rawEventsData as Record<string, any[]>;
+    const translatedEvents = eventsData[lang] ?? eventsData["en"];
+    const event = translatedEvents.find((e) => e.slug === slug);
+    return event && event.past === true; // Only build pages for past events
+  });
+}
+
 // ✅ Dynamic SEO meta for Past Events
 const descEn = `Look back at "${event.title}" hosted by MHG Ingolstadt. See highlights, gallery, and event impact.`;
 const descDe = `Rückblick auf "${event.title}" von MHG Ingolstadt. Highlights, Galerie und Veranstaltungsergebnisse.`;
 
-const ogImage = event.gallery?.[0] || "/assets/MHG_Logo.svg";
-
-const { title, description, url, imageUrl } = getSeoMeta({
-  lang,
-  titleEn: `${event.title} – Past Event – MHG Ingolstadt`,
-  titleDe: `${event.title} – Vergangenes Event – MHG Ingolstadt`,
-  descEn,
-  descDe,
-  slug: `past-events/${event.slug}`,
-  image: ogImage,
-});
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: `${event.title} – Past Event – MHG Ingolstadt`,
+    titleDe: `${event.title} – Vergangenes Event – MHG Ingolstadt`,
+    descEn,
+    descDe,
+    slug: `past-events/${slug}`,
+    image: null,
+  });
 ---
 
 <Layout
@@ -67,7 +76,13 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
+  ogKeywords={event.past
+    ? `${event.title} past event, ${event.tags?.join(", ")}, mhg ${event.title} event, Ingolstadt ${event.title} event, MHG Ingolstadt`
+    : null}
+  ogType="article"
 >
   <section class="max-w-3xl mx-auto px-4 py-12">
     <!-- Back link -->

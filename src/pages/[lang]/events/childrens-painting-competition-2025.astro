@@ -6,6 +6,7 @@ import { t } from "../../../utils/t"; // (kept for parity, not required)
 import fs from "fs";
 import path from "path";
 import { generateStaticPaths } from "../../../utils/i18n";
+import { getSeoMeta } from "../../../utils/seo";
 
 export async function getStaticPaths() {
   return generateStaticPaths();
@@ -107,9 +108,29 @@ const winnerNote = isGerman
 const footerNote = isGerman
   ? "Dieser Wettbewerb wird von MHG Ingolstadt e.V. organisiert und unterstützt die Charity Week. Alle Spenden gehen zu 100 % an wohltätige Zwecke."
   : "This competition is organized by MHG Ingolstadt e.V. and supports Charity Week. All donations go 100% to charitable causes.";
+
+const { url, imageUrl, imageWidth, imageHeight } = getSeoMeta({
+  lang,
+  titleEn: `${title} – MHG Ingolstadt`,
+  titleDe: `${title} – MHG Ingolstadt`,
+  descEn: description.substring(0, 150) + "...",
+  descDe: description.substring(0, 150) + "...",
+  slug: `events/${slug}`,
+  image: hasImage ? `/events/${slug}.jpg` : null,
+});
 ---
 
-<Layout title={`${title} – MHG Ingolstadt`} lang={lang}>
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageWidth}
+  ogUrl={url}
+  ogKeywords={`${title}, children's competition, charity week, ${isGerman ? "Kindermalwettbewerb, Wohltätigkeitswoche" : "children's painting competition, charity week"}`}
+>
   <section class="max-w-3xl mx-auto px-4 py-12">
     <a
       href={`/${lang}/events`}

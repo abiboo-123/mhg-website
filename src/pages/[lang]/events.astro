@@ -29,16 +29,17 @@ const published = allEvents.filter((e) => e.available === true);
 const upcoming = published.filter((e) => e.past !== true);
 const past = published.filter((e) => e.past === true);
 
-const { title, description, url, imageUrl } = getSeoMeta({
-  lang,
-  titleEn: "Events – MHG Ingolstadt",
-  titleDe: "Veranstaltungen – MHG Ingolstadt",
-  descEn: "Explore upcoming and past events organized by MHG Ingolstadt.",
-  descDe:
-    "Entdecken Sie kommende und vergangene Veranstaltungen der MHG Ingolstadt.",
-  slug: "events",
-  image: null,
-});
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: "Events – MHG Ingolstadt",
+    titleDe: "Veranstaltungen – MHG Ingolstadt",
+    descEn: "Explore upcoming and past events organized by MHG Ingolstadt.",
+    descDe:
+      "Entdecken Sie kommende und vergangene Veranstaltungen der MHG Ingolstadt.",
+    slug: "events",
+    image: null,
+  });
 ---
 
 <Layout
@@ -47,7 +48,10 @@ const { title, description, url, imageUrl } = getSeoMeta({
   ogTitle={title}
   ogDescription={description}
   ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
   ogUrl={url}
+  ogKeywords="MHG Ingolstadt, Events, Veranstaltungen, Upcoming Events, Past Events, Kommende Veranstaltungen, Vergangene Veranstaltungen, All MHG Events, Alle MHG Veranstaltungen"
 >
   <!-- Hero Section -->
   <section
