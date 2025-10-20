@@ -63,6 +63,31 @@ import MHG_Logo from "../assets/MHG_Logo.svg";
         >{t("nav.contact", lang)}</a
       >
     </nav>
+    <a
+      href="https://www.islamicrelief.de/spendenaktionen/charity-week/aktion-starten/?cfd=lu5jd"
+      target="_blank"
+      class="hidden lg:inline-flex items-center justify-center border-2 border-white rounded-lg transition transform hover:scale-105 hover:bg-[#103e60] hover:text-white px-3 group"
+      style="height: 50px; width: 150;"
+      aria-label="Charity Week"
+    >
+      <img
+        src="/logos/charity-week-logo.png"
+        alt="Charity Week logo"
+        class="h-8 w-auto object-contain"
+      />
+      <!-- default text -->
+      <span
+        class="ml-2 font-semibold whitespace-nowrap text-white block group-hover:hidden transition"
+      >
+        Charity Week
+      </span>
+      <!-- hover text -->
+      <span
+        class="ml-2 font-semibold whitespace-nowrap text-white hidden group-hover:block transition"
+      >
+        {lang === "de" ? "Jetzt Spenden" : "Donate Now"}
+      </span>
+    </a>
 
     <!-- Right: Language Switch + Hamburger -->
     <div class="flex items-center space-x-4">
@@ -127,6 +152,31 @@ import MHG_Logo from "../assets/MHG_Logo.svg";
       <a href={`/${lang}/contact`} class="block px-4 py-2 hover:bg-[#065e97]"
         >{t("nav.contact", lang)}</a
       >
+      <a
+        href="https://www.islamicrelief.de/spendenaktionen/charity-week/aktion-starten/?cfd=lu5jd"
+        target="_blank"
+        class="flex items-center justify-center border-2 border-white rounded-lg transition transform hover:scale-105 active:scale-105 hover:bg-[#103e60] active:bg-[#103e60] hover:text-white active:text-white px-3 mx-4 my-2 group"
+        style="height: 50px;"
+        aria-label="Charity Week"
+      >
+        <img
+          src="/logos/charity-week-logo.png"
+          alt="Charity Week logo"
+          class="h-8 w-auto object-contain"
+        />
+        <!-- default text -->
+        <span
+          class="ml-2 font-semibold whitespace-nowrap text-white block group-hover:hidden group-active:hidden transition"
+        >
+          Charity Week
+        </span>
+        <!-- hover/press text -->
+        <span
+          class="ml-2 font-semibold whitespace-nowrap text-white hidden group-hover:block group-active:block transition"
+        >
+          {lang === "de" ? "Jetzt Spenden" : "Donate Now"}
+        </span>
+      </a>
     </nav>
 
     <div class="border-t border-white mx-4 pt-2">

@@ -258,6 +258,19 @@ const { url, imageUrl, imageWidth, imageHeight } = getSeoMeta({
         <p class="mb-1">
           {
             isGerman
+              ? "Kein PayPal? Du kannst auch ganz einfach per Banküberweisung spenden – "
+              : "No PayPal? You can easily donate via bank transfer — just click "
+          }
+          <a
+            href="/donate#bank"
+            class="underline text-blue-600 hover:text-blue-800"
+          >
+            {isGerman ? "hier entlang." : "here."}
+          </a>
+        </p>
+        <p class="mb-1">
+          {
+            isGerman
               ? "Bitte im PayPal-Verwendungszweck unbedingt „Charity Week Painting – Name des Kindes“ angeben. Das erleichtert die Freigabe."
               : "Please include “Charity Week Painting – Child’s Name” in the PayPal reference. This helps us approve entries quickly."
           }
