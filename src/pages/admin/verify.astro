@@ -1,10 +1,10 @@
 ---
 export const prerender = true;
 
-import Layout from "../../../../layouts/BaseLayout.astro";
+import Layout from "../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
-import { t } from "../../../../utils/t";
-import { generateStaticPaths } from "../../../../utils/i18n";
+import { t } from "../../utils/t";
+import { generateStaticPaths } from "../../utils/i18n";
 
 export async function getStaticPaths() {
   return generateStaticPaths();

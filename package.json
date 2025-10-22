@@ -19,7 +19,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vercel": "^8.0.4",
     "@formbricks/js": "^4.1.0",
-    "@supabase/supabase-js": "^2.74.0",
+    "@supabase/supabase-js": "^2.76.1",
     "@tailwindcss/vite": "^4.1.8",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",

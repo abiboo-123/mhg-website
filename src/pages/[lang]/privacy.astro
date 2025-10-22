@@ -1,0 +1,86 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/BaseLayout.astro";
+import { getSeoMeta } from "../../utils/seo";
+import fs from "fs";
+import path from "path";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "de" } }];
+}
+
+const { lang = "en" } = Astro.params;
+const filePath = path.resolve(`src/policies/privacy.${lang}.md`);
+const fileContent = fs.readFileSync(filePath, "utf8");
+
+// SPLIT INTO HERO, MAIN, FOOTER
+const fileSections = fileContent.split("---");
+const heroMarkdown = fileSections[0].trim();
+const footerMarkdown = fileSections[fileSections.length - 1].trim(); // Last part
+const sectionContent = fileSections[1].split(/## /).slice(1); // remove empty first element
+
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: "Privacy Policy – MHG Ingolstadt",
+    titleDe: "Datenschutzerklärung – MHG Ingolstadt",
+    descEn:
+      "How we collect, process, and protect personal data at MHG Ingolstadt.",
+    descDe: "Wie die MHG Ingolstadt personenbezogene Daten erhebt und schützt.",
+    slug: "privacy",
+    image: null,
+  });
+---
+
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
+  ogUrl={url}
+>
+  <!-- HERO SECTION -->
+  <section
+    class="text-center py-20 px-6 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-10 shadow-md"
+  >
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-[#0369a1] mb-4">
+        {heroMarkdown.split("\n")[0].replace("# ", "")}
+      </h1>
+      <p class="text-lg text-slate-700 whitespace-pre-line leading-relaxed">
+        {heroMarkdown.split("\n").slice(1).join("\n")}
+      </p>
+    </div>
+  </section>
+
+  <!-- CARD CONTENT -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 space-y-10">
+    {
+      sectionContent.map((section) => {
+        const [rawTitle, ...rawBody] = section.split("\n");
+        return (
+          <div class="bg-white shadow-lg rounded-xl p-8 border border-slate-200">
+            <h2 class="text-2xl font-bold text-[#0369a1] mb-4">
+              {rawTitle.trim()}
+            </h2>
+            <article
+              class="prose prose-slate"
+              set:html={rawBody.join("\n").replace(/\n/g, "<br/>")}
+            />
+          </div>
+        );
+      })
+    }
+  </section>
+
+  <!-- FOOTER METADATA -->
+  <footer
+    class="text-center text-sm text-gray-500 mt-12 py-6 border-t border-slate-200 bg-slate-50 rounded-lg"
+  >
+    {footerMarkdown}
+  </footer>
+</Layout>

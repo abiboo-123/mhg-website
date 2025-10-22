@@ -8,22 +8,53 @@ const supabase = createClient(
 );
 
 export const POST: APIRoute = async ({ request }) => {
-  const formData = await request.formData();
-  const event_slug = formData.get("event");
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const companionship = formData.get("companionship");
-  const gender = formData.get("gender");
-  const lang = formData.get("lang");
+  try {
+    const formData = await request.formData();
+    const event_slug = formData.get("event_slug");
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const companionship = formData.get("companionship");
+    const lang = formData.get("lang");
 
-  const { error } = await supabase
-    .from("event_registrations")
-    .insert([{ event_slug, name, email, companionship, gender, lang }]);
+    // GDPR Consent Tracking Fields
+    const consent_version = formData.get("consent_version");
+    const consent_hash = formData.get("consent_hash");
+    const consent_date = formData.get("consent_date");
 
-  if (error)
-    return new Response(JSON.stringify({ success: false, error }), {
-      status: 400,
-    });
+    if (
+      !event_slug ||
+      !name ||
+      !email ||
+      !companionship ||
+      !consent_version ||
+      !consent_hash
+    ) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Missing required fields." }),
+        { status: 400 }
+      );
+    }
 
-  return new Response(JSON.stringify({ success: true }), { status: 200 });
+    const { error } = await supabase.from("event_registrations").insert([
+      {
+        event_slug,
+        name,
+        email,
+        companionship,
+        lang,
+        consent_version,
+        consent_hash,
+        consent_date,
+      },
+    ]);
+
+    if (error) throw error;
+
+    return new Response(JSON.stringify({ success: true }), { status: 200 });
+  } catch (err) {
+    return new Response(
+      JSON.stringify({ success: false, error: (err as Error).message }),
+      { status: 500 }
+    );
+  }
 };

@@ -1,0 +1,190 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/BaseLayout.astro";
+import { generateStaticPaths } from "../../utils/i18n";
+import { getSeoMeta } from "../../utils/seo";
+
+// Static paths for /en/impressum and /de/impressum
+export async function getStaticPaths() {
+  return generateStaticPaths();
+}
+
+const { lang = "en" } = Astro.params;
+const supportedLangs = ["en", "de"];
+if (!supportedLangs.includes(lang)) {
+  throw new Error(`Invalid language: ${lang}`);
+}
+
+// ---------- Site / Legal Data (hardcoded, no external files) ----------
+const ORG = "MHG Ingolstadt (Muslimische Hochschulgruppe Ingolstadt)";
+const ADDRESS_EN = "Friedrich-Ebert-Str. 29, 85055 Ingolstadt, Germany";
+const ADDRESS_DE = "Friedrich-Ebert-Str. 29, 85055 Ingolstadt, Deutschland";
+const RESPONSIBLE_PERSON = "Ahmed Hani";
+const EMAIL = "mhgingolstadt.info@gmail.com";
+const VERSION = "2025-10-v1";
+const LAST_UPDATED_EN = "22 October 2025";
+const LAST_UPDATED_DE = "22. Oktober 2025";
+
+// ---------- Copy in both languages ----------
+const copy = {
+  en: {
+    heroTitle: "Imprint (Legal Notice)",
+    heroIntro:
+      "This page contains the legally required information for provider identification in accordance with § 5 of the German Telemedia Act (TMG).",
+    sections: [
+      {
+        title: "1. Website Operator",
+        body:
+          `${ORG}<br/>` +
+          `Address: ${ADDRESS_EN}<br/>` +
+          `Email: <a class="underline text-[#0369a1]" href="mailto:${EMAIL}">${EMAIL}</a>`,
+      },
+      {
+        title: "2. Responsible for Content (§ 55 RStV)",
+        body: `${RESPONSIBLE_PERSON}, ${ADDRESS_EN}`,
+      },
+      {
+        title: "3. Legal Form / Nonprofit",
+        body: "MHG Ingolstadt is a nonprofit student organization. This website is operated without commercial intent.",
+      },
+      {
+        title: "4. Liability for Content",
+        body: "We create the content of our pages with the greatest care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws.",
+      },
+      {
+        title: "5. Liability for External Links",
+        body: "Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot accept any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages.",
+      },
+      {
+        title: "6. Copyright",
+        body: "The content and works created by the site operators on these pages are subject to copyright. Duplication, processing, distribution and any kind of utilization outside the limits of copyright require the written consent of the respective author or creator.",
+      },
+      {
+        title: "7. Data Protection",
+        body:
+          `Information on the processing of personal data is provided in our ` +
+          `<a class="underline text-[#0369a1]" href="/${lang}/privacy">Privacy Policy</a>.`,
+      },
+    ],
+    footerNote: `Last updated: ${LAST_UPDATED_EN} | Version: ${VERSION}`,
+    seo: {
+      titleEn: "Impressum (Legal Notice) – MHG Ingolstadt",
+      titleDe: "Impressum – MHG Ingolstadt", // not used in EN path
+      descEn:
+        "Official legal notice (Impressum) for MHG Ingolstadt: operator, address, responsible person, and disclaimers.",
+      descDe:
+        "Rechtliche Anbieterkennzeichnung der MHG Ingolstadt: Betreiber, Anschrift, Verantwortlicher und Haftungshinweise.",
+    },
+  },
+  de: {
+    heroTitle: "Impressum",
+    heroIntro:
+      "Diese Seite enthält die gesetzlich erforderlichen Angaben zur Anbieterkennzeichnung gemäß § 5 TMG.",
+    sections: [
+      {
+        title: "1. Verantwortlicher Diensteanbieter",
+        body:
+          `${ORG}<br/>` +
+          `Anschrift: ${ADDRESS_DE}<br/>` +
+          `E-Mail: <a class="underline text-[#0369a1]" href="mailto:${EMAIL}">${EMAIL}</a>`,
+      },
+      {
+        title: "2. Verantwortlich für den Inhalt (§ 55 RStV)",
+        body: `${RESPONSIBLE_PERSON}, ${ADDRESS_DE}`,
+      },
+      {
+        title: "3. Rechtsform / Gemeinnützigkeit",
+        body: "Die MHG Ingolstadt ist eine gemeinnützige Studierendenorganisation. Diese Website wird ohne kommerzielle Absichten betrieben.",
+      },
+      {
+        title: "4. Haftung für Inhalte",
+        body: "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich.",
+      },
+      {
+        title: "5. Haftung für externe Links",
+        body: "Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.",
+      },
+      {
+        title: "6. Urheberrecht",
+        body: "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
+      },
+      {
+        title: "7. Datenschutz",
+        body:
+          `Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer ` +
+          `<a class="underline text-[#0369a1]" href="/${lang}/privacy">Datenschutzerklärung</a>.`,
+      },
+    ],
+    footerNote: `Letzte Aktualisierung: ${LAST_UPDATED_DE} | Version: ${VERSION}`,
+    seo: {
+      titleEn: "Impressum (Legal Notice) – MHG Ingolstadt", // not used in DE path
+      titleDe: "Impressum – MHG Ingolstadt",
+      descEn:
+        "Official legal notice (Impressum) for MHG Ingolstadt: operator, address, responsible person, and disclaimers.",
+      descDe:
+        "Rechtliche Anbieterkennzeichnung der MHG Ingolstadt: Betreiber, Anschrift, Verantwortlicher und Haftungshinweise.",
+    },
+  },
+}[lang];
+
+if (!copy) {
+  throw new Error(`No copy found for language: ${lang}`);
+}
+
+// ---------- SEO ----------
+const { title, description, url, imageUrl, imageWidth, imageHeight } =
+  getSeoMeta({
+    lang,
+    titleEn: copy.seo.titleEn,
+    titleDe: copy.seo.titleDe,
+    descEn: copy.seo.descEn,
+    descDe: copy.seo.descDe,
+    slug: "impressum",
+    image: null,
+  });
+---
+
+<Layout
+  title={title}
+  lang={lang}
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={imageUrl}
+  ogImageWidth={imageWidth}
+  ogImageHeight={imageHeight}
+  ogUrl={url}
+>
+  <!-- Hero -->
+  <section
+    class="text-center py-16 px-6 bg-[#d7f0f7] rounded-lg max-w-6xl mx-auto mt-8 shadow-md"
+  >
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-[#0369a1] mb-4">
+        {copy.heroTitle}
+      </h1>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        {copy.heroIntro}
+      </p>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 space-y-8">
+    {
+      copy.sections.map((sec) => (
+        <div class="bg-white shadow-lg rounded-xl p-8 border border-slate-200">
+          <h2 class="text-2xl font-bold text-[#0369a1] mb-3">{sec.title}</h2>
+          <article class="prose prose-slate max-w-none" set:html={sec.body} />
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- Footer Meta -->
+  <footer
+    class="text-center text-sm text-gray-500 mt-6 py-6 border-t border-slate-200 bg-slate-50 rounded-lg max-w-6xl mx-auto"
+  >
+    {copy.footerNote}
+  </footer>
+</Layout>

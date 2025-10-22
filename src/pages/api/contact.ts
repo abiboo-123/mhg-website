@@ -12,10 +12,30 @@ export const POST: APIRoute = async ({ request }) => {
   const name = formData.get("name");
   const email = formData.get("email");
   const message = formData.get("message");
+  const lang = formData.get("lang");
 
-  const { error } = await supabase
-    .from("contact_messages")
-    .insert([{ name, email, message }]);
+  // GDPR Consent Tracking Fields
+  const consent_version = formData.get("consent_version");
+  const consent_hash = formData.get("consent_hash");
+  const consent_date = formData.get("consent_date");
+
+  if (!name || !email || !message || !consent_version || !consent_hash) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Missing required fields." }),
+      { status: 400 }
+    );
+  }
+  const { error } = await supabase.from("contact_messages").insert([
+    {
+      name,
+      email,
+      message,
+      lang,
+      consent_version,
+      consent_hash,
+      consent_date,
+    },
+  ]);
 
   if (error)
     return new Response(JSON.stringify({ success: false, error }), {

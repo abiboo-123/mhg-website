@@ -42,12 +42,17 @@
         "Girls Only"
       ],
       "speakers": [],
-      "attendance": 15,
-      "gallery": [],
+      "attendance": 10,
+      "gallery": [
+        "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126276/IMG_2992_xvs5jh.mp4",
+        "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_1231_asgcpk.jpg",
+        "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_8837_qa8crk.jpg",
+        "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126275/IMG_993_vwqup9.mp4"
+      ],
       "available": true,
-      "past": false,
+      "past": true,
       "highlighted": true,
-      "registerAvailable": true,
+      "registerAvailable": false,
       "registrationLink": "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
     },
     {
@@ -264,12 +269,17 @@
         "Girls Only"
       ],
       "speakers": [],
-      "attendance": 15,
-      "gallery": [],
+      "attendance": 10,
+      "gallery": [
+        "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126276/IMG_2992_xvs5jh.mp4",
+        "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_1231_asgcpk.jpg",
+        "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_8837_qa8crk.jpg",
+        "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126275/IMG_993_vwqup9.mp4"
+      ],
       "available": true,
-      "past": false,
-      "highlighted": true,
-      "registerAvailable": true,
+      "past": true,
+      "highlighted": false,
+      "registerAvailable": false,
       "registrationLink": "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
     },
     {

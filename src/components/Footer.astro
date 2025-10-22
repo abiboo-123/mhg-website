@@ -1,22 +1,46 @@
 ---
-import { links } from '../data/links.js';
-import { t } from '../utils/t.js';
+import { links } from "../data/links.js";
+import { t } from "../utils/t.js";
 const { lang } = Astro.props;
 import formbricks from "@formbricks/js";
-
 ---
 
 <footer class="bg-[#0369a1] text-white text-center py-6 text-sm">
-  <div class="flex justify-center flex-wrap gap-4 mb-2">
-    <a href={links.instagram} class="hover:text-sky-400 transition" target="_blank">{t('social.instagram', lang)}</a>
-    <a href={links.whatsapp} class="hover:text-sky-400 transition" target="_blank">{t('social.whatsapp', lang)}</a>
-    <!-- 
+  <div class="flex justify-center flex-wrap gap-4 mb-3">
+    <a
+      href={links.instagram}
+      class="hover:text-sky-400 transition"
+      target="_blank"
+    >
+      {t("social.instagram", lang)}
+    </a>
+    <a
+      href={links.whatsapp}
+      class="hover:text-sky-400 transition"
+      target="_blank"
+    >
+      {t("social.whatsapp", lang)}
+    </a>
+    <!-- Optional future links:
     <a href={links.facebook} class="hover:text-sky-400 transition" target="_blank">{t('social.facebook', lang)}</a>
     <a href={links.youtube} class="hover:text-sky-400 transition" target="_blank">{t('social.youtube', lang)}</a>
-     -->
-    </div>
+    -->
+    <a href={`/${lang}/impressum`} class="hover:text-sky-300 transition">
+      {t("footer.impressum", lang)}
+    </a>
+    <a href={`/${lang}/privacy`} class="hover:text-sky-300 transition">
+      {t("footer.privacy", lang)}
+    </a>
+  </div>
+
   <p class="mb-1">
-    {t('footer.contact', lang)}: <a href={`mailto:${links.email}`} class="underline hover:text-sky-400 transition">{links.email}</a>
+    {t("footer.contact", lang)}:
+    <a
+      href={`mailto:${links.email}`}
+      class="underline hover:text-sky-400 transition"
+    >
+      {links.email}
+    </a>
   </p>
-  <p>{t('footer.copyright', lang)}</p>
+  <p>{t("footer.copyright", lang)}</p>
 </footer>

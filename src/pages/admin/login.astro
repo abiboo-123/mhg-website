@@ -1,0 +1,62 @@
+---
+export const prerender = false;
+
+// Check for error in query (for invalid credentials)
+const error = Astro.url.searchParams.get("error");
+---
+
+<html lang="en">
+  <head>
+    <title>Admin Login</title>
+    <meta charset="utf-8" />
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white shadow-md rounded-xl p-8 max-w-md w-full">
+      <h1 class="text-2xl font-bold text-center mb-6 text-[#0369a1]">
+        Admin Login
+      </h1>
+
+      {
+        error && (
+          <div class="mb-4 bg-red-100 text-red-700 p-3 rounded-md text-sm">
+            {error}
+          </div>
+        )
+      }
+
+      <form method="POST" action="/api/auth/signin" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1" for="email">Email</label
+          >
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-[#0369a1]"
+            placeholder="admin@example.com"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="password"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            required
+            class="w-full border border-gray-300 p-2 rounded-md focus:ring-2 focus:ring-[#0369a1]"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-[#0369a1] hover:bg-blue-800 text-white py-2 rounded-full transition"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
