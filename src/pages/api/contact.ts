@@ -33,7 +33,6 @@ export const POST: APIRoute = async ({ request }) => {
       lang,
       consent_version,
       consent_hash,
-      consent_date,
     },
   ]);
 
