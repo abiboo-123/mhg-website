@@ -1,14 +1,8 @@
 ---
-export const prerender = true;
+export const prerender = false;
 
 import Layout from "../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
-import { t } from "../../utils/t";
-import { generateStaticPaths } from "../../utils/i18n";
-
-export async function getStaticPaths() {
-  return generateStaticPaths();
-}
 
 const { SUPABASE_URL, SUPABASE_SERVICE_KEY } = import.meta.env;
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
@@ -21,54 +15,67 @@ const { data: unverified } = await supabase
   .order("created_at", { ascending: false });
 ---
 
-<Layout title="Verify Uploads – Admin" lang="en">
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
-      🛠️ Beiträge prüfen
-    </h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title="Verify Uploads – Admin"</title>
+  </head>
+  <bod>
+    <section class="max-w-6xl mx-auto px-4 py-12">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center">
+        🛠️ Beiträge prüfen
+      </h2>
 
-    {
-      unverified && unverified.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {unverified.map((img) => (
-            <div class="bg-white rounded-xl shadow-md p-6 space-y-3">
-              <img
-                src={img.url}
-                alt="Submission"
-                class="rounded-md w-full mb-3"
-              />
-              <p>
-                <strong>Kind:</strong> {img.child_name}
-              </p>
-              <p>
-                <strong>E-Mail:</strong> {img.email}
-              </p>
-              <p>
-                <strong>Telefon:</strong> {img.phone}
-              </p>
-
-              <div>
-                <p class="font-semibold mb-1">💳 Zahlungsnachweis:</p>
+      {
+        unverified && unverified.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {unverified.map((img) => (
+              <div class="bg-white rounded-xl shadow-md p-6 space-y-3">
                 <img
-                  src={img.transaction_url}
-                  alt="Transaction Proof"
-                  class="rounded-md max-w-xs border"
+                  src={img.url}
+                  alt="Submission"
+                  class="rounded-md w-full mb-3"
                 />
-              </div>
+                <p>
+                  <strong>Kind:</strong> {img.child_name}
+                </p>
+                <p>
+                  <strong>E-Mail:</strong> {img.email}
+                </p>
+                <p>
+                  <strong>Telefon:</strong> {img.phone}
+                </p>
 
-              <form action={`/api/verify/${img.id}`} method="post" class="mt-4">
-                <button class="w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition">
-                  ✅ Bestätigen
-                </button>
-              </form>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p class="text-center text-gray-500">
-          Keine unbestätigten Einreichungen gefunden.
-        </p>
-      )
-    }
-  </section>
-</Layout>
+                <div>
+                  <p class="font-semibold mb-1">💳 Zahlungsnachweis:</p>
+                  <img
+                    src={img.transaction_url}
+                    alt="Transaction Proof"
+                    class="rounded-md max-w-xs border"
+                  />
+                </div>
+
+                <form
+                  action={`/api/verify/${img.id}`}
+                  method="post"
+                  class="mt-4"
+                >
+                  <button class="w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition">
+                    ✅ Bestätigen
+                  </button>
+                </form>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-gray-500">
+            Keine unbestätigten Einreichungen gefunden.
+          </p>
+        )
+      }
+    </section>
+  </bod>
+
+</html>
