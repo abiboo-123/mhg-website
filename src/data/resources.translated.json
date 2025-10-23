@@ -83,6 +83,21 @@
       "type": "card",
       "items": [
         {
+          "slug": "Donau-Streetfood",
+          "name": "Donau Streetfood",
+          "location": "Donaustraße 4, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/bWLSfbZ2tJh58U8j6",
+          "description": "Casual eatery offering halal döner, kebab, and fast food with friendly service and great offers.",
+          "tags": [
+            "döner",
+            "partner",
+            "kebab",
+            "fast food",
+            "casual dining",
+            "briyani"
+          ]
+        },
+        {
           "slug": "safran",
           "name": "Safran",
           "location": "Schmalzingergasse 15, 85049 Ingolstadt",
@@ -335,6 +350,21 @@
       "category": "Halal-Restaurants 🍽️",
       "type": "card",
       "items": [
+        {
+          "slug": "Donau-Streetfood",
+          "name": "Donau Streetfood",
+          "location": "Donaustraße 4, 85049 Ingolstadt",
+          "locationLink": "https://maps.app.goo.gl/bWLSfbZ2tJh58U8j6",
+          "description": "Lockeres Restaurant mit halal Döner, Kebab und Fast Food, freundlichem Service und tollen Angeboten.",
+          "tags": [
+            "Döner",
+            "Partner",
+            "Kebab",
+            "Fast Food",
+            "lockeres Essen",
+            "Biryani"
+          ]
+        },
         {
           "slug": "safran",
           "name": "Safran",

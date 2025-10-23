@@ -171,6 +171,14 @@ export const rawResources = [
     type: "card",
     items: [
       {
+        slug: "Donau-Streetfood",
+        name: "Donau Streetfood",
+        location: "Donaustraße 4, 85049 Ingolstadt",
+        locationLink: "https://maps.app.goo.gl/bWLSfbZ2tJh58U8j6",
+        description: "Casual eatery offering halal döner, kebab, and fast food with friendly service and great offers.",
+        tags: ["döner", "kebab", "fast food", "casual dining", "partner", "briyani"],
+      },
+      {
         slug: "safran",
         name: "Safran",
         location: "Schmalzingergasse 15, 85049 Ingolstadt",
