@@ -8,20 +8,20 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const email = String(form.get("email"));
   const password = String(form.get("password"));
 
-  // Create Supabase client with cookie handling enabled
+  // Create Supabase client
   const supabase = createClient(
     import.meta.env.SUPABASE_URL,
     import.meta.env.SUPABASE_ANON_KEY,
     {
       auth: {
         persistSession: false,
-        autoRefreshToken: false,
+        autoRefreshToken: true, // keep login alive using refresh token
         detectSessionInUrl: false,
       },
     }
   );
 
-  // Try to sign in
+  // Attempt to sign in
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -34,20 +34,20 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     );
   }
 
-  const isDev = import.meta.env.DEV;
-
+  // ✅ Store Access Token Cookie
   cookies.set("sb-access-token", data.session.access_token, {
     path: "/",
     httpOnly: true,
-    secure: !isDev, // ✅ Secure ONLY in production
+    secure: true,
     sameSite: "strict",
     maxAge: 60 * 60 * 24 * 7, // 7 days
   });
 
+  // ✅ Store Refresh Token Cookie
   cookies.set("sb-refresh-token", data.session.refresh_token, {
     path: "/",
     httpOnly: true,
-    secure: !isDev, // ✅ Secure ONLY in production
+    secure: true,
     sameSite: "strict",
     maxAge: 60 * 60 * 24 * 30, // 30 days
   });
