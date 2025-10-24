@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ params }) => {
   return new Response(null, {
     status: 303,
     headers: {
-      Location: "/en/childrens-painting-competition-2025/admin/verify",
+      Location: "/admin/verify",
     },
   });
 };
