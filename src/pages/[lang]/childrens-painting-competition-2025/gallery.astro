@@ -3,12 +3,7 @@ export const prerender = false;
 
 import Layout from "../../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
-import { generateStaticPaths } from "../../../utils/i18n";
 import { getSeoMeta } from "../../../utils/seo";
-
-export async function getStaticPaths() {
-  return generateStaticPaths();
-}
 
 const { lang = "en" } = Astro.params;
 const supportedLangs = ["en", "de"];

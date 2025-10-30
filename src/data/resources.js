@@ -87,6 +87,8 @@
  * }
  */
 
+import { partners } from "./partners";
+
 export const rawResources = [
   {
     category: "Mosques in Ingolstadt 🕌",
@@ -176,7 +178,8 @@ export const rawResources = [
         location: "Donaustraße 4, 85049 Ingolstadt",
         locationLink: "https://maps.app.goo.gl/bWLSfbZ2tJh58U8j6",
         description: "Casual eatery offering halal döner, kebab, and fast food with friendly service and great offers.",
-        tags: ["döner", "kebab", "fast food", "casual dining", "partner", "briyani"],
+        tags: ["döner", "kebab", "fast food", "casual dining", "briyani"],
+        partner: true,
       },
       {
         slug: "safran",

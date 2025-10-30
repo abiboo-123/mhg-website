@@ -22,6 +22,7 @@ type CardItem = {
   locationLink?: string;
   location?: string;
   tags?: string[];
+  partner?: boolean;
 };
 type LinkItem = { label: string; href: string };
 type ListItem = { name: string; location?: string };
@@ -116,6 +117,7 @@ const { title, description, url, imageUrl, imageWidth, imageHeight } = getSeoMet
                   location={item.location}
                   description={item.description}
                   tags={item.tags}
+                  partner={item.partner}
                 />
               ))}
             </div>

@@ -1,54 +1,40 @@
 export const events = [
   //--------------------- Draft Events ---------------------//
+  //--------------------- Upcoming Events ---------------------//
+  //--------------------- Past Events ---------------------//
   // altstadt stand 2025
   {
     slug: 'altstadt-stand-2025',
     title: 'Altstadt Activities Stand',
     date: 'October 25, 2025 (11:00 – 19:00 or later)',
     location: 'Altstadt, Ingolstadt (near Müller/DM)',
-    description: 'Join us in the Altstadt for a lively community stand! Expect henna art, kids’ face painting, glitter, sweets, oriental pastries like Kunafah and Baklava, Palestinian Cola, and more. We will also share flyers and information about MHG activities. A chance to connect, enjoy, and support MHG with friends and family.',
+    description: `Join us in the heart of the Altstadt for a lively community stand full of fun, flavor, and family-friendly activities!
+
+    🎨 Enjoy beautiful henna art, kids’ face painting, and sparkling glitter designs.
+    🍬 Treat yourself to sweets and delicious oriental pastries such as Kunafah and Baklava.
+    ✨ Browse a variety of small surprises and treats along the way.
+    📍 Find us near Müller / DM in Altstadt, Ingolstadt.
+    📅 October 25, 2025(11:00 – 19:00 or later)`,
     cardImage: "",
     language: ['en', 'de'],
     tags: ['Community', 'Henna', 'Food', 'Calligraphy', 'Charity'],
     speakers: [],
     attendance: null,
-    gallery: [],
-    available: false,
-    past: false,
+    gallery: [
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761823343/7beb835c-a30e-485c-a092-6ee58d48e3a6_bluxww.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823223/db2b796d-38da-459a-8762-66c04e59544d_gkhdax.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823221/f86e1957-f32c-4343-8b8c-bab2543eaba9_ytjhn4.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761824179/IMG_6830_onnqhf.mp4"
+    ],
+    available: true,
+    past: true,
     highlighted: false,
     registerAvailable: false
-  },
-  //--------------------- Upcoming Events ---------------------//
-  // Children's Painting Competition 2025
-  {
-    slug: "childrens-painting-competition-2025",
-    title: "Children’s Painting Competition",
-    date: "19 Oct 2025 – 26 Oct 2025",
-    location: "This Website (Online)",
-    description:
-      "A creative charity competition for children held entirely on this website as part of Charity Week 2025.\n\n" +
-      "🎨 Theme: “Together We Are Strong!”\n" +
-      "Children are invited to submit artwork showing the power of unity, community, friendship, and faith.\n\n" +
-      "💚 Participation is confirmed through a €5 donation via PayPal (all proceeds go to support orphans and children in need).\n" +
-      "🖼️ All approved artworks will be displayed in our online gallery.\n" +
-      "❤️ Family and friends can vote by liking the artwork. The top 3 artworks with the most likes will receive prizes!\n\n" +
-      "This event is organized by MHG Ingolstadt e.V. and 100% of donations support Charity Week.",
-    cardImage: "/events/childrens-painting-competition-2025.jpg", // ✅ Make sure this image exists in /public/events/
-    language: ["en", "de"],
-    tags: ["Children", "Art", "Charity Week", "Community", "Charity", "Competition"],
-    speakers: [],
-    attendance: null,
-    gallery: [],
-    available: true,
-    past: false,
-    highlighted: true,
-    registerAvailable: false, // This is no longer a registration form, it's upload-based
-    registrationLink: null
   },
   // football charity match 2025
   {
     slug: 'football-charity-match-2025',
-    title: 'Charity Football Tournament 2025',
+    title: 'Charity Football Tournament',
     date: 'October 26, 2025 (12:30 PM – 8:00 PM)',
     location: 'TSV Ingolstadt-Nord, Wirffelstraße 25, 85055 Ingolstadt',
     description: `Join us for the MHG Charity Football Tournament 2025 — a 5-a-side competition where fun meets purpose! 
@@ -65,33 +51,76 @@ export const events = [
     language: ['en', 'de'],
     tags: ['Football', 'Sports', 'Charity', 'Community', 'Charity Week'],
     speakers: [],
-    attendance: null,
-    gallery: [],
+    attendance: 100,
+    gallery: [
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823545/20251026_200048_hcfuzw.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823533/IMG_6965_jv5zuf.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823501/IMG_6961_atnt2c.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823462/IMG_7015_bbmyhc.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823457/IMG_7006_txzq2c.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761824157/20251026_200402_ueeza2.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823456/IMG_7019_mshhg2.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823443/IMG_7034_sk2grf.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823428/IMG_7041_pusrya.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823425/IMG_6940_ufx7ul.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823424/IMG_7030_bel2un.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823424/IMG_7047_imjhga.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761823409/IMG_6972_vdrqal.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761824503/IMG_7058_uy4lyi.mp4"
+    ],
     available: true,
-    past: false,
-    highlighted: true,
-    registerAvailable: true,
+    past: true,
+    highlighted: false,
+    registerAvailable: false,
     registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-fuball-turnier-tickets-1789406134919?aff=oddtdtcreator"
   },
-  // the world religion islam 2025
+  // cooking class for sisters 2025
   {
-    slug: 'die-weltreligion-islam-2025',
-    title: 'The World Religion Islam',
-    date: 'October 23, 2025 (6:30 PM)',
-    location: 'Am Nordbahnhof 23, 85049 Ingolstadt',
-    description: 'An informative event for non-Muslims about Islam. We will introduce the core teachings and principles of Islam in a simple and engaging manner. The event will include a presentation, an open discussion, and a chance to enjoy coffee and cake together.',
-    cardImage: '',
-    language: ['de'],
-    tags: ['Islam', 'Information', 'Community'],
+    slug: "charity-week-cooking-class-2025",
+    title: "Charity Week Cooking Class",
+    date: "October 21, 2025 (2:00 PM – 5:00 PM)",
+    location: "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
+    description: `Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲\n\nDiscover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.\n\n👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.\n💰 Participation fee: €10 (all proceeds go 100% to support children in need).\n🎁 Additional donations are warmly welcomed!\n👥 Limited to 15 participants, register early to secure your spot!\n\n✨ Please note: This event is **only for girls**.\n\n📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)\n📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt\n🚏 Nearby Bus Stops:\n- Regensburger Straße → Bus 70, 21, 20\n- Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26\n\nPlease bring:\n• Food containers\n• Kitchen towels\n\nParticipants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).\n\nLet’s cook, enjoy, and make a difference together! ❤️`,
+    cardImage: "",
+    language: ["de"],
+    tags: ["Cooking", "Charity", "Community", "Charity Week", "Food", "Girls Only"],
     speakers: [],
-    attendance: null,
-    gallery: [],
+    attendance: 10,
+    gallery: [
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126276/IMG_2992_xvs5jh.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_1231_asgcpk.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_8837_qa8crk.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126275/IMG_993_vwqup9.mp4",
+    ],
     available: true,
-    past: false,
+    past: true,
+    highlighted: false,
+    registerAvailable: false,
+    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
+  },
+  // mhg meet-and-greet intro event october 2025
+  {
+    slug: 'mhg-meet-and-greet-october-2025',
+    title: 'MHG Meet & Greet – Welcome New Students',
+    date: 'October 16, 2025',
+    location: 'Room G215, THI, Ingolstadt',
+    description: 'A welcoming session to introduce the Muslim Hochschulgruppe (MHG) to new students. The program included a brief presentation about MHG, its mission, and future plans, followed by a fun Kahoot quiz with prizes for the top three winners. The event concluded with a pizza social where attendees had the chance to connect, share ideas, and build a sense of community.',
+    cardImage: '',
+    language: ['en', 'de'],
+    tags: ['Intro', 'Students', 'Community', 'Kahoot', 'Social'],
+    speakers: ['MHG Team'],
+    attendance: 17,
+    gallery: [
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744639/IMG_6618_zt6vhj.mp4",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744634/IMG_6643_qomwea.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744605/IMG_6606_kxsnis.jpg",
+      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744623/IMG_6607_xe5ipi.mp4"
+    ],
+    available: true,
+    past: true,
     highlighted: false,
     registerAvailable: false
   },
-  //--------------------- Past Events ---------------------//
   // shaykh taha ali talk june 2025
   {
     slug: 'shaykh-taha-ali-talk-june-2025',
@@ -168,51 +197,49 @@ export const events = [
     highlighted: false,
     registerAvailable: false
   },
-  // mhg meet-and-greet intro event october 2025
+  //--------------------- Arhive ---------------------//
+  // the world religion islam 2025
   {
-    slug: 'mhg-meet-and-greet-october-2025',
-    title: 'MHG Meet & Greet – Welcome New Students',
-    date: 'October 16, 2025',
-    location: 'Room G215, THI, Ingolstadt',
-    description: 'A welcoming session to introduce the Muslim Hochschulgruppe (MHG) to new students. The program included a brief presentation about MHG, its mission, and future plans, followed by a fun Kahoot quiz with prizes for the top three winners. The event concluded with a pizza social where attendees had the chance to connect, share ideas, and build a sense of community.',
+    slug: 'die-weltreligion-islam-2025',
+    title: 'The World Religion Islam',
+    date: 'October 23, 2025 (6:30 PM)',
+    location: 'Am Nordbahnhof 23, 85049 Ingolstadt',
+    description: 'An informative event for non-Muslims about Islam. We will introduce the core teachings and principles of Islam in a simple and engaging manner. The event will include a presentation, an open discussion, and a chance to enjoy coffee and cake together.',
     cardImage: '',
-    language: ['en', 'de'],
-    tags: ['Intro', 'Students', 'Community', 'Kahoot', 'Social'],
-    speakers: ['MHG Team'],
-    attendance: 17,
-    gallery: [
-      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744639/IMG_6618_zt6vhj.mp4",
-      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744634/IMG_6643_qomwea.jpg",
-      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1760744605/IMG_6606_kxsnis.jpg",
-      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1760744623/IMG_6607_xe5ipi.mp4"
-    ],
+    language: ['de'],
+    tags: ['Islam', 'Information', 'Community'],
+    speakers: [],
+    attendance: null,
+    gallery: [],
     available: true,
-    past: true,
+    past: false,
     highlighted: false,
     registerAvailable: false
   },
-  // cooking class for sisters 2025
+  // Children's Painting Competition 2025
   {
-    slug: "charity-week-cooking-class-2025",
-    title: "Charity Week Cooking Class",
-    date: "October 21, 2025 (2:00 PM – 5:00 PM)",
-    location: "Christoph-von-Schmid-Straße 14, 85055 Ingolstadt",
-    description: `Join us for a special Charity Week Cooking Class hosted by MHG Ingolstadt! 🍲\n\nDiscover the richness of Arabic cuisine and learn to prepare delicious dishes, all for a good cause.\n\n👩‍🍳 Learn, cook, and enjoy together in a friendly and welcoming atmosphere.\n💰 Participation fee: €10 (all proceeds go 100% to support children in need).\n🎁 Additional donations are warmly welcomed!\n👥 Limited to 15 participants, register early to secure your spot!\n\n✨ Please note: This event is **only for girls**.\n\n📅 Date: October 21, 2025 (1:00 PM – 3:00 PM)\n📍 Location: Christoph-von-Schmid-Straße 14, 85055 Ingolstadt\n🚏 Nearby Bus Stops:\n- Regensburger Straße → Bus 70, 21, 20\n- Kurt-Hubert-Straße → Bus 20, 25, 70, 22, 26\n\nPlease bring:\n• Food containers\n• Kitchen towels\n\nParticipants are also invited to bring light specialties from their home countries (e.g., salads, sweets, or drinks).\n\nLet’s cook, enjoy, and make a difference together! ❤️`,
-    cardImage: "",
-    language: ["de"],
-    tags: ["Cooking", "Charity", "Community", "Charity Week", "Food", "Girls Only"],
+    slug: "childrens-painting-competition-2025",
+    title: "Children’s Painting Competition",
+    date: "19 Oct 2025 – 26 Oct 2025",
+    location: "This Website (Online)",
+    description:
+      "A creative charity competition for children held entirely on this website as part of Charity Week 2025.\n\n" +
+      "🎨 Theme: “Together We Are Strong!”\n" +
+      "Children are invited to submit artwork showing the power of unity, community, friendship, and faith.\n\n" +
+      "💚 Participation is confirmed through a €5 donation via PayPal (all proceeds go to support orphans and children in need).\n" +
+      "🖼️ All approved artworks will be displayed in our online gallery.\n" +
+      "❤️ Family and friends can vote by liking the artwork. The top 3 artworks with the most likes will receive prizes!\n\n" +
+      "This event is organized by MHG Ingolstadt e.V. and 100% of donations support Charity Week.",
+    cardImage: "/events/childrens-painting-competition-2025.jpg", // ✅ Make sure this image exists in /public/events/
+    language: ["en", "de"],
+    tags: ["Children", "Art", "Charity Week", "Community", "Charity", "Competition"],
     speakers: [],
-    attendance: 10,
-    gallery: [
-      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126276/IMG_2992_xvs5jh.mp4",
-      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_1231_asgcpk.jpg",
-      "https://res.cloudinary.com/dzu5pa8ut/image/upload/v1761126275/IMG_8837_qa8crk.jpg",
-      "https://res.cloudinary.com/dzu5pa8ut/video/upload/v1761126275/IMG_993_vwqup9.mp4",
-    ],
-    available: true,
+    attendance: null,
+    gallery: [],
+    available: false,
     past: true,
     highlighted: false,
-    registerAvailable: false,
-    registrationLink: "https://www.eventbrite.com/e/mhg-ingolstadt-x-charity-week-kochkurs-tickets-1802782032589?aff=oddtdtcreator"
-  }
+    registerAvailable: false, // This is no longer a registration form, it's upload-based
+    registrationLink: null
+  },
 ];
