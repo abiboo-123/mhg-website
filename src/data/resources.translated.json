@@ -17,7 +17,7 @@
           "name": "DITIB Kocatepe Mosque",
           "locationLink": "https://maps.app.goo.gl/XB211WLYNUoE5AAw8",
           "location": "Manisa Str. 1, 85057 Ingolstadt",
-          "description": "Friday prayer 13:30. Khutba in Turkish / German.",
+          "description": "Friday prayer 12:30. Khutba in Turkish / German.",
           "tags": ["prayer", "mosque", "turkish", "community"]
         },
         {
@@ -25,7 +25,7 @@
           "name": "Islamische Gemeinschaft Millî Görüş Ingolstadt e.V.",
           "location": "Schillerstraße 6, 85055 Ingolstadt",
           "locationLink": "https://maps.app.goo.gl/WpW3NYR6MtFXBs6g7",
-          "description": "Friday prayer 13:30. Khutba in Turkish.",
+          "description": "Friday prayer 12:30. Khutba in Turkish.",
           "tags": ["prayer", "mosque", "community"]
         },
         {
@@ -33,7 +33,7 @@
           "name": "Al-Nour Mosque",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Friday prayer 14:45 (summer). Khutba in Arabic / German.",
+          "description": "Friday prayer 13:45. Khutba in Arabic / German.",
           "tags": ["prayer", "mosque", "arabic", "community"]
         },
         {
@@ -41,7 +41,7 @@
           "name": "Imam-Azam Mosque",
           "location": "Hindenburgstraße 23A, 85057 Ingolstadt",
           "locationLink": "https://maps.app.goo.gl/NRksigRaWBzpPWkS9",
-          "description": "Friday prayer 13:30. Khutba in Turkish.",
+          "description": "Friday prayer 12:30. Khutba in Turkish.",
           "tags": ["prayer", "mosque", "turkish"]
         },
         {
@@ -49,7 +49,7 @@
           "name": "Zaytounah Mosque",
           "location": "Ettinger Str. 20, 85057 Ingolstadt",
           "LocationLink": "https://maps.app.goo.gl/b3pGPgVKS2cVPHjt7",
-          "description": "Friday prayer 14:45. Khutba in Arabic / German.",
+          "description": "Friday prayer 13:45. Khutba in Arabic / German.",
           "tags": ["prayer", "mosque", "arabic", "german"]
         },
         {
@@ -57,7 +57,7 @@
           "name": "Buhara e.V. Mosque",
           "location": "Liebigstraße 24a, 85057 Ingolstadt",
           "locationLink": "https://maps.app.goo.gl/H87d1rzq2rnBuZfD6",
-          "description": "Friday prayer 13:30. Khutba in German.",
+          "description": "Friday prayer 12:30. Khutba in German.",
           "tags": ["prayer", "mosque", "german"]
         },
         {
@@ -65,7 +65,7 @@
           "name": "Xhamia Mosque (Albanian Mosque)",
           "locationLink": "https://maps.app.goo.gl/9fvjuowGArekpbKUA",
           "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
-          "description": "Friday prayer 13:30. Khutba in Albanian.",
+          "description": "Friday prayer 12:30. Khutba in Albanian.",
           "tags": ["prayer", "mosque", "albanian"]
         },
         {
@@ -73,7 +73,7 @@
           "name": "As-salam Mosque",
           "location": "Roderstraße 44, 85055 Ingolstadt",
           "LocationLink": "https://maps.app.goo.gl/kCjJwLeg9CqnojMY8",
-          "description": "Friday prayer 14:45. Khutba in Arabic / German.",
+          "description": "Friday prayer 13:00. Khutba in Arabic / German.",
           "tags": ["prayer", "mosque", "arabic", "german"]
         }
       ]
@@ -288,7 +288,7 @@
           "name": "DITIB Kocatepe Moschee",
           "locationLink": "https://maps.app.goo.gl/XB211WLYNUoE5AAw8",
           "location": "Manisa Str. 1, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30, Khutba auf Türkisch/Deutsch.",
+          "description": "Freitagsgebet 12:30, Khutba auf Türkisch/Deutsch.",
           "tags": ["Gebet", "Moschee", "Türkisch", "Gemeinschaft"]
         },
         {
@@ -296,7 +296,7 @@
           "name": "Islamische Gemeinschaft Millî Görüş Ingolstadt e.V.",
           "locationLink": "https://maps.app.goo.gl/WpW3NYR6MtFXBs6g7",
           "location": "Schillerstraße 6, 85055 Ingolstadt",
-          "description": "Freitagsgebet 13:30, Khutba auf Türkisch.",
+          "description": "Freitagsgebet 12:30, Khutba auf Türkisch.",
           "tags": ["Gebet", "Moschee", "Gemeinschaft"]
         },
         {
@@ -304,7 +304,7 @@
           "name": "Al-Nour-Moschee",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Freitagsgebet 14:45 (Sommer).Khutba auf Arabisch / Deutsch.",
+          "description": "Freitagsgebet 13:45 .Khutba auf Arabisch / Deutsch.",
           "tags": ["Gebet", "Moschee", "Arabisch", "Gemeinschaft"]
         },
         {
@@ -312,14 +312,14 @@
           "name": "Imam-Azam-Moschee",
           "locationLink": "https://maps.app.goo.gl/NRksigRaWBzpPWkS9",
           "location": "Hindenburgstraße 23A, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30, Khutba auf Türkisch.",
+          "description": "Freitagsgebet 12:30, Khutba auf Türkisch.",
           "tags": ["Gebet", "Moschee", "Türkisch"]
         },
         {
           "slug": "zaytounah-mosque",
           "name": "Zaytounah-Moschee",
           "location": "Ettinger Str. 20, 85057 Ingolstadt",
-          "description": "Freitagsgebet 14:45 Uhr.Khutba auf Arabisch / Deutsch.",
+          "description": "Freitagsgebet 13:45 Uhr.Khutba auf Arabisch / Deutsch.",
           "tags": ["Gebet", "Moschee", "Arabisch", "Deutsch"]
         },
         {
@@ -327,7 +327,7 @@
           "name": "Buhara e.V. Moschee",
           "locationLink": "https://maps.app.goo.gl/H87d1rzq2rnBuZfD6",
           "location": "Liebigstraße 24a, 85057 Ingolstadt",
-          "description": "Freitagsgebet 13:30, Khutba auf Deutsch.",
+          "description": "Freitagsgebet 12:30, Khutba auf Deutsch.",
           "tags": ["Gebet", "Moschee", "Deutsch"]
         },
         {
@@ -335,14 +335,14 @@
           "name": "Xhamia-Moschee (Albanische Moschee)",
           "locationLink": "https://maps.app.goo.gl/9fvjuowGArekpbKUA",
           "location": "Am Nordbahnhof 23A, 85049 Ingolstadt",
-          "description": "Freitagsgebet 13:30, Khutba auf Albanisch.",
+          "description": "Freitagsgebet 12:30, Khutba auf Albanisch.",
           "tags": ["Gebet", "Moschee", "Albanisch"]
         },
         {
           "slug": "as-salam-mosque",
           "name": "As-Salam-Moschee",
           "location": "Roderstraße 44, 85055 Ingolstadt",
-          "description": "Freitagsgebet 14:45 Uhr.Khutba auf Arabisch / Deutsch.",
+          "description": "Freitagsgebet 13:00 Uhr.Khutba auf Arabisch / Deutsch.",
           "tags": ["Gebet", "Moschee", "Arabisch", "Deutsch"]
         }
       ]
