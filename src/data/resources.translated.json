@@ -33,7 +33,7 @@
           "name": "Al-Nour Mosque",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Friday prayer 13:45. Khutba in Arabic / German.",
+          "description": "Friday prayer 13:15. Khutba in Arabic / German.",
           "tags": ["prayer", "mosque", "arabic", "community"]
         },
         {
@@ -239,6 +239,10 @@
       "type": "links",
       "items": [
         {
+          "label": "🕌 Al-Nour Mosque prayer times PDF (November)",
+          "href": "/pdfs/Al_Nour_Mosque_november_2025.pdf"
+        },
+        {
           "label": "🕌 Al-Nour Mosque prayer times PDF (Actober)",
           "href": "/pdfs/Al_Nour_Mosque_october_2025.pdf"
         },
@@ -304,7 +308,7 @@
           "name": "Al-Nour-Moschee",
           "locationLink": "https://maps.app.goo.gl/Q7KNAn4ZkgdEGS3EA",
           "location": "Asamstraße 14a, 85053 Ingolstadt",
-          "description": "Freitagsgebet 13:45 .Khutba auf Arabisch / Deutsch.",
+          "description": "Freitagsgebet 13:15 .Khutba auf Arabisch / Deutsch.",
           "tags": ["Gebet", "Moschee", "Arabisch", "Gemeinschaft"]
         },
         {
@@ -507,6 +511,10 @@
       "category": "Gebetszeiten 🕰️",
       "type": "links",
       "items": [
+        {
+          "href": "/pdfs/Al_Nour_Mosque_november_2025.pdf",
+          "label": "🕌 Al-Nour Moschee Gebetszeiten PDF (November)"
+        },
         {
           "href": "/pdfs/Al_Nour_Mosque_october_2025.pdf",
           "label": "🕌 Al-Nour Moschee Gebetszeiten PDF (Actober)"
