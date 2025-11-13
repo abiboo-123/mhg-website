@@ -32,3 +32,6 @@ public/gallery/
 
 # vercel files
 .vercel/
+
+# Documentation files
+Documentation/

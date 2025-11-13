@@ -1,0 +1,64 @@
+---
+import AdminLayout from "../../components/admin/Layout";
+
+const user = Astro.locals.user;
+const role = Astro.locals.role;
+if (!user || !role) {
+  throw new Error("User not found in locals");
+}
+---
+
+<html lang="en">
+  <head>
+    <title>Admin – Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <AdminLayout role=`${role}`>
+      <section class="max-w-xl space-y-8">
+        <!-- Header -->
+        <header class="border-b pb-3">
+          <h1 class="text-3xl font-bold text-slate-800">👤 Profile</h1>
+          <p class="text-slate-500 text-sm mt-1">
+            Manage your account and view your permissions.
+          </p>
+        </header>
+
+        <!-- Profile Info Card -->
+        <div
+          class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6"
+        >
+          <!-- Email -->
+          <div class="space-y-1">
+            <label class="block text-sm text-slate-500">Email</label>
+            <input
+              class="border rounded w-full p-2 bg-slate-100"
+              value={user.email}
+              readonly
+            />
+          </div>
+
+          <!-- Role -->
+          <div class="space-y-1">
+            <label class="block text-sm text-slate-500">Role</label>
+            <input
+              class="border rounded w-full p-2 bg-slate-100"
+              value={role}
+              readonly
+            />
+          </div>
+
+          <!-- Logout -->
+          <form method="POST" action="/api/auth/signout">
+            <button
+              class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow-sm"
+            >
+              Logout
+            </button>
+          </form>
+        </div>
+      </section>
+    </AdminLayout>
+  </body>
+</html>

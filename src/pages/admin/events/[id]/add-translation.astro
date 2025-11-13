@@ -1,0 +1,28 @@
+---
+import AdminLayout from "../../../../components/admin/Layout";
+import AddTranslationForm from "../../../../components/admin/AddTranslationForm";
+const { id } = Astro.params;
+if (!id) {
+  throw new Error("Event ID is required");
+}
+const user = Astro.locals.user;
+const role = Astro.locals.role;
+if (!user || !role) {
+  throw new Error("User not found in locals");
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Translation</title>
+  </head>
+
+  <body>
+    <AdminLayout role=`${role}`>
+      <AddTranslationForm eventId={id} client:load />
+    </AdminLayout>
+  </body>
+</html>

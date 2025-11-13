@@ -1,0 +1,28 @@
+---
+import React from "react";
+import AdminLayout from "../../../components/admin/Layout";
+import EventForm from "../../../components/admin/EventForm";
+import "../../../styles/global.css";
+const user = Astro.locals.user;
+const role = Astro.locals.role;
+if (!user || !role) {
+  throw new Error("User not found in locals");
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Event</title>
+  </head>
+  <body>
+    <AdminLayout role=`${role}`>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-6">Create New Event</h2>
+        <EventForm client:load />
+      </div>
+    </AdminLayout>
+  </body>
+</html>

@@ -2,80 +2,113 @@
 export const prerender = false;
 const user = Astro.locals.user;
 const role = Astro.locals.role;
+
+if (!role) {
+  throw new Error("Access denied: User role is undefined.");
+}
+
+import AdminLayout from "../../components/admin/Layout";
+import "../../styles/global.css";
 ---
 
 <html lang="en">
-  <body class="min-h-screen bg-gray-100 p-6 flex items-center justify-center">
-    <div class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-8">
-      <!-- Header -->
-      <div class="flex flex-col sm:flex-row justify-between items-center mb-8">
-        <div>
-          <h1 class="text-3xl font-bold text-[#0369a1] mb-2">
-            Admin Dashboard
-          </h1>
-          <p class="text-gray-600">Welcome, <strong>{user.email}</strong></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+  </head>
+
+  <body>
+    <AdminLayout role=`${role}`>
+      <section class="max-w-6xl mx-auto space-y-8">
+        <!-- Header -->
+        <header>
+          <h1 class="text-3xl font-bold text-[#0369a1]">Admin Dashboard</h1>
+          <p class="text-gray-600">
+            Welcome, <strong>{user.email}</strong>
+          </p>
           <p class="text-sm text-gray-500">
             Role: <span class="font-semibold">{role}</span>
           </p>
-        </div>
-        <form method="POST" action="/api/auth/signout">
-          <button
-            class="mt-4 sm:mt-0 bg-red-600 hover:bg-red-700 text-white py-2 px-5 rounded-full transition"
+        </header>
+
+        <!-- Navigation Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Events -->
+          <a
+            href="/admin/events"
+            class="block bg-[#0369a1] text-white p-6 rounded-xl shadow-md hover:bg-blue-800 transition"
           >
-            Logout
-          </button>
-        </form>
-      </div>
+            <h2 class="text-xl font-semibold mb-2">📅 Manage Events</h2>
+            <p class="text-sm opacity-90">
+              Create, edit, and delete events and media.
+            </p>
+          </a>
 
-      <!-- Navigation Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <!-- Events Management -->
-        <a
-          href="/admin/events"
-          class="block bg-[#0369a1] text-white p-6 rounded-xl shadow-md hover:bg-blue-800 transition"
-        >
-          <h2 class="text-xl font-semibold mb-2">Manage Events</h2>
-          <p class="text-sm opacity-90">
-            Create, edit, and delete events shown on the website.
-          </p>
-        </a>
+          <!-- Logs (super_admin only) -->
+          {
+            role === "super_admin" && (
+              <a
+                href="/admin/logs"
+                class="block bg-yellow-600 text-white p-6 rounded-xl shadow-md hover:bg-yellow-700 transition"
+              >
+                <h2 class="text-xl font-semibold mb-2">📝 System Logs</h2>
+                <p class="text-sm opacity-90">
+                  Monitor all admin actions and changes.
+                </p>
+              </a>
+            )
+          }
 
-        <!-- Admin Management (Only visible to super_admin) -->
-        {
-          role === "super_admin" && (
-            <a
-              href="/admin/users"
-              class="block bg-green-600 text-white p-6 rounded-xl shadow-md hover:bg-green-700 transition"
-            >
-              <h2 class="text-xl font-semibold mb-2">Manage Admin Users</h2>
-              <p class="text-sm opacity-90">
-                Add or remove admin accounts and assign roles.
-              </p>
-            </a>
-          )
-        }
+          <!-- Admin Users (super_admin only) -->
+          {
+            role === "super_admin" && (
+              <a
+                href="/admin/users"
+                class="block bg-green-600 text-white p-6 rounded-xl shadow-md hover:bg-green-700 transition"
+              >
+                <h2 class="text-xl font-semibold mb-2">
+                  👥 Manage Admin Users
+                </h2>
+                <p class="text-sm opacity-90">
+                  Add, edit or remove admin accounts.
+                </p>
+              </a>
+            )
+          }
 
-        <!-- Optional: Future sections -->
-        <a
-          href="/admin/partners"
-          class="block bg-gray-100 text-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-200 transition"
-        >
-          <h2 class="text-xl font-semibold mb-2">Manage Partners</h2>
-          <p class="text-sm opacity-80">
-            Edit partner logos, links, and their information.
-          </p>
-        </a>
+          <!-- Partners -->
+          <a
+            href="/admin/partners"
+            class="block bg-gray-100 text-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-200 transition"
+          >
+            <h2 class="text-xl font-semibold mb-2">🤝 Manage Partners</h2>
+            <p class="text-sm opacity-80">
+              Update logos, descriptions, and links.
+            </p>
+          </a>
 
-        <a
-          href="/admin/resources"
-          class="block bg-gray-100 text-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-200 transition"
-        >
-          <h2 class="text-xl font-semibold mb-2">Manage Resources</h2>
-          <p class="text-sm opacity-80">
-            Control the content in the Resources page.
-          </p>
-        </a>
-      </div>
-    </div>
+          <!-- Resources -->
+          <a
+            href="/admin/resources"
+            class="block bg-gray-100 text-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-200 transition"
+          >
+            <h2 class="text-xl font-semibold mb-2">📚 Manage Resources</h2>
+            <p class="text-sm opacity-80">
+              Control resource content on the public site.
+            </p>
+          </a>
+
+          <!-- Profile redirect -->
+          <a
+            href="/admin/profile"
+            class="block bg-white border border-slate-200 text-slate-700 p-6 rounded-xl shadow-md hover:bg-slate-100 transition"
+          >
+            <h2 class="text-xl font-semibold mb-2">👤 My Profile</h2>
+            <p class="text-sm opacity-80">View your account and settings.</p>
+          </a>
+        </div>
+      </section>
+    </AdminLayout>
   </body>
 </html>

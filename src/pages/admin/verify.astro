@@ -4,8 +4,8 @@ export const prerender = false;
 import Layout from "../../layouts/BaseLayout.astro";
 import { createClient } from "@supabase/supabase-js";
 
-const { SUPABASE_URL, SUPABASE_SERVICE_KEY } = import.meta.env;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const { PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = import.meta.env;
+const supabase = createClient(PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 // Fetch all unverified images
 const { data: unverified } = await supabase

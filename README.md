@@ -1,298 +1,212 @@
 # 🕌 MHG Ingolstadt – Event & Community Platform
 
-A multilingual **event and community platform** built for **Muslim students at THI (Technische Hochschule Ingolstadt)** to help them connect, get involved, and attend events organized by the **MHG Ingolstadt** community.
+A multilingual **event and community platform** built for **Muslim students at THI (Technische Hochschule Ingolstadt)**.
+It helps students stay connected, attend events, access resources, and engage with the MHG community.
 
-This platform provides a welcoming space for students to:
+The platform is designed to be:
 
-- Discover upcoming and past events
-- Access helpful resources
-- Connect with partners and team members
-- Learn more about MHG and its mission
-
-> 🧭 The project is built with **Astro**, **React**, and **TailwindCSS**, and integrates with **Supabase**, **Cloudinary**, and other services for dynamic content and automation.
-
----
-
-## 🌍 Features
-
-### 👥 Community & Events
-
-- Browse **upcoming and past events** with detailed descriptions and images
-- View **resources** and links relevant to Muslim student life in Ingolstadt
-- Explore **partners** and community organizations working with MHG
-- Learn about the **team** behind the initiative
-
-### 🌐 Multilingual Interface
-
-- Full support for **English (en)** and **German (de)**
-- Automatic translation for some content using custom translation scripts
-
-### 📱 User Experience
-
-- Responsive, fast, and mobile-friendly design
-- Clean and modern UI built with Tailwind and Astro components
-- Accessible navigation through localized routes (`/[lang]/...`)
+- 📅 **Event-focused** — upcoming & past events
+- 🌍 **Multilingual** — English & German
+- 📱 **Modern & responsive** — built with Astro + React
+- ⚡ **Dynamic** — all data is managed through a custom admin dashboard
 
 ---
 
-## 🧩 Tech Stack
+# 🌍 Features
 
-| Category       | Tools / Libraries                 |
-| -------------- | --------------------------------- |
-| Framework      | [Astro](https://astro.build)      |
-| UI             | React, TailwindCSS                |
-| Deployment     | Vercel (Server output)            |
-| Backend / Data | Supabase, Node.js scripts         |
-| Media          | Cloudinary                        |
-| Translation    | translate-google                  |
-| Analytics      | Vercel Analytics & Speed Insights |
+## 👥 Community & Events
+
+- Browse **upcoming and past events**
+- View full **event details**, galleries, and banners
+- Read event content in **English or German**
+- Explore **resources**, partners, and team info
+
+## 🛠️ Admin Dashboard (Private)
+
+- Add / edit / delete events
+- Upload banners & image galleries
+- Manage translations (EN/DE)
+- Auto-generate event card images (Satori + ImageKit)
+- Full role-based access control (Supabase Auth)
+
+## 🌐 Multilingual Interface
+
+- Localized routes (`/[lang]/...`)
+- Content served dynamically from the database
+- Seamless EN/DE switching
+
+## 📱 User Experience
+
+- Fast, mobile-first, clean design
+- Astro + React components
+- Optimized images via ImageKit CDN
 
 ---
 
-## 🗂️ Project Structure
+# 🧩 Tech Stack
+
+| Category      | Tools / Libraries                        |
+| ------------- | ---------------------------------------- |
+| Framework     | Astro (server mode) + React islands      |
+| UI            | TailwindCSS                              |
+| Backend       | Supabase (Postgres + Auth)               |
+| Media Storage | ImageKit (banners, galleries, card imgs) |
+| Image Gen     | Satori + Sharp                           |
+| Deployment    | Vercel                                   |
+| Auth          | Supabase Email/Password + Middleware     |
+| Analytics     | Vercel Analytics                         |
+
+---
+
+# 🗂️ Project Structure
 
 ```
 src/
-├── assets/           # Logos, images, and team photos
-├── components/       # UI components (cards, footer, header, etc.)
-├── data/             # Main data sources (events, resources, partners, etc.)
-├── i18n/             # Translation JSON files (de/en)
-├── layouts/          # Shared page layout(s)
-├── pages/            # Website pages (excluding admin or competition routes)
-├── styles/           # Custom styles if needed
-├── utils/            # Helper functions
+├── components/           # Astro/React UI components
+├── layouts/              # Shared layouts
+├── pages/                # Public + API routes (+admin)
+│   ├── api/              # Public + admin APIs
+│   ├── [lang]/           # Multilingual frontend pages
+├── lib/                  # Supabase clients, utils
+├── styles/               # Global styles (Tailwind)
+└── types/                # TS interfaces
 ```
 
----
-
-## 🧭 Navigation (User-Facing Pages)
-
-> All routes are localized (e.g. `/en/events`, `/de/events`).
-> Admin routes and the **Children’s Painting Competition 2025** section are intentionally excluded.
-
-| Page            | Path                  | Description                                              |
-| --------------- | --------------------- | -------------------------------------------------------- |
-| **Home**        | `/[lang]/`            | Overview, welcome message, highlights of upcoming events |
-| **About**       | `/[lang]/about`       | MHG mission and goals                                    |
-| **Events**      | `/[lang]/events`      | Upcoming events list                                     |
-| **Past Events** | `/[lang]/past-events` | Archive of previous events                               |
-| **Resources**   | `/[lang]/resources`   | Helpful links and downloadable materials                 |
-| **Partners**    | `/[lang]/partners`    | Partner organizations with logos and descriptions        |
-| **Team**        | `/[lang]/about`       | List of team members (via `team.js` data)                |
-| **Contact**     | `/[lang]/contact`     | Contact form or info                                     |
-| **Donate**      | `/[lang]/donate`      | Donation information                                     |
+> Note: The old `src/data/*.js` files are being **phased out** as real data now comes from Supabase.
 
 ---
 
-## 💾 Data Files (Located in `src/data/`)
+# 🧭 Navigation (Public Site)
 
-These files define most of the site’s dynamic content.
-You can safely update them to change what appears on the website.
+All routes are localized (`/en/...` and `/de/...`).
 
----
+| Page             | Path                    | Description                        |
+| ---------------- | ----------------------- | ---------------------------------- |
+| **Home**         | `/[lang]/`              | Highlights, intro, featured events |
+| **Events**       | `/[lang]/events`        | All upcoming events                |
+| **Past Events**  | `/[lang]/past-events`   | Archive of previous events         |
+| **Event Detail** | `/[lang]/events/[slug]` | Full event details + gallery       |
+| **Resources**    | `/[lang]/resources`     | Helpful links & materials          |
+| **Partners**     | `/[lang]/partners`      | Community partners & logos         |
+| **Team**         | `/[lang]/about`         | Team member profiles               |
+| **Contact**      | `/[lang]/contact`       | Contact form / info                |
+| **Donate**       | `/[lang]/donate`        | Donation information               |
 
-### `events.raw.js` ✅ _(Active)_
+Admin dashboard lives under:
 
-- The **main source of event data** in raw (untranslated) form.
-- Contains an array of event objects such as:
+```
+/admin/
+```
 
-  ```js
-  {
-    id: "unique-id",
-    title: "Event Title",
-    date: "2025-03-21",
-    description: "Event description",
-    image: "/path/to/image.jpg",
-    location: "THI Campus, Room 101"
-  }
-  ```
-
-- **Required fields:** `id`, `title`, `date`, `description`
-- **Optional fields:** `image`, `location`
-- Used as the **base file** for translation and event generation scripts.
+(Protected by Supabase Auth + middleware.)
 
 ---
 
-### `events.translated.json` ✅ _(Active)_
+# 💾 Data Sources (Live API)
 
-- The **translated version** of `events.raw.js`.
-- Contains event content localized into English and German.
-- **Used by the site at runtime** to display events in multiple languages.
-- You can safely update minor translations, but normally this file is generated automatically with:
+The site no longer depends on static `.js` or `.json` data files.
 
-  ```bash
-  npm run translate:events
-  ```
+Instead, all content is loaded from **public API endpoints**:
 
----
+| Endpoint                    | Purpose                                             |
+| --------------------------- | --------------------------------------------------- |
+| `/api/public/events`        | List of upcoming/past events (EN/DE aware)          |
+| `/api/public/events/[slug]` | Full event detail + translations + gallery + banner |
+| `/api/public/resources`     | All resources                                       |
+| `/api/public/partners`      | Partners & logos                                    |
 
-### `events.js` ❌ _(Not in Use)_
+Admin-managed data is stored in:
 
-- This file is kept for legacy reasons or fallback purposes.
-- The project now exclusively uses `events.raw.js` and `events.translated.json`.
-- You can ignore or remove it unless needed for compatibility.
-
----
-
-### `resources.js`
-
-- List of external resources, documents, or links.
-
-  ```js
-  {
-    title: "Prayer Times",
-    link: "https://example.com/prayer-times",
-    description: "Check daily prayer times in Ingolstadt"
-  }
-  ```
-
-- **Required fields:** `title`, `link`
-- **Optional:** `description`
-- Used in `/[lang]/resources` page.
+- `events`
+- `event_translations`
+- `event_media`
+- (upcoming) partners, resources, users
 
 ---
 
-### `resources.translated.json`
+# 🛠️ Admin Dashboard Features
 
-- Auto-generated version of `resources.js` translated into multiple languages.
-- **Do not edit manually.**
+The admin dashboard allows authorized users to:
 
----
+### **Event Management**
 
-### `partners.js`
+- Create events (date, time, location, slug, visibility)
+- Add EN/DE translations (title, description, tags)
+- Upload banners
+- Upload/reorder/delete gallery images
+- Mark event as highlighted or published
+- Auto-generate event card images (via Satori)
 
-- Contains information about partner organizations:
+### **Media Handling**
 
-  ```js
-  {
-    name: "DITIB Mosque",
-    logo: "/assets/logos/ditib-logo.jpg",
-    link: "https://ditib-ingolstadt.de",
-    description: "Partner description"
-  }
-  ```
+- ImageKit upload/delete
+- Position tracking for galleries
+- Banner replacement with CDN invalidation
 
-- **Required:** `name`, `logo`
-- **Optional:** `link`, `description`
-- Used by: `PartnerCard.astro`.
+### **Auth & Security**
 
----
-
-### `team.js`
-
-- Lists the team members of MHG Ingolstadt:
-
-  ```js
-  {
-    name: "Ahmed Aous",
-    role: "President",
-    image: "/assets/team/Ahmed_Aous.jpg"
-  }
-  ```
-
-- **Required:** `name`, `role`
-- **Optional:** `image`
-- Used by: `TeamMember.astro`.
+- Supabase email/password login
+- HTTP-only cookies for sessions
+- Middleware role enforcement
+- Service role key for internal API actions
 
 ---
 
-### `links.js`
+# ⚙️ Developer Guide
 
-- Contains general links used across the site (socials, contact links, etc.)
-- Can be safely updated; all entries should include `title` and `url`.
-
----
-
-### `aboutCards.js`
-
-- Provides content blocks for the “About” page (e.g., vision, mission, values).
-
----
-
-## ⚙️ Scripts
-
-Scripts are located in the `/scripts` directory and automate translations and image generation.
-
-| Script                  | Command                       | Description                                                                                                |
-| ----------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **translate:events**    | `npm run translate:events`    | Translates event data from `events.raw.js` into multiple languages and writes to `events.translated.json`. |
-| **translate:resources** | `npm run translate:resources` | Translates resource data into multiple languages and writes to `resources.translated.json`.                |
-| **translate**           | `npm run translate`           | Runs both translation scripts.                                                                             |
-| **generate:events**     | `npm run generate:events`     | Uses **Cloudinary** and **Satori** to generate event image cards automatically.                            |
-
-> ⚠️ Note: translation scripts rely on `translate-google` and require internet access.
-
----
-
-## 🧱 Components Overview
-
-| Component                                              | Purpose                             |
-| ------------------------------------------------------ | ----------------------------------- |
-| `EventCard.astro`                                      | Displays individual event info      |
-| `PastEventsCard.astro`                                 | Displays past events in grid format |
-| `PartnerCard.astro`                                    | Renders partner logo + description  |
-| `ResourceCard.astro`                                   | Displays links/resources            |
-| `TeamMember.astro`                                     | Displays a team member profile      |
-| `Header.astro` / `Footer.astro`                        | Global layout components            |
-| `Card.astro`, `Likert.astro`, `UnifiedEventCard.astro` | General reusable UI building blocks |
-
----
-
-## 🧑‍💻 Developer Guide
-
-### 🔧 Installation
+## 🔧 Installation
 
 ```bash
-# Install dependencies
 npm install
-
-# Run locally
 npm run dev
+```
 
-# Build for production
+## 🏗️ Build
+
+```bash
 npm run build
-
-# Preview production build locally
 npm run preview
 ```
 
-### 🌐 Deployment (Vercel)
+## 🌐 Deployment (Vercel)
 
-This project uses the **Vercel adapter** for Astro.
-Deploying is as simple as connecting your GitHub repository to [Vercel](https://vercel.com) — Vercel automatically detects the Astro configuration.
-
-Ensure your **output mode** in `astro.config.mjs` is set to:
+Uses Astro’s Vercel adapter:
 
 ```js
-output: 'server',
-adapter: vercel(),
+export default defineConfig({
+  output: "server",
+  adapter: vercel(),
+});
 ```
 
----
-
-## 🔑 Environment Variables
-
-Depending on your configuration and scripts, you may need:
-
-| Variable             | Purpose                      |
-| -------------------- | ---------------------------- |
-| `SUPABASE_URL`       | Supabase project URL         |
-| `SUPABASE_KEY`       | Supabase API key             |
-| `CLOUDINARY_URL`     | Cloudinary connection string |
-| `FORMBRICKS_API_KEY` | Formbricks integration key   |
-
-You can add them to a `.env` file in the root directory.
+Deploy by connecting your GitHub repo to Vercel.
 
 ---
 
-## 🧾 License
+# 🔑 Environment Variables
+
+Create a `.env` file:
+
+| Variable                       | Purpose                   |
+| ------------------------------ | ------------------------- |
+| `PUBLIC_SUPABASE_URL`          | Supabase project URL      |
+| `PUBLIC_SUPABASE_ANON_KEY`     | Public Supabase key       |
+| `SUPABASE_SERVICE_ROLE_KEY`    | For admin API operations  |
+| `PUBLIC_IMAGEKIT_URL_ENDPOINT` | CDN delivery URL          |
+| `PUBLIC_IMAGEKIT_PUBLIC_KEY`   | Client-side preview key   |
+| `IMAGEKIT_PRIVATE_KEY`         | Private upload/delete key |
+| `COOKIE_SECRET`                | Session cookie signing    |
+
+---
+
+# 🧾 License
 
 This project is proprietary and maintained by **MHG Ingolstadt**.
 All rights reserved.
-Do not distribute or reuse code without permission.
+Do not distribute or reuse without permission.
 
 ---
 
-## 💬 Contact
+# 💬 Contact
 
-For inquiries or contributions, contact the **MHG Ingolstadt** team through the official site or via provided social links.
+For inquiries or contributions, please contact the MHG Ingolstadt team via the official website or provided social links.
