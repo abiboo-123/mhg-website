@@ -87,7 +87,10 @@ export const PUT: APIRoute = async ({ params, request, locals }) => {
         banner_url: body.banner_url,
         banner_public_id: body.banner_public_id,
         banner_uploaded: body.banner_uploaded,
-        attendance: body.attendance,
+        attendance:
+          body.attendance === "" || body.attendance === null
+            ? null
+            : Number(body.attendance),
       };
 
       const { data, error } = await supabase

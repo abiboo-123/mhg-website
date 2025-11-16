@@ -128,31 +128,35 @@ export default function EventView({ eventId }: { eventId: string }) {
               </p>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {media.map((m: any) =>
-                  m.type === "video" ? (
-                    <div key={m.id} className="relative w-full h-32">
-                      <video
+                {media.map((m: any) => (
+                  <div
+                    key={m.id}
+                    className="relative rounded-lg overflow-hidden border w-full aspect-[5/8]"
+                  >
+                    {m.type === "video" ? (
+                      <>
+                        <video
+                          src={m.url}
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover"
+                          onMouseEnter={(e) => e.currentTarget.play()}
+                          onMouseLeave={(e) => e.currentTarget.pause()}
+                        />
+                        <div className="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">
+                          🎬 Video
+                        </div>
+                      </>
+                    ) : (
+                      <img
                         src={m.url}
-                        muted
-                        loop
-                        playsInline
-                        className="rounded-lg w-full h-32 object-cover border"
-                        onMouseEnter={(e) => e.currentTarget.play()}
-                        onMouseLeave={(e) => e.currentTarget.pause()}
+                        alt=""
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-1 left-1 bg-black/60 text-white text-xs px-2 py-0.5 rounded">
-                        🎬 Video
-                      </div>
-                    </div>
-                  ) : (
-                    <img
-                      key={m.id}
-                      src={m.url}
-                      alt=""
-                      className="rounded-lg w-full h-32 object-cover border"
-                    />
-                  )
-                )}
+                    )}
+                  </div>
+                ))}
               </div>
             )}
           </section>

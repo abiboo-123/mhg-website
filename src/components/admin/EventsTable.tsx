@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LanguageBadges from "./LanguageBadges";
 import ConfirmModal from "./ConfirmModal";
 
 type EventRow = {
@@ -10,70 +9,38 @@ type EventRow = {
   available: boolean;
   highlighted: boolean;
   is_past: boolean;
-  title?: string | null; // from EN translation join
+  title?: string | null;
   attendance?: number | null;
   location?: string | null;
   translations?: { lang: string }[];
 };
 
-export default function EventsTable() {
+export default function EventsCards() {
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState<EventRow[]>([]);
   const [q, setQ] = useState("");
-  const [modal, setModal] = useState<{
-    show: boolean;
-    title?: string;
-    message?: string;
-    type?: "info" | "success" | "error" | "confirm";
-    onConfirm?: () => void;
-  }>({ show: false });
+  const [modal, setModal] = useState<any>({ show: false });
 
-  function showConfirm(
-    title: string,
-    message: string,
-    onConfirm: () => void,
-    type?: "info" | "success" | "error" | "confirm"
-  ) {
-    setModal({ show: true, type, title, message, onConfirm });
+  function showConfirm(title: string, message: string, onConfirm: () => void) {
+    setModal({ show: true, title, message, onConfirm });
   }
 
-  async function handleDelete(eventId: string) {
-    showConfirm(
-      "Delete Event",
-      "Are you sure you want to delete this event and all its data?",
-      async () => {
-        const res = await fetch(`/api/admin/events/${eventId}/delete`, {
-          method: "DELETE",
-        });
-        if (res.ok) {
-          showConfirm(
-            "Event Deleted",
-            "The event was successfully deleted.",
-            () => {},
-            "success"
-          );
-          await load();
-        } else {
-          showConfirm("Error", "Failed to delete event.", () => {}, "error");
-        }
-      },
-      "confirm"
-    );
+  async function handleDelete(id: string) {
+    showConfirm("Delete Event", "Are you sure?", async () => {
+      const res = await fetch(`/api/admin/events/${id}/delete`, {
+        method: "DELETE",
+      });
+      if (res.ok) load();
+      setModal({ show: false });
+    });
   }
 
   async function load() {
     setLoading(true);
-    try {
-      const res = await fetch("/api/admin/events");
-      if (!res.ok) throw new Error("Failed to fetch");
-      const data = await res.json();
-      setRows(data ?? []);
-    } catch (err) {
-      console.error(err);
-      setRows([]);
-    } finally {
-      setLoading(false);
-    }
+    const res = await fetch("/api/admin/events");
+    const data = await res.json();
+    setRows(data ?? []);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -87,152 +54,120 @@ export default function EventsTable() {
   );
 
   return (
-    <div className="p-4">
-      <div className="flex flex-col md:flex-row justify-between mb-4 gap-2">
-        {/* Search Input */}
+    <div className="p-4 space-y-4">
+      {/* Search + Actions */}
+      <div className="flex flex-col md:flex-row justify-between gap-3">
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="🔍 Search title or slug"
-          className="border border-slate-300 rounded-md px-3 py-2 w-full md:w-72 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          className="border border-slate-300 rounded-md px-3 py-2 w-full md:w-72"
         />
 
-        {/* Right Side Buttons */}
-        <div className="flex gap-2">
-          <button
-            onClick={load}
-            className="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-800 transition"
-          >
-            Refresh
-          </button>
-
-          <button
-            onClick={() => (window.location.href = "/admin")}
-            className="border border-slate-400 text-slate-700 px-3 py-1.5 rounded-md hover:bg-slate-50 transition"
-          >
-            ← Back
-          </button>
-        </div>
+        <button
+          onClick={load}
+          className="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-800"
+        >
+          Refresh
+        </button>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-        <table className="w-full text-sm text-slate-800">
-          <thead className="bg-slate-100 text-slate-600 text-xs uppercase">
-            <tr>
-              <th className="p-3 text-left w-1/4">Title (EN)</th>
-              <th className="p-3 text-center">Date</th>
-              <th className="p-3 text-center">Location</th>
-              <th className="p-3 text-center">Languages</th>
-              <th className="p-3 text-center">Status</th>
-              <th className="p-3 text-center">Attendance</th>
-              <th className="p-3 text-center w-28">Actions</th>
-            </tr>
-          </thead>
+      {/* CONTENT */}
+      {loading ? (
+        <p className="text-center text-slate-500 py-10">Loading events…</p>
+      ) : filtered.length === 0 ? (
+        <p className="text-center text-slate-400 py-10">No events found.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((event) => {
+            const hasEN = event.translations?.some((t) => t.lang === "en");
+            const hasDE = event.translations?.some((t) => t.lang === "de");
 
-          <tbody>
-            {loading ? (
-              <tr>
-                <td colSpan={7} className="p-6 text-center text-slate-500">
-                  Loading…
-                </td>
-              </tr>
-            ) : filtered.length === 0 ? (
-              <tr>
-                <td colSpan={7} className="p-6 text-center text-slate-400">
-                  No events found
-                </td>
-              </tr>
-            ) : (
-              filtered.map((row) => {
-                const hasDE = row.translations?.some((t) => t.lang === "de");
-                const hasEN = row.translations?.some((t) => t.lang === "en");
+            return (
+              <div
+                key={event.id}
+                className="bg-white border rounded-xl shadow-sm p-5 flex flex-col justify-between"
+              >
+                {/* Title */}
+                <div>
+                  <h2 className="text-xl font-semibold text-slate-800 line-clamp-2">
+                    {event.title ?? "(no EN title)"}
+                  </h2>
+                  <p className="text-sm text-slate-500">{event.slug}</p>
 
-                return (
-                  <tr
-                    key={row.id}
-                    className="border-t border-slate-100 hover:bg-slate-50 transition"
-                  >
-                    <td className="p-3 align-top">
-                      <div className="font-medium text-slate-800">
-                        {row.title ?? (
-                          <span className="text-slate-500 italic">
-                            (no EN title)
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-xs text-slate-500 mt-0.5">
-                        {row.slug}
-                      </div>
-                    </td>
-                    <td className="p-3 text-center">
-                      {row.date}
-                      {row.time ? ` ${row.time}` : ""}
-                    </td>
-                    <td className="p-3 text-center text-slate-600">
-                      {row.location || "—"}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-slate-700">
-                      <LanguageBadges
-                        hasEN={hasEN}
-                        hasDE={hasDE}
-                        eventId={row.id}
-                      />
-                    </td>
-                    <td className="p-3 text-center">
+                  {/* Meta */}
+                  <div className="mt-3 space-y-1 text-sm">
+                    <p>
+                      📅 {event.date} {event.time && `• ${event.time}`}
+                    </p>
+                    <p>📍 {event.location || "—"}</p>
+                    <p>
+                      🌐 Languages:{" "}
                       <span
-                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          row.available
-                            ? "bg-green-100 text-green-700"
-                            : "bg-yellow-100 text-yellow-700"
-                        }`}
+                        className={hasEN ? "text-green-600" : "text-red-500"}
                       >
-                        {row.available ? "Published" : "Draft"}
+                        EN
                       </span>
-                      {row.is_past && (
-                        <span className="ml-2 text-xs text-slate-500">
-                          (Past)
+                      {" · "}
+                      <span
+                        className={hasDE ? "text-green-600" : "text-red-500"}
+                      >
+                        DE
+                      </span>
+                    </p>
+                    <p>
+                      📊 Status:{" "}
+                      {event.available ? (
+                        <span className="text-green-600 font-medium">
+                          Published
+                        </span>
+                      ) : (
+                        <span className="text-yellow-600 font-medium">
+                          Draft
                         </span>
                       )}
-                    </td>
-                    <td className="p-3 text-center">{row.attendance ?? "—"}</td>
-                    <td className="p-3 text-center space-x-2">
-                      <a
-                        href={`/admin/events/${row.id}/view`}
-                        className="text-blue-600 hover:underline"
-                      >
-                        View
-                      </a>
-                      <a
-                        href={`/admin/events/${row.id}/edit`}
-                        className="text-slate-600 hover:underline"
-                      >
-                        Edit
-                      </a>
-                      <button
-                        onClick={() => handleDelete(row.id)}
-                        className="text-red-600 hover:underline "
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+                      {event.is_past && (
+                        <span className="text-slate-500 ml-1">(Past)</span>
+                      )}
+                    </p>
+                    <p>👥 Attendance: {event.attendance ?? "—"}</p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="mt-4 flex gap-3">
+                  <a
+                    href={`/admin/events/${event.id}/view`}
+                    className="flex-1 text-center bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 text-sm"
+                  >
+                    View
+                  </a>
+                  <a
+                    href={`/admin/events/${event.id}/edit`}
+                    className="flex-1 text-center bg-slate-600 text-white px-3 py-2 rounded-md hover:bg-slate-700 text-sm"
+                  >
+                    Edit
+                  </a>
+                  <button
+                    onClick={() => handleDelete(event.id)}
+                    className="flex-1 bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600 text-sm"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {modal.show && (
         <ConfirmModal
-          title={modal.title!}
-          message={modal.message!}
-          onConfirm={() => {
-            modal.onConfirm?.();
-            setModal({ show: false });
-          }}
+          title={modal.title}
+          message={modal.message}
+          onConfirm={modal.onConfirm}
           onCancel={() => setModal({ show: false })}
-          type={modal.type}
+          type="confirm"
         />
       )}
     </div>

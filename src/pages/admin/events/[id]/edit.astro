@@ -24,8 +24,8 @@ if (!user || !role) {
     <title>Edit Event</title>
   </head>
   <body>
-    <AdminLayout role=`${role}`>
-      s <div class="max-w-4xl mx-auto py-8 px-4">
+    <AdminLayout role=`${role}` client:load>
+      <div class="max-w-4xl mx-auto py-8 px-4">
         <EditEventForm eventId={id} client:load />
       </div>
     </AdminLayout>

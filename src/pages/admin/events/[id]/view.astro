@@ -24,7 +24,7 @@ if (!user || !role) {
     <title>Event Details</title>
   </head>
   <body>
-    <AdminLayout role=`${role}`>
+    <AdminLayout role=`${role}` client:load>
       <EventView eventId={id} client:load />
     </AdminLayout>
   </body>

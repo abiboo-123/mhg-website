@@ -15,7 +15,7 @@ if (!user || !role) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <AdminLayout role=`${role}`>
+    <AdminLayout role=`${role}` client:load>
       <section class="max-w-xl space-y-8">
         <!-- Header -->
         <header class="border-b pb-3">

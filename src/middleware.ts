@@ -3,7 +3,6 @@ import { createClient } from "@supabase/supabase-js";
 
 export const onRequest: MiddlewareHandler = async (context, next) => {
   const { url, cookies } = context;
-
   // Protect BOTH admin pages and admin API routes
   const isAdminPage =
     url.pathname.startsWith("/admin") && url.pathname !== "/admin/login";

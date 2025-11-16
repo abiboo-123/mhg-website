@@ -32,46 +32,67 @@ export default function EditEventForm({ eventId }: Props) {
     setModal({ show: true, type, title, message, onConfirm });
   }
 
+  async function reloadGallery() {
+    const mediaRes = await fetch(`/api/admin/events/${eventId}/media`);
+    const allMedia = await mediaRes.json();
+    setMedia(allMedia.filter((m: any) => !m.is_deleted));
+  }
+
   async function handleBannerUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
+
     setUploading(true);
 
     try {
-      const formData = new FormData();
-      formData.append("file", file);
+      const res = await fetch("/api/imagekit-signature");
 
-      const res = await fetch(`/api/admin/events/${event.id}/upload-banner`, {
-        method: "POST",
-        body: formData,
-        credentials: "include",
-      });
+      // Try reading text FIRST to see EXACTLY what the server returned
+      const raw = await res.text();
 
-      if (res.ok) {
-        const data = await res.json();
-        setBannerUrl(data.url);
-        showConfirm(
-          "Upload Complete",
-          "Banner uploaded successfully!",
-          () => {},
-          "success"
-        );
-      } else {
-        showConfirm(
-          "Upload Failed",
-          "Failed to upload banner.",
-          () => {},
-          "error"
-        );
+      // Now parse JSON manually
+      let signature;
+      try {
+        signature = JSON.parse(raw);
+      } catch (err) {
+        console.error("❌ JSON Parse Error (response is NOT valid JSON!)");
+        console.error(err);
+        return; // ⛔ STOP here if signature is invalid
       }
+
+      // Start ImageKit upload
+      const form = new FormData();
+      form.append("file", file);
+      form.append("fileName", file.name);
+      form.append("publicKey", import.meta.env.PUBLIC_IMAGEKIT_PUBLIC_KEY);
+      form.append("signature", signature.signature);
+      form.append("expire", signature.expire);
+      form.append("token", signature.token);
+      form.append("folder", `/event-banners/${eventId}`);
+
+      const uploadRes = await fetch(
+        "https://upload.imagekit.io/api/v1/files/upload",
+        { method: "POST", body: form }
+      );
+
+      const uploaded = await uploadRes.json();
+
+      const metaRes = await fetch(
+        `/api/admin/events/${eventId}/upload-banner`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            url: uploaded.url,
+            public_id: uploaded.fileId,
+          }),
+        }
+      );
+
+      const result = await metaRes.json();
+      setBannerUrl(result.url);
     } catch (err) {
       console.error("Banner upload error:", err);
-      showConfirm(
-        "Upload Error",
-        "An error occurred during banner upload.",
-        () => {},
-        "error"
-      );
     } finally {
       setUploading(false);
     }
@@ -146,63 +167,64 @@ export default function EditEventForm({ eventId }: Props) {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
 
-    const MAX_FILES = 10;
-    const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB
-
-    // --- Client-side validation ---
-    if (files.length > MAX_FILES) {
-      showConfirm(
-        "Too Many Files",
-        `🚫 You can upload up to ${MAX_FILES} files at once.`,
-        () => {},
-        "error"
-      );
-      e.target.value = ""; // reset file input
-      return;
-    }
-
-    for (const file of files) {
-      if (file.size > MAX_FILE_SIZE) {
-        showConfirm(
-          "File Too Large",
-          `🚫 "${file.name}" exceeds the 25 MB limit.`,
-          () => {},
-          "error"
-        );
-        e.target.value = "";
-        return;
-      }
-    }
-
     setUploading(true);
 
     try {
-      const formData = new FormData();
-      files.forEach((f) => formData.append("files", f));
+      for (const file of files) {
+        const sigRes = await fetch("/api/imagekit-signature");
+        const raw = await sigRes.text();
 
-      const res = await fetch(`/api/admin/events/${eventId}/upload-media`, {
-        method: "POST",
-        body: formData,
-      });
+        let signature;
+        try {
+          signature = JSON.parse(raw);
+        } catch {
+          continue;
+        }
 
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(`Server error: ${text}`);
+        const uploadForm = new FormData();
+        uploadForm.append("file", file);
+        uploadForm.append("fileName", file.name);
+        uploadForm.append(
+          "publicKey",
+          import.meta.env.PUBLIC_IMAGEKIT_PUBLIC_KEY
+        );
+        uploadForm.append("signature", signature.signature);
+        uploadForm.append("expire", signature.expire);
+        uploadForm.append("token", signature.token);
+        uploadForm.append("folder", `/events/${eventId}`);
+
+        const uploadRes = await fetch(
+          "https://upload.imagekit.io/api/v1/files/upload",
+          { method: "POST", body: uploadForm }
+        );
+
+        const uploaded = await uploadRes.json();
+        if (!uploaded.url) continue;
+
+        const meta = {
+          url: uploaded.url,
+          public_id: uploaded.fileId,
+          width: uploaded.width,
+          height: uploaded.height,
+          bytes: uploaded.size,
+          type: file.type.startsWith("video") ? "video" : "image",
+        };
+
+        const saveRes = await fetch(
+          `/api/admin/events/${eventId}/upload-media`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(meta),
+          }
+        );
+
+        if (!saveRes.ok) continue;
       }
 
-      const data = await res.json();
-      setMedia((prev) => [...prev, ...data]);
-    } catch (err) {
-      console.error("Upload error:", err);
-      showConfirm(
-        "Upload Error",
-        "❌ Something went wrong during upload.",
-        () => {},
-        "error"
-      );
+      await reloadGallery(); // Reload after upload
     } finally {
       setUploading(false);
-      e.target.value = ""; // clear input to allow re-uploading same file
     }
   }
 
@@ -249,7 +271,7 @@ export default function EditEventForm({ eventId }: Props) {
     is_past: false,
     register_available: registerAvailable,
     register_link: registerAvailable ? registerLink : null,
-    attendance: "",
+    attendance: null as number | null,
   });
 
   // Translations
@@ -438,13 +460,19 @@ export default function EditEventForm({ eventId }: Props) {
             <label className="block text-sm font-medium mb-1">Attendance</label>
             <input
               value={base.attendance || ""}
-              onChange={(e) => setBase({ ...base, attendance: e.target.value })}
+              onChange={(e) =>
+                setBase({
+                  ...base,
+                  attendance:
+                    e.target.value === "" ? null : Number(e.target.value),
+                })
+              }
               className="border rounded w-full p-2"
             />
           </div>
 
-          <div className="flex items-center gap-3 pt-4">
-            <label className="flex items-center gap-2">
+          <div className="flex flex-wrap gap-4 pt-4">
+            <label className="flex items-center gap-2 min-w-[140px]">
               <input
                 type="checkbox"
                 checked={base.available}
@@ -452,10 +480,10 @@ export default function EditEventForm({ eventId }: Props) {
                   setBase({ ...base, available: e.target.checked })
                 }
               />
-              Available
+              <span>Available</span>
             </label>
 
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 min-w-[140px]">
               <input
                 type="checkbox"
                 checked={base.highlighted}
@@ -463,10 +491,10 @@ export default function EditEventForm({ eventId }: Props) {
                   setBase({ ...base, highlighted: e.target.checked })
                 }
               />
-              Highlighted
+              <span>Highlighted</span>
             </label>
 
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 min-w-[140px]">
               <input
                 type="checkbox"
                 checked={base.is_past}
@@ -474,9 +502,10 @@ export default function EditEventForm({ eventId }: Props) {
                   setBase({ ...base, is_past: e.target.checked })
                 }
               />
-              Past
+              <span>Past</span>
             </label>
-            <label className="flex items-center gap-2 mb-2">
+
+            <label className="flex items-center gap-2 min-w-[180px]">
               <input
                 type="checkbox"
                 checked={registerAvailable}
@@ -491,6 +520,7 @@ export default function EditEventForm({ eventId }: Props) {
               <span>Registration Available</span>
             </label>
           </div>
+
           {/* 🔹 Registration Controls */}
           {registerAvailable && (
             <input
@@ -693,7 +723,7 @@ export default function EditEventForm({ eventId }: Props) {
                         muted
                         loop
                         playsInline
-                        className="rounded-lg w-full h-32 object-cover border"
+                        className="rounded-lg w-full object-cover border"
                         onMouseEnter={(e) => e.currentTarget.play()}
                         onMouseLeave={(e) => e.currentTarget.pause()}
                       />
@@ -707,7 +737,7 @@ export default function EditEventForm({ eventId }: Props) {
                     <img
                       src={m.url}
                       alt=""
-                      className="rounded-lg w-full h-32 object-cover border"
+                      className="rounded-lg w-full object-cover border"
                     />
                   )}
 

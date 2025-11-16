@@ -110,7 +110,14 @@ export default function EventForm() {
         () => {},
         "success"
       );
-      window.location.href = `/admin/events/${id}/add-translation`; // redirect to step 2
+
+      await fetch(`/api/admin/events/${id}/generate-card-image`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lang: "en" }),
+      });
+
+      window.location.href = `/admin/events/${id}/add-translation?lang=de`; // redirect to step 2
     } catch (err) {
       console.error(err);
       showConfirm(

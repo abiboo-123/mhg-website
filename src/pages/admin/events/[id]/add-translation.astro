@@ -21,7 +21,7 @@ if (!user || !role) {
   </head>
 
   <body>
-    <AdminLayout role=`${role}`>
+    <AdminLayout role=`${role}` client:load>
       <AddTranslationForm eventId={id} client:load />
     </AdminLayout>
   </body>

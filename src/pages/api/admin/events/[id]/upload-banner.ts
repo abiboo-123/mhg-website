@@ -21,63 +21,40 @@ const imagekit = new ImageKit({
   urlEndpoint: import.meta.env.PUBLIC_IMAGEKIT_URL_ENDPOINT!,
 });
 
-export const POST: APIRoute = async ({ request, params, locals }) => {
-  try {
-    const { id } = params;
-    if (!id) return new Response("Missing event ID", { status: 400 });
+export const POST: APIRoute = async ({ params, request, locals }) => {
+  const { id } = params;
 
-    // ✅ Ensure authenticated user exists
-    const actor_user_id = getActorUserId(locals);
-    if (!actor_user_id) {
-      return new Response("Unauthorized", { status: 401 });
-    }
+  const actor_user_id = getActorUserId(locals);
+  if (!actor_user_id) return new Response("Unauthorized", { status: 401 });
 
-    const formData = await request.formData();
-    const file = formData.get("file") as File;
+  const body = await request.json();
+  const { url, public_id } = body;
 
-    if (!file) return new Response("No file provided", { status: 400 });
+  if (!url || !public_id)
+    return new Response("Missing metadata", { status: 400 });
 
-    const buffer = Buffer.from(await file.arrayBuffer());
+  const { data, error } = await supabase
+    .from("events")
+    .update({
+      banner_url: url,
+      banner_public_id: public_id,
+      banner_uploaded: true,
+    })
+    .eq("id", id)
+    .select()
+    .single();
 
-    // --- Upload to ImageKit ---
-    const uploadRes = await imagekit.upload({
-      file: buffer,
-      fileName: `banner-${id}.jpg`,
-      folder: `/event-banners/${id}`,
-    });
+  if (error) throw error;
 
-    // --- Update Supabase event ---
-    const { data: updated, error } = await supabase
-      .from("events")
-      .update({
-        banner_url: uploadRes.url,
-        banner_public_id: uploadRes.fileId,
-        banner_uploaded: true,
-      })
-      .eq("id", id)
-      .select()
-      .single();
+  await logAudit({
+    actor_user_id,
+    action: "upload_banner",
+    entity: "event_banner",
+    entity_id: id!,
+    diff: { url, public_id },
+  });
 
-    if (error) throw error;
-
-    // --- Audit Log ---
-    await logAudit({
-      actor_user_id,
-      action: "upload_banner",
-      entity: "event_banner", // 🟦 Better entity name
-      entity_id: id,
-      diff: {
-        banner_url: uploadRes.url,
-        banner_public_id: uploadRes.fileId,
-      },
-    });
-
-    return new Response(JSON.stringify({ url: uploadRes.url }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (e: any) {
-    console.error("Banner upload error:", e);
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  return new Response(JSON.stringify({ url }), {
+    headers: { "Content-Type": "application/json" },
+  });
 };
