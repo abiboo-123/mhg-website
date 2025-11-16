@@ -1,0 +1,32 @@
+---
+export const prerender = false;
+
+const role = Astro.locals.role;
+import AdminLayout from "../../components/admin/Layout";
+import "../../styles/global.css";
+
+if (!role) throw new Error("Unauthorized");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+  </head>
+  <body>
+    <AdminLayout role={role} client:load>
+      <section class="max-w-6xl mx-auto space-y-6">
+        <h1 class="text-3xl font-bold text-[#0369a1]">Users</h1>
+        <p class="text-gray-600">Manage admin and super admin accounts.</p>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+          <p class="text-slate-500 text-sm">
+            User management functionality will be added here.
+          </p>
+        </div>
+      </section>
+    </AdminLayout>
+  </body>
+</html>

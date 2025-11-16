@@ -48,6 +48,8 @@ export default function AdminLayout({
           {role === "super_admin" &&
             navItem("/admin/resources", "📚 Resources")}
 
+          {navItem("/admin/reports", "📈 Reports")}
+
           {navItem("/admin/profile", "👤 Profile")}
 
           <form method="POST" action="/api/auth/signout">
@@ -88,6 +90,7 @@ export default function AdminLayout({
               navItem("/admin/partners", "🤝 Partners")}
             {role === "super_admin" &&
               navItem("/admin/resources", "📚 Resources")}
+            {navItem("/admin/reports", "📈 Reports")}
 
             {navItem("/admin/profile", "👤 Profile")}
 

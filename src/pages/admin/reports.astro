@@ -1,0 +1,44 @@
+---
+export const prerender = false;
+
+const user = Astro.locals.user;
+const role = Astro.locals.role;
+
+import AdminLayout from "../../components/admin/Layout";
+import "../../styles/global.css";
+
+if (!role) {
+  throw new Error("Access denied: User role is undefined.");
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports</title>
+  </head>
+
+  <body>
+    <AdminLayout role={`${role}`} client:load>
+      <section class="max-w-6xl mx-auto space-y-6">
+        <h1 class="text-3xl font-bold text-[#0369a1]">Reports</h1>
+        <p class="text-gray-600">
+          Centralized reports for contact messages, event registrations, and
+          feedback.
+        </p>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+          <p class="text-slate-500 text-sm">This page will later show:</p>
+
+          <ul class="list-disc ml-6 mt-2 text-sm text-slate-700 space-y-1">
+            <li>Contact form submissions</li>
+            <li>Event registrations</li>
+            <li>Event feedback</li>
+            <li>Daily, weekly, and monthly reports</li>
+          </ul>
+        </div>
+      </section>
+    </AdminLayout>
+  </body>
+</html>
