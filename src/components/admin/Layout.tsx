@@ -38,15 +38,14 @@ export default function AdminLayout({
         </div>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 justify-center flex-1">
           {navItem("/admin", "📊 Dashboard")}
           {navItem("/admin/events", "📅 Events")}
 
           {role === "super_admin" && navItem("/admin/logs", "📝 System Logs")}
           {role === "super_admin" && navItem("/admin/users", "👥 Admin Users")}
-          {role === "super_admin" && navItem("/admin/partners", "🤝 Partners")}
-          {role === "super_admin" &&
-            navItem("/admin/resources", "📚 Resources")}
+          {navItem("/admin/partners", "🤝 Partners")}
+          {navItem("/admin/resources", "📚 Resources")}
 
           {navItem("/admin/reports", "📈 Reports")}
 
@@ -57,11 +56,13 @@ export default function AdminLayout({
               🚪 Logout
             </button>
           </form>
+        </div>
 
+        <div className="ml-auto">
           <a
             href="/"
             target="_blank"
-            className="px-3 py-2 text-blue-600 hover:bg-blue-50 rounded"
+            className="px-3 py-2 text-blue-600 hover:bg-blue-50 rounded "
           >
             🌐 View Website
           </a>

@@ -1,5 +1,6 @@
 ---
 import AdminLayout from "../../components/admin/Layout";
+import "../../styles/global.css";
 
 const user = Astro.locals.user;
 const role = Astro.locals.role;
@@ -16,7 +17,7 @@ if (!user || !role) {
   </head>
   <body>
     <AdminLayout role=`${role}` client:load>
-      <section class="max-w-xl space-y-8">
+      <section class="max-w-xl mx-auto">
         <!-- Header -->
         <header class="border-b pb-3">
           <h1 class="text-3xl font-bold text-slate-800">👤 Profile</h1>

@@ -7,182 +7,214 @@ interface LogEntry {
   entity_id: string;
   diff: any;
   created_at: string;
-  actor?: {
-    email?: string;
-    role?: string;
-  };
+  email: string;
+  role: string;
 }
 
 export default function Logs() {
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function loadLogs() {
-      try {
-        const res = await fetch(`/api/admin/logs?page=1&limit=50`, {
-          credentials: "include",
-        });
+  const [page, setPage] = useState(1);
+  const [limit] = useState(50);
 
-        const data = await res.json();
-        setLogs(data.logs || []);
-      } catch (err) {
-        console.error("Failed to load logs:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const [search, setSearch] = useState("");
+  const [action, setAction] = useState("");
+  const [entity, setEntity] = useState("");
+  const [role, setRole] = useState("");
 
-    loadLogs();
-  }, []);
+  const [totalPages, setTotalPages] = useState(1);
 
-  if (loading) {
-    return <p className="text-slate-500">Loading logs...</p>;
+  const [entityOptions, setEntityOptions] = useState<string[]>([]);
+  const [actionOptions, setActionOptions] = useState<string[]>([]);
+
+  async function loadFilters() {
+    const res = await fetch("/api/admin/logs/filters");
+    const data = await res.json();
+    setEntityOptions(data.entities);
+    setActionOptions(data.actions);
   }
 
-  // 🎨 Action Colors
-  const getActionClass = (action: string) => {
+  async function loadLogs() {
+    setLoading(true);
+
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    if (search) params.append("search", search);
+    if (action) params.append("action", action);
+    if (entity) params.append("entity", entity);
+    if (role) params.append("role", role);
+
+    const res = await fetch(`/api/admin/logs?${params.toString()}`);
+    const data = await res.json();
+
+    setLogs(Array.isArray(data.logs) ? data.logs : []);
+    setTotalPages(data.totalPages || 1);
+
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    loadLogs();
+    loadFilters();
+  }, [page, action, entity, role]);
+
+  function getActionClass(action: string) {
     if (action.startsWith("create")) return "bg-green-100 text-green-700";
     if (action.startsWith("update")) return "bg-blue-100 text-blue-700";
     if (action.startsWith("delete")) return "bg-red-100 text-red-700";
-    if (action.startsWith("auth") || action.includes("login"))
+    if (action.includes("login") || action.includes("auth"))
       return "bg-purple-100 text-purple-700";
     return "bg-gray-100 text-gray-700";
-  };
-
-  // 🎨 Role Colors
-  const getRoleClass = (role?: string) => {
-    if (role === "super_admin") return "bg-red-100 text-red-700";
-    if (role === "admin") return "bg-blue-100 text-blue-700";
-    return "bg-gray-100 text-gray-700";
-  };
+  }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold mb-4">Audit Log</h2>
+    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-4">
+      <h2 className="text-xl font-semibold">System Logs</h2>
 
-      {/* Desktop Table */}
-      <div className="hidden md:block overflow-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-slate-100 text-slate-700 text-sm">
-              <th className="p-3 border-b">Action</th>
-              <th className="p-3 border-b">Entity</th>
-              <th className="p-3 border-b">User</th>
-              <th className="p-3 border-b">Details</th>
-              <th className="p-3 border-b">Date</th>
-            </tr>
-          </thead>
+      {/* Filters */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <input
+          className="border rounded px-3 py-2"
+          placeholder="Search…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && loadLogs()}
+        />
 
-          <tbody>
-            {logs.map((log) => (
-              <tr key={log.id} className="hover:bg-slate-50 transition">
-                <td className="p-3 border-b">
-                  <span
-                    className={`px-2 py-1 rounded text-xs font-medium ${getActionClass(
-                      log.action
-                    )}`}
-                  >
-                    {log.action}
-                  </span>
-                </td>
+        <select
+          className="border rounded px-3 py-2"
+          value={action}
+          onChange={(e) => {
+            setPage(1);
+            setAction(e.target.value);
+          }}
+        >
+          <option value="">All Actions</option>
+          {actionOptions.map((a) => (
+            <option key={a} value={a}>
+              {a}
+            </option>
+          ))}
+        </select>
 
-                <td className="p-3 border-b">
-                  <span className="font-medium text-slate-800">
-                    {log.entity}
-                  </span>
-                  <p className="text-xs text-slate-500">{log.entity_id}</p>
-                </td>
+        <select
+          className="border rounded px-3 py-2"
+          value={entity}
+          onChange={(e) => {
+            setPage(1);
+            setEntity(e.target.value);
+          }}
+        >
+          <option value="">All Entities</option>
+          {entityOptions.map((e) => (
+            <option key={e} value={e}>
+              {e}
+            </option>
+          ))}
+        </select>
 
-                <td className="p-3 border-b">
-                  <p className="text-sm">{log.actor?.email ?? "Unknown"}</p>
-                  <span
-                    className={`inline-block px-2 py-0.5 mt-1 rounded text-xs ${getRoleClass(
-                      log.actor?.role
-                    )}`}
-                  >
-                    {log.actor?.role ?? "unknown"}
-                  </span>
-                </td>
-
-                <td className="p-3 border-b text-xs">
-                  {log.diff ? (
-                    <details className="bg-slate-100 p-2 rounded max-h-32 overflow-auto">
-                      <summary className="cursor-pointer select-none text-slate-600">
-                        Expand
-                      </summary>
-                      <pre className="mt-2">
-                        {JSON.stringify(log.diff, null, 2)}
-                      </pre>
-                    </details>
-                  ) : (
-                    <span className="text-slate-400">—</span>
-                  )}
-                </td>
-
-                <td className="p-3 border-b text-sm text-slate-500">
-                  {new Date(log.created_at).toLocaleString()}
-                </td>
-              </tr>
-            ))}
-
-            {logs.length === 0 && (
-              <tr>
-                <td colSpan={5} className="p-4 text-center text-slate-500">
-                  No logs found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+        <select
+          className="border rounded px-3 py-2"
+          value={role}
+          onChange={(e) => {
+            setPage(1);
+            setRole(e.target.value);
+          }}
+        >
+          <option value="">All Roles</option>
+          <option value="super_admin">Super Admin</option>
+          <option value="admin">Admin</option>
+        </select>
       </div>
 
-      {/* Mobile Cards */}
-      <div className="md:hidden space-y-4">
-        {logs.map((log) => (
-          <div
-            key={log.id}
-            className="border rounded-lg p-4 bg-slate-50 shadow-sm"
-          >
-            <div className="flex justify-between items-center mb-2">
-              <span
-                className={`px-2 py-1 rounded text-xs font-medium ${getActionClass(
-                  log.action
-                )}`}
-              >
-                {log.action}
-              </span>
-              <span className="text-xs text-slate-600">
-                {new Date(log.created_at).toLocaleString()}
-              </span>
-            </div>
+      {loading ? (
+        <p className="text-gray-500">Loading logs...</p>
+      ) : (
+        <div className="overflow-auto">
+          <table className="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-100 text-slate-700">
+                <th className="p-3">Action</th>
+                <th className="p-3">Entity</th>
+                <th className="p-3">User</th>
+                <th className="p-3">Details</th>
+                <th className="p-3">Date</th>
+              </tr>
+            </thead>
 
-            <p className="text-sm font-medium text-slate-800">{log.entity}</p>
-            <p className="text-xs text-slate-500 mb-2">{log.entity_id}</p>
+            <tbody>
+              {logs.map((log) => (
+                <tr key={log.id} className="border-t hover:bg-slate-50">
+                  <td className="p-3">
+                    <span
+                      className={`px-2 py-1 rounded text-xs font-medium ${getActionClass(
+                        log.action
+                      )}`}
+                    >
+                      {log.action}
+                    </span>
+                  </td>
 
-            <div className="mb-2">
-              <p className="text-sm">{log.actor?.email ?? "Unknown"}</p>
-              <span
-                className={`inline-block px-2 py-0.5 mt-1 rounded text-xs ${getRoleClass(
-                  log.actor?.role
-                )}`}
-              >
-                {log.actor?.role ?? "unknown"}
-              </span>
-            </div>
+                  <td className="p-3">
+                    <p className="font-semibold">{log.entity}</p>
+                    <p className="text-xs text-slate-500">{log.entity_id}</p>
+                  </td>
 
-            {log.diff && (
-              <details className="mt-2 bg-white border rounded p-2">
-                <summary className="cursor-pointer select-none text-sm text-slate-600">
-                  Show details
-                </summary>
-                <pre className="mt-2 text-xs overflow-auto">
-                  {JSON.stringify(log.diff, null, 2)}
-                </pre>
-              </details>
-            )}
-          </div>
-        ))}
+                  <td className="p-3">
+                    <p>{log.email || "Unknown"}</p>
+                    <p className="text-xs text-gray-500">{log.role}</p>
+                  </td>
+
+                  <td className="p-3 text-xs w-64">
+                    {log.diff ? (
+                      <details className="bg-slate-100 p-2 rounded">
+                        <summary className="cursor-pointer text-slate-600">
+                          View
+                        </summary>
+                        <pre className="text-xs overflow-auto max-h-40">
+                          {JSON.stringify(log.diff, null, 2)}
+                        </pre>
+                      </details>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+
+                  <td className="p-3">
+                    {new Date(log.created_at).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Pagination */}
+      <div className="flex items-center justify-between pt-4">
+        <button
+          className="px-4 py-2 bg-slate-200 rounded disabled:opacity-50"
+          disabled={page <= 1}
+          onClick={() => setPage((p) => p - 1)}
+        >
+          Previous
+        </button>
+
+        <span className="text-sm text-slate-600">
+          Page {page} of {totalPages}
+        </span>
+
+        <button
+          className="px-4 py-2 bg-slate-200 rounded disabled:opacity-50"
+          disabled={page >= totalPages}
+          onClick={() => setPage((p) => p + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
